@@ -1,0 +1,7 @@
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/base.xml" />
+    <appender name="UI" class="com.swandiggy.poe4j.gui.LogAppender"></appender>
+    <root level="INFO">
+        <appender-ref ref="UI" />
+    </root>
+</configuration>
