@@ -1,12 +1,12 @@
 package com.swandiggy.poe4j.gui;
 
-import com.swandiggy.poe4j.Poe4jException;
 import com.swandiggy.poe4j.ggpkg.Ggpkg;
 import com.swandiggy.poe4j.ggpkg.GgpkgExtractor;
 import com.swandiggy.poe4j.ggpkg.GgpkgFactory;
 import com.swandiggy.poe4j.gui.log.ObservableLogAppender;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -22,7 +22,6 @@ import org.springframework.util.StringUtils;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.concurrent.ExecutionException;
 
 /**
  * @author Jacob Swanson
@@ -71,13 +70,17 @@ public class MainWindowController implements Initializable {
             return;
         }
 
-        Ggpkg ggpkg = null;
-        try {
-            ggpkg = ggpkgFactory.loadAsync(ggpkgFile).get();
-        } catch (InterruptedException | ExecutionException e) {
-            throw new Poe4jException("Could not load GGPKG", e);
-        }
-        ggpkgExtractor.extractAsync(ggpkg, extractDir);
+        Thread thread = new Thread(new Task<Void>() {
+            @Override
+            protected Void call() throws Exception {
+                Ggpkg ggpkg = ggpkgFactory.load(ggpkgFile);
+                ggpkgExtractor.extract(ggpkg, extractDir);
+
+                return null;
+            }
+        });
+        thread.setDaemon(true);
+        thread.start();
     }
 
     @Override

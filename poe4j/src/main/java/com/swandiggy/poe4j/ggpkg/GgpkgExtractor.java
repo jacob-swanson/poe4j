@@ -7,7 +7,6 @@ import com.swandiggy.poe4j.ggpkg.record.Record;
 import com.swandiggy.poe4j.util.aspect.MonitorRuntime;
 import com.swandiggy.poe4j.util.collection.Node;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
@@ -32,12 +31,6 @@ import java.util.stream.Collectors;
 public class GgpkgExtractor {
 
     public GgpkgExtractor() {
-    }
-
-    @Async
-    @MonitorRuntime("Extracted in %f seconds")
-    public void extractAsync(Ggpkg ggpkg, File extractDir) {
-        extract(ggpkg, extractDir);
     }
 
     /**
