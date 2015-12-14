@@ -1,4 +1,4 @@
-package com.swandiggy.poe4j.gui;
+package com.swandiggy.poe4j.gui.log;
 
 import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.ext.spring.ApplicationContextHolder;
@@ -24,8 +24,8 @@ public class LogConfig {
     }
 
     @Bean(initMethod = "start", destroyMethod = "stop")
-    public LogAppender logAppender(LoggerContext loggerContext) {
-        LogAppender appender = new LogAppender();
+    public ObservableLogAppender logAppender(LoggerContext loggerContext) {
+        ObservableLogAppender appender = new ObservableLogAppender();
         appender.setContext(loggerContext);
 
         return appender;
