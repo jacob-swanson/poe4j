@@ -11,6 +11,8 @@ import com.swandiggy.poe4j.util.io.BinaryReader;
 import com.swandiggy.poe4j.util.io.RafBinaryReader;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.AsyncResult;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
@@ -20,6 +22,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
+import java.util.concurrent.Future;
 
 /**
  * Factory for {@link Ggpkg}.
@@ -40,12 +43,18 @@ public class GgpkgFactory {
         this.recordFactories = recordFactories;
     }
 
-    /**
-     * Parse a GGPKG's record structure.
-     *
-     * @param ggpkgFile Content.ggpk
-     * @return Ggpkg record structure
-     */
+    @Async
+    @MonitorRuntime("Loaded records in %f seconds")
+    public Future<Ggpkg> loadAsync(File ggpkgFile) {
+        return new AsyncResult<>(load(ggpkgFile));
+    }
+
+        /**
+         * Parse a GGPKG's record structure.
+         *
+         * @param ggpkgFile Content.ggpk
+         * @return Ggpkg record structure
+         */
     @MonitorRuntime("Loaded records in %f seconds")
     public Ggpkg load(File ggpkgFile) {
         Assert.notNull(ggpkgFile);

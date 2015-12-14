@@ -15,7 +15,7 @@ import java.util.List;
  * @since 8/31/2015
  */
 @Data
-@EqualsAndHashCode(callSuper = true)
+@EqualsAndHashCode(callSuper = false, exclude = "entries")
 public class DirectoryRecord extends Record {
 
     private final String name;

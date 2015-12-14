@@ -20,16 +20,35 @@
                           <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                       </padding>
                      <children>
+                        <Label text="GGPKG File" />
                          <HBox>
                             <children>
-                                <TextField fx:id="textField" promptText="C:\...\Content.ggpkg" HBox.hgrow="ALWAYS" />
-                                <Button onAction="#browse" text="Browse">
+                                <TextField fx:id="ggpkgFileTextField" promptText="C:\...\Content.ggpkg" HBox.hgrow="ALWAYS" />
+                                <Button onAction="#browseForGgpkg" text="Browse">
                                     <HBox.margin>
                                         <Insets left="15.0" />
                                     </HBox.margin>
                                 </Button>
                             </children>
                          </HBox>
+                        <Label text="Extract Directory">
+                           <padding>
+                              <Insets top="15.0" />
+                           </padding>
+                        </Label>
+                        <HBox>
+                           <children>
+                              <TextField fx:id="extractDirectoryTextField" promptText="C:\...\content\" HBox.hgrow="ALWAYS" />
+                              <Button onAction="#browseForExtractDir" text="Browse">
+                                 <HBox.margin>
+                                    <Insets left="15.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </HBox>
                          <Button onAction="#extract" text="Extract">
                              <VBox.margin>
                               <Insets top="15.0" />
@@ -41,7 +60,7 @@
             </Tab>
          </tabs>
       </TabPane>
-      <ListView fx:id="listView" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+      <ListView fx:id="logView" prefHeight="356.0" prefWidth="735.0" VBox.vgrow="ALWAYS">
          <VBox.margin>
             <Insets top="15.0" />
          </VBox.margin>

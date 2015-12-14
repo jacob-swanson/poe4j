@@ -1,18 +1,17 @@
 package com.swandiggy.poe4j.ggpkg;
 
+import com.swandiggy.poe4j.Poe4jException;
 import com.swandiggy.poe4j.ggpkg.record.DirectoryRecord;
 import com.swandiggy.poe4j.ggpkg.record.FileRecord;
 import com.swandiggy.poe4j.ggpkg.record.Record;
 import com.swandiggy.poe4j.util.aspect.MonitorRuntime;
 import com.swandiggy.poe4j.util.collection.Node;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.RandomAccessFile;
+import java.io.*;
 import java.nio.channels.FileChannel;
 import java.nio.file.Paths;
 import java.time.Instant;
@@ -35,15 +34,20 @@ public class GgpkgExtractor {
     public GgpkgExtractor() {
     }
 
+    @Async
+    @MonitorRuntime("Extracted in %f seconds")
+    public void extractAsync(Ggpkg ggpkg, File extractDir) {
+        extract(ggpkg, extractDir);
+    }
+
     /**
      * Extract a GGPK
      *
      * @param ggpkg      Pack to extract.
      * @param extractDir Directory to extract to.
-     * @throws IOException
      */
     @MonitorRuntime("Extracted in %f seconds")
-    public void extract(Ggpkg ggpkg, File extractDir) throws IOException {
+    public void extract(Ggpkg ggpkg, File extractDir) {
         Assert.notNull(ggpkg);
         Assert.notNull(extractDir);
 
@@ -69,6 +73,10 @@ public class GgpkgExtractor {
                     lastLog = Instant.now();
                 }
             }
+        } catch (FileNotFoundException e) {
+            throw new Poe4jException("Could not open GGPKG file", e);
+        } catch (IOException e) {
+            throw new Poe4jException("Could not close GGPKG file", e);
         }
     }
 

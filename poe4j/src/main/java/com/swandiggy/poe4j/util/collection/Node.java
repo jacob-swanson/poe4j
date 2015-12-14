@@ -1,6 +1,7 @@
 package com.swandiggy.poe4j.util.collection;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -12,6 +13,7 @@ import java.util.Set;
  * @since 9/4/2015
  */
 @Data
+@EqualsAndHashCode(of = "data")
 public class Node<T> {
     private T data;
     private Node<T> parent;
