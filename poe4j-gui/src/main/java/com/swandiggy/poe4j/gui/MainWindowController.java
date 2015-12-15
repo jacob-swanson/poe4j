@@ -22,6 +22,7 @@ import org.springframework.util.StringUtils;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.prefs.Preferences;
 
 /**
  * @author Jacob Swanson
@@ -89,6 +90,27 @@ public class MainWindowController implements Initializable {
 
         ggpkgFileTextField.textProperty().bindBidirectional(ggpkgPathText);
         extractDirectoryTextField.textProperty().bindBidirectional(extractDirText);
+
+        Preferences prefs = Preferences.userNodeForPackage(getClass());
+
+        ggpkgPathText.setValue(prefs.get("ggpkgPath", ""));
+        extractDirText.setValue(prefs.get("extractDir", ""));
+
+        ggpkgPathText.addListener((observable, oldValue, newValue) -> {
+            if (StringUtils.isEmpty(newValue)) {
+                prefs.remove("ggpkgPath");
+            } else {
+                prefs.put("ggpkgPath", newValue);
+            }
+        });
+
+        extractDirText.addListener((observable, oldValue, newValue) -> {
+            if (StringUtils.isEmpty(newValue)) {
+                prefs.remove("extractDir");
+            } else {
+                prefs.put("extractDir", newValue);
+            }
+        });
     }
 
     public void browseForGgpkg(ActionEvent event) {
