@@ -11,6 +11,7 @@ import com.swandiggy.poe4j.util.io.BinaryReader;
 import com.swandiggy.poe4j.util.io.RafBinaryReader;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
@@ -22,19 +23,20 @@ import java.util.Map;
 import java.util.Optional;
 
 /**
- * Factory for {@link Ggpkg}.
+ * Factory for {@link Ggpk}.
  *
  * @author Jacob Swanson
  * @since 8/31/2015
  */
 @Slf4j
+@Lazy
 @Service
-public class GgpkgFactory {
+public class GgpkFactory {
 
     private final RecordFactory[] recordFactories;
 
     @Autowired
-    public GgpkgFactory(RecordFactory[] recordFactories) {
+    public GgpkFactory(RecordFactory[] recordFactories) {
         Assert.notEmpty(recordFactories);
 
         this.recordFactories = recordFactories;
@@ -44,10 +46,10 @@ public class GgpkgFactory {
          * Parse a GGPKG's record structure.
          *
          * @param ggpkgFile Content.ggpk
-         * @return Ggpkg record structure
+         * @return Ggpk record structure
          */
     @MonitorRuntime("Loaded records in %f seconds")
-    public Ggpkg load(File ggpkgFile) {
+    public Ggpk load(File ggpkgFile) {
         Assert.notNull(ggpkgFile);
         Assert.isTrue(ggpkgFile.exists(), "ggpkgFile did not exist");
 
@@ -94,6 +96,6 @@ public class GgpkgFactory {
                     }
                 });
 
-        return new Ggpkg(records, ggpkgFile, nodes);
+        return new Ggpk(records, ggpkgFile, nodes);
     }
 }

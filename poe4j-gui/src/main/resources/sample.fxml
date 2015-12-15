@@ -23,8 +23,8 @@
                         <Label text="GGPKG File" />
                          <HBox>
                             <children>
-                                <TextField fx:id="ggpkgFileTextField" promptText="C:\...\Content.ggpkg" HBox.hgrow="ALWAYS" />
-                                <Button onAction="#browseForGgpkg" text="Browse">
+                                <TextField fx:id="ggpkFileTextField" promptText="C:\...\Content.ggpk" HBox.hgrow="ALWAYS" />
+                                <Button onAction="#browseForGgpk" text="Browse">
                                     <HBox.margin>
                                         <Insets left="15.0" />
                                     </HBox.margin>

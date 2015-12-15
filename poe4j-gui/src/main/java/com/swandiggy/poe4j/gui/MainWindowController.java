@@ -1,8 +1,8 @@
 package com.swandiggy.poe4j.gui;
 
-import com.swandiggy.poe4j.ggpkg.Ggpkg;
-import com.swandiggy.poe4j.ggpkg.GgpkgExtractor;
-import com.swandiggy.poe4j.ggpkg.GgpkgFactory;
+import com.swandiggy.poe4j.ggpkg.Ggpk;
+import com.swandiggy.poe4j.ggpkg.GgpkExtractor;
+import com.swandiggy.poe4j.ggpkg.GgpkFactory;
 import com.swandiggy.poe4j.gui.log.ObservableLogAppender;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -32,34 +32,34 @@ import java.util.prefs.Preferences;
 @Service
 public class MainWindowController implements Initializable {
 
-    private StringProperty ggpkgPathText = new SimpleStringProperty();
+    private StringProperty ggpkPathText = new SimpleStringProperty();
     private StringProperty extractDirText = new SimpleStringProperty();
 
     @FXML
-    private TextField ggpkgFileTextField;
+    private TextField ggpkFileTextField;
     @FXML
     private TextField extractDirectoryTextField;
     @FXML
     private ListView logView;
 
     @Autowired
-    private GgpkgFactory ggpkgFactory;
+    private GgpkFactory ggpkFactory;
 
     @Autowired
-    private GgpkgExtractor ggpkgExtractor;
+    private GgpkExtractor ggpkExtractor;
 
     public void extract(ActionEvent event) {
-        if (StringUtils.isEmpty(ggpkgPathText)) {
+        if (StringUtils.isEmpty(ggpkPathText.get())) {
             log.error("No selected GGPKG file");
             return;
         }
 
-        if (StringUtils.isEmpty(extractDirText)) {
+        if (StringUtils.isEmpty(extractDirText.get())) {
             log.error("No extract directory");
             return;
         }
 
-        File ggpkgFile = new File(ggpkgPathText.get());
+        File ggpkgFile = new File(ggpkPathText.get());
         if (!ggpkgFile.canRead()) {
             log.error("Could not read '{}'", ggpkgFile.getAbsolutePath());
             return;
@@ -74,8 +74,8 @@ public class MainWindowController implements Initializable {
         Thread thread = new Thread(new Task<Void>() {
             @Override
             protected Void call() throws Exception {
-                Ggpkg ggpkg = ggpkgFactory.load(ggpkgFile);
-                ggpkgExtractor.extract(ggpkg, extractDir);
+                Ggpk ggpk = ggpkFactory.load(ggpkgFile);
+                ggpkExtractor.extract(ggpk, extractDir);
 
                 return null;
             }
@@ -88,15 +88,15 @@ public class MainWindowController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         logView.setItems(ObservableLogAppender.events);
 
-        ggpkgFileTextField.textProperty().bindBidirectional(ggpkgPathText);
+        ggpkFileTextField.textProperty().bindBidirectional(ggpkPathText);
         extractDirectoryTextField.textProperty().bindBidirectional(extractDirText);
 
         Preferences prefs = Preferences.userNodeForPackage(getClass());
 
-        ggpkgPathText.setValue(prefs.get("ggpkgPath", ""));
+        ggpkPathText.setValue(prefs.get("ggpkgPath", ""));
         extractDirText.setValue(prefs.get("extractDir", ""));
 
-        ggpkgPathText.addListener((observable, oldValue, newValue) -> {
+        ggpkPathText.addListener((observable, oldValue, newValue) -> {
             if (StringUtils.isEmpty(newValue)) {
                 prefs.remove("ggpkgPath");
             } else {
@@ -113,16 +113,16 @@ public class MainWindowController implements Initializable {
         });
     }
 
-    public void browseForGgpkg(ActionEvent event) {
+    public void browseForGgpk(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Select Content.ggpkg");
+        fileChooser.setTitle("Select Content.ggpk");
         File file = fileChooser.showOpenDialog(logView.getScene().getWindow());
         if (file == null) {
             return;
         }
 
         if (file.exists()) {
-            ggpkgPathText.setValue(file.getAbsolutePath());
+            ggpkPathText.setValue(file.getAbsolutePath());
         } else {
             log.info("File '{}' does not exist", file.getAbsolutePath());
         }

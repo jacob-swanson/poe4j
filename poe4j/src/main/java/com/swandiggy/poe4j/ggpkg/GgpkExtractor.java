@@ -7,6 +7,7 @@ import com.swandiggy.poe4j.ggpkg.record.Record;
 import com.swandiggy.poe4j.util.aspect.MonitorRuntime;
 import com.swandiggy.poe4j.util.collection.Node;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
@@ -27,39 +28,40 @@ import java.util.stream.Collectors;
  * @since 9/3/2015
  */
 @Slf4j
+@Lazy
 @Service
-public class GgpkgExtractor {
+public class GgpkExtractor {
 
-    public GgpkgExtractor() {
+    public GgpkExtractor() {
     }
 
     /**
      * Extract a GGPK
      *
-     * @param ggpkg      Pack to extract.
+     * @param ggpk      Pack to extract.
      * @param extractDir Directory to extract to.
      */
     @MonitorRuntime("Extracted in %f seconds")
-    public void extract(Ggpkg ggpkg, File extractDir) {
-        Assert.notNull(ggpkg);
+    public void extract(Ggpk ggpk, File extractDir) {
+        Assert.notNull(ggpk);
         Assert.notNull(extractDir);
 
-        log.info("Extracting '" + ggpkg.getFile() + "' to '" + extractDir + "'");
+        log.info("Extracting '" + ggpk.getFile() + "' to '" + extractDir + "'");
 
         Comparator<Record> byRecordOffset = (r1, r2) -> Long.compare(r1.getRecordStart(), r2.getRecordStart());
         Instant lastLog = Instant.now();
         int count = 0;
 
         // Extract files in the order that they appear in the file
-        try (FileChannel source = new RandomAccessFile(ggpkg.getFile(), "r").getChannel()) {
-            List<FileRecord> fileRecords = ggpkg.getRecords().values().stream()
+        try (FileChannel source = new RandomAccessFile(ggpk.getFile(), "r").getChannel()) {
+            List<FileRecord> fileRecords = ggpk.getRecords().values().stream()
                     .filter(record -> record instanceof FileRecord)
                     .sorted(byRecordOffset)
                     .map(record -> (FileRecord) record)
                     .collect(Collectors.toList());
 
             for (FileRecord fileRecord : fileRecords) {
-                extractFile(fileRecord, ggpkg, extractDir, source);
+                extractFile(fileRecord, ggpk, extractDir, source);
                 count++;
                 if (lastLog.plus(10, ChronoUnit.SECONDS).isBefore(Instant.now())) {
                     log.info(String.format("Extraction %.2f percent complete", (double) count / (double) fileRecords.size() * 100.0));
@@ -73,13 +75,13 @@ public class GgpkgExtractor {
         }
     }
 
-    private void extractFile(FileRecord fileRecord, Ggpkg ggpkg, File extractDir, FileChannel source) {
+    private void extractFile(FileRecord fileRecord, Ggpk ggpk, File extractDir, FileChannel source) {
         Assert.notNull(fileRecord);
-        Assert.notNull(ggpkg);
+        Assert.notNull(ggpk);
         Assert.notNull(extractDir);
         Assert.notNull(source);
 
-        String relativePath = getFilePath(fileRecord, ggpkg);
+        String relativePath = getFilePath(fileRecord, ggpk);
 
         log.debug("Extracting:  " + relativePath);
 
@@ -97,11 +99,11 @@ public class GgpkgExtractor {
         }
     }
 
-    private String getFilePath(FileRecord childRecord, Ggpkg ggpkg) {
+    private String getFilePath(FileRecord childRecord, Ggpk ggpk) {
         Assert.notNull(childRecord);
-        Assert.notNull(ggpkg);
+        Assert.notNull(ggpk);
 
-        Node<Record> parent = ggpkg.getDirectoryTree().get(childRecord.getRecordStart());
+        Node<Record> parent = ggpk.getDirectoryTree().get(childRecord.getRecordStart());
         List<Node<Record>> records = new ArrayList<>();
         while (parent != null) {
             records.add(parent);
