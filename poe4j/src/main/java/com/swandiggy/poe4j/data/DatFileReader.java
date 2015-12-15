@@ -304,4 +304,7 @@ public class DatFileReader<T extends AbstractRow> implements Closeable {
         return size;
     }
 
+    public BinaryReader getBr() {
+        return br;
+    }
 }
