@@ -8,14 +8,14 @@ import org.springframework.stereotype.Service;
  * @since 12/15/2015
  */
 @Service
-public class StringReader implements ValueReader<String> {
+public class StringReader extends BaseValueReader<String> {
     @Override
     public boolean supports(Class clazz) {
         return clazz == String.class;
     }
 
     @Override
-    public String read(DatFileReader reader, Class clazz) {
+    protected String readInternal(DatFileReader reader, Class clazz) {
         int ref = reader.getBr().readInt();
 
         long oldPos = reader.getBr().getPosition();

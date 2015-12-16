@@ -9,14 +9,14 @@ import org.springframework.stereotype.Service;
  * @since 12/15/2015
  */
 @Service
-public class ShortReader implements ValueReader<Short> {
+public class ShortReader extends BaseValueReader<Short> {
     @Override
     public boolean supports(Class clazz) {
         return Primitives.wrap(clazz) == Short.class;
     }
 
     @Override
-    public Short read(DatFileReader reader, Class clazz) {
+    protected Short readInternal(DatFileReader reader, Class clazz) {
         return reader.getBr().readShort();
     }
 

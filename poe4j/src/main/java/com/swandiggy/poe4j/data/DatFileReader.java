@@ -41,7 +41,7 @@ public class DatFileReader<T extends AbstractRow> implements Closeable {
     /**
      * Map of .dat file names to rows classes
      */
-    private static final BiMap<String, Class<?>> entityClasses = HashBiMap.create();
+    public static final BiMap<String, Class<?>> entityClasses = HashBiMap.create();
 
     /**
      * Collect all classes with @DatFile
@@ -91,29 +91,18 @@ public class DatFileReader<T extends AbstractRow> implements Closeable {
                 .sorted(byOrder)
                 .collect(Collectors.toList());
 
-        try {
-            // Read basic stuff from the rows
-            br = new MappedBinaryReader(file, "r");
-            count = br.readInt();
+        // Read basic stuff from the rows
+        br = new MappedBinaryReader(file, "r");
+        count = br.readInt();
 
-            entitySize = getEntitySize(recordType);
-            dataOffset = 4 + entitySize * count;
+        entitySize = getEntitySize(recordType);
+        dataOffset = 4 + entitySize * count;
 
-            // Check that the rows size is correct
-            br.setPosition(dataOffset);
-            long magic = br.readLong();
-            Assert.isTrue(magic == Constants.MAGIC_DATA_SEPARATOR, "Data separator incorrect, rows size wrong");
-            br.setPosition(4);
-        } catch (Throwable t) {
-            if (br != null) {
-                try {
-                    br.close();
-                } catch (IOException e) {
-                    throw new Poe4jException(e);
-                }
-            }
-        }
-
+        // Check that the rows size is correct
+        br.setPosition(dataOffset);
+        long magic = br.readLong();
+        Assert.isTrue(magic == Constants.MAGIC_DATA_SEPARATOR, "Data separator incorrect, rows size wrong");
+        br.setPosition(4);
     }
 
     public BiMap<String, Class<?>> getEntityClasses() {
@@ -196,7 +185,7 @@ public class DatFileReader<T extends AbstractRow> implements Closeable {
             }
         }
 
-        throw new Poe4jException(MessageFormat.format("Could not find FieldReader for '{}'", field));
+        throw new Poe4jException(MessageFormat.format("Could not find FieldReader for '{0}'", field));
     }
 
     /**
@@ -212,7 +201,7 @@ public class DatFileReader<T extends AbstractRow> implements Closeable {
             FieldReader fieldReader = Arrays.stream(fieldReaders)
                     .filter(fieldReader1 -> fieldReader1.supports(field))
                     .findFirst()
-                    .orElseThrow(() -> new Poe4jException(MessageFormat.format("Could not find FieldReader for '{}'", field)));
+                    .orElseThrow(() -> new Poe4jException(MessageFormat.format("Could not find FieldReader for '{0}'", field)));
             size += fieldReader.size(field);
         }
 

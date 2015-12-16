@@ -14,7 +14,7 @@ import java.text.MessageFormat;
  * @since 12/15/2015
  */
 @Service
-public class ValueFieldReader implements FieldReader<Object> {
+public class ValueFieldReader extends BaseFieldReader<Object> {
 
     @Autowired
     private ValueReader[] valueReaders;
@@ -31,7 +31,7 @@ public class ValueFieldReader implements FieldReader<Object> {
     }
 
     @Override
-    public Object read(DatFileReader reader, Field field) {
+    protected Object readInternal(DatFileReader reader, Field field) {
         for (ValueReader valueReader : valueReaders) {
             if (valueReader.supports(field.getType())) {
                 return valueReader.read(reader, field.getType());

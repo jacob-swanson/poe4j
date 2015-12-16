@@ -37,16 +37,16 @@ public class BaseItemType extends AbstractRow {
     private int dropLevel;
 
     @Order(8)
-    private long key0;
+    private long flavourTextKey;
 
     @Order(9)
-    private List<Integer> data0;
+    private List<Integer> implicitModKeys;
 
     @Order(10)
     private int unknown5;
 
     @Order(11)
-    private long key3;
+    private long soundEffectsKey;
 
     @Order(12)
     private List<Integer> data1;
@@ -61,7 +61,7 @@ public class BaseItemType extends AbstractRow {
     private List<Integer> data4;
 
     @Order(16)
-    private List<Long> data5;
+    private List<Long> tagKeys;
 
     @Order(17)
     private int unknown14;
@@ -92,4 +92,7 @@ public class BaseItemType extends AbstractRow {
 
     @Order(26)
     private long key2;
+
+    @Order(27)
+    private Boolean flag0;
 }

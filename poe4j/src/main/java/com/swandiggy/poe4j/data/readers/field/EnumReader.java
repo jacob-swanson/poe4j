@@ -8,16 +8,13 @@ import org.springframework.stereotype.Service;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.lang.reflect.ParameterizedType;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @author Jacob Swanson
  * @since 12/15/2015
  */
 @Service
-public class EnumReader implements FieldReader<Object> {
+public class EnumReader extends BaseFieldReader<Object> {
     
     @Override
     public boolean supports(Field field) {
@@ -25,7 +22,7 @@ public class EnumReader implements FieldReader<Object> {
     }
 
     @Override
-    public Object read(DatFileReader reader, Field field) {
+    protected Object readInternal(DatFileReader reader, Field field) {
         Integer value = reader.getBr().readInt();
 
         try {

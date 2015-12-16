@@ -17,7 +17,7 @@ import java.util.List;
  * @since 12/15/2015
  */
 @Service
-public class ListReader implements FieldReader<List> {
+public class ListReader extends BaseFieldReader<List> {
 
     @Autowired
     private ValueReader[] valueReaders;
@@ -28,7 +28,7 @@ public class ListReader implements FieldReader<List> {
     }
 
     @Override
-    public List read(DatFileReader reader, Field field) {
+    protected List readInternal(DatFileReader reader, Field field) {
         int listSize = reader.getBr().readInt();
         int listOffset = reader.getBr().readInt();
 

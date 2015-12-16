@@ -1,6 +1,5 @@
 package com.swandiggy.poe4j.data.readers.value;
 
-import com.google.common.primitives.Primitives;
 import com.swandiggy.poe4j.Poe4jException;
 import com.swandiggy.poe4j.data.Constants;
 import com.swandiggy.poe4j.data.DatFileReader;
@@ -17,18 +16,18 @@ import java.nio.file.Paths;
  * @since 12/15/2015
  */
 @Service
-public class RowReader implements ValueReader<AbstractRow> {
+public class RowReader extends BaseValueReader<AbstractRow> {
 
     @Autowired
     private DatFileReaderFactory datFileReaderFactory;
 
     @Override
     public boolean supports(Class clazz) {
-        return Primitives.wrap(clazz) == Byte.class;
+        return DatFileReader.entityClasses.containsValue(clazz);
     }
 
     @Override
-    public AbstractRow read(DatFileReader reader, Class clazz) {
+    protected AbstractRow readInternal(DatFileReader reader, Class clazz) {
         long index = reader.getBr().readLong();
         if (index == Constants.MAGIC_NULL) {
             return null;

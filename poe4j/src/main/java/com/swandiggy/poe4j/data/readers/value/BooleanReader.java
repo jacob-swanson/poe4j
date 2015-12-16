@@ -9,14 +9,14 @@ import org.springframework.stereotype.Service;
  * @since 12/15/2015
  */
 @Service
-public class BooleanReader implements ValueReader<Boolean> {
+public class BooleanReader extends BaseValueReader<Boolean> {
     @Override
     public boolean supports(Class clazz) {
         return Primitives.wrap(clazz) == Boolean.class;
     }
 
     @Override
-    public Boolean read(DatFileReader reader, Class clazz) {
+    protected Boolean readInternal(DatFileReader reader, Class clazz) {
         return reader.getBr().readByte() == 1;
     }
 

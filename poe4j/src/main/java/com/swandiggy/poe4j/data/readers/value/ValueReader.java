@@ -11,7 +11,7 @@ public interface ValueReader<T> {
     boolean supports(Class clazz);
 
     T read(DatFileReader reader, Class clazz);
-
+    
     int size(Class clazz);
 
 }

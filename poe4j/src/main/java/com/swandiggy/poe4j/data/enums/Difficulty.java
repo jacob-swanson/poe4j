@@ -8,5 +8,9 @@ public enum Difficulty {
     UNKNOWN,
     NORMAL,
     CRUEL,
-    MERCILESS
+    MERCILESS;
+
+    public static Difficulty valueOf(Integer n) {
+        return values()[n];
+    }
 }
