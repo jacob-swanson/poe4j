@@ -4,13 +4,11 @@ import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
-import com.google.common.collect.ImmutableMap;
 import com.google.common.io.Files;
-import com.google.common.primitives.Primitives;
 import com.swandiggy.poe4j.Poe4jException;
 import com.swandiggy.poe4j.data.annotations.DatFile;
-import com.swandiggy.poe4j.data.annotations.Enumerated;
 import com.swandiggy.poe4j.data.annotations.Order;
+import com.swandiggy.poe4j.data.readers.field.FieldReader;
 import com.swandiggy.poe4j.data.rows.AbstractRow;
 import com.swandiggy.poe4j.util.io.BinaryReader;
 import com.swandiggy.poe4j.util.io.MappedBinaryReader;
@@ -25,10 +23,7 @@ import java.io.Closeable;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.lang.reflect.ParameterizedType;
-import java.nio.file.Paths;
+import java.text.MessageFormat;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -68,29 +63,6 @@ public class DatFileReader<T extends AbstractRow> implements Closeable {
      */
     private static final Cache<String, AbstractRow> recordCache = CacheBuilder.newBuilder().softValues().build();
 
-    /**
-     * Number of bytes primitives take in a rows
-     */
-    private static final ImmutableMap<Class<?>, Integer> dataSizes = ImmutableMap.<Class<?>, Integer>builder()
-            .put(Integer.class, 4)
-            .put(Long.class, 8)
-            .put(String.class, 4)
-            .put(Boolean.class, 1)
-            .put(List.class, 8)
-            .put(Short.class, 2)
-            .put(Byte.class, 1)
-            .build();
-
-    /**
-     * Separates the fixed width portion and the variable width portion of the .dat file
-     */
-    private static final long MAGIC_DATA_SEPARATOR = 0xBBbbBBbbBBbbBBbbL;
-
-    /**
-     * Value used for NULL references
-     */
-    private static final long MAGIC_NULL = 0xFEfeFEfeFEfeFEfeL;
-
     private File file; // .dat file
     private BinaryReader br; // reader for the file
     private long dataOffset; // Offset to the beginning of the variable width portion
@@ -98,14 +70,17 @@ public class DatFileReader<T extends AbstractRow> implements Closeable {
     private List<Field> fields; // List of fields in the rows, sorted by @Order
     private Class<?> recordType; // Class to map records to
     private int count; // Number of records in the fixed width portion
+    private FieldReader[] fieldReaders;
 
     /**
      * Create a new .dat file reader.
      *
      * @param file Path to the .dat file
      */
-    public DatFileReader(File file) {
+    public DatFileReader(File file, FieldReader[] fieldReaders) {
         this.file = file;
+        this.fieldReaders = fieldReaders;
+
         recordType = entityClasses.get(Files.getNameWithoutExtension(file.getName()));
         Assert.notNull(recordType, "Could not find rows class for '" + file.getName() + "'");
 
@@ -127,7 +102,7 @@ public class DatFileReader<T extends AbstractRow> implements Closeable {
             // Check that the rows size is correct
             br.setPosition(dataOffset);
             long magic = br.readLong();
-            Assert.isTrue(magic == MAGIC_DATA_SEPARATOR, "Data separator incorrect, rows size wrong");
+            Assert.isTrue(magic == Constants.MAGIC_DATA_SEPARATOR, "Data separator incorrect, rows size wrong");
             br.setPosition(4);
         } catch (Throwable t) {
             if (br != null) {
@@ -139,6 +114,10 @@ public class DatFileReader<T extends AbstractRow> implements Closeable {
             }
         }
 
+    }
+
+    public BiMap<String, Class<?>> getEntityClasses() {
+        return entityClasses;
     }
 
     @Override
@@ -174,7 +153,7 @@ public class DatFileReader<T extends AbstractRow> implements Closeable {
      * @param index Index of the rows, starts at 0.
      * @return The specified rows
      */
-    private T read(long index) {
+    public T read(long index) {
         checkBounds(index);
 
         if (cacheGet(index) != null) {
@@ -211,73 +190,13 @@ public class DatFileReader<T extends AbstractRow> implements Closeable {
     }
 
     private Object readField(Field field) {
-        Class<?> fieldType = field.getType();
-        if (fieldType == List.class) {
-            int listSize = br.readInt();
-            int listOffset = br.readInt();
-
-            Class<?> listType = (Class<?>) ((ParameterizedType) field.getGenericType()).getActualTypeArguments()[0];
-
-            List<Object> listValues = new ArrayList<>(listSize);
-            long pos = br.getPosition();
-            br.setPosition(dataOffset + listOffset);
-            for (int i = 0; i < listSize; i++) {
-                listValues.add(readValue(listType));
+        for (FieldReader fieldReader : fieldReaders) {
+            if (fieldReader.supports(field)) {
+                return fieldReader.read(this, field);
             }
-            br.setPosition(pos);
-
-            return listValues;
-        } else if (field.getAnnotation(Enumerated.class) != null) {
-            Object value = readValue(Integer.class);
-
-            try {
-                Method m = field.getType().getMethod("valueOf", Integer.class);
-                return m.invoke(null, value);
-            } catch (NoSuchMethodException e) {
-                throw new Poe4jException(field.getType().getSimpleName() + ".valueOf(" + Integer.class.getTypeName() + ") not found");
-            } catch (InvocationTargetException | IllegalAccessException e) {
-                throw new Poe4jException("Could not invoke valueOf method for enum", e);
-            }
-        } else {
-            return readValue(fieldType);
         }
-    }
 
-    private Object readValue(Class<?> clazz) {
-        if (Primitives.wrap(clazz) == Integer.class) {
-            return br.readInt();
-        } else if (Primitives.wrap(clazz) == Long.class) {
-            return br.readLong();
-        } else if (Primitives.wrap(clazz) == Boolean.class) {
-            return br.readByte() == 1;
-        } else if (Primitives.wrap(clazz) == Short.class) {
-            return br.readShort();
-        } else if (Primitives.wrap(clazz) == Byte.class) {
-            return br.readByte();
-        } else if (clazz == String.class) {
-            int ref = br.readInt();
-
-            long oldPos = br.getPosition();
-            br.setPosition(dataOffset + ref);
-            String s = br.readString("UTF-16LE");
-            br.setPosition(oldPos);
-
-            return s;
-        } else if (entityClasses.containsValue(clazz)) {
-            long index = br.readLong();
-            if (index == MAGIC_NULL) {
-                return null;
-            }
-
-            // Get the referenced .dat file
-            try (DatFileReader datFileReader = new DatFileReader(Paths.get(file.getParent(), entityClasses.inverse().get(clazz) + ".dat").toFile())) {
-                return datFileReader.read(index);
-            } catch (IOException e) {
-                throw new Poe4jException(e);
-            }
-        } else {
-            throw new Poe4jException("Unsupported value type: " + clazz);
-        }
+        throw new Poe4jException(MessageFormat.format("Could not find FieldReader for '{}'", field));
     }
 
     /**
@@ -290,15 +209,11 @@ public class DatFileReader<T extends AbstractRow> implements Closeable {
         int size = 0;
 
         for (Field field : clazz.getDeclaredFields()) {
-            if (dataSizes.containsKey(Primitives.wrap(field.getType()))) {
-                size += dataSizes.get(Primitives.wrap(field.getType()));
-            } else if (field.getAnnotation(Enumerated.class) != null) {
-                size += dataSizes.get(Integer.class);
-            } else if (entityClasses.containsValue(field.getType())) {
-                size += dataSizes.get(Long.class);
-            } else {
-                throw new Poe4jException("Unsupported field type: " + field);
-            }
+            FieldReader fieldReader = Arrays.stream(fieldReaders)
+                    .filter(fieldReader1 -> fieldReader1.supports(field))
+                    .findFirst()
+                    .orElseThrow(() -> new Poe4jException(MessageFormat.format("Could not find FieldReader for '{}'", field)));
+            size += fieldReader.size(field);
         }
 
         return size;
@@ -306,5 +221,13 @@ public class DatFileReader<T extends AbstractRow> implements Closeable {
 
     public BinaryReader getBr() {
         return br;
+    }
+
+    public long getDataOffset() {
+        return dataOffset;
+    }
+
+    public File getFile() {
+        return file;
     }
 }
