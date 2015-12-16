@@ -13,14 +13,14 @@
    <children>
       <TabPane>
          <tabs>
-            <Tab closable="false" text="Extract GGPKG">
+            <Tab closable="false" text="Extract GGPK">
                <content>
                   <VBox>
                       <padding>
                           <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                       </padding>
                      <children>
-                        <Label text="GGPKG File" />
+                        <Label text="GGPK File" />
                          <HBox>
                             <children>
                                 <TextField fx:id="ggpkFileTextField" promptText="C:\...\Content.ggpk" HBox.hgrow="ALWAYS" />
@@ -55,6 +55,51 @@
                              </VBox.margin>
                          </Button>
                      </children>
+                  </VBox>
+               </content>
+            </Tab>
+            <Tab closable="false" text="Extract Data">
+               <content>
+                  <VBox>
+                     <children>
+                        <Label text="Data File" />
+                        <HBox>
+                           <children>
+                              <TextField fx:id="datFileTextField" promptText="C:\...\Quest.dat" HBox.hgrow="ALWAYS" />
+                              <Button onAction="#browseForDatFile" text="Browse">
+                                 <HBox.margin>
+                                    <Insets left="15.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <Label text="Extract Directory">
+                           <padding>
+                              <Insets top="15.0" />
+                           </padding>
+                        </Label>
+                        <HBox>
+                           <children>
+                              <TextField fx:id="datExtractDirTextField" promptText="C:\...\quest\" HBox.hgrow="ALWAYS" />
+                              <Button onAction="#browseForDatExtractDir" text="Browse">
+                                 <HBox.margin>
+                                    <Insets left="15.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </HBox>
+                        <Button onAction="#extractDatFile" text="Extract">
+                           <VBox.margin>
+                              <Insets top="15.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                     </padding>
                   </VBox>
                </content>
             </Tab>

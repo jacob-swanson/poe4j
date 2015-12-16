@@ -1,5 +1,7 @@
 package com.swandiggy.poe4j.gui;
 
+import com.swandiggy.poe4j.data.DatFileReaderFactory;
+import com.swandiggy.poe4j.data.rows.AbstractRow;
 import com.swandiggy.poe4j.ggpkg.Ggpk;
 import com.swandiggy.poe4j.ggpkg.GgpkExtractor;
 import com.swandiggy.poe4j.ggpkg.GgpkFactory;
@@ -21,8 +23,11 @@ import org.springframework.util.StringUtils;
 
 import java.io.File;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.prefs.Preferences;
+
+import static java.util.stream.Collectors.toList;
 
 /**
  * @author Jacob Swanson
@@ -32,8 +37,16 @@ import java.util.prefs.Preferences;
 @Service
 public class MainWindowController implements Initializable {
 
+    @FXML
+    public TextField datFileTextField;
+    @FXML
+    public TextField datExtractDirTextField;
+
     private StringProperty ggpkPathText = new SimpleStringProperty();
     private StringProperty extractDirText = new SimpleStringProperty();
+
+    private StringProperty datFileText = new SimpleStringProperty();
+    private StringProperty datExtractDirText = new SimpleStringProperty();
 
     @FXML
     private TextField ggpkFileTextField;
@@ -47,6 +60,9 @@ public class MainWindowController implements Initializable {
 
     @Autowired
     private GgpkExtractor ggpkExtractor;
+
+    @Autowired
+    private DatFileReaderFactory datFileReaderFactory;
 
     public void extract(ActionEvent event) {
         if (StringUtils.isEmpty(ggpkPathText.get())) {
@@ -91,10 +107,16 @@ public class MainWindowController implements Initializable {
         ggpkFileTextField.textProperty().bindBidirectional(ggpkPathText);
         extractDirectoryTextField.textProperty().bindBidirectional(extractDirText);
 
+        datFileTextField.textProperty().bindBidirectional(datFileText);
+        datExtractDirTextField.textProperty().bindBidirectional(datExtractDirText);
+
         Preferences prefs = Preferences.userNodeForPackage(getClass());
 
         ggpkPathText.setValue(prefs.get("ggpkgPath", ""));
         extractDirText.setValue(prefs.get("extractDir", ""));
+
+        datFileText.setValue(prefs.get("datFilePath", ""));
+        datExtractDirText.setValue(prefs.get("datExtractDir", ""));
 
         ggpkPathText.addListener((observable, oldValue, newValue) -> {
             if (StringUtils.isEmpty(newValue)) {
@@ -103,12 +125,26 @@ public class MainWindowController implements Initializable {
                 prefs.put("ggpkgPath", newValue);
             }
         });
-
         extractDirText.addListener((observable, oldValue, newValue) -> {
             if (StringUtils.isEmpty(newValue)) {
                 prefs.remove("extractDir");
             } else {
                 prefs.put("extractDir", newValue);
+            }
+        });
+
+        datFileText.addListener((observable, oldValue, newValue) -> {
+            if (StringUtils.isEmpty(newValue)) {
+                prefs.remove("datFilePath");
+            } else {
+                prefs.put("datFilePath", newValue);
+            }
+        });
+        datExtractDirText.addListener((observable, oldValue, newValue) -> {
+            if (StringUtils.isEmpty(newValue)) {
+                prefs.remove("datExtractDir");
+            } else {
+                prefs.put("datExtractDir", newValue);
             }
         });
     }
@@ -141,5 +177,40 @@ public class MainWindowController implements Initializable {
         } else {
             log.info("File '{}' does not exist", file.getAbsolutePath());
         }
+    }
+
+    public void browseForDatFile(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Select *.dat");
+        File file = fileChooser.showOpenDialog(logView.getScene().getWindow());
+        if (file == null) {
+            return;
+        }
+
+        if (file.exists()) {
+            datFileText.setValue(file.getAbsolutePath());
+        } else {
+            log.info("File '{}' does not exist", file.getAbsolutePath());
+        }
+    }
+
+    public void browseForDatExtractDir(ActionEvent event) {
+        DirectoryChooser directoryChooser = new DirectoryChooser();
+        directoryChooser.setTitle("Select Extraction Directory");
+        File file = directoryChooser.showDialog(logView.getScene().getWindow());
+        if (file == null) {
+            return;
+        }
+
+        if (file.exists()) {
+            datExtractDirText.setValue(file.getAbsolutePath());
+        } else {
+            log.info("File '{}' does not exist", file.getAbsolutePath());
+        }
+    }
+
+    public void extractDatFile(ActionEvent event) {
+        List<AbstractRow> rows = datFileReaderFactory.create(new File(datFileText.get())).read().collect(toList());
+        log.info("asdf");
     }
 }
