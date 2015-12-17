@@ -1,5 +1,6 @@
 package com.swandiggy.poe4j.gui;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.swandiggy.poe4j.data.DatFileReaderFactory;
 import com.swandiggy.poe4j.data.rows.AbstractRow;
 import com.swandiggy.poe4j.ggpkg.Ggpk;
@@ -22,7 +23,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.prefs.Preferences;
@@ -63,6 +66,8 @@ public class MainWindowController implements Initializable {
 
     @Autowired
     private DatFileReaderFactory datFileReaderFactory;
+
+    private ObjectMapper objectMapper = new ObjectMapper();
 
     public void extract(ActionEvent event) {
         if (StringUtils.isEmpty(ggpkPathText.get())) {
@@ -209,8 +214,9 @@ public class MainWindowController implements Initializable {
         }
     }
 
-    public void extractDatFile(ActionEvent event) {
-        List<AbstractRow> rows = datFileReaderFactory.create(new File(datFileText.get())).read().collect(toList());
-        log.info("asdf");
+    public void extractDatFile(ActionEvent event) throws IOException {
+        File datFile = new File(datFileText.get());
+        List<AbstractRow> rows = datFileReaderFactory.create(datFile).read().collect(toList());
+        objectMapper.writeValue(Paths.get(datExtractDirText.get(), datFile.getName() + ".json").toFile(), rows);
     }
 }
