@@ -8,7 +8,7 @@ import com.google.common.io.Files;
 import com.swandiggy.poe4j.Poe4jException;
 import com.swandiggy.poe4j.data.annotations.DatFile;
 import com.swandiggy.poe4j.data.annotations.Order;
-import com.swandiggy.poe4j.data.readers.field.FieldReader;
+import com.swandiggy.poe4j.data.readers.FieldReaders;
 import com.swandiggy.poe4j.data.rows.AbstractRow;
 import com.swandiggy.poe4j.util.io.BinaryReader;
 import com.swandiggy.poe4j.util.io.MappedBinaryReader;
@@ -70,14 +70,14 @@ public class DatFileReader<T extends AbstractRow> implements Closeable {
     private List<Field> fields; // List of fields in the rows, sorted by @Order
     private Class<?> recordType; // Class to map records to
     private int count; // Number of records in the fixed width portion
-    private FieldReader[] fieldReaders;
+    private FieldReaders fieldReaders;
 
     /**
      * Create a new .dat file reader.
      *
      * @param file Path to the .dat file
      */
-    public DatFileReader(File file, FieldReader[] fieldReaders) {
+    public DatFileReader(File file, FieldReaders fieldReaders) {
         this.file = file;
         this.fieldReaders = fieldReaders;
 
@@ -95,13 +95,17 @@ public class DatFileReader<T extends AbstractRow> implements Closeable {
         br = new MappedBinaryReader(file, "r");
         count = br.readInt();
 
-        entitySize = getEntitySize(recordType);
+        entitySize = getEntitySize();
         dataOffset = 4 + entitySize * count;
 
         // Check that the rows size is correct
         br.setPosition(dataOffset);
         long magic = br.readLong();
         Assert.isTrue(magic == Constants.MAGIC_DATA_SEPARATOR, "Data separator incorrect, rows size wrong");
+        if (magic != Constants.MAGIC_DATA_SEPARATOR) {
+            // TODO: Calculate expected entity size
+            throw new Poe4jException(MessageFormat.format("Row size incorrect was {0}", entitySize));
+        }
         br.setPosition(4);
     }
 
@@ -161,7 +165,7 @@ public class DatFileReader<T extends AbstractRow> implements Closeable {
         values.put("offset", recordOffset);
 
         for (Field field : fields) {
-            values.put(field.getName(), readField(field));
+            values.put(field.getName(), fieldReaders.read(field, this));
         }
 
         BeanWrapper wrapper = new BeanWrapperImpl(recordType);
@@ -178,31 +182,16 @@ public class DatFileReader<T extends AbstractRow> implements Closeable {
                 .mapToObj(this::read);
     }
 
-    private Object readField(Field field) {
-        for (FieldReader fieldReader : fieldReaders) {
-            if (fieldReader.supports(field)) {
-                return fieldReader.read(this, field);
-            }
-        }
-
-        throw new Poe4jException(MessageFormat.format("Could not find FieldReader for '{0}'", field));
-    }
-
     /**
-     * Calculate the size of a rows.
+     * Calculate the size of a row.
      *
-     * @param clazz
-     * @return
+     * @return Calculated size of entity in bytes
      */
-    private int getEntitySize(Class<?> clazz) {
+    private int getEntitySize() {
         int size = 0;
 
-        for (Field field : clazz.getDeclaredFields()) {
-            FieldReader fieldReader = Arrays.stream(fieldReaders)
-                    .filter(fieldReader1 -> fieldReader1.supports(field))
-                    .findFirst()
-                    .orElseThrow(() -> new Poe4jException(MessageFormat.format("Could not find FieldReader for '{0}'", field)));
-            size += fieldReader.size(field);
+        for (Field field : recordType.getDeclaredFields()) {
+            size += fieldReaders.size(field);
         }
 
         return size;

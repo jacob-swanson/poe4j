@@ -2,7 +2,7 @@ package com.swandiggy.poe4j.data.rows;
 
 import com.swandiggy.poe4j.data.annotations.DatFile;
 import com.swandiggy.poe4j.data.annotations.Order;
-import com.swandiggy.poe4j.data.annotations.Reference;
+import com.swandiggy.poe4j.data.annotations.ReferenceOne;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -15,7 +15,7 @@ import lombok.EqualsAndHashCode;
 @DatFile("ComponentAttributeRequirements")
 public class ComponentAttributeRequirement extends AbstractRow {
     @Order(1)
-    @Reference("virtualPath")
+    @ReferenceOne("virtualPath")
     private BaseItemType baseItemType;
 
     @Order(2)

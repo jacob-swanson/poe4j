@@ -58,7 +58,7 @@ public class NPC extends AbstractRow {
     @Order(14)
     private long npcMasterIndex;
     // TODO: Create NPCMaster rows
-//    @Reference(Long.class)
+//    @ReferenceOne(Long.class)
 //    private NPCMaster npcMaster;
 
     @Order(15)

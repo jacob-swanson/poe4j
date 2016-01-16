@@ -5,8 +5,8 @@ import com.swandiggy.poe4j.data.Constants;
 import com.swandiggy.poe4j.data.DatFileReader;
 import com.swandiggy.poe4j.data.DatFileReaderFactory;
 import com.swandiggy.poe4j.data.rows.AbstractRow;
+import com.swandiggy.poe4j.util.reflection.Poe4jReflection;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cglib.proxy.Enhancer;
 import org.springframework.cglib.proxy.LazyLoader;
 import org.springframework.stereotype.Service;
 
@@ -35,9 +35,7 @@ public class RowReader extends BaseValueReader<AbstractRow> {
             return null;
         }
 
-        Enhancer enhancer = new Enhancer();
-        enhancer.setSuperclass(clazz);
-        enhancer.setCallback((LazyLoader) () -> {
+        return (AbstractRow) Poe4jReflection.lazyLoad(clazz, (LazyLoader) () -> {
             // Get the referenced .dat file
             try (DatFileReader datFileReader = datFileReaderFactory.create(Paths.get(reader.getFile().getParent(), reader.getEntityClasses().inverse().get(clazz) + ".dat").toFile())) {
                 return datFileReader.read(index);
@@ -45,8 +43,6 @@ public class RowReader extends BaseValueReader<AbstractRow> {
                 throw new Poe4jException(e);
             }
         });
-
-        return (AbstractRow) enhancer.create();
     }
 
     @Override
