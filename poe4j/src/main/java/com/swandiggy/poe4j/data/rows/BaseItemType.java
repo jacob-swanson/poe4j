@@ -70,7 +70,7 @@ public class BaseItemType extends AbstractRow {
     private ItemVisualIdentity itemVisualIdentity;
 
     @Order(19)
-    private int unkown17;
+    private int unknown17;
 
     @Order(20)
     private long key1;

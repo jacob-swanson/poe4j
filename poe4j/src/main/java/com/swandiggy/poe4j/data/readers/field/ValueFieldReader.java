@@ -19,8 +19,18 @@ public class ValueFieldReader extends BaseFieldReader<Object> {
     @Autowired
     private ValueReader[] valueReaders;
 
+    @Autowired
+    private FieldReader[] fieldReaders;
+
     @Override
     public boolean supports(Field field) {
+        // ValueFieldReader should be last.
+        for (FieldReader fieldReader : fieldReaders) {
+            if (fieldReader.supports(field)) {
+                return false;
+            }
+        }
+
         for (ValueReader reader : valueReaders) {
             if (reader.supports(field.getType())) {
                 return true;
