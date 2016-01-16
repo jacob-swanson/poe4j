@@ -2,6 +2,7 @@ package com.swandiggy.poe4j.data.readers.value;
 
 import com.swandiggy.poe4j.Poe4jException;
 import com.swandiggy.poe4j.data.Constants;
+import com.swandiggy.poe4j.data.DatFileLookup;
 import com.swandiggy.poe4j.data.DatFileReader;
 import com.swandiggy.poe4j.data.DatFileReaderFactory;
 import com.swandiggy.poe4j.data.rows.BaseRow;
@@ -11,7 +12,6 @@ import org.springframework.cglib.proxy.LazyLoader;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.nio.file.Paths;
 
 /**
  * @author Jacob Swanson
@@ -25,7 +25,7 @@ public class RowReader extends BaseValueReader<BaseRow> {
 
     @Override
     public boolean supports(Class clazz) {
-        return DatFileReader.entityClasses.containsValue(clazz);
+        return DatFileLookup.entityClasses.containsValue(clazz);
     }
 
     @Override
@@ -37,7 +37,7 @@ public class RowReader extends BaseValueReader<BaseRow> {
 
         return (BaseRow) Poe4jReflection.lazyLoad(clazz, (LazyLoader) () -> {
             // Get the referenced .dat file
-            try (DatFileReader datFileReader = datFileReaderFactory.create(Paths.get(reader.getFile().getParent(), reader.getEntityClasses().inverse().get(clazz) + ".dat").toFile())) {
+            try (DatFileReader datFileReader = datFileReaderFactory.create(clazz)) {
                 return datFileReader.read(index);
             } catch (IOException e) {
                 throw new Poe4jException(e);

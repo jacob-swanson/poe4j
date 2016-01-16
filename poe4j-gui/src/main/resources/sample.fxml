@@ -11,7 +11,7 @@
 
 <VBox prefHeight="545.0" prefWidth="735.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TabPane>
+      <TabPane fx:id="tabPane" prefHeight="330.0" prefWidth="735.0">
          <tabs>
             <Tab closable="false" text="Extract GGPK">
                <content>
@@ -62,7 +62,7 @@
                <content>
                   <VBox>
                      <children>
-                        <Label text="Data File" />
+                        <Label text="Extracted GGPK Directory" />
                         <HBox>
                            <children>
                               <TextField fx:id="datFileTextField" promptText="C:\...\Quest.dat" HBox.hgrow="ALWAYS" />
@@ -91,6 +91,12 @@
                               <Insets />
                            </opaqueInsets>
                         </HBox>
+                        <Label text="Data File">
+                           <padding>
+                              <Insets top="15.0" />
+                           </padding>
+                        </Label>
+                        <ComboBox fx:id="dataFileComboBox" prefHeight="25.0" prefWidth="326.0" />
                         <Button onAction="#extractDatFile" text="Extract">
                            <VBox.margin>
                               <Insets top="15.0" />

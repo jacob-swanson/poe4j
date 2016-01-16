@@ -17,12 +17,18 @@ public class DatFileReaderFactory {
     @Autowired
     private FieldReaders fieldReaders;
 
-    public DatFileReader<BaseRow> create(File file) {
-        return new DatFileReader<>(file, fieldReaders);
+    @Autowired
+    private DatFileLookup datFileLookup;
+
+    public <T extends BaseRow> DatFileReader<T> create(Class<T> clazz) {
+        return new DatFileReader<>(clazz, fieldReaders, datFileLookup.getFileForType(clazz));
     }
 
-    public DatFileReader<BaseRow> create(String fileName) {
-        return new DatFileReader<>(new File(fileName), fieldReaders);
+    public <T extends BaseRow> DatFileReader<T> createUnsafe(Class<?> clazz) {
+        return new DatFileReader<>((Class<T>) clazz, fieldReaders, datFileLookup.getFileForType((Class<T>) clazz));
     }
 
+    public <T extends BaseRow> DatFileReader<T> create(File file) {
+        return new DatFileReader<>(datFileLookup.getTypeForFile(file), fieldReaders, file);
+    }
 }

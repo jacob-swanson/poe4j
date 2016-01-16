@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
-import java.nio.file.Paths;
 
 /**
  * @author Jacob Swanson
@@ -42,7 +41,7 @@ public class ReferenceReader extends BaseFieldReader<Object> {
 
         return Poe4jReflection.lazyLoad(field.getType(),(LazyLoader) () -> {
             // TODO: Ugly .dat file resolution
-            try (DatFileReader<BaseRow> datFileReader = datFileReaderFactory.create(Paths.get(reader.getFile().getParent(), reader.getEntityClasses().inverse().get(field.getType()) + ".dat").toFile())) {
+            try (DatFileReader<BaseRow> datFileReader = datFileReaderFactory.createUnsafe(field.getType())) {
                 BaseRow referencedRow = datFileReader.read()
                         .filter(row -> Poe4jReflection.readProperty(row, annotation.value()).equals(key))
                         .findAny()

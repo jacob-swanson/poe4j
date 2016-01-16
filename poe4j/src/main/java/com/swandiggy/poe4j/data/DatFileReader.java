@@ -2,22 +2,16 @@ package com.swandiggy.poe4j.data;
 
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
-import com.google.common.collect.BiMap;
-import com.google.common.collect.HashBiMap;
-import com.google.common.io.Files;
 import com.swandiggy.poe4j.Poe4jException;
-import com.swandiggy.poe4j.data.annotations.DatFile;
 import com.swandiggy.poe4j.data.annotations.Order;
 import com.swandiggy.poe4j.data.readers.FieldReaders;
 import com.swandiggy.poe4j.data.rows.BaseRow;
 import com.swandiggy.poe4j.util.io.BinaryReader;
 import com.swandiggy.poe4j.util.io.MappedBinaryReader;
 import lombok.extern.slf4j.Slf4j;
-import org.reflections.Reflections;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
 import org.springframework.util.Assert;
-import org.springframework.util.StringUtils;
 
 import java.io.Closeable;
 import java.io.File;
@@ -38,26 +32,6 @@ import java.util.stream.Stream;
 @Slf4j
 public class DatFileReader<T extends BaseRow> implements Closeable {
 
-    /**
-     * Map of .dat file names to rows classes
-     */
-    public static final BiMap<String, Class<?>> entityClasses = HashBiMap.create();
-
-    /**
-     * Collect all classes with @DatFile
-     */
-    static {
-        Reflections reflections = new Reflections();
-        for (Class<?> clazz : reflections.getTypesAnnotatedWith(DatFile.class)) {
-            DatFile datFile = clazz.getAnnotation(DatFile.class);
-            if (StringUtils.isEmpty(datFile.value())) {
-                entityClasses.put(clazz.getSimpleName(), clazz);
-            } else {
-                entityClasses.put(datFile.value(), clazz);
-            }
-        }
-    }
-
     /*
      * Weak cache of records
      */
@@ -74,14 +48,12 @@ public class DatFileReader<T extends BaseRow> implements Closeable {
 
     /**
      * Create a new .dat file reader.
-     *
-     * @param file Path to the .dat file
      */
-    public DatFileReader(File file, FieldReaders fieldReaders) {
+    public DatFileReader(Class<T> clazz, FieldReaders fieldReaders, File file) {
         this.file = file;
         this.fieldReaders = fieldReaders;
+        this.recordType = clazz;
 
-        recordType = entityClasses.get(Files.getNameWithoutExtension(file.getName()));
         Assert.notNull(recordType, "Could not find rows class for '" + file.getName() + "'");
 
         // Get fields with @Order and sort them
@@ -107,10 +79,6 @@ public class DatFileReader<T extends BaseRow> implements Closeable {
             throw new Poe4jException(MessageFormat.format("Row size incorrect was {0}", entitySize));
         }
         br.setPosition(4);
-    }
-
-    public BiMap<String, Class<?>> getEntityClasses() {
-        return entityClasses;
     }
 
     @Override

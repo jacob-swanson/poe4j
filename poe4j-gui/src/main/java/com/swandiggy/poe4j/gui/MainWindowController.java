@@ -1,6 +1,8 @@
 package com.swandiggy.poe4j.gui;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.swandiggy.poe4j.config.Poe4jProperties;
+import com.swandiggy.poe4j.data.DatFileLookup;
 import com.swandiggy.poe4j.data.DatFileReaderFactory;
 import com.swandiggy.poe4j.data.rows.BaseRow;
 import com.swandiggy.poe4j.ggpkg.Ggpk;
@@ -9,14 +11,19 @@ import com.swandiggy.poe4j.ggpkg.GgpkFactory;
 import com.swandiggy.poe4j.gui.log.ObservableLogAppender;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -52,11 +59,15 @@ public class MainWindowController implements Initializable {
     private StringProperty datExtractDirText = new SimpleStringProperty();
 
     @FXML
+    private TabPane tabPane;
+    @FXML
     private TextField ggpkFileTextField;
     @FXML
     private TextField extractDirectoryTextField;
     @FXML
     private ListView logView;
+    @FXML
+    private ComboBox dataFileComboBox;
 
     @Autowired
     private GgpkFactory ggpkFactory;
@@ -65,7 +76,23 @@ public class MainWindowController implements Initializable {
     private GgpkExtractor ggpkExtractor;
 
     @Autowired
+    private Poe4jProperties properties;
+
+    @Autowired
     private DatFileReaderFactory datFileReaderFactory;
+
+    @Data
+    private static class DatClass {
+        private String name;
+        private Class value;
+
+        @Override
+        public String toString() {
+            return name;
+        }
+    }
+
+    private ObservableList<DatClass> options = FXCollections.observableArrayList();
 
     private ObjectMapper objectMapper = new ObjectMapper();
 
@@ -152,6 +179,27 @@ public class MainWindowController implements Initializable {
                 prefs.put("datExtractDir", newValue);
             }
         });
+
+        DatFileLookup.entityClasses.entrySet().stream()
+                .sorted((e1, e2) -> e1.getKey().compareTo(e2.getKey()))
+                .map(entry -> {
+                    DatClass datClass = new DatClass();
+                    datClass.setName(entry.getKey());
+                    datClass.setValue(entry.getValue());
+
+                    return datClass;
+                }).forEach(entry -> options.add(entry));
+
+        dataFileComboBox.setItems(options);
+        dataFileComboBox.getSelectionModel().select(prefs.getInt("dataFileComboBox", 0));
+        dataFileComboBox.valueProperty().addListener((observable -> {
+            prefs.putInt("dataFileComboBox", dataFileComboBox.getSelectionModel().getSelectedIndex());
+        }));
+
+        tabPane.getSelectionModel().select(prefs.getInt("tabPane", 0));
+        tabPane.getSelectionModel().selectedIndexProperty().addListener(observable -> {
+            prefs.putInt("tabPane", tabPane.getSelectionModel().getSelectedIndex());
+        });
     }
 
     public void browseForGgpk(ActionEvent event) {
@@ -215,8 +263,8 @@ public class MainWindowController implements Initializable {
     }
 
     public void extractDatFile(ActionEvent event) throws IOException {
-        File datFile = new File(datFileText.get());
-        List<BaseRow> rows = datFileReaderFactory.create(datFile).read().collect(toList());
-        objectMapper.writeValue(Paths.get(datExtractDirText.get(), datFile.getName() + ".json").toFile(), rows);
+        properties.setGgpkDirectory(datFileText.get());
+        List<BaseRow> rows = datFileReaderFactory.createUnsafe(((DatClass) dataFileComboBox.getSelectionModel().getSelectedItem()).getValue()).read().collect(toList());
+        objectMapper.writerWithDefaultPrettyPrinter().writeValue(Paths.get(datExtractDirText.get(), ((DatClass) dataFileComboBox.getSelectionModel().getSelectedItem()).getName() + ".json").toFile(), rows);
     }
 }
