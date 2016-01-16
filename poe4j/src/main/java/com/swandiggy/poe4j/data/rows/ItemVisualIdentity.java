@@ -14,7 +14,7 @@ import java.util.List;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @DatFile
-public class ItemVisualIdentity extends AbstractRow {
+public class ItemVisualIdentity extends BaseRow {
 
     @Order(1)
     private String index0;

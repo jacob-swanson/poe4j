@@ -14,7 +14,7 @@ import java.util.List;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @DatFile("NPCs")
-public class NPC extends AbstractRow {
+public class NPC extends BaseRow {
 
     @Order(1)
     private String index0;

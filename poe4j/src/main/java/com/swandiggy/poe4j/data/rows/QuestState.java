@@ -14,7 +14,7 @@ import java.util.List;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @DatFile("QuestStates")
-public class QuestState extends AbstractRow {
+public class QuestState extends BaseRow {
 
     @Order(1)
     private Quest quest;

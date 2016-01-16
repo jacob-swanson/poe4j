@@ -2,7 +2,7 @@ package com.swandiggy.poe4j.gui;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.swandiggy.poe4j.data.DatFileReaderFactory;
-import com.swandiggy.poe4j.data.rows.AbstractRow;
+import com.swandiggy.poe4j.data.rows.BaseRow;
 import com.swandiggy.poe4j.ggpkg.Ggpk;
 import com.swandiggy.poe4j.ggpkg.GgpkExtractor;
 import com.swandiggy.poe4j.ggpkg.GgpkFactory;
@@ -216,7 +216,7 @@ public class MainWindowController implements Initializable {
 
     public void extractDatFile(ActionEvent event) throws IOException {
         File datFile = new File(datFileText.get());
-        List<AbstractRow> rows = datFileReaderFactory.create(datFile).read().collect(toList());
+        List<BaseRow> rows = datFileReaderFactory.create(datFile).read().collect(toList());
         objectMapper.writeValue(Paths.get(datExtractDirText.get(), datFile.getName() + ".json").toFile(), rows);
     }
 }

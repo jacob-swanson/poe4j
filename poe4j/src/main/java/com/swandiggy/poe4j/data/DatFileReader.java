@@ -9,7 +9,7 @@ import com.swandiggy.poe4j.Poe4jException;
 import com.swandiggy.poe4j.data.annotations.DatFile;
 import com.swandiggy.poe4j.data.annotations.Order;
 import com.swandiggy.poe4j.data.readers.FieldReaders;
-import com.swandiggy.poe4j.data.rows.AbstractRow;
+import com.swandiggy.poe4j.data.rows.BaseRow;
 import com.swandiggy.poe4j.util.io.BinaryReader;
 import com.swandiggy.poe4j.util.io.MappedBinaryReader;
 import lombok.extern.slf4j.Slf4j;
@@ -36,7 +36,7 @@ import java.util.stream.Stream;
  * @since 9/5/2015
  */
 @Slf4j
-public class DatFileReader<T extends AbstractRow> implements Closeable {
+public class DatFileReader<T extends BaseRow> implements Closeable {
 
     /**
      * Map of .dat file names to rows classes
@@ -61,7 +61,7 @@ public class DatFileReader<T extends AbstractRow> implements Closeable {
     /*
      * Weak cache of records
      */
-    private static final Cache<String, AbstractRow> recordCache = CacheBuilder.newBuilder().softValues().build();
+    private static final Cache<String, BaseRow> recordCache = CacheBuilder.newBuilder().softValues().build();
 
     private File file; // .dat file
     private BinaryReader br; // reader for the file

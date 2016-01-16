@@ -5,7 +5,7 @@ import com.swandiggy.poe4j.data.DatFileReader;
 import com.swandiggy.poe4j.data.DatFileReaderFactory;
 import com.swandiggy.poe4j.data.annotations.ReferenceOne;
 import com.swandiggy.poe4j.data.readers.FieldReaders;
-import com.swandiggy.poe4j.data.rows.AbstractRow;
+import com.swandiggy.poe4j.data.rows.BaseRow;
 import com.swandiggy.poe4j.util.reflection.Poe4jReflection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.proxy.LazyLoader;
@@ -42,8 +42,8 @@ public class ReferenceReader extends BaseFieldReader<Object> {
 
         return Poe4jReflection.lazyLoad(field.getType(),(LazyLoader) () -> {
             // TODO: Ugly .dat file resolution
-            try (DatFileReader<AbstractRow> datFileReader = datFileReaderFactory.create(Paths.get(reader.getFile().getParent(), reader.getEntityClasses().inverse().get(field.getType()) + ".dat").toFile())) {
-                AbstractRow referencedRow = datFileReader.read()
+            try (DatFileReader<BaseRow> datFileReader = datFileReaderFactory.create(Paths.get(reader.getFile().getParent(), reader.getEntityClasses().inverse().get(field.getType()) + ".dat").toFile())) {
+                BaseRow referencedRow = datFileReader.read()
                         .filter(row -> Poe4jReflection.readProperty(row, annotation.value()).equals(key))
                         .findAny()
                         .orElse(null);

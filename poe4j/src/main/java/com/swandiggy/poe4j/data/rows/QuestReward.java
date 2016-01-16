@@ -15,7 +15,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @DatFile("QuestRewards")
-public class QuestReward extends AbstractRow {
+public class QuestReward extends BaseRow {
 
     @Order(1)
     private Quest quest;

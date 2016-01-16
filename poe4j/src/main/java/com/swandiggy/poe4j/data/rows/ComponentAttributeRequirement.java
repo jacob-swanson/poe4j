@@ -13,7 +13,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @DatFile("ComponentAttributeRequirements")
-public class ComponentAttributeRequirement extends AbstractRow {
+public class ComponentAttributeRequirement extends BaseRow {
     @Order(1)
     @ReferenceOne("virtualPath")
     private BaseItemType baseItemType;

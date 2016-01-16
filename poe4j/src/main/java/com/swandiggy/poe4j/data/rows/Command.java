@@ -12,7 +12,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @DatFile("Commands")
-public class Command extends AbstractRow {
+public class Command extends BaseRow {
     @Order(1)
     private String id;
 

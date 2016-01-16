@@ -12,7 +12,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @DatFile("AchievementSetsDisplay")
-public class AchievementSetsDisplay extends AbstractRow {
+public class AchievementSetsDisplay extends BaseRow {
 
     @Order(1)
     private int id;

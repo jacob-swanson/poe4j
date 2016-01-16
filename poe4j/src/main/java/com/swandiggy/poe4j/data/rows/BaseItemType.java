@@ -14,7 +14,7 @@ import java.util.List;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @DatFile("BaseItemTypes")
-public class BaseItemType extends AbstractRow {
+public class BaseItemType extends BaseRow {
     @Order(1)
     private String virtualPath;
 

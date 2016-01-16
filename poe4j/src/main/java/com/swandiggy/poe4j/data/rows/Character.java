@@ -14,7 +14,7 @@ import java.util.List;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @DatFile("Characters")
-public class Character extends AbstractRow {
+public class Character extends BaseRow {
     @Order(1)
     private String id;
 
