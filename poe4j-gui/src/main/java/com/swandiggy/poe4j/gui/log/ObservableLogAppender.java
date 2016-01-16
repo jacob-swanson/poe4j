@@ -20,7 +20,7 @@ public class ObservableLogAppender extends AppenderBase<ILoggingEvent> {
             events.add(event);
 
             if (events.size() > 500) {
-                events.remove(events.size() - 1);
+                events.remove(0);
             }
         });
     }
