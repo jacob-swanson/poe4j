@@ -1,6 +1,7 @@
 package com.swandiggy.poe4j.vorici.calc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.swandiggy.poe4j.config.Poe4jProperties;
 import com.swandiggy.poe4j.data.DatFileReader;
 import com.swandiggy.poe4j.data.DatFileReaderFactory;
 import com.swandiggy.poe4j.data.rows.BaseItemType;
@@ -26,10 +27,14 @@ public class VoriciDataExtractor implements ApplicationRunner, ExitCodeGenerator
     @Autowired
     private DatFileReaderFactory datFileReaderFactory;
 
+    @Autowired
+    private Poe4jProperties properties;
+
     private ObjectMapper objectMapper = new ObjectMapper();
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
+        properties.setGgpkDirectory(args.getNonOptionArgs().get(0));
         DatFileReader<BaseItemType> baseItemTypeReader = datFileReaderFactory.create(BaseItemType.class);
         DatFileReader<ComponentAttributeRequirement> attrReqReader = datFileReaderFactory.create(ComponentAttributeRequirement.class);
 
@@ -41,7 +46,7 @@ public class VoriciDataExtractor implements ApplicationRunner, ExitCodeGenerator
                 }).map(ItemData::new)
                 .collect(toList());
 
-        objectMapper.writeValue(Paths.get("C:\\Users\\Jacob\\Downloads\\item-data.json").toFile(), items);
+        objectMapper.writerWithDefaultPrettyPrinter().writeValue(Paths.get("item-data.json").toFile(), items);
     }
 
     @Override
