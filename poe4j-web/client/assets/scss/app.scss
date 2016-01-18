@@ -1,0 +1,9 @@
+@import 'settings';
+@import 'foundation';
+@import 'components/table';
+@import 'util/util';
+@include foundation-table;
+
+table {
+  width: 100%;
+}
