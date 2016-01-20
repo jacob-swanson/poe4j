@@ -1,74 +1,57 @@
-(function (angular) {
-  'use strict';
+'use strict';
 
-  angular.module('application', [
-      'ui.router',
-      'ngAnimate',
+var angular = require('angular');
+require('angular-ui-router');
+require('angular-animate');
 
-      //foundation
-      'foundation',
-      'foundation.dynamicRouting',
-      'foundation.dynamicRouting.animations'
-    ])
-    .config(config)
-    .run(run)
-  ;
+angular.module('application', [
+        'ui.router',
+        'ngAnimate'
+]).config(config) ;
 
-  config.$inject = ['$urlRouterProvider', '$locationProvider'];
+function config($stateProvider, $urlRouterProvider) {
 
-  function config($urlProvider, $locationProvider) {
-    $urlProvider.otherwise('/');
-
-    $locationProvider.html5Mode({
-      enabled: false,
-      requireBase: false
+    $stateProvider.state('home', {
+        url: '/',
+        templateUrl: 'templates/home.html'
+    }).state('chromatic-calculator', {
+        url: '/chromatic-calculator',
+        templateUrl: 'templates/chromatic-calculator.html',
+        controller: 'ChromaticCalculatorController'
     });
 
-    $locationProvider.hashPrefix('!');
-  }
+    $urlRouterProvider.otherwise('/');
+}
 
-  function run() {
-    FastClick.attach(document.body);
-  }
-
-  angular.module('application').filter('percent', ['$filter', function ($filter) {
+angular.module('application').filter('percent', ['$filter', function ($filter) {
     return function (input, decimals) {
-      return $filter('number')(input * 100, decimals) + '%';
-    }
-  }]);
-
-  var ChromaticCalculation = function (craftType, successChance, averageAttempts, costPerTry, averageCost, standardDeviation) {
-    return {
-      craftType: craftType.description || '',
-      successChance: successChance || 0.0,
-      averageAttempts: averageAttempts || 0,
-      costPerTry: costPerTry || 0,
-      averageCost: averageCost || 0,
-      standardDeviation: standardDeviation || 0
+        return $filter('number')(input * 100, decimals) + '%';
     };
-  };
+}]);
 
-  var CraftType = function (description, redSockets, greenSockets, blueSockets, costPerTry, chromaticBonus) {
+var ChromaticCalculation = function (craftType, successChance, averageAttempts, costPerTry, averageCost, standardDeviation) {
     return {
-      description: description || '',
-      redSockets: redSockets || 0,
-      greenSockets: greenSockets || 0,
-      blueSockets: blueSockets || 0,
-      costPerTry: costPerTry || 0,
-      chromaticBonus: chromaticBonus || false
+        craftType: craftType.description || '',
+        successChance: successChance || 0.0,
+        averageAttempts: averageAttempts || 0,
+        costPerTry: costPerTry || 0,
+        averageCost: averageCost || 0,
+        standardDeviation: standardDeviation || 0
     };
-  };
+};
 
-  angular.module('application').controller('ChromaticCalculatorController', ChromaticCalculatorController);
+var CraftType = function (description, redSockets, greenSockets, blueSockets, costPerTry, chromaticBonus) {
+    return {
+        description: description || '',
+        redSockets: redSockets || 0,
+        greenSockets: greenSockets || 0,
+        blueSockets: blueSockets || 0,
+        costPerTry: costPerTry || 0,
+        chromaticBonus: chromaticBonus || false
+    };
+};
 
-  ChromaticCalculatorController.$inject = ['$scope', '$stateParams', '$state', '$controller'];
-  function ChromaticCalculatorController($scope, $stateParams, $state, $controller) {
-    angular.extend(this, $controller('DefaultController', {
-      $scope: $scope,
-      $stateParams: $stateParams,
-      $state: $state
-    }));
-
+angular.module('application').controller('ChromaticCalculatorController', function ($scope) {
     var craftTypes = [];
     craftTypes.push(new CraftType("Chromatic", 0, 0, 0, 1, true));
     craftTypes.push(new CraftType("1R", 1, 0, 0, 4));
@@ -95,13 +78,13 @@
     var blueProbability = 0.0;
 
     $scope.form = {
-      numSockets: 1,
-      requiredStrength: 0,
-      requiredDexterity: 0,
-      requiredIntelligence: 0,
-      numRedSockets: 0,
-      numGreenSockets: 0,
-      numBlueSockets: 0
+        numSockets: 1,
+        requiredStrength: 0,
+        requiredDexterity: 0,
+        requiredIntelligence: 0,
+        numRedSockets: 0,
+        numGreenSockets: 0,
+        numBlueSockets: 0
     };
 
     $scope.rowCollection = [];
@@ -113,12 +96,12 @@
      * @returns {Number} Factorial
      */
     function factorial(num) {
-      var rVal = 1;
-      for (var i = 2; i <= num; i++) {
-        rVal *= i;
-      }
+        var rVal = 1;
+        for (var i = 2; i <= num; i++) {
+            rVal *= i;
+        }
 
-      return rVal;
+        return rVal;
     }
 
     /**
@@ -132,18 +115,18 @@
      * @returns {Number} Probability of configuration occurring
      */
     function calcConfigProbability(numRed, numGreen, numBlue, numFreeSockets, position) {
-      if (position === undefined) {
-        position = 1;
-      }
+        if (position === undefined) {
+            position = 1;
+        }
 
-      if (numFreeSockets > 0) {
-        return (position <= 1 ? calcConfigProbability(numRed + 1, numGreen, numBlue, numFreeSockets - 1, 1) : 0) + // Red
-          (position <= 2 ? calcConfigProbability(numRed, numGreen + 1, numBlue, numFreeSockets - 1, 2) : 0) + // Green
-          calcConfigProbability(numRed, numGreen, numBlue + 1, numFreeSockets - 1, 3); // Blue
-      } else {
-        // (n! / (k1!k2!...km!)) * chance
-        return (factorial(numRed + numGreen + numBlue) / (factorial(numRed) * factorial(numGreen) * factorial(numBlue))) * Math.pow(redProbability, numRed) * Math.pow(greenProbability, numGreen) * Math.pow(blueProbability, numBlue);
-      }
+        if (numFreeSockets > 0) {
+            return (position <= 1 ? calcConfigProbability(numRed + 1, numGreen, numBlue, numFreeSockets - 1, 1) : 0) + // Red
+                (position <= 2 ? calcConfigProbability(numRed, numGreen + 1, numBlue, numFreeSockets - 1, 2) : 0) + // Green
+                calcConfigProbability(numRed, numGreen, numBlue + 1, numFreeSockets - 1, 3); // Blue
+        } else {
+            // (n! / (k1!k2!...km!)) * chance
+            return (factorial(numRed + numGreen + numBlue) / (factorial(numRed) * factorial(numGreen) * factorial(numBlue))) * Math.pow(redProbability, numRed) * Math.pow(greenProbability, numGreen) * Math.pow(blueProbability, numBlue);
+        }
     }
 
     /**
@@ -160,69 +143,68 @@
      * @returns {Number} Bonus probability
      */
     function calcChromaticProbabilityBonus(numFreeSockets, numDesiredRed, numDesiredGreen, numDesiredBlue, numRed, numGreen, numBlue, position) {
-      numRed = numRed || 0;
-      numGreen = numGreen || 0;
-      numBlue = numBlue || 0;
-      if (position === undefined) {
-        position = 1;
-      }
+        numRed = numRed || 0;
+        numGreen = numGreen || 0;
+        numBlue = numBlue || 0;
+        if (position === undefined) {
+            position = 1;
+        }
 
-      if (numRed >= numDesiredRed && numGreen >= numDesiredGreen && numBlue >= numDesiredBlue) {
-        return 0;
-      } else if (numFreeSockets > 0) {
-        return (position <= 1 ? calcChromaticProbabilityBonus(numFreeSockets - 1, numDesiredRed, numDesiredGreen, numDesiredBlue, numRed + 1, numGreen, numBlue, 1) : 0) + // Red
-          (position <= 2 ? calcChromaticProbabilityBonus(numFreeSockets - 1, numDesiredRed, numDesiredGreen, numDesiredBlue, numRed, numGreen + 1, numBlue, 2) : 0) + // Green
-          calcChromaticProbabilityBonus(numFreeSockets - 1, numDesiredRed, numDesiredGreen, numDesiredBlue, numRed, numGreen, numBlue + 1, 3); // Blue
-      } else {
-        return (factorial(numRed + numGreen + numBlue) / (factorial(numRed) * factorial(numGreen) * factorial(numBlue))) * Math.pow(redProbability, numRed * 2.0) * Math.pow(greenProbability, numGreen * 2.0) * Math.pow(blueProbability, numBlue * 2.0);
-      }
+        if (numRed >= numDesiredRed && numGreen >= numDesiredGreen && numBlue >= numDesiredBlue) {
+            return 0;
+        } else if (numFreeSockets > 0) {
+            return (position <= 1 ? calcChromaticProbabilityBonus(numFreeSockets - 1, numDesiredRed, numDesiredGreen, numDesiredBlue, numRed + 1, numGreen, numBlue, 1) : 0) + // Red
+                (position <= 2 ? calcChromaticProbabilityBonus(numFreeSockets - 1, numDesiredRed, numDesiredGreen, numDesiredBlue, numRed, numGreen + 1, numBlue, 2) : 0) + // Green
+                calcChromaticProbabilityBonus(numFreeSockets - 1, numDesiredRed, numDesiredGreen, numDesiredBlue, numRed, numGreen, numBlue + 1, 3); // Blue
+        } else {
+            return (factorial(numRed + numGreen + numBlue) / (factorial(numRed) * factorial(numGreen) * factorial(numBlue))) * Math.pow(redProbability, numRed * 2.0) * Math.pow(greenProbability, numGreen * 2.0) * Math.pow(blueProbability, numBlue * 2.0);
+        }
     }
 
     var X = 22.0;
     $scope.$watch('form', function () {
-      $scope.rowCollection.length = 0;
+        $scope.rowCollection.length = 0;
 
-      craftTypes.forEach(function (craftType) {
-        // Filter out crafts that aren't valid
-        if (craftType.redSockets > $scope.form.numRedSockets || craftType.greenSockets > $scope.form.numGreenSockets || craftType.blueSockets > $scope.form.numBlueSockets) {
-          return;
-        }
+        craftTypes.forEach(function (craftType) {
+            // Filter out crafts that aren't valid
+            if (craftType.redSockets > $scope.form.numRedSockets || craftType.greenSockets > $scope.form.numGreenSockets || craftType.blueSockets > $scope.form.numBlueSockets) {
+                return;
+            }
 
-        // Number of sockets that need to be rolled
-        var numRed = $scope.form.numRedSockets - craftType.redSockets;
-        var numGreen = $scope.form.numGreenSockets - craftType.greenSockets;
-        var numBlue = $scope.form.numBlueSockets - craftType.blueSockets;
+            // Number of sockets that need to be rolled
+            var numRed = $scope.form.numRedSockets - craftType.redSockets;
+            var numGreen = $scope.form.numGreenSockets - craftType.greenSockets;
+            var numBlue = $scope.form.numBlueSockets - craftType.blueSockets;
 
-        // chance = (STAT + X) / (STR + DEX + INT + 3X)
-        // Divisor for calculating probability
-        var divisor = $scope.form.requiredStrength + $scope.form.requiredDexterity + $scope.form.requiredIntelligence + 3 * X;
+            // chance = (STAT + X) / (STR + DEX + INT + 3X)
+            // Divisor for calculating probability
+            var divisor = $scope.form.requiredStrength + $scope.form.requiredDexterity + $scope.form.requiredIntelligence + 3 * X;
 
-        // Individual color probabilities
-        redProbability = (X + $scope.form.requiredStrength) / divisor;
-        greenProbability = (X + $scope.form.requiredDexterity) / divisor;
-        blueProbability = (X + $scope.form.requiredIntelligence) / divisor;
+            // Individual color probabilities
+            redProbability = (X + $scope.form.requiredStrength) / divisor;
+            greenProbability = (X + $scope.form.requiredDexterity) / divisor;
+            blueProbability = (X + $scope.form.requiredIntelligence) / divisor;
 
-        // Number of sockets that can be random
-        var freeSockets = $scope.form.numSockets - craftType.redSockets - craftType.greenSockets - craftType.blueSockets;
+            // Number of sockets that can be random
+            var freeSockets = $scope.form.numSockets - craftType.redSockets - craftType.greenSockets - craftType.blueSockets;
 
-        // Calculate probability of configuration
-        var totalProbability = calcConfigProbability(numRed, numGreen, numBlue, freeSockets - numRed - numGreen - numBlue);
+            // Calculate probability of configuration
+            var totalProbability = calcConfigProbability(numRed, numGreen, numBlue, freeSockets - numRed - numGreen - numBlue);
 
-        // Remove probability bonus from chromatics not being able to roll the same thing again
-        if (craftType.chromaticBonus) {
-          totalProbability /= 1 - calcChromaticProbabilityBonus(freeSockets, numRed, numGreen, numBlue);
-        }
+            // Remove probability bonus from chromatics not being able to roll the same thing again
+            if (craftType.chromaticBonus) {
+                totalProbability /= 1 - calcChromaticProbabilityBonus(freeSockets, numRed, numGreen, numBlue);
+            }
 
-        // Add the results
-        $scope.rowCollection.push(new ChromaticCalculation(
-          craftType, // Type of craft
-          totalProbability, // Probability
-          1.0 / totalProbability, // Average attempts
-          craftType.costPerTry, // Cost
-          craftType.costPerTry / totalProbability, // Average cost
-          Math.sqrt((1.0 - totalProbability) / (totalProbability * totalProbability)) // Standard deviation
-        ));
-      });
+            // Add the results
+            $scope.rowCollection.push(new ChromaticCalculation(
+                craftType, // Type of craft
+                totalProbability, // Probability
+                1.0 / totalProbability, // Average attempts
+                craftType.costPerTry, // Cost
+                craftType.costPerTry / totalProbability, // Average cost
+                Math.sqrt((1.0 - totalProbability) / (totalProbability * totalProbability)) // Standard deviation
+            ));
+        });
     }, true);
-  }
-})(window.angular);
+});

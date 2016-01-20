@@ -12,6 +12,7 @@
         <module>poe4j</module>
         <module>poe4j-gui</module>
         <module>poe4j-vorici-calc</module>
+        <module>poe4j-web</module>
     </modules>
 
     <parent>
