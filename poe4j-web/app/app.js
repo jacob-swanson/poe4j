@@ -3,6 +3,12 @@
 var angular = require('angular');
 require('angular-ui-router');
 require('angular-animate');
+require('bootstrap/dist/css/bootstrap.css');
+require('jquery');
+require('./app.css');
+
+var homeTemplateUrl = require('./templates/home.html');
+var chromeCalcTemplateUrl = require('./templates/chromatic-calculator.html');
 
 angular.module('application', [
         'ui.router',
@@ -13,10 +19,10 @@ function config($stateProvider, $urlRouterProvider) {
 
     $stateProvider.state('home', {
         url: '/',
-        templateUrl: 'templates/home.html'
+        templateUrl: homeTemplateUrl
     }).state('chromatic-calculator', {
         url: '/chromatic-calculator',
-        templateUrl: 'templates/chromatic-calculator.html',
+        templateUrl: chromeCalcTemplateUrl,
         controller: 'ChromaticCalculatorController'
     });
 
