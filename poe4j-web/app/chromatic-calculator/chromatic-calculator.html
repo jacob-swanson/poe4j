@@ -1,38 +1,37 @@
-<h1>Chromatic Calculator!</h1>
 <form>
     <div class="row">
         <div class="form-group col-xs-4 col-xs-offset-4">
             <label>Sockets</label>
-            <input type="number" placeholder="Number" ng-model="form.numSockets" class="form-control">
+            <input type="number" placeholder="Number" ng-model="form.numSockets" class="form-control" min="0" max="6">
         </div>
     </div>
 
     <div class="row">
         <div class="form-group col-xs-4">
             <label>Required Strength</label>
-            <input type="number" placeholder="Number" ng-model="form.requiredStrength" class="form-control">
+            <input type="number" placeholder="Number" ng-model="form.requiredStrength" class="form-control" min="0">
         </div>
         <div class="form-group col-xs-4">
             <label>Required Dexterity</label>
-            <input type="number" placeholder="Number" ng-model="form.requiredDexterity" class="form-control">
+            <input type="number" placeholder="Number" ng-model="form.requiredDexterity" class="form-control" min="0">
         </div>
         <div class="form-group col-xs-4">
             <label>Required Intelligence</label>
-            <input type="number" placeholder="Number" ng-model="form.requiredIntelligence" class="form-control">
+            <input type="number" placeholder="Number" ng-model="form.requiredIntelligence" class="form-control" min="0">
         </div>
     </div>
     <div class="row">
         <div class="form-group col-xs-4">
             <label>Red Sockets</label>
-            <input type="number" placeholder="Number" ng-model="form.numRedSockets" class="form-control">
+            <input type="number" placeholder="Number" ng-model="form.numRedSockets" class="form-control" min="0" max="6">
         </div>
         <div class="form-group col-xs-4">
             <label>Green Sockets</label>
-            <input type="number" placeholder="Number" ng-model="form.numGreenSockets" class="form-control">
+            <input type="number" placeholder="Number" ng-model="form.numGreenSockets" class="form-control" min="0" max="6">
         </div>
         <div class="form-group col-xs-4">
             <label>Blue Sockets</label>
-            <input type="number" placeholder="Number" ng-model="form.numBlueSockets" class="form-control">
+            <input type="number" placeholder="Number" ng-model="form.numBlueSockets" class="form-control" min="0" max="6">
         </div>
     </div>
 </form>

@@ -5,7 +5,7 @@ module.exports = {
     entry: './app/app.js',
     output: {
         path: __dirname + '/dist',
-        filename: 'bundle.js'
+        filename: 'bundle.[hash].js'
     },
     module: {
         loaders: [
@@ -20,6 +20,10 @@ module.exports = {
     },
     plugins: [new HtmlWebpackPlugin({
         template: './app/index.html',
-        filename: 'index.html'
-    })]
+        filename: 'index.html',
+        inject: 'head'
+    })],
+    devServer: {
+        contentBase: "./dist"
+    }
 };
