@@ -1,0 +1,4817 @@
+[ {
+  "name" : "Keyblade",
+  "maxSockets" : 6,
+  "type" : "Two Handed Sword",
+  "str" : 8,
+  "dex" : 8,
+  "int" : 0
+}, {
+  "name" : "Russell's Shank",
+  "maxSockets" : 3,
+  "type" : "Dagger",
+  "str" : 2,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Russell's Cleaver",
+  "maxSockets" : 3,
+  "type" : "One Handed Axe",
+  "str" : 2,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Russell's Blade",
+  "maxSockets" : 3,
+  "type" : "One Handed Sword",
+  "str" : 2,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Russell's Wand",
+  "maxSockets" : 3,
+  "type" : "Wand",
+  "str" : 2,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Russell's Smasher",
+  "maxSockets" : 3,
+  "type" : "Two Handed Mace",
+  "str" : 2,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Russell's Bludgeoner",
+  "maxSockets" : 6,
+  "type" : "Staff",
+  "str" : 2,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Russell's Greatsword",
+  "maxSockets" : 6,
+  "type" : "Two Handed Sword",
+  "str" : 2,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Russell's Chopper",
+  "maxSockets" : 6,
+  "type" : "Two Handed Axe",
+  "str" : 2,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Russell's Basher",
+  "maxSockets" : 3,
+  "type" : "One Handed Mace",
+  "str" : 2,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Russell's Scratcher",
+  "maxSockets" : 3,
+  "type" : "Claw",
+  "str" : 2,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Russell's Pinger",
+  "maxSockets" : 6,
+  "type" : "Bow2",
+  "str" : 2,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Playtest Wand",
+  "maxSockets" : 3,
+  "type" : "Wand",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Driftwood Wand",
+  "maxSockets" : 3,
+  "type" : "Wand",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 14
+}, {
+  "name" : "Goat's Horn",
+  "maxSockets" : 3,
+  "type" : "Wand",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 29
+}, {
+  "name" : "Carved Wand",
+  "maxSockets" : 3,
+  "type" : "Wand",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 47
+}, {
+  "name" : "Quartz Wand",
+  "maxSockets" : 3,
+  "type" : "Wand",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 65
+}, {
+  "name" : "Spiraled Wand",
+  "maxSockets" : 3,
+  "type" : "Wand",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 83
+}, {
+  "name" : "Sage Wand",
+  "maxSockets" : 3,
+  "type" : "Wand",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 119
+}, {
+  "name" : "Pagan Wand",
+  "maxSockets" : 3,
+  "type" : "Wand",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 118
+}, {
+  "name" : "Faun's Horn",
+  "maxSockets" : 3,
+  "type" : "Wand",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 116
+}, {
+  "name" : "Engraved Wand",
+  "maxSockets" : 3,
+  "type" : "Wand",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 131
+}, {
+  "name" : "Crystal Wand",
+  "maxSockets" : 3,
+  "type" : "Wand",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 146
+}, {
+  "name" : "Serpent Wand",
+  "maxSockets" : 3,
+  "type" : "Wand",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 158
+}, {
+  "name" : "Omen Wand",
+  "maxSockets" : 3,
+  "type" : "Wand",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 200
+}, {
+  "name" : "Heathen Wand",
+  "maxSockets" : 3,
+  "type" : "Wand",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 184
+}, {
+  "name" : "Demon's Horn",
+  "maxSockets" : 3,
+  "type" : "Wand",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 179
+}, {
+  "name" : "Imbued Wand",
+  "maxSockets" : 3,
+  "type" : "Wand",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 188
+}, {
+  "name" : "Opal Wand",
+  "maxSockets" : 3,
+  "type" : "Wand",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 212
+}, {
+  "name" : "Tornado Wand",
+  "maxSockets" : 3,
+  "type" : "Wand",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 212
+}, {
+  "name" : "Prophecy Wand",
+  "maxSockets" : 3,
+  "type" : "Wand",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 245
+}, {
+  "name" : "Profane Wand",
+  "maxSockets" : 3,
+  "type" : "Wand",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 237
+}, {
+  "name" : "Glass Shank",
+  "maxSockets" : 3,
+  "type" : "Dagger",
+  "str" : 0,
+  "dex" : 9,
+  "int" : 6
+}, {
+  "name" : "Skinning Knife",
+  "maxSockets" : 3,
+  "type" : "Dagger",
+  "str" : 0,
+  "dex" : 16,
+  "int" : 11
+}, {
+  "name" : "Carving Knife",
+  "maxSockets" : 3,
+  "type" : "Dagger",
+  "str" : 0,
+  "dex" : 18,
+  "int" : 26
+}, {
+  "name" : "Stiletto",
+  "maxSockets" : 3,
+  "type" : "Dagger",
+  "str" : 0,
+  "dex" : 30,
+  "int" : 30
+}, {
+  "name" : "Boot Knife",
+  "maxSockets" : 3,
+  "type" : "Dagger",
+  "str" : 0,
+  "dex" : 31,
+  "int" : 45
+}, {
+  "name" : "Copper Kris",
+  "maxSockets" : 3,
+  "type" : "Dagger",
+  "str" : 0,
+  "dex" : 28,
+  "int" : 60
+}, {
+  "name" : "Skean",
+  "maxSockets" : 3,
+  "type" : "Dagger",
+  "str" : 0,
+  "dex" : 42,
+  "int" : 60
+}, {
+  "name" : "Imp Dagger",
+  "maxSockets" : 3,
+  "type" : "Dagger",
+  "str" : 0,
+  "dex" : 36,
+  "int" : 78
+}, {
+  "name" : "Prong Dagger",
+  "maxSockets" : 3,
+  "type" : "Dagger",
+  "str" : 0,
+  "dex" : 55,
+  "int" : 77
+}, {
+  "name" : "Flaying Knife",
+  "maxSockets" : 3,
+  "type" : "Dagger",
+  "str" : 0,
+  "dex" : 73,
+  "int" : 51
+}, {
+  "name" : "Butcher Knife",
+  "maxSockets" : 3,
+  "type" : "Dagger",
+  "str" : 0,
+  "dex" : 55,
+  "int" : 79
+}, {
+  "name" : "Poignard",
+  "maxSockets" : 3,
+  "type" : "Dagger",
+  "str" : 0,
+  "dex" : 72,
+  "int" : 72
+}, {
+  "name" : "Boot Blade",
+  "maxSockets" : 3,
+  "type" : "Dagger",
+  "str" : 0,
+  "dex" : 63,
+  "int" : 90
+}, {
+  "name" : "Golden Kris",
+  "maxSockets" : 3,
+  "type" : "Dagger",
+  "str" : 0,
+  "dex" : 51,
+  "int" : 110
+}, {
+  "name" : "Royal Skean",
+  "maxSockets" : 3,
+  "type" : "Dagger",
+  "str" : 0,
+  "dex" : 71,
+  "int" : 102
+}, {
+  "name" : "Fiend Dagger",
+  "maxSockets" : 3,
+  "type" : "Dagger",
+  "str" : 0,
+  "dex" : 58,
+  "int" : 123
+}, {
+  "name" : "Trisula",
+  "maxSockets" : 3,
+  "type" : "Dagger",
+  "str" : 0,
+  "dex" : 89,
+  "int" : 106
+}, {
+  "name" : "Gutting Knife",
+  "maxSockets" : 3,
+  "type" : "Dagger",
+  "str" : 0,
+  "dex" : 113,
+  "int" : 78
+}, {
+  "name" : "Slaughter Knife",
+  "maxSockets" : 3,
+  "type" : "Dagger",
+  "str" : 0,
+  "dex" : 81,
+  "int" : 117
+}, {
+  "name" : "Ambusher",
+  "maxSockets" : 3,
+  "type" : "Dagger",
+  "str" : 0,
+  "dex" : 113,
+  "int" : 113
+}, {
+  "name" : "Ezomyte Dagger",
+  "maxSockets" : 3,
+  "type" : "Dagger",
+  "str" : 0,
+  "dex" : 95,
+  "int" : 131
+}, {
+  "name" : "Platinum Kris",
+  "maxSockets" : 3,
+  "type" : "Dagger",
+  "str" : 0,
+  "dex" : 76,
+  "int" : 149
+}, {
+  "name" : "Imperial Skean",
+  "maxSockets" : 3,
+  "type" : "Dagger",
+  "str" : 0,
+  "dex" : 95,
+  "int" : 131
+}, {
+  "name" : "Demon Dagger",
+  "maxSockets" : 3,
+  "type" : "Dagger",
+  "str" : 0,
+  "dex" : 76,
+  "int" : 149
+}, {
+  "name" : "Sai",
+  "maxSockets" : 3,
+  "type" : "Dagger",
+  "str" : 0,
+  "dex" : 121,
+  "int" : 121
+}, {
+  "name" : "Nailed Fist",
+  "maxSockets" : 3,
+  "type" : "Claw",
+  "str" : 0,
+  "dex" : 11,
+  "int" : 11
+}, {
+  "name" : "Sharktooth Claw",
+  "maxSockets" : 3,
+  "type" : "Claw",
+  "str" : 0,
+  "dex" : 14,
+  "int" : 20
+}, {
+  "name" : "Awl",
+  "maxSockets" : 3,
+  "type" : "Claw",
+  "str" : 0,
+  "dex" : 25,
+  "int" : 25
+}, {
+  "name" : "Cat's Paw",
+  "maxSockets" : 3,
+  "type" : "Claw",
+  "str" : 0,
+  "dex" : 39,
+  "int" : 27
+}, {
+  "name" : "Blinder",
+  "maxSockets" : 3,
+  "type" : "Claw",
+  "str" : 0,
+  "dex" : 41,
+  "int" : 41
+}, {
+  "name" : "Timeworn Claw",
+  "maxSockets" : 3,
+  "type" : "Claw",
+  "str" : 0,
+  "dex" : 39,
+  "int" : 56
+}, {
+  "name" : "Sparkling Claw",
+  "maxSockets" : 3,
+  "type" : "Claw",
+  "str" : 0,
+  "dex" : 64,
+  "int" : 44
+}, {
+  "name" : "Fright Claw",
+  "maxSockets" : 3,
+  "type" : "Claw",
+  "str" : 0,
+  "dex" : 61,
+  "int" : 61
+}, {
+  "name" : "Double Claw",
+  "maxSockets" : 3,
+  "type" : "Claw",
+  "str" : 0,
+  "dex" : 67,
+  "int" : 67
+}, {
+  "name" : "Thresher Claw",
+  "maxSockets" : 3,
+  "type" : "Claw",
+  "str" : 0,
+  "dex" : 53,
+  "int" : 77
+}, {
+  "name" : "Gouger",
+  "maxSockets" : 3,
+  "type" : "Claw",
+  "str" : 0,
+  "dex" : 70,
+  "int" : 70
+}, {
+  "name" : "Tiger's Paw",
+  "maxSockets" : 3,
+  "type" : "Claw",
+  "str" : 0,
+  "dex" : 88,
+  "int" : 61
+}, {
+  "name" : "Gut Ripper",
+  "maxSockets" : 3,
+  "type" : "Claw",
+  "str" : 0,
+  "dex" : 80,
+  "int" : 80
+}, {
+  "name" : "Prehistoric Claw",
+  "maxSockets" : 3,
+  "type" : "Claw",
+  "str" : 0,
+  "dex" : 69,
+  "int" : 100
+}, {
+  "name" : "Noble Claw",
+  "maxSockets" : 3,
+  "type" : "Claw",
+  "str" : 0,
+  "dex" : 105,
+  "int" : 73
+}, {
+  "name" : "Eagle Claw",
+  "maxSockets" : 3,
+  "type" : "Claw",
+  "str" : 0,
+  "dex" : 94,
+  "int" : 94
+}, {
+  "name" : "Twin Claw",
+  "maxSockets" : 3,
+  "type" : "Claw",
+  "str" : 0,
+  "dex" : 103,
+  "int" : 103
+}, {
+  "name" : "Great White Claw",
+  "maxSockets" : 3,
+  "type" : "Claw",
+  "str" : 0,
+  "dex" : 81,
+  "int" : 117
+}, {
+  "name" : "Throat Stabber",
+  "maxSockets" : 3,
+  "type" : "Claw",
+  "str" : 0,
+  "dex" : 113,
+  "int" : 113
+}, {
+  "name" : "Hellion's Paw",
+  "maxSockets" : 3,
+  "type" : "Claw",
+  "str" : 0,
+  "dex" : 131,
+  "int" : 95
+}, {
+  "name" : "Eye Gouger",
+  "maxSockets" : 3,
+  "type" : "Claw",
+  "str" : 0,
+  "dex" : 113,
+  "int" : 113
+}, {
+  "name" : "Vaal Claw",
+  "maxSockets" : 3,
+  "type" : "Claw",
+  "str" : 0,
+  "dex" : 95,
+  "int" : 131
+}, {
+  "name" : "Imperial Claw",
+  "maxSockets" : 3,
+  "type" : "Claw",
+  "str" : 0,
+  "dex" : 131,
+  "int" : 95
+}, {
+  "name" : "Terror Claw",
+  "maxSockets" : 3,
+  "type" : "Claw",
+  "str" : 0,
+  "dex" : 113,
+  "int" : 113
+}, {
+  "name" : "Gemini Claw",
+  "maxSockets" : 3,
+  "type" : "Claw",
+  "str" : 0,
+  "dex" : 121,
+  "int" : 121
+}, {
+  "name" : "Rusted Hatchet",
+  "maxSockets" : 3,
+  "type" : "One Handed Axe",
+  "str" : 12,
+  "dex" : 6,
+  "int" : 0
+}, {
+  "name" : "Jade Hatchet",
+  "maxSockets" : 3,
+  "type" : "One Handed Axe",
+  "str" : 21,
+  "dex" : 10,
+  "int" : 0
+}, {
+  "name" : "Boarding Axe",
+  "maxSockets" : 3,
+  "type" : "One Handed Axe",
+  "str" : 28,
+  "dex" : 19,
+  "int" : 0
+}, {
+  "name" : "Cleaver",
+  "maxSockets" : 3,
+  "type" : "One Handed Axe",
+  "str" : 48,
+  "dex" : 14,
+  "int" : 0
+}, {
+  "name" : "Broad Axe",
+  "maxSockets" : 3,
+  "type" : "One Handed Axe",
+  "str" : 54,
+  "dex" : 25,
+  "int" : 0
+}, {
+  "name" : "Arming Axe",
+  "maxSockets" : 3,
+  "type" : "One Handed Axe",
+  "str" : 58,
+  "dex" : 33,
+  "int" : 0
+}, {
+  "name" : "Decorative Axe",
+  "maxSockets" : 3,
+  "type" : "One Handed Axe",
+  "str" : 80,
+  "dex" : 23,
+  "int" : 0
+}, {
+  "name" : "Spectral Axe",
+  "maxSockets" : 3,
+  "type" : "One Handed Axe",
+  "str" : 85,
+  "dex" : 37,
+  "int" : 0
+}, {
+  "name" : "Etched Hatchet",
+  "maxSockets" : 3,
+  "type" : "One Handed Axe",
+  "str" : 93,
+  "dex" : 43,
+  "int" : 0
+}, {
+  "name" : "Jasper Axe",
+  "maxSockets" : 3,
+  "type" : "One Handed Axe",
+  "str" : 86,
+  "dex" : 40,
+  "int" : 0
+}, {
+  "name" : "Tomahawk",
+  "maxSockets" : 3,
+  "type" : "One Handed Axe",
+  "str" : 81,
+  "dex" : 56,
+  "int" : 0
+}, {
+  "name" : "Wrist Chopper",
+  "maxSockets" : 3,
+  "type" : "One Handed Axe",
+  "str" : 112,
+  "dex" : 32,
+  "int" : 0
+}, {
+  "name" : "War Axe",
+  "maxSockets" : 3,
+  "type" : "One Handed Axe",
+  "str" : 106,
+  "dex" : 49,
+  "int" : 0
+}, {
+  "name" : "Chest Splitter",
+  "maxSockets" : 3,
+  "type" : "One Handed Axe",
+  "str" : 105,
+  "dex" : 60,
+  "int" : 0
+}, {
+  "name" : "Ceremonial Axe",
+  "maxSockets" : 3,
+  "type" : "One Handed Axe",
+  "str" : 134,
+  "dex" : 39,
+  "int" : 0
+}, {
+  "name" : "Wraith Axe",
+  "maxSockets" : 3,
+  "type" : "One Handed Axe",
+  "str" : 134,
+  "dex" : 59,
+  "int" : 0
+}, {
+  "name" : "Engraved Hatchet",
+  "maxSockets" : 3,
+  "type" : "One Handed Axe",
+  "str" : 143,
+  "dex" : 66,
+  "int" : 0
+}, {
+  "name" : "Karui Axe",
+  "maxSockets" : 3,
+  "type" : "One Handed Axe",
+  "str" : 132,
+  "dex" : 62,
+  "int" : 0
+}, {
+  "name" : "Siege Axe",
+  "maxSockets" : 3,
+  "type" : "One Handed Axe",
+  "str" : 119,
+  "dex" : 82,
+  "int" : 0
+}, {
+  "name" : "Reaver Axe",
+  "maxSockets" : 3,
+  "type" : "One Handed Axe",
+  "str" : 167,
+  "dex" : 57,
+  "int" : 0
+}, {
+  "name" : "Butcher Axe",
+  "maxSockets" : 3,
+  "type" : "One Handed Axe",
+  "str" : 149,
+  "dex" : 76,
+  "int" : 0
+}, {
+  "name" : "Vaal Hatchet",
+  "maxSockets" : 3,
+  "type" : "One Handed Axe",
+  "str" : 140,
+  "dex" : 86,
+  "int" : 0
+}, {
+  "name" : "Royal Axe",
+  "maxSockets" : 3,
+  "type" : "One Handed Axe",
+  "str" : 167,
+  "dex" : 57,
+  "int" : 0
+}, {
+  "name" : "Infernal Axe",
+  "maxSockets" : 3,
+  "type" : "One Handed Axe",
+  "str" : 158,
+  "dex" : 76,
+  "int" : 0
+}, {
+  "name" : "Runic Hatchet",
+  "maxSockets" : 3,
+  "type" : "One Handed Axe",
+  "str" : 163,
+  "dex" : 82,
+  "int" : 0
+}, {
+  "name" : "Rusted Sword",
+  "maxSockets" : 3,
+  "type" : "One Handed Sword",
+  "str" : 8,
+  "dex" : 8,
+  "int" : 0
+}, {
+  "name" : "Copper Sword",
+  "maxSockets" : 3,
+  "type" : "One Handed Sword",
+  "str" : 14,
+  "dex" : 14,
+  "int" : 0
+}, {
+  "name" : "Sabre",
+  "maxSockets" : 3,
+  "type" : "One Handed Sword",
+  "str" : 18,
+  "dex" : 26,
+  "int" : 0
+}, {
+  "name" : "Broad Sword",
+  "maxSockets" : 3,
+  "type" : "One Handed Sword",
+  "str" : 30,
+  "dex" : 30,
+  "int" : 0
+}, {
+  "name" : "War Sword",
+  "maxSockets" : 3,
+  "type" : "One Handed Sword",
+  "str" : 41,
+  "dex" : 35,
+  "int" : 0
+}, {
+  "name" : "Ancient Sword",
+  "maxSockets" : 3,
+  "type" : "One Handed Sword",
+  "str" : 44,
+  "dex" : 44,
+  "int" : 0
+}, {
+  "name" : "Elegant Sword",
+  "maxSockets" : 3,
+  "type" : "One Handed Sword",
+  "str" : 46,
+  "dex" : 55,
+  "int" : 0
+}, {
+  "name" : "Dusk Blade",
+  "maxSockets" : 3,
+  "type" : "One Handed Sword",
+  "str" : 57,
+  "dex" : 57,
+  "int" : 0
+}, {
+  "name" : "Hook Sword",
+  "maxSockets" : 3,
+  "type" : "One Handed Sword",
+  "str" : 64,
+  "dex" : 64,
+  "int" : 0
+}, {
+  "name" : "Variscite Blade",
+  "maxSockets" : 3,
+  "type" : "One Handed Sword",
+  "str" : 62,
+  "dex" : 62,
+  "int" : 0
+}, {
+  "name" : "Cutlass",
+  "maxSockets" : 3,
+  "type" : "One Handed Sword",
+  "str" : 55,
+  "dex" : 79,
+  "int" : 0
+}, {
+  "name" : "Baselard",
+  "maxSockets" : 3,
+  "type" : "One Handed Sword",
+  "str" : 72,
+  "dex" : 72,
+  "int" : 0
+}, {
+  "name" : "Battle Sword",
+  "maxSockets" : 3,
+  "type" : "One Handed Sword",
+  "str" : 83,
+  "dex" : 70,
+  "int" : 0
+}, {
+  "name" : "Elder Sword",
+  "maxSockets" : 3,
+  "type" : "One Handed Sword",
+  "str" : 81,
+  "dex" : 81,
+  "int" : 0
+}, {
+  "name" : "Graceful Sword",
+  "maxSockets" : 3,
+  "type" : "One Handed Sword",
+  "str" : 78,
+  "dex" : 94,
+  "int" : 0
+}, {
+  "name" : "Twilight Blade",
+  "maxSockets" : 3,
+  "type" : "One Handed Sword",
+  "str" : 91,
+  "dex" : 91,
+  "int" : 0
+}, {
+  "name" : "Grappler",
+  "maxSockets" : 3,
+  "type" : "One Handed Sword",
+  "str" : 99,
+  "dex" : 99,
+  "int" : 0
+}, {
+  "name" : "Gemstone Sword",
+  "maxSockets" : 3,
+  "type" : "One Handed Sword",
+  "str" : 96,
+  "dex" : 96,
+  "int" : 0
+}, {
+  "name" : "Corsair Sword",
+  "maxSockets" : 3,
+  "type" : "One Handed Sword",
+  "str" : 81,
+  "dex" : 117,
+  "int" : 0
+}, {
+  "name" : "Gladius",
+  "maxSockets" : 3,
+  "type" : "One Handed Sword",
+  "str" : 113,
+  "dex" : 113,
+  "int" : 0
+}, {
+  "name" : "Legion Sword",
+  "maxSockets" : 3,
+  "type" : "One Handed Sword",
+  "str" : 122,
+  "dex" : 104,
+  "int" : 0
+}, {
+  "name" : "Vaal Blade",
+  "maxSockets" : 3,
+  "type" : "One Handed Sword",
+  "str" : 113,
+  "dex" : 113,
+  "int" : 0
+}, {
+  "name" : "Eternal Sword",
+  "maxSockets" : 3,
+  "type" : "One Handed Sword",
+  "str" : 104,
+  "dex" : 122,
+  "int" : 0
+}, {
+  "name" : "Midnight Blade",
+  "maxSockets" : 3,
+  "type" : "One Handed Sword",
+  "str" : 113,
+  "dex" : 113,
+  "int" : 0
+}, {
+  "name" : "Tiger Hook",
+  "maxSockets" : 3,
+  "type" : "One Handed Sword",
+  "str" : 119,
+  "dex" : 119,
+  "int" : 0
+}, {
+  "name" : "Playtest Rapier",
+  "maxSockets" : 3,
+  "type" : "Foil/Rapier",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Rusted Spike",
+  "maxSockets" : 3,
+  "type" : "Foil/Rapier",
+  "str" : 0,
+  "dex" : 20,
+  "int" : 0
+}, {
+  "name" : "Whalebone Rapier",
+  "maxSockets" : 3,
+  "type" : "Foil/Rapier",
+  "str" : 0,
+  "dex" : 32,
+  "int" : 0
+}, {
+  "name" : "Battered Foil",
+  "maxSockets" : 3,
+  "type" : "Foil/Rapier",
+  "str" : 0,
+  "dex" : 47,
+  "int" : 0
+}, {
+  "name" : "Basket Rapier",
+  "maxSockets" : 3,
+  "type" : "Foil/Rapier",
+  "str" : 0,
+  "dex" : 62,
+  "int" : 0
+}, {
+  "name" : "Jagged Foil",
+  "maxSockets" : 3,
+  "type" : "Foil/Rapier",
+  "str" : 0,
+  "dex" : 77,
+  "int" : 0
+}, {
+  "name" : "Antique Rapier",
+  "maxSockets" : 3,
+  "type" : "Foil/Rapier",
+  "str" : 0,
+  "dex" : 89,
+  "int" : 0
+}, {
+  "name" : "Elegant Foil",
+  "maxSockets" : 3,
+  "type" : "Foil/Rapier",
+  "str" : 0,
+  "dex" : 101,
+  "int" : 0
+}, {
+  "name" : "Thorn Rapier",
+  "maxSockets" : 3,
+  "type" : "Foil/Rapier",
+  "str" : 0,
+  "dex" : 113,
+  "int" : 0
+}, {
+  "name" : "Smallsword",
+  "maxSockets" : 3,
+  "type" : "Foil/Rapier",
+  "str" : 0,
+  "dex" : 124,
+  "int" : 0
+}, {
+  "name" : "Wyrmbone Rapier",
+  "maxSockets" : 3,
+  "type" : "Foil/Rapier",
+  "str" : 0,
+  "dex" : 122,
+  "int" : 0
+}, {
+  "name" : "Burnished Foil",
+  "maxSockets" : 3,
+  "type" : "Foil/Rapier",
+  "str" : 0,
+  "dex" : 131,
+  "int" : 0
+}, {
+  "name" : "Estoc",
+  "maxSockets" : 3,
+  "type" : "Foil/Rapier",
+  "str" : 0,
+  "dex" : 140,
+  "int" : 0
+}, {
+  "name" : "Serrated Foil",
+  "maxSockets" : 3,
+  "type" : "Foil/Rapier",
+  "str" : 0,
+  "dex" : 149,
+  "int" : 0
+}, {
+  "name" : "Primeval Rapier",
+  "maxSockets" : 3,
+  "type" : "Foil/Rapier",
+  "str" : 0,
+  "dex" : 158,
+  "int" : 0
+}, {
+  "name" : "Fancy Foil",
+  "maxSockets" : 3,
+  "type" : "Foil/Rapier",
+  "str" : 0,
+  "dex" : 167,
+  "int" : 0
+}, {
+  "name" : "Apex Rapier",
+  "maxSockets" : 3,
+  "type" : "Foil/Rapier",
+  "str" : 0,
+  "dex" : 176,
+  "int" : 0
+}, {
+  "name" : "Courtesan Sword",
+  "maxSockets" : 3,
+  "type" : "Foil/Rapier",
+  "str" : 0,
+  "dex" : 190,
+  "int" : 0
+}, {
+  "name" : "Dragonbone Rapier",
+  "maxSockets" : 3,
+  "type" : "Foil/Rapier",
+  "str" : 0,
+  "dex" : 185,
+  "int" : 0
+}, {
+  "name" : "Tempered Foil",
+  "maxSockets" : 3,
+  "type" : "Foil/Rapier",
+  "str" : 0,
+  "dex" : 212,
+  "int" : 0
+}, {
+  "name" : "Pecoraro",
+  "maxSockets" : 3,
+  "type" : "Foil/Rapier",
+  "str" : 0,
+  "dex" : 212,
+  "int" : 0
+}, {
+  "name" : "Spiraled Foil",
+  "maxSockets" : 3,
+  "type" : "Foil/Rapier",
+  "str" : 0,
+  "dex" : 212,
+  "int" : 0
+}, {
+  "name" : "Vaal Rapier",
+  "maxSockets" : 3,
+  "type" : "Foil/Rapier",
+  "str" : 0,
+  "dex" : 212,
+  "int" : 0
+}, {
+  "name" : "Jewelled Foil",
+  "maxSockets" : 3,
+  "type" : "Foil/Rapier",
+  "str" : 0,
+  "dex" : 212,
+  "int" : 0
+}, {
+  "name" : "Harpy Rapier",
+  "maxSockets" : 3,
+  "type" : "Foil/Rapier",
+  "str" : 0,
+  "dex" : 212,
+  "int" : 0
+}, {
+  "name" : "Dragoon Sword",
+  "maxSockets" : 3,
+  "type" : "Foil/Rapier",
+  "str" : 0,
+  "dex" : 220,
+  "int" : 0
+}, {
+  "name" : "Driftwood Club",
+  "maxSockets" : 3,
+  "type" : "One Handed Mace",
+  "str" : 14,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Tribal Club",
+  "maxSockets" : 3,
+  "type" : "One Handed Mace",
+  "str" : 26,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Spiked Club",
+  "maxSockets" : 3,
+  "type" : "One Handed Mace",
+  "str" : 41,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Stone Hammer",
+  "maxSockets" : 3,
+  "type" : "One Handed Mace",
+  "str" : 56,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "War Hammer",
+  "maxSockets" : 3,
+  "type" : "One Handed Mace",
+  "str" : 71,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Bladed Mace",
+  "maxSockets" : 3,
+  "type" : "One Handed Mace",
+  "str" : 83,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Ceremonial Mace",
+  "maxSockets" : 3,
+  "type" : "One Handed Mace",
+  "str" : 95,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Dream Mace",
+  "maxSockets" : 3,
+  "type" : "One Handed Mace",
+  "str" : 107,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Wyrm Mace",
+  "maxSockets" : 3,
+  "type" : "One Handed Mace",
+  "str" : 118,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Petrified Club",
+  "maxSockets" : 3,
+  "type" : "One Handed Mace",
+  "str" : 116,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Barbed Club",
+  "maxSockets" : 3,
+  "type" : "One Handed Mace",
+  "str" : 125,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Rock Breaker",
+  "maxSockets" : 3,
+  "type" : "One Handed Mace",
+  "str" : 134,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Battle Hammer",
+  "maxSockets" : 3,
+  "type" : "One Handed Mace",
+  "str" : 143,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Flanged Mace",
+  "maxSockets" : 3,
+  "type" : "One Handed Mace",
+  "str" : 152,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Ornate Mace",
+  "maxSockets" : 3,
+  "type" : "One Handed Mace",
+  "str" : 161,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Phantom Mace",
+  "maxSockets" : 3,
+  "type" : "One Handed Mace",
+  "str" : 170,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Dragon Mace",
+  "maxSockets" : 3,
+  "type" : "One Handed Mace",
+  "str" : 184,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Ancestral Club",
+  "maxSockets" : 3,
+  "type" : "One Handed Mace",
+  "str" : 179,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Tenderizer",
+  "maxSockets" : 3,
+  "type" : "One Handed Mace",
+  "str" : 185,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Gavel",
+  "maxSockets" : 3,
+  "type" : "One Handed Mace",
+  "str" : 212,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Legion Hammer",
+  "maxSockets" : 3,
+  "type" : "One Handed Mace",
+  "str" : 212,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Pernarch",
+  "maxSockets" : 3,
+  "type" : "One Handed Mace",
+  "str" : 212,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Auric Mace",
+  "maxSockets" : 3,
+  "type" : "One Handed Mace",
+  "str" : 212,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Nightmare Mace",
+  "maxSockets" : 3,
+  "type" : "One Handed Mace",
+  "str" : 212,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Behemoth Mace",
+  "maxSockets" : 3,
+  "type" : "One Handed Mace",
+  "str" : 220,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Driftwood Sceptre",
+  "maxSockets" : 6,
+  "type" : "Sceptre",
+  "str" : 8,
+  "dex" : 0,
+  "int" : 8
+}, {
+  "name" : "Darkwood Sceptre",
+  "maxSockets" : 6,
+  "type" : "Sceptre",
+  "str" : 14,
+  "dex" : 0,
+  "int" : 14
+}, {
+  "name" : "Bronze Sceptre",
+  "maxSockets" : 6,
+  "type" : "Sceptre",
+  "str" : 22,
+  "dex" : 0,
+  "int" : 22
+}, {
+  "name" : "Quartz Sceptre",
+  "maxSockets" : 6,
+  "type" : "Sceptre",
+  "str" : 25,
+  "dex" : 0,
+  "int" : 35
+}, {
+  "name" : "Iron Sceptre",
+  "maxSockets" : 6,
+  "type" : "Sceptre",
+  "str" : 38,
+  "dex" : 0,
+  "int" : 38
+}, {
+  "name" : "Ochre Sceptre",
+  "maxSockets" : 6,
+  "type" : "Sceptre",
+  "str" : 44,
+  "dex" : 0,
+  "int" : 44
+}, {
+  "name" : "Ritual Sceptre",
+  "maxSockets" : 6,
+  "type" : "Sceptre",
+  "str" : 51,
+  "dex" : 0,
+  "int" : 51
+}, {
+  "name" : "Shadow Sceptre",
+  "maxSockets" : 6,
+  "type" : "Sceptre",
+  "str" : 52,
+  "dex" : 0,
+  "int" : 62
+}, {
+  "name" : "Horned Sceptre",
+  "maxSockets" : 6,
+  "type" : "Sceptre",
+  "str" : 66,
+  "dex" : 0,
+  "int" : 66
+}, {
+  "name" : "Grinning Fetish",
+  "maxSockets" : 6,
+  "type" : "Sceptre",
+  "str" : 62,
+  "dex" : 0,
+  "int" : 62
+}, {
+  "name" : "Sekhem",
+  "maxSockets" : 6,
+  "type" : "Sceptre",
+  "str" : 67,
+  "dex" : 0,
+  "int" : 67
+}, {
+  "name" : "Crystal Sceptre",
+  "maxSockets" : 6,
+  "type" : "Sceptre",
+  "str" : 59,
+  "dex" : 0,
+  "int" : 85
+}, {
+  "name" : "Lead Sceptre",
+  "maxSockets" : 6,
+  "type" : "Sceptre",
+  "str" : 77,
+  "dex" : 0,
+  "int" : 77
+}, {
+  "name" : "Blood Sceptre",
+  "maxSockets" : 6,
+  "type" : "Sceptre",
+  "str" : 81,
+  "dex" : 0,
+  "int" : 81
+}, {
+  "name" : "Royal Sceptre",
+  "maxSockets" : 6,
+  "type" : "Sceptre",
+  "str" : 86,
+  "dex" : 0,
+  "int" : 86
+}, {
+  "name" : "Abyssal Sceptre",
+  "maxSockets" : 6,
+  "type" : "Sceptre",
+  "str" : 83,
+  "dex" : 0,
+  "int" : 99
+}, {
+  "name" : "Stag Sceptre",
+  "maxSockets" : 6,
+  "type" : "Sceptre",
+  "str" : 98,
+  "dex" : 0,
+  "int" : 98
+}, {
+  "name" : "Karui Sceptre",
+  "maxSockets" : 6,
+  "type" : "Sceptre",
+  "str" : 96,
+  "dex" : 0,
+  "int" : 96
+}, {
+  "name" : "Tyrant's Sekhem",
+  "maxSockets" : 6,
+  "type" : "Sceptre",
+  "str" : 99,
+  "dex" : 0,
+  "int" : 99
+}, {
+  "name" : "Opal Sceptre",
+  "maxSockets" : 6,
+  "type" : "Sceptre",
+  "str" : 95,
+  "dex" : 0,
+  "int" : 131
+}, {
+  "name" : "Platinum Sceptre",
+  "maxSockets" : 6,
+  "type" : "Sceptre",
+  "str" : 113,
+  "dex" : 0,
+  "int" : 113
+}, {
+  "name" : "Vaal Sceptre",
+  "maxSockets" : 6,
+  "type" : "Sceptre",
+  "str" : 113,
+  "dex" : 0,
+  "int" : 113
+}, {
+  "name" : "Carnal Sceptre",
+  "maxSockets" : 6,
+  "type" : "Sceptre",
+  "str" : 113,
+  "dex" : 0,
+  "int" : 113
+}, {
+  "name" : "Void Sceptre",
+  "maxSockets" : 6,
+  "type" : "Sceptre",
+  "str" : 104,
+  "dex" : 0,
+  "int" : 122
+}, {
+  "name" : "Sambar Sceptre",
+  "maxSockets" : 6,
+  "type" : "Sceptre",
+  "str" : 121,
+  "dex" : 0,
+  "int" : 113
+}, {
+  "name" : "Crude Bow",
+  "maxSockets" : 6,
+  "type" : "Bow2",
+  "str" : 0,
+  "dex" : 14,
+  "int" : 0
+}, {
+  "name" : "Short Bow",
+  "maxSockets" : 6,
+  "type" : "Bow2",
+  "str" : 0,
+  "dex" : 26,
+  "int" : 0
+}, {
+  "name" : "Long Bow",
+  "maxSockets" : 6,
+  "type" : "Bow2",
+  "str" : 0,
+  "dex" : 38,
+  "int" : 0
+}, {
+  "name" : "Composite Bow",
+  "maxSockets" : 6,
+  "type" : "Bow2",
+  "str" : 0,
+  "dex" : 53,
+  "int" : 0
+}, {
+  "name" : "Recurve Bow",
+  "maxSockets" : 6,
+  "type" : "Bow2",
+  "str" : 0,
+  "dex" : 65,
+  "int" : 0
+}, {
+  "name" : "Bone Bow",
+  "maxSockets" : 6,
+  "type" : "Bow2",
+  "str" : 0,
+  "dex" : 80,
+  "int" : 0
+}, {
+  "name" : "Royal Bow",
+  "maxSockets" : 6,
+  "type" : "Bow2",
+  "str" : 0,
+  "dex" : 95,
+  "int" : 0
+}, {
+  "name" : "Death Bow",
+  "maxSockets" : 6,
+  "type" : "Bow2",
+  "str" : 0,
+  "dex" : 107,
+  "int" : 0
+}, {
+  "name" : "Reflex Bow",
+  "maxSockets" : 6,
+  "type" : "Bow2",
+  "str" : 0,
+  "dex" : 124,
+  "int" : 0
+}, {
+  "name" : "Grove Bow",
+  "maxSockets" : 6,
+  "type" : "Bow2",
+  "str" : 0,
+  "dex" : 116,
+  "int" : 0
+}, {
+  "name" : "Decurve Bow",
+  "maxSockets" : 6,
+  "type" : "Bow2",
+  "str" : 0,
+  "dex" : 125,
+  "int" : 0
+}, {
+  "name" : "Compound Bow",
+  "maxSockets" : 6,
+  "type" : "Bow2",
+  "str" : 0,
+  "dex" : 134,
+  "int" : 0
+}, {
+  "name" : "Sniper Bow",
+  "maxSockets" : 6,
+  "type" : "Bow2",
+  "str" : 0,
+  "dex" : 143,
+  "int" : 0
+}, {
+  "name" : "Ivory Bow",
+  "maxSockets" : 6,
+  "type" : "Bow2",
+  "str" : 0,
+  "dex" : 152,
+  "int" : 0
+}, {
+  "name" : "Highborn Bow",
+  "maxSockets" : 6,
+  "type" : "Bow2",
+  "str" : 0,
+  "dex" : 161,
+  "int" : 0
+}, {
+  "name" : "Decimation Bow",
+  "maxSockets" : 6,
+  "type" : "Bow2",
+  "str" : 0,
+  "dex" : 170,
+  "int" : 0
+}, {
+  "name" : "Steelwood Bow",
+  "maxSockets" : 6,
+  "type" : "Bow2",
+  "str" : 0,
+  "dex" : 190,
+  "int" : 0
+}, {
+  "name" : "Thicket Bow",
+  "maxSockets" : 6,
+  "type" : "Bow2",
+  "str" : 0,
+  "dex" : 179,
+  "int" : 0
+}, {
+  "name" : "Citadel Bow",
+  "maxSockets" : 6,
+  "type" : "Bow2",
+  "str" : 0,
+  "dex" : 185,
+  "int" : 0
+}, {
+  "name" : "Ranger Bow",
+  "maxSockets" : 6,
+  "type" : "Bow2",
+  "str" : 0,
+  "dex" : 212,
+  "int" : 0
+}, {
+  "name" : "Assassin Bow",
+  "maxSockets" : 6,
+  "type" : "Bow2",
+  "str" : 0,
+  "dex" : 212,
+  "int" : 0
+}, {
+  "name" : "Spine Bow",
+  "maxSockets" : 6,
+  "type" : "Bow2",
+  "str" : 0,
+  "dex" : 212,
+  "int" : 0
+}, {
+  "name" : "Imperial Bow",
+  "maxSockets" : 6,
+  "type" : "Bow2",
+  "str" : 0,
+  "dex" : 212,
+  "int" : 0
+}, {
+  "name" : "Harbinger Bow",
+  "maxSockets" : 6,
+  "type" : "Bow2",
+  "str" : 0,
+  "dex" : 212,
+  "int" : 0
+}, {
+  "name" : "Maraketh Bow",
+  "maxSockets" : 6,
+  "type" : "Bow2",
+  "str" : 0,
+  "dex" : 222,
+  "int" : 0
+}, {
+  "name" : "Gnarled Branch",
+  "maxSockets" : 6,
+  "type" : "Staff",
+  "str" : 12,
+  "dex" : 0,
+  "int" : 12
+}, {
+  "name" : "Primitive Staff",
+  "maxSockets" : 6,
+  "type" : "Staff",
+  "str" : 20,
+  "dex" : 0,
+  "int" : 20
+}, {
+  "name" : "Long Staff",
+  "maxSockets" : 6,
+  "type" : "Staff",
+  "str" : 27,
+  "dex" : 0,
+  "int" : 27
+}, {
+  "name" : "Iron Staff",
+  "maxSockets" : 6,
+  "type" : "Staff",
+  "str" : 35,
+  "dex" : 0,
+  "int" : 35
+}, {
+  "name" : "Coiled Staff",
+  "maxSockets" : 6,
+  "type" : "Staff",
+  "str" : 43,
+  "dex" : 0,
+  "int" : 43
+}, {
+  "name" : "Royal Staff",
+  "maxSockets" : 6,
+  "type" : "Staff",
+  "str" : 51,
+  "dex" : 0,
+  "int" : 51
+}, {
+  "name" : "Vile Staff",
+  "maxSockets" : 6,
+  "type" : "Staff",
+  "str" : 59,
+  "dex" : 0,
+  "int" : 59
+}, {
+  "name" : "Crescent Staff",
+  "maxSockets" : 6,
+  "type" : "Staff",
+  "str" : 66,
+  "dex" : 0,
+  "int" : 66
+}, {
+  "name" : "Woodful Staff",
+  "maxSockets" : 6,
+  "type" : "Staff",
+  "str" : 65,
+  "dex" : 0,
+  "int" : 65
+}, {
+  "name" : "Quarterstaff",
+  "maxSockets" : 6,
+  "type" : "Staff",
+  "str" : 72,
+  "dex" : 0,
+  "int" : 72
+}, {
+  "name" : "Military Staff",
+  "maxSockets" : 6,
+  "type" : "Staff",
+  "str" : 78,
+  "dex" : 0,
+  "int" : 78
+}, {
+  "name" : "Serpentine Staff",
+  "maxSockets" : 6,
+  "type" : "Staff",
+  "str" : 85,
+  "dex" : 0,
+  "int" : 85
+}, {
+  "name" : "Highborn Staff",
+  "maxSockets" : 6,
+  "type" : "Staff",
+  "str" : 89,
+  "dex" : 0,
+  "int" : 89
+}, {
+  "name" : "Foul Staff",
+  "maxSockets" : 6,
+  "type" : "Staff",
+  "str" : 94,
+  "dex" : 0,
+  "int" : 94
+}, {
+  "name" : "Moon Staff",
+  "maxSockets" : 6,
+  "type" : "Staff",
+  "str" : 101,
+  "dex" : 0,
+  "int" : 101
+}, {
+  "name" : "Primordial Staff",
+  "maxSockets" : 6,
+  "type" : "Staff",
+  "str" : 99,
+  "dex" : 0,
+  "int" : 99
+}, {
+  "name" : "Lathi",
+  "maxSockets" : 6,
+  "type" : "Staff",
+  "str" : 113,
+  "dex" : 0,
+  "int" : 113
+}, {
+  "name" : "Ezomyte Staff",
+  "maxSockets" : 6,
+  "type" : "Staff",
+  "str" : 113,
+  "dex" : 0,
+  "int" : 113
+}, {
+  "name" : "Maelström Staff",
+  "maxSockets" : 6,
+  "type" : "Staff",
+  "str" : 113,
+  "dex" : 0,
+  "int" : 113
+}, {
+  "name" : "Imperial Staff",
+  "maxSockets" : 6,
+  "type" : "Staff",
+  "str" : 113,
+  "dex" : 0,
+  "int" : 113
+}, {
+  "name" : "Judgement Staff",
+  "maxSockets" : 6,
+  "type" : "Staff",
+  "str" : 113,
+  "dex" : 0,
+  "int" : 113
+}, {
+  "name" : "Eclipse Staff",
+  "maxSockets" : 6,
+  "type" : "Staff",
+  "str" : 117,
+  "dex" : 0,
+  "int" : 117
+}, {
+  "name" : "Stone Axe",
+  "maxSockets" : 6,
+  "type" : "Two Handed Axe",
+  "str" : 17,
+  "dex" : 8,
+  "int" : 0
+}, {
+  "name" : "Jade Chopper",
+  "maxSockets" : 6,
+  "type" : "Two Handed Axe",
+  "str" : 31,
+  "dex" : 9,
+  "int" : 0
+}, {
+  "name" : "Woodsplitter",
+  "maxSockets" : 6,
+  "type" : "Two Handed Axe",
+  "str" : 36,
+  "dex" : 17,
+  "int" : 0
+}, {
+  "name" : "Poleaxe",
+  "maxSockets" : 6,
+  "type" : "Two Handed Axe",
+  "str" : 44,
+  "dex" : 25,
+  "int" : 0
+}, {
+  "name" : "Double Axe",
+  "maxSockets" : 6,
+  "type" : "Two Handed Axe",
+  "str" : 62,
+  "dex" : 27,
+  "int" : 0
+}, {
+  "name" : "Gilded Axe",
+  "maxSockets" : 6,
+  "type" : "Two Handed Axe",
+  "str" : 64,
+  "dex" : 37,
+  "int" : 0
+}, {
+  "name" : "Shadow Axe",
+  "maxSockets" : 6,
+  "type" : "Two Handed Axe",
+  "str" : 80,
+  "dex" : 37,
+  "int" : 0
+}, {
+  "name" : "Dagger Axe",
+  "maxSockets" : 6,
+  "type" : "Two Handed Axe",
+  "str" : 89,
+  "dex" : 43,
+  "int" : 0
+}, {
+  "name" : "Jasper Chopper",
+  "maxSockets" : 6,
+  "type" : "Two Handed Axe",
+  "str" : 100,
+  "dex" : 29,
+  "int" : 0
+}, {
+  "name" : "Timber Axe",
+  "maxSockets" : 6,
+  "type" : "Two Handed Axe",
+  "str" : 97,
+  "dex" : 45,
+  "int" : 0
+}, {
+  "name" : "Headsman Axe",
+  "maxSockets" : 6,
+  "type" : "Two Handed Axe",
+  "str" : 99,
+  "dex" : 57,
+  "int" : 0
+}, {
+  "name" : "Labrys",
+  "maxSockets" : 6,
+  "type" : "Two Handed Axe",
+  "str" : 122,
+  "dex" : 53,
+  "int" : 0
+}, {
+  "name" : "Noble Axe",
+  "maxSockets" : 6,
+  "type" : "Two Handed Axe",
+  "str" : 113,
+  "dex" : 65,
+  "int" : 0
+}, {
+  "name" : "Abyssal Axe",
+  "maxSockets" : 6,
+  "type" : "Two Handed Axe",
+  "str" : 128,
+  "dex" : 60,
+  "int" : 0
+}, {
+  "name" : "Talon Axe",
+  "maxSockets" : 6,
+  "type" : "Two Handed Axe",
+  "str" : 140,
+  "dex" : 67,
+  "int" : 0
+}, {
+  "name" : "Karui Chopper",
+  "maxSockets" : 6,
+  "type" : "Two Handed Axe",
+  "str" : 151,
+  "dex" : 43,
+  "int" : 0
+}, {
+  "name" : "Sundering Axe",
+  "maxSockets" : 6,
+  "type" : "Two Handed Axe",
+  "str" : 149,
+  "dex" : 76,
+  "int" : 0
+}, {
+  "name" : "Ezomyte Axe",
+  "maxSockets" : 6,
+  "type" : "Two Handed Axe",
+  "str" : 140,
+  "dex" : 86,
+  "int" : 0
+}, {
+  "name" : "Vaal Axe",
+  "maxSockets" : 6,
+  "type" : "Two Handed Axe",
+  "str" : 158,
+  "dex" : 76,
+  "int" : 0
+}, {
+  "name" : "Despot Axe",
+  "maxSockets" : 6,
+  "type" : "Two Handed Axe",
+  "str" : 140,
+  "dex" : 86,
+  "int" : 0
+}, {
+  "name" : "Void Axe",
+  "maxSockets" : 6,
+  "type" : "Two Handed Axe",
+  "str" : 149,
+  "dex" : 76,
+  "int" : 0
+}, {
+  "name" : "Fleshripper",
+  "maxSockets" : 6,
+  "type" : "Two Handed Axe",
+  "str" : 156,
+  "dex" : 84,
+  "int" : 0
+}, {
+  "name" : "Corroded Blade",
+  "maxSockets" : 6,
+  "type" : "Two Handed Sword",
+  "str" : 11,
+  "dex" : 11,
+  "int" : 0
+}, {
+  "name" : "Longsword",
+  "maxSockets" : 6,
+  "type" : "Two Handed Sword",
+  "str" : 20,
+  "dex" : 17,
+  "int" : 0
+}, {
+  "name" : "Bastard Sword",
+  "maxSockets" : 6,
+  "type" : "Two Handed Sword",
+  "str" : 21,
+  "dex" : 30,
+  "int" : 0
+}, {
+  "name" : "Two-Handed Sword",
+  "maxSockets" : 6,
+  "type" : "Two Handed Sword",
+  "str" : 33,
+  "dex" : 33,
+  "int" : 0
+}, {
+  "name" : "Etched Greatsword",
+  "maxSockets" : 6,
+  "type" : "Two Handed Sword",
+  "str" : 45,
+  "dex" : 38,
+  "int" : 0
+}, {
+  "name" : "Ornate Sword",
+  "maxSockets" : 6,
+  "type" : "Two Handed Sword",
+  "str" : 45,
+  "dex" : 54,
+  "int" : 0
+}, {
+  "name" : "Spectral Sword",
+  "maxSockets" : 6,
+  "type" : "Two Handed Sword",
+  "str" : 57,
+  "dex" : 57,
+  "int" : 0
+}, {
+  "name" : "Curved Blade",
+  "maxSockets" : 6,
+  "type" : "Two Handed Sword",
+  "str" : 62,
+  "dex" : 73,
+  "int" : 0
+}, {
+  "name" : "Butcher Sword",
+  "maxSockets" : 6,
+  "type" : "Two Handed Sword",
+  "str" : 69,
+  "dex" : 58,
+  "int" : 0
+}, {
+  "name" : "Footman Sword",
+  "maxSockets" : 6,
+  "type" : "Two Handed Sword",
+  "str" : 57,
+  "dex" : 83,
+  "int" : 0
+}, {
+  "name" : "Highland Blade",
+  "maxSockets" : 6,
+  "type" : "Two Handed Sword",
+  "str" : 77,
+  "dex" : 77,
+  "int" : 0
+}, {
+  "name" : "Engraved Greatsword",
+  "maxSockets" : 6,
+  "type" : "Two Handed Sword",
+  "str" : 91,
+  "dex" : 76,
+  "int" : 0
+}, {
+  "name" : "Tiger Sword",
+  "maxSockets" : 6,
+  "type" : "Two Handed Sword",
+  "str" : 80,
+  "dex" : 96,
+  "int" : 0
+}, {
+  "name" : "Wraith Sword",
+  "maxSockets" : 6,
+  "type" : "Two Handed Sword",
+  "str" : 93,
+  "dex" : 93,
+  "int" : 0
+}, {
+  "name" : "Lithe Blade",
+  "maxSockets" : 6,
+  "type" : "Two Handed Sword",
+  "str" : 96,
+  "dex" : 113,
+  "int" : 0
+}, {
+  "name" : "Headman's Sword",
+  "maxSockets" : 6,
+  "type" : "Two Handed Sword",
+  "str" : 106,
+  "dex" : 89,
+  "int" : 0
+}, {
+  "name" : "Reaver Sword",
+  "maxSockets" : 6,
+  "type" : "Two Handed Sword",
+  "str" : 82,
+  "dex" : 119,
+  "int" : 0
+}, {
+  "name" : "Ezomyte Blade",
+  "maxSockets" : 6,
+  "type" : "Two Handed Sword",
+  "str" : 113,
+  "dex" : 113,
+  "int" : 0
+}, {
+  "name" : "Vaal Greatsword",
+  "maxSockets" : 6,
+  "type" : "Two Handed Sword",
+  "str" : 122,
+  "dex" : 104,
+  "int" : 0
+}, {
+  "name" : "Lion Sword",
+  "maxSockets" : 6,
+  "type" : "Two Handed Sword",
+  "str" : 104,
+  "dex" : 122,
+  "int" : 0
+}, {
+  "name" : "Infernal Sword",
+  "maxSockets" : 6,
+  "type" : "Two Handed Sword",
+  "str" : 113,
+  "dex" : 113,
+  "int" : 0
+}, {
+  "name" : "Exquisite Blade",
+  "maxSockets" : 6,
+  "type" : "Two Handed Sword",
+  "str" : 119,
+  "dex" : 131,
+  "int" : 0
+}, {
+  "name" : "Playtest Maul",
+  "maxSockets" : 3,
+  "type" : "Two Handed Mace",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Driftwood Maul",
+  "maxSockets" : 3,
+  "type" : "Two Handed Mace",
+  "str" : 20,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Tribal Maul",
+  "maxSockets" : 3,
+  "type" : "Two Handed Mace",
+  "str" : 35,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Mallet",
+  "maxSockets" : 3,
+  "type" : "Two Handed Mace",
+  "str" : 47,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Sledgehammer",
+  "maxSockets" : 3,
+  "type" : "Two Handed Mace",
+  "str" : 62,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Jagged Maul",
+  "maxSockets" : 3,
+  "type" : "Two Handed Mace",
+  "str" : 77,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Brass Maul",
+  "maxSockets" : 3,
+  "type" : "Two Handed Mace",
+  "str" : 92,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Fright Maul",
+  "maxSockets" : 3,
+  "type" : "Two Handed Mace",
+  "str" : 107,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Morning Star",
+  "maxSockets" : 3,
+  "type" : "Two Handed Mace",
+  "str" : 118,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Totemic Maul",
+  "maxSockets" : 3,
+  "type" : "Two Handed Mace",
+  "str" : 119,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Great Mallet",
+  "maxSockets" : 3,
+  "type" : "Two Handed Mace",
+  "str" : 131,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Steelhead",
+  "maxSockets" : 3,
+  "type" : "Two Handed Mace",
+  "str" : 143,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Spiny Maul",
+  "maxSockets" : 3,
+  "type" : "Two Handed Mace",
+  "str" : 155,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Plated Maul",
+  "maxSockets" : 3,
+  "type" : "Two Handed Mace",
+  "str" : 164,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Dread Maul",
+  "maxSockets" : 3,
+  "type" : "Two Handed Mace",
+  "str" : 173,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Solar Maul",
+  "maxSockets" : 3,
+  "type" : "Two Handed Mace",
+  "str" : 187,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Karui Maul",
+  "maxSockets" : 3,
+  "type" : "Two Handed Mace",
+  "str" : 182,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Colossus Mallet",
+  "maxSockets" : 3,
+  "type" : "Two Handed Mace",
+  "str" : 188,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Piledriver",
+  "maxSockets" : 3,
+  "type" : "Two Handed Mace",
+  "str" : 212,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Meatgrinder",
+  "maxSockets" : 3,
+  "type" : "Two Handed Mace",
+  "str" : 212,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Imperial Maul",
+  "maxSockets" : 3,
+  "type" : "Two Handed Mace",
+  "str" : 212,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Terror Maul",
+  "maxSockets" : 3,
+  "type" : "Two Handed Mace",
+  "str" : 212,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Coronal Maul",
+  "maxSockets" : 3,
+  "type" : "Two Handed Mace",
+  "str" : 220,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Playtest Bow",
+  "maxSockets" : 6,
+  "type" : "Bow2",
+  "str" : 0,
+  "dex" : 14,
+  "int" : 0
+}, {
+  "name" : "Fishing Rod",
+  "maxSockets" : 4,
+  "type" : "Fishing Rod",
+  "str" : 8,
+  "dex" : 8,
+  "int" : 0
+}, {
+  "name" : "Splintered Tower Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 10,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Corroded Tower Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 20,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Rawhide Tower Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 33,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Cedar Tower Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 46,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Copper Tower Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 62,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Reinforced Tower Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 76,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Painted Tower Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 87,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Buckskin Tower Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 96,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Mahogany Tower Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 105,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Bronze Tower Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 114,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Girded Tower Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 123,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Crested Tower Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 132,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Shagreen Tower Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 139,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Ebony Tower Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 159,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Ezomyte Tower Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 159,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Colossal Tower Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 159,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Pinnacle Tower Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 159,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Goathide Buckler",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 0,
+  "dex" : 13,
+  "int" : 0
+}, {
+  "name" : "Pine Buckler",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 0,
+  "dex" : 26,
+  "int" : 0
+}, {
+  "name" : "Painted Buckler",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 0,
+  "dex" : 44,
+  "int" : 0
+}, {
+  "name" : "Hammered Buckler",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 0,
+  "dex" : 60,
+  "int" : 0
+}, {
+  "name" : "War Buckler",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 0,
+  "dex" : 74,
+  "int" : 0
+}, {
+  "name" : "Gilded Buckler",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 0,
+  "dex" : 85,
+  "int" : 0
+}, {
+  "name" : "Oak Buckler",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 0,
+  "dex" : 94,
+  "int" : 0
+}, {
+  "name" : "Enameled Buckler",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 0,
+  "dex" : 103,
+  "int" : 0
+}, {
+  "name" : "Corrugated Buckler",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 0,
+  "dex" : 112,
+  "int" : 0
+}, {
+  "name" : "Battle Buckler",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 0,
+  "dex" : 121,
+  "int" : 0
+}, {
+  "name" : "Golden Buckler",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 0,
+  "dex" : 130,
+  "int" : 0
+}, {
+  "name" : "Ironwood Buckler",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 0,
+  "dex" : 136,
+  "int" : 0
+}, {
+  "name" : "Lacquered Buckler",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 0,
+  "dex" : 159,
+  "int" : 0
+}, {
+  "name" : "Vaal Buckler",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 0,
+  "dex" : 159,
+  "int" : 0
+}, {
+  "name" : "Crusader Buckler",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 0,
+  "dex" : 159,
+  "int" : 0
+}, {
+  "name" : "Imperial Buckler",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 0,
+  "dex" : 159,
+  "int" : 0
+}, {
+  "name" : "Twig Spirit Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 15
+}, {
+  "name" : "Yew Spirit Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 28
+}, {
+  "name" : "Bone Spirit Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 42
+}, {
+  "name" : "Tarnished Spirit Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 60
+}, {
+  "name" : "Jingling Spirit Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 71
+}, {
+  "name" : "Brass Spirit Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 82
+}, {
+  "name" : "Walnut Spirit Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 92
+}, {
+  "name" : "Ivory Spirit Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 100
+}, {
+  "name" : "Ancient Spirit Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 110
+}, {
+  "name" : "Chiming Spirit Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 118
+}, {
+  "name" : "Thorium Spirit Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 128
+}, {
+  "name" : "Lacewood Spirit Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 134
+}, {
+  "name" : "Fossilised Spirit Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 141
+}, {
+  "name" : "Vaal Spirit Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 159
+}, {
+  "name" : "Harmonic Spirit Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 159
+}, {
+  "name" : "Titanium Spirit Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 159
+}, {
+  "name" : "Rotted Round Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 10,
+  "dex" : 10,
+  "int" : 0
+}, {
+  "name" : "Fir Round Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 19,
+  "dex" : 19,
+  "int" : 0
+}, {
+  "name" : "Studded Round Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 28,
+  "dex" : 28,
+  "int" : 0
+}, {
+  "name" : "Scarlet Round Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 37,
+  "dex" : 37,
+  "int" : 0
+}, {
+  "name" : "Splendid Round Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 44,
+  "dex" : 44,
+  "int" : 0
+}, {
+  "name" : "Maple Round Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 52,
+  "dex" : 52,
+  "int" : 0
+}, {
+  "name" : "Spiked Round Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 58,
+  "dex" : 58,
+  "int" : 0
+}, {
+  "name" : "Crimson Round Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 64,
+  "dex" : 64,
+  "int" : 0
+}, {
+  "name" : "Baroque Round Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 70,
+  "dex" : 70,
+  "int" : 0
+}, {
+  "name" : "Teak Round Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 74,
+  "dex" : 74,
+  "int" : 0
+}, {
+  "name" : "Spiny Round Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 85,
+  "dex" : 85,
+  "int" : 0
+}, {
+  "name" : "Cardinal Round Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 85,
+  "dex" : 85,
+  "int" : 0
+}, {
+  "name" : "Elegant Round Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 85,
+  "dex" : 85,
+  "int" : 0
+}, {
+  "name" : "Plank Kite Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 13,
+  "dex" : 0,
+  "int" : 13
+}, {
+  "name" : "Linden Kite Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 20,
+  "dex" : 0,
+  "int" : 20
+}, {
+  "name" : "Reinforced Kite Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 28,
+  "dex" : 0,
+  "int" : 28
+}, {
+  "name" : "Layered Kite Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 37,
+  "dex" : 0,
+  "int" : 37
+}, {
+  "name" : "Ceremonial Kite Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 46,
+  "dex" : 0,
+  "int" : 46
+}, {
+  "name" : "Etched Kite Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 52,
+  "dex" : 0,
+  "int" : 52
+}, {
+  "name" : "Steel Kite Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 60,
+  "dex" : 0,
+  "int" : 60
+}, {
+  "name" : "Laminated Kite Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 64,
+  "dex" : 0,
+  "int" : 64
+}, {
+  "name" : "Angelic Kite Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 70,
+  "dex" : 0,
+  "int" : 70
+}, {
+  "name" : "Branded Kite Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 76,
+  "dex" : 0,
+  "int" : 76
+}, {
+  "name" : "Champion Kite Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 85,
+  "dex" : 0,
+  "int" : 85
+}, {
+  "name" : "Mosaic Kite Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 85,
+  "dex" : 0,
+  "int" : 85
+}, {
+  "name" : "Archon Kite Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 85,
+  "dex" : 0,
+  "int" : 85
+}, {
+  "name" : "Spiked Bundle",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 0,
+  "dex" : 10,
+  "int" : 10
+}, {
+  "name" : "Driftwood Spiked Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 0,
+  "dex" : 19,
+  "int" : 19
+}, {
+  "name" : "Alloyed Spiked Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 0,
+  "dex" : 28,
+  "int" : 28
+}, {
+  "name" : "Burnished Spiked Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 0,
+  "dex" : 37,
+  "int" : 37
+}, {
+  "name" : "Ornate Spiked Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 0,
+  "dex" : 44,
+  "int" : 44
+}, {
+  "name" : "Redwood Spiked Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 0,
+  "dex" : 52,
+  "int" : 52
+}, {
+  "name" : "Compound Spiked Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 0,
+  "dex" : 58,
+  "int" : 58
+}, {
+  "name" : "Polished Spiked Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 0,
+  "dex" : 64,
+  "int" : 64
+}, {
+  "name" : "Sovereign Spiked Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 0,
+  "dex" : 70,
+  "int" : 70
+}, {
+  "name" : "Alder Spiked Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 0,
+  "dex" : 74,
+  "int" : 74
+}, {
+  "name" : "Ezomyte Spiked Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 0,
+  "dex" : 85,
+  "int" : 85
+}, {
+  "name" : "Mirrored Spiked Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 0,
+  "dex" : 85,
+  "int" : 85
+}, {
+  "name" : "Supreme Spiked Shield",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 0,
+  "dex" : 85,
+  "int" : 85
+}, {
+  "name" : "Golden Flame",
+  "maxSockets" : 4,
+  "type" : "Shield",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Iron Hat",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 9,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Cone Helmet",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 21,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Barbute Helmet",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 42,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Close Helmet",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 58,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Gladiator Helmet",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 75,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Reaver Helmet",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 85,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Siege Helmet",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 101,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Samite Helmet",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 114,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Ezomyte Burgonet",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 138,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Royal Burgonet",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 148,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Eternal Burgonet",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 138,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Leather Cap",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 0,
+  "dex" : 13,
+  "int" : 0
+}, {
+  "name" : "Tricorne",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 0,
+  "dex" : 27,
+  "int" : 0
+}, {
+  "name" : "Leather Hood",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 0,
+  "dex" : 46,
+  "int" : 0
+}, {
+  "name" : "Wolf Pelt",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 0,
+  "dex" : 66,
+  "int" : 0
+}, {
+  "name" : "Hunter Hood",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 0,
+  "dex" : 87,
+  "int" : 0
+}, {
+  "name" : "Noble Tricorne",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 0,
+  "dex" : 99,
+  "int" : 0
+}, {
+  "name" : "Ursine Pelt",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 0,
+  "dex" : 114,
+  "int" : 0
+}, {
+  "name" : "Silken Hood",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 0,
+  "dex" : 138,
+  "int" : 0
+}, {
+  "name" : "Sinner Tricorne",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 0,
+  "dex" : 138,
+  "int" : 0
+}, {
+  "name" : "Lion Pelt",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 0,
+  "dex" : 150,
+  "int" : 0
+}, {
+  "name" : "Vine Circlet",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 13
+}, {
+  "name" : "Iron Circlet",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 23
+}, {
+  "name" : "Torture Cage",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 40
+}, {
+  "name" : "Tribal Circlet",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 58
+}, {
+  "name" : "Bone Circlet",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 73
+}, {
+  "name" : "Lunaris Circlet",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 83
+}, {
+  "name" : "Steel Circlet",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 101
+}, {
+  "name" : "Necromancer Circlet",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 112
+}, {
+  "name" : "Solaris Circlet",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 122
+}, {
+  "name" : "Mind Cage",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 138
+}, {
+  "name" : "Hubris Circlet",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 154
+}, {
+  "name" : "Battered Helm",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 8,
+  "dex" : 8,
+  "int" : 0
+}, {
+  "name" : "Sallet",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 18,
+  "dex" : 18,
+  "int" : 0
+}, {
+  "name" : "Visored Sallet",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 28,
+  "dex" : 28,
+  "int" : 0
+}, {
+  "name" : "Gilded Sallet",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 38,
+  "dex" : 38,
+  "int" : 0
+}, {
+  "name" : "Secutor Helm",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 42,
+  "dex" : 42,
+  "int" : 0
+}, {
+  "name" : "Fencer Helm",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 49,
+  "dex" : 49,
+  "int" : 0
+}, {
+  "name" : "Lacquered Helmet",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 57,
+  "dex" : 57,
+  "int" : 0
+}, {
+  "name" : "Fluted Bascinet",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 64,
+  "dex" : 64,
+  "int" : 0
+}, {
+  "name" : "Pig-Faced Bascinet",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 85,
+  "dex" : 62,
+  "int" : 0
+}, {
+  "name" : "Nightmare Bascinet",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 62,
+  "dex" : 85,
+  "int" : 0
+}, {
+  "name" : "Rusted Coif",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 9,
+  "dex" : 0,
+  "int" : 9
+}, {
+  "name" : "Soldier Helmet",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 16,
+  "dex" : 0,
+  "int" : 16
+}, {
+  "name" : "Great Helmet",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 27,
+  "dex" : 0,
+  "int" : 27
+}, {
+  "name" : "Crusader Helmet",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 36,
+  "dex" : 0,
+  "int" : 36
+}, {
+  "name" : "Aventail Helmet",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 42,
+  "dex" : 0,
+  "int" : 42
+}, {
+  "name" : "Zealot Helmet",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 50,
+  "dex" : 0,
+  "int" : 50
+}, {
+  "name" : "Great Crown",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 59,
+  "dex" : 0,
+  "int" : 59
+}, {
+  "name" : "Magistrate Crown",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 64,
+  "dex" : 0,
+  "int" : 64
+}, {
+  "name" : "Prophet Crown",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 85,
+  "dex" : 0,
+  "int" : 62
+}, {
+  "name" : "Praetor Crown",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 62,
+  "dex" : 0,
+  "int" : 91
+}, {
+  "name" : "Scare Mask",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 0,
+  "dex" : 8,
+  "int" : 8
+}, {
+  "name" : "Plague Mask",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 0,
+  "dex" : 14,
+  "int" : 14
+}, {
+  "name" : "Iron Mask",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 0,
+  "dex" : 21,
+  "int" : 21
+}, {
+  "name" : "Festival Mask",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 0,
+  "dex" : 33,
+  "int" : 33
+}, {
+  "name" : "Golden Mask",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 0,
+  "dex" : 40,
+  "int" : 40
+}, {
+  "name" : "Raven Mask",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 0,
+  "dex" : 44,
+  "int" : 44
+}, {
+  "name" : "Callous Mask",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 0,
+  "dex" : 51,
+  "int" : 51
+}, {
+  "name" : "Regicide Mask",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 0,
+  "dex" : 58,
+  "int" : 58
+}, {
+  "name" : "Harlequin Mask",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 0,
+  "dex" : 64,
+  "int" : 64
+}, {
+  "name" : "Vaal Mask",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 0,
+  "dex" : 79,
+  "int" : 72
+}, {
+  "name" : "Deicide Mask",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 0,
+  "dex" : 73,
+  "int" : 88
+}, {
+  "name" : "Golden Wreath",
+  "maxSockets" : 4,
+  "type" : "Helmet",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Plate Vest",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 12,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Chestplate",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 25,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Copper Plate",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 53,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "War Plate",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 63,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Full Plate",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 81,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Arena Plate",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 91,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Lordly Plate",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 99,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Bronze Plate",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 104,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Battle Plate",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 114,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Sun Plate",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 124,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Colosseum Plate",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 134,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Majestic Plate",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 144,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Golden Plate",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 152,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Crusader Plate",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 160,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Astral Plate",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 180,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Gladiator Plate",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 177,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Glorious Plate",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 191,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Kaom's Plate",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 14,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Shabby Jerkin",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 0,
+  "dex" : 14,
+  "int" : 0
+}, {
+  "name" : "Strapped Leather",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 0,
+  "dex" : 32,
+  "int" : 0
+}, {
+  "name" : "Buckskin Tunic",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 0,
+  "dex" : 53,
+  "int" : 0
+}, {
+  "name" : "Wild Leather",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 0,
+  "dex" : 73,
+  "int" : 0
+}, {
+  "name" : "Full Leather",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 0,
+  "dex" : 81,
+  "int" : 0
+}, {
+  "name" : "Sun Leather",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 0,
+  "dex" : 91,
+  "int" : 0
+}, {
+  "name" : "Thief's Garb",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 0,
+  "dex" : 99,
+  "int" : 0
+}, {
+  "name" : "Eelskin Tunic",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 0,
+  "dex" : 104,
+  "int" : 0
+}, {
+  "name" : "Frontier Leather",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 0,
+  "dex" : 114,
+  "int" : 0
+}, {
+  "name" : "Glorious Leather",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 0,
+  "dex" : 124,
+  "int" : 0
+}, {
+  "name" : "Coronal Leather",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 0,
+  "dex" : 134,
+  "int" : 0
+}, {
+  "name" : "Cutthroat's Garb",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 0,
+  "dex" : 144,
+  "int" : 0
+}, {
+  "name" : "Sharkskin Tunic",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 0,
+  "dex" : 152,
+  "int" : 0
+}, {
+  "name" : "Destiny Leather",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 0,
+  "dex" : 160,
+  "int" : 0
+}, {
+  "name" : "Exquisite Leather",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 0,
+  "dex" : 170,
+  "int" : 0
+}, {
+  "name" : "Zodiac Leather",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 0,
+  "dex" : 197,
+  "int" : 0
+}, {
+  "name" : "Assassin's Garb",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 0,
+  "dex" : 183,
+  "int" : 0
+}, {
+  "name" : "Simple Robe",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 17
+}, {
+  "name" : "Silken Vest",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 37
+}, {
+  "name" : "Scholar's Robe",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 55
+}, {
+  "name" : "Silken Garb",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 73
+}, {
+  "name" : "Mage's Vestment",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 81
+}, {
+  "name" : "Silk Robe",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 91
+}, {
+  "name" : "Cabalist Regalia",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 99
+}, {
+  "name" : "Sage's Robe",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 104
+}, {
+  "name" : "Silken Wrap",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 114
+}, {
+  "name" : "Conjurer's Vestment",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 124
+}, {
+  "name" : "Spidersilk Robe",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 134
+}, {
+  "name" : "Destroyer Regalia",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 144
+}, {
+  "name" : "Savant's Robe",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 152
+}, {
+  "name" : "Necromancer Silks",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 160
+}, {
+  "name" : "Occultist's Vestment",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 180
+}, {
+  "name" : "Widowsilk Robe",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 187
+}, {
+  "name" : "Vaal Regalia",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 194
+}, {
+  "name" : "Scale Vest",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 10,
+  "dex" : 10,
+  "int" : 0
+}, {
+  "name" : "Light Brigandine",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 16,
+  "dex" : 16,
+  "int" : 0
+}, {
+  "name" : "Scale Doublet",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 28,
+  "dex" : 28,
+  "int" : 0
+}, {
+  "name" : "Infantry Brigandine",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 34,
+  "dex" : 34,
+  "int" : 0
+}, {
+  "name" : "Full Scale Armour",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 43,
+  "dex" : 43,
+  "int" : 0
+}, {
+  "name" : "Soldier's Brigandine",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 48,
+  "dex" : 48,
+  "int" : 0
+}, {
+  "name" : "Field Lamellar",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 53,
+  "dex" : 53,
+  "int" : 0
+}, {
+  "name" : "Wyrmscale Doublet",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 57,
+  "dex" : 57,
+  "int" : 0
+}, {
+  "name" : "Hussar Brigandine",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 62,
+  "dex" : 62,
+  "int" : 0
+}, {
+  "name" : "Full Wyrmscale",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 68,
+  "dex" : 68,
+  "int" : 0
+}, {
+  "name" : "Commander's Brigandine",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 73,
+  "dex" : 73,
+  "int" : 0
+}, {
+  "name" : "Battle Lamellar",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 79,
+  "dex" : 79,
+  "int" : 0
+}, {
+  "name" : "Dragonscale Doublet",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 83,
+  "dex" : 83,
+  "int" : 0
+}, {
+  "name" : "Desert Brigandine",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 96,
+  "dex" : 96,
+  "int" : 0
+}, {
+  "name" : "Full Dragonscale",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 115,
+  "dex" : 94,
+  "int" : 0
+}, {
+  "name" : "General's Brigandine",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 103,
+  "dex" : 103,
+  "int" : 0
+}, {
+  "name" : "Triumphant Lamellar",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 95,
+  "dex" : 116,
+  "int" : 0
+}, {
+  "name" : "Chainmail Vest",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 10,
+  "dex" : 0,
+  "int" : 10
+}, {
+  "name" : "Chainmail Tunic",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 16,
+  "dex" : 0,
+  "int" : 16
+}, {
+  "name" : "Ringmail Coat",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 28,
+  "dex" : 0,
+  "int" : 28
+}, {
+  "name" : "Chainmail Doublet",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 34,
+  "dex" : 0,
+  "int" : 34
+}, {
+  "name" : "Full Ringmail",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 43,
+  "dex" : 0,
+  "int" : 43
+}, {
+  "name" : "Full Chainmail",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 48,
+  "dex" : 0,
+  "int" : 48
+}, {
+  "name" : "Holy Chainmail",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 53,
+  "dex" : 0,
+  "int" : 53
+}, {
+  "name" : "Latticed Ringmail",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 59,
+  "dex" : 0,
+  "int" : 59
+}, {
+  "name" : "Crusader Chainmail",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 64,
+  "dex" : 0,
+  "int" : 64
+}, {
+  "name" : "Ornate Ringmail",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 69,
+  "dex" : 0,
+  "int" : 69
+}, {
+  "name" : "Chain Hauberk",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 75,
+  "dex" : 0,
+  "int" : 75
+}, {
+  "name" : "Devout Chainmail",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 80,
+  "dex" : 0,
+  "int" : 80
+}, {
+  "name" : "Loricated Ringmail",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 84,
+  "dex" : 0,
+  "int" : 84
+}, {
+  "name" : "Conquest Chainmail",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 96,
+  "dex" : 0,
+  "int" : 96
+}, {
+  "name" : "Elegant Ringmail",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 90,
+  "dex" : 0,
+  "int" : 105
+}, {
+  "name" : "Saint's Hauberk",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 109,
+  "dex" : 0,
+  "int" : 94
+}, {
+  "name" : "Saintly Chainmail",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 99,
+  "dex" : 0,
+  "int" : 115
+}, {
+  "name" : "Padded Vest",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 0,
+  "dex" : 10,
+  "int" : 10
+}, {
+  "name" : "Oiled Vest",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 0,
+  "dex" : 17,
+  "int" : 17
+}, {
+  "name" : "Padded Jacket",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 0,
+  "dex" : 30,
+  "int" : 30
+}, {
+  "name" : "Oiled Coat",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 0,
+  "dex" : 35,
+  "int" : 35
+}, {
+  "name" : "Scarlet Raiment",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 0,
+  "dex" : 43,
+  "int" : 43
+}, {
+  "name" : "Waxed Garb",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 0,
+  "dex" : 48,
+  "int" : 48
+}, {
+  "name" : "Bone Armour",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 0,
+  "dex" : 53,
+  "int" : 53
+}, {
+  "name" : "Quilted Jacket",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 0,
+  "dex" : 60,
+  "int" : 60
+}, {
+  "name" : "Sleek Coat",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 0,
+  "dex" : 65,
+  "int" : 65
+}, {
+  "name" : "Crimson Raiment",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 0,
+  "dex" : 71,
+  "int" : 71
+}, {
+  "name" : "Lacquered Garb",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 0,
+  "dex" : 76,
+  "int" : 76
+}, {
+  "name" : "Crypt Armour",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 0,
+  "dex" : 82,
+  "int" : 82
+}, {
+  "name" : "Sentinel Jacket",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 0,
+  "dex" : 86,
+  "int" : 86
+}, {
+  "name" : "Varnished Coat",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 0,
+  "dex" : 96,
+  "int" : 96
+}, {
+  "name" : "Blood Raiment",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 0,
+  "dex" : 107,
+  "int" : 90
+}, {
+  "name" : "Sadist Garb",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 0,
+  "dex" : 103,
+  "int" : 109
+}, {
+  "name" : "Carnal Armour",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 0,
+  "dex" : 88,
+  "int" : 122
+}, {
+  "name" : "Sacrificial Garb",
+  "maxSockets" : 6,
+  "type" : "Body Armour",
+  "str" : 66,
+  "dex" : 66,
+  "int" : 66
+}, {
+  "name" : "Iron Greaves",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 8,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Steel Greaves",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 21,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Plated Greaves",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 44,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Reinforced Greaves",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 60,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Antique Greaves",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 67,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Ancient Greaves",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 82,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Goliath Greaves",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 95,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Vaal Greaves",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 117,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Titan Greaves",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 120,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Kaom's Greaves",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 9,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Rawhide Boots",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 0,
+  "dex" : 11,
+  "int" : 0
+}, {
+  "name" : "Goathide Boots",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 0,
+  "dex" : 26,
+  "int" : 0
+}, {
+  "name" : "Deerskin Boots",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 0,
+  "dex" : 42,
+  "int" : 0
+}, {
+  "name" : "Nubuck Boots",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 0,
+  "dex" : 62,
+  "int" : 0
+}, {
+  "name" : "Eelskin Boots",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 0,
+  "dex" : 70,
+  "int" : 0
+}, {
+  "name" : "Sharkskin Boots",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 0,
+  "dex" : 79,
+  "int" : 0
+}, {
+  "name" : "Shagreen Boots",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 0,
+  "dex" : 97,
+  "int" : 0
+}, {
+  "name" : "Stealth Boots",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 0,
+  "dex" : 117,
+  "int" : 0
+}, {
+  "name" : "Slink Boots",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 0,
+  "dex" : 120,
+  "int" : 0
+}, {
+  "name" : "Wool Shoes",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 11
+}, {
+  "name" : "Velvet Slippers",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 21
+}, {
+  "name" : "Silk Slippers",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 42
+}, {
+  "name" : "Scholar Boots",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 59
+}, {
+  "name" : "Satin Slippers",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 69
+}, {
+  "name" : "Samite Slippers",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 79
+}, {
+  "name" : "Conjurer Boots",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 94
+}, {
+  "name" : "Arcanist Slippers",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 119
+}, {
+  "name" : "Sorcerer Boots",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 123
+}, {
+  "name" : "Leatherscale Boots",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 9,
+  "dex" : 9,
+  "int" : 0
+}, {
+  "name" : "Ironscale Boots",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 19,
+  "dex" : 19,
+  "int" : 0
+}, {
+  "name" : "Bronzescale Boots",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 30,
+  "dex" : 30,
+  "int" : 0
+}, {
+  "name" : "Steelscale Boots",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 35,
+  "dex" : 35,
+  "int" : 0
+}, {
+  "name" : "Serpentscale Boots",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 40,
+  "dex" : 40,
+  "int" : 0
+}, {
+  "name" : "Wyrmscale Boots",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 48,
+  "dex" : 48,
+  "int" : 0
+}, {
+  "name" : "Hydrascale Boots",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 56,
+  "dex" : 56,
+  "int" : 0
+}, {
+  "name" : "Dragonscale Boots",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 62,
+  "dex" : 62,
+  "int" : 0
+}, {
+  "name" : "Chain Boots",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 8,
+  "dex" : 0,
+  "int" : 8
+}, {
+  "name" : "Ringmail Boots",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 15,
+  "dex" : 0,
+  "int" : 15
+}, {
+  "name" : "Mesh Boots",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 28,
+  "dex" : 0,
+  "int" : 28
+}, {
+  "name" : "Riveted Boots",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 35,
+  "dex" : 0,
+  "int" : 35
+}, {
+  "name" : "Zealot Boots",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 38,
+  "dex" : 0,
+  "int" : 38
+}, {
+  "name" : "Soldier Boots",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 47,
+  "dex" : 0,
+  "int" : 47
+}, {
+  "name" : "Legion Boots",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 54,
+  "dex" : 0,
+  "int" : 54
+}, {
+  "name" : "Crusader Boots",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 62,
+  "dex" : 0,
+  "int" : 62
+}, {
+  "name" : "Wrapped Boots",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 0,
+  "dex" : 9,
+  "int" : 9
+}, {
+  "name" : "Strapped Boots",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 0,
+  "dex" : 18,
+  "int" : 18
+}, {
+  "name" : "Clasped Boots",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 0,
+  "dex" : 27,
+  "int" : 27
+}, {
+  "name" : "Shackled Boots",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 0,
+  "dex" : 34,
+  "int" : 34
+}, {
+  "name" : "Trapper Boots",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 0,
+  "dex" : 40,
+  "int" : 40
+}, {
+  "name" : "Ambush Boots",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 0,
+  "dex" : 45,
+  "int" : 45
+}, {
+  "name" : "Carnal Boots",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 0,
+  "dex" : 52,
+  "int" : 52
+}, {
+  "name" : "Assassin's Boots",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 0,
+  "dex" : 62,
+  "int" : 62
+}, {
+  "name" : "Murder Boots",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 0,
+  "dex" : 82,
+  "int" : 42
+}, {
+  "name" : "Golden Caligae",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Avian Slippers",
+  "maxSockets" : 4,
+  "type" : "Boots",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Iron Gauntlets",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 6,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Plated Gauntlets",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 20,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Bronze Gauntlets",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 36,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Steel Gauntlets",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 52,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Antique Gauntlets",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 58,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Ancient Gauntlets",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 68,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Goliath Gauntlets",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 76,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Vaal Gauntlets",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 100,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Titan Gauntlets",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 98,
+  "dex" : 0,
+  "int" : 0
+}, {
+  "name" : "Rawhide Gloves",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 0,
+  "dex" : 9,
+  "int" : 0
+}, {
+  "name" : "Goathide Gloves",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 0,
+  "dex" : 17,
+  "int" : 0
+}, {
+  "name" : "Deerskin Gloves",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 0,
+  "dex" : 33,
+  "int" : 0
+}, {
+  "name" : "Nubuck Gloves",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 0,
+  "dex" : 50,
+  "int" : 0
+}, {
+  "name" : "Eelskin Gloves",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 0,
+  "dex" : 56,
+  "int" : 0
+}, {
+  "name" : "Sharkskin Gloves",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 0,
+  "dex" : 66,
+  "int" : 0
+}, {
+  "name" : "Shagreen Gloves",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 0,
+  "dex" : 78,
+  "int" : 0
+}, {
+  "name" : "Stealth Gloves",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 0,
+  "dex" : 97,
+  "int" : 0
+}, {
+  "name" : "Slink Gloves",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 0,
+  "dex" : 95,
+  "int" : 0
+}, {
+  "name" : "Wool Gloves",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 9
+}, {
+  "name" : "Velvet Gloves",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 21
+}, {
+  "name" : "Silk Gloves",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 39
+}, {
+  "name" : "Embroidered Gloves",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 54
+}, {
+  "name" : "Satin Gloves",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 60
+}, {
+  "name" : "Samite Gloves",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 68
+}, {
+  "name" : "Conjurer Gloves",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 79
+}, {
+  "name" : "Arcanist Gloves",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 95
+}, {
+  "name" : "Sorcerer Gloves",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 97
+}, {
+  "name" : "Fishscale Gauntlets",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 5,
+  "dex" : 5,
+  "int" : 0
+}, {
+  "name" : "Ironscale Gauntlets",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 14,
+  "dex" : 14,
+  "int" : 0
+}, {
+  "name" : "Bronzescale Gauntlets",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 22,
+  "dex" : 22,
+  "int" : 0
+}, {
+  "name" : "Steelscale Gauntlets",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 29,
+  "dex" : 29,
+  "int" : 0
+}, {
+  "name" : "Serpentscale Gauntlets",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 34,
+  "dex" : 34,
+  "int" : 0
+}, {
+  "name" : "Wyrmscale Gauntlets",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 38,
+  "dex" : 38,
+  "int" : 0
+}, {
+  "name" : "Hydrascale Gauntlets",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 45,
+  "dex" : 45,
+  "int" : 0
+}, {
+  "name" : "Dragonscale Gauntlets",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 51,
+  "dex" : 51,
+  "int" : 0
+}, {
+  "name" : "Chain Gloves",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 8,
+  "dex" : 0,
+  "int" : 8
+}, {
+  "name" : "Ringmail Gloves",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 16,
+  "dex" : 0,
+  "int" : 16
+}, {
+  "name" : "Mesh Gloves",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 26,
+  "dex" : 0,
+  "int" : 26
+}, {
+  "name" : "Riveted Gloves",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 29,
+  "dex" : 0,
+  "int" : 29
+}, {
+  "name" : "Zealot Gloves",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 34,
+  "dex" : 0,
+  "int" : 34
+}, {
+  "name" : "Soldier Gloves",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 40,
+  "dex" : 0,
+  "int" : 40
+}, {
+  "name" : "Legion Gloves",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 44,
+  "dex" : 0,
+  "int" : 44
+}, {
+  "name" : "Crusader Gloves",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 51,
+  "dex" : 0,
+  "int" : 51
+}, {
+  "name" : "Wrapped Mitts",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 0,
+  "dex" : 6,
+  "int" : 6
+}, {
+  "name" : "Strapped Mitts",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 0,
+  "dex" : 14,
+  "int" : 14
+}, {
+  "name" : "Clasped Mitts",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 0,
+  "dex" : 25,
+  "int" : 25
+}, {
+  "name" : "Trapper Mitts",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 0,
+  "dex" : 29,
+  "int" : 29
+}, {
+  "name" : "Ambush Mitts",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 0,
+  "dex" : 35,
+  "int" : 35
+}, {
+  "name" : "Carnal Mitts",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 0,
+  "dex" : 39,
+  "int" : 39
+}, {
+  "name" : "Assassin's Mitts",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 0,
+  "dex" : 45,
+  "int" : 45
+}, {
+  "name" : "Murder Mitts",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 0,
+  "dex" : 51,
+  "int" : 51
+}, {
+  "name" : "Golden Bracers",
+  "maxSockets" : 4,
+  "type" : "Gloves",
+  "str" : 0,
+  "dex" : 0,
+  "int" : 0
+} ]

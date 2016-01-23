@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>poe4j-vorici-calc</artifactId>
+    <artifactId>poe4j-base-item-extractor</artifactId>
 
     <build>
         <plugins>
