@@ -5,11 +5,16 @@ import com.swandiggy.poe4j.data.DatFileReader;
 import org.springframework.stereotype.Service;
 
 /**
+ * Read a byte value.
+ *
  * @author Jacob Swanson
  * @since 12/15/2015
  */
-@Service
 public class ByteReader extends BaseValueReader<Byte> {
+
+    public ByteReader() {
+    }
+
     @Override
     public boolean supports(Class clazz) {
         return Primitives.wrap(clazz) == Byte.class;

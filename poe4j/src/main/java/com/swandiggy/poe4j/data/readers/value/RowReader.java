@@ -7,6 +7,7 @@ import com.swandiggy.poe4j.data.DatFileReader;
 import com.swandiggy.poe4j.data.DatFileReaderFactory;
 import com.swandiggy.poe4j.data.rows.BaseRow;
 import com.swandiggy.poe4j.util.reflection.Poe4jReflection;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.proxy.LazyLoader;
 import org.springframework.stereotype.Service;
@@ -14,14 +15,25 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 
 /**
+ * Reads a reference to another row class. References are lazy loaded.
+ *
+ * References are the index of the referenced row and are stored as a long. If the value is
+ * {@link Constants#MAGIC_NULL}, then the reference is {@code null}.
+ *
  * @author Jacob Swanson
  * @since 12/15/2015
  */
-@Service
 public class RowReader extends BaseValueReader<BaseRow> {
 
-    @Autowired
+    @Setter
     private DatFileReaderFactory datFileReaderFactory;
+
+    public RowReader() {
+    }
+
+    public RowReader(DatFileReaderFactory datFileReaderFactory) {
+        this.datFileReaderFactory = datFileReaderFactory;
+    }
 
     @Override
     public boolean supports(Class clazz) {

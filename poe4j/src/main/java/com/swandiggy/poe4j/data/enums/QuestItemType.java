@@ -5,9 +5,14 @@ package com.swandiggy.poe4j.data.enums;
  * @since 9/16/2015
  */
 public enum QuestItemType {
-    UNKNOWN,
+    UNKNOWN1,
+    UNKNOWN2,
     NORMAL,
     MAGIC,
     RARE,
-    OTHER
+    OTHER;
+
+    public static QuestItemType valueOf(Integer n) {
+        return values()[n];
+    }
 }

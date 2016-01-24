@@ -9,6 +9,7 @@ import com.swandiggy.poe4j.util.aspect.MonitorRuntime;
 import com.swandiggy.poe4j.util.collection.Node;
 import com.swandiggy.poe4j.util.io.BinaryReader;
 import com.swandiggy.poe4j.util.io.RafBinaryReader;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
@@ -29,13 +30,14 @@ import java.util.Optional;
  * @since 8/31/2015
  */
 @Slf4j
-@Lazy
-@Service
 public class GgpkFactory {
 
-    private final RecordFactory[] recordFactories;
+    @Setter
+    private RecordFactory[] recordFactories;
 
-    @Autowired
+    public GgpkFactory() {
+    }
+
     public GgpkFactory(RecordFactory[] recordFactories) {
         Assert.notEmpty(recordFactories);
 

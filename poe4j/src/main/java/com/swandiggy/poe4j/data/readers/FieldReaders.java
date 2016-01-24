@@ -3,22 +3,30 @@ package com.swandiggy.poe4j.data.readers;
 import com.swandiggy.poe4j.Poe4jException;
 import com.swandiggy.poe4j.data.DatFileReader;
 import com.swandiggy.poe4j.data.readers.field.FieldReader;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import lombok.Setter;
 
 import java.lang.reflect.Field;
 import java.text.MessageFormat;
 import java.util.Arrays;
 
 /**
+ * Delegates to {@link FieldReader}s. Automagially finds the correct {@link FieldReader} for a field and returns the
+ * value.
+ *
  * @author Jacob Swanson
  * @since 1/15/2016
  */
-@Service
-public class FieldReaders {
+public class FieldReaders implements FieldReader<Object> {
 
-    @Autowired
+    @Setter
     private FieldReader[] fieldReaders;
+
+    public FieldReaders() {
+    }
+
+    public FieldReaders(FieldReader[] fieldReaders) {
+        this.fieldReaders = fieldReaders;
+    }
 
     private FieldReader findReader(Field field) {
         return Arrays.stream(fieldReaders)
@@ -27,7 +35,8 @@ public class FieldReaders {
                 .orElseThrow(() -> new Poe4jException(MessageFormat.format("Could not find FieldReader for '{0}'", field)));
     }
 
-    public Object read(Field field, DatFileReader datFileReader) {
+    @Override
+    public Object read(DatFileReader datFileReader, Field field) {
         for (FieldReader fieldReader : fieldReaders) {
             if (fieldReader.supports(field)) {
                 return fieldReader.read(datFileReader, field);
@@ -37,10 +46,12 @@ public class FieldReaders {
         throw new Poe4jException(MessageFormat.format("Could not find FieldReader for '{0}'", field));
     }
 
-    public Integer size(Field field) {
+    @Override
+    public int size(Field field) {
         return findReader(field).size(field);
     }
 
+    @Override
     public boolean supports(Field field) {
         return Arrays.stream(fieldReaders)
                 .filter(fieldReader1 -> fieldReader1.supports(field))

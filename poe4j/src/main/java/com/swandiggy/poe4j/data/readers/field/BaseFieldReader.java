@@ -6,6 +6,8 @@ import org.springframework.util.Assert;
 import java.lang.reflect.Field;
 
 /**
+ * Base class for a {@link FieldReader}. Checks to see if the {@link FieldReader} read the correct number of bytes.
+ *
  * @author Jacob Swanson
  * @since 12/15/2015
  */
@@ -25,4 +27,5 @@ public abstract class BaseFieldReader<T> implements FieldReader<T> {
     }
 
     protected abstract T readInternal(DatFileReader reader, Field field);
+
 }

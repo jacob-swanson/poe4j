@@ -4,11 +4,17 @@ import com.swandiggy.poe4j.data.DatFileReader;
 import org.springframework.stereotype.Service;
 
 /**
+ * Read a string value. Reads an int pointer into the variable width portion of the file. Strings are null terminated
+ * and encoded as UTF-16LE.
+ *
  * @author Jacob Swanson
  * @since 12/15/2015
  */
-@Service
 public class StringReader extends BaseValueReader<String> {
+
+    public StringReader() {
+    }
+
     @Override
     public boolean supports(Class clazz) {
         return clazz == String.class;

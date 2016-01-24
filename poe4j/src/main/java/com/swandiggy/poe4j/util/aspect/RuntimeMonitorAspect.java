@@ -15,7 +15,6 @@ import org.springframework.stereotype.Service;
  */
 @Slf4j
 @Aspect
-@Service
 public class RuntimeMonitorAspect {
 
     public RuntimeMonitorAspect() {

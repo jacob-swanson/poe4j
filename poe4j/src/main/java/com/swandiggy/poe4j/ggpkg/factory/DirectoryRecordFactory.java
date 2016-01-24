@@ -16,8 +16,10 @@ import java.util.List;
  * @since 9/2/2015
  */
 @Slf4j
-@Service
 public class DirectoryRecordFactory implements RecordFactory<DirectoryRecord> {
+
+    public DirectoryRecordFactory() {
+    }
 
     @Override
     public DirectoryRecord read(BinaryReader br, long recordOffset, int recordLength) {

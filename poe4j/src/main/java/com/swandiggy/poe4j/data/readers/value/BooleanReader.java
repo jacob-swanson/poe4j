@@ -5,11 +5,16 @@ import com.swandiggy.poe4j.data.DatFileReader;
 import org.springframework.stereotype.Service;
 
 /**
+ * Read a {@link Boolean} value. Represented by a byte, if the byte is 1, it's true otherwise it's false.
+ *
  * @author Jacob Swanson
  * @since 12/15/2015
  */
-@Service
 public class BooleanReader extends BaseValueReader<Boolean> {
+
+    public BooleanReader() {
+    }
+
     @Override
     public boolean supports(Class clazz) {
         return Primitives.wrap(clazz) == Boolean.class;

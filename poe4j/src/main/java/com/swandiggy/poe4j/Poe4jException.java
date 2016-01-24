@@ -1,6 +1,8 @@
 package com.swandiggy.poe4j;
 
 /**
+ * Exception used for everything.
+ *
  * @author Jacob Swanson
  * @since 12/9/2015
  */

@@ -3,6 +3,8 @@ package com.swandiggy.poe4j.data.readers.value;
 import com.swandiggy.poe4j.data.DatFileReader;
 
 /**
+ * Read a value from a row class.
+ *
  * @author Jacob Swanson
  * @since 12/15/2015
  */

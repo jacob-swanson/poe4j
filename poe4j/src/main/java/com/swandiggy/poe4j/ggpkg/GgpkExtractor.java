@@ -28,8 +28,6 @@ import java.util.stream.Collectors;
  * @since 9/3/2015
  */
 @Slf4j
-@Lazy
-@Service
 public class GgpkExtractor {
 
     public GgpkExtractor() {

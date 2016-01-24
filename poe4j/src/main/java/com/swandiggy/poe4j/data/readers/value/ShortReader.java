@@ -5,11 +5,16 @@ import com.swandiggy.poe4j.data.DatFileReader;
 import org.springframework.stereotype.Service;
 
 /**
+ * Read a short value.
+ *
  * @author Jacob Swanson
  * @since 12/15/2015
  */
-@Service
 public class ShortReader extends BaseValueReader<Short> {
+
+    public ShortReader() {
+    }
+
     @Override
     public boolean supports(Class clazz) {
         return Primitives.wrap(clazz) == Short.class;

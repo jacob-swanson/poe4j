@@ -24,7 +24,7 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 /**
- * Read records from a .dat file.
+ * Read rows from a .dat file.
  *
  * @author Jacob Swanson
  * @since 9/5/2015
@@ -73,7 +73,6 @@ public class DatFileReader<T extends BaseRow> implements Closeable {
         // Check that the rows size is correct
         br.setPosition(dataOffset);
         long magic = br.readLong();
-        Assert.isTrue(magic == Constants.MAGIC_DATA_SEPARATOR, "Data separator incorrect, rows size wrong");
         if (magic != Constants.MAGIC_DATA_SEPARATOR) {
             // TODO: Calculate expected entity size
             throw new Poe4jException(MessageFormat.format("Row size incorrect was {0}", entitySize));
@@ -133,7 +132,7 @@ public class DatFileReader<T extends BaseRow> implements Closeable {
         values.put("offset", recordOffset);
 
         for (Field field : fields) {
-            values.put(field.getName(), fieldReaders.read(field, this));
+            values.put(field.getName(), fieldReaders.read(this, field));
         }
 
         BeanWrapper wrapper = new BeanWrapperImpl(recordType);

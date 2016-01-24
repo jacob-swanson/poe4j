@@ -13,8 +13,10 @@ import org.springframework.util.Assert;
  * @since 9/2/2015
  */
 @Slf4j
-@Service
 public class FileRecordFactory implements RecordFactory<FileRecord> {
+
+    public FileRecordFactory() {
+    }
 
     @Override
     public FileRecord read(BinaryReader br, long recordOffset, int recordLength) {

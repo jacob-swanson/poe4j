@@ -6,26 +6,36 @@ import com.swandiggy.poe4j.data.DatFileReaderFactory;
 import com.swandiggy.poe4j.data.annotations.ReferenceOne;
 import com.swandiggy.poe4j.data.readers.FieldReaders;
 import com.swandiggy.poe4j.data.rows.BaseRow;
+import com.swandiggy.poe4j.data.rows.ComponentAttributeRequirement;
 import com.swandiggy.poe4j.util.reflection.Poe4jReflection;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.Setter;
 import org.springframework.cglib.proxy.LazyLoader;
-import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
 
 /**
+ * Read a field that references another row by a shared key value.
+ * See {@link ComponentAttributeRequirement#baseItemType} for an example.
+ *
  * @author Jacob Swanson
  * @since 12/15/2015
  */
-@Service
-public class ReferenceReader extends BaseFieldReader<Object> {
+public class ReferenceFieldReader extends BaseFieldReader<Object> {
 
-    @Autowired
+    @Setter
     private DatFileReaderFactory datFileReaderFactory;
 
-    @Autowired
+    @Setter
     private FieldReaders fieldReaders;
+
+    public ReferenceFieldReader() {
+    }
+
+    public ReferenceFieldReader(DatFileReaderFactory datFileReaderFactory, FieldReaders fieldReaders) {
+        this.datFileReaderFactory = datFileReaderFactory;
+        this.fieldReaders = fieldReaders;
+    }
     
     @Override
     public boolean supports(Field field) {
@@ -37,10 +47,9 @@ public class ReferenceReader extends BaseFieldReader<Object> {
         ReferenceOne annotation = field.getAnnotation(ReferenceOne.class);
         Field referencedKeyField = Poe4jReflection.getField(field.getType(), annotation.value());
 
-        Object key = fieldReaders.read(referencedKeyField, reader);
+        Object key = fieldReaders.read(reader, referencedKeyField);
 
         return Poe4jReflection.lazyLoad(field.getType(),(LazyLoader) () -> {
-            // TODO: Ugly .dat file resolution
             try (DatFileReader<BaseRow> datFileReader = datFileReaderFactory.createUnsafe(field.getType())) {
                 BaseRow referencedRow = datFileReader.read()
                         .filter(row -> Poe4jReflection.readProperty(row, annotation.value()).equals(key))
@@ -65,4 +74,5 @@ public class ReferenceReader extends BaseFieldReader<Object> {
 
         return fieldReaders.size(referencedKeyField);
     }
+
 }

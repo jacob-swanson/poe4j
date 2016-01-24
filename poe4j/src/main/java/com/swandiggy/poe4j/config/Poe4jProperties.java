@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
  * @since 1/16/2016
  */
 @Data
-@Component
 @ConfigurationProperties(prefix = "poe4j")
 public class Poe4jProperties {
 

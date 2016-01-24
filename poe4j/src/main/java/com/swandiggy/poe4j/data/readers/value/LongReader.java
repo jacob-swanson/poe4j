@@ -5,11 +5,16 @@ import com.swandiggy.poe4j.data.DatFileReader;
 import org.springframework.stereotype.Service;
 
 /**
+ * Read a long value.
+ *
  * @author Jacob Swanson
  * @since 12/15/2015
  */
-@Service
 public class LongReader extends BaseValueReader<Long> {
+
+    public LongReader() {
+    }
+
     @Override
     public boolean supports(Class clazz) {
         return Primitives.wrap(clazz) == Long.class;

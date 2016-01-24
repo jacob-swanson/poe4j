@@ -4,6 +4,8 @@ import com.swandiggy.poe4j.data.DatFileReader;
 import org.springframework.util.Assert;
 
 /**
+ * Ensures that a {@link ValueReader} reads the correct number of bytes.
+ *
  * @author Jacob Swanson
  * @since 12/15/2015
  */

@@ -13,8 +13,10 @@ import org.springframework.util.Assert;
  * @since 9/2/2015
  */
 @Slf4j
-@Service
 public class GgpkgRecordFactory implements RecordFactory<GgpkgRecord> {
+
+    public GgpkgRecordFactory() {
+    }
 
     @Override
     public GgpkgRecord read(BinaryReader br, long recordOffset, int recordLength) {

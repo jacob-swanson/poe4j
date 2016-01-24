@@ -13,8 +13,10 @@ import org.springframework.util.Assert;
  * @since 9/2/2015
  */
 @Slf4j
-@Service
 public class FreeRecordFactory implements RecordFactory<FreeRecord> {
+
+    public FreeRecordFactory() {
+    }
 
     @Override
     public FreeRecord read(BinaryReader br, long recordOffset, int recordLength) {
