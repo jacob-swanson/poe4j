@@ -44,12 +44,12 @@ public class GgpkFactory {
         this.recordFactories = recordFactories;
     }
 
-        /**
-         * Parse a GGPKG's record structure.
-         *
-         * @param ggpkgFile Content.ggpk
-         * @return Ggpk record structure
-         */
+    /**
+     * Parse a GGPKG's record structure.
+     *
+     * @param ggpkgFile Content.ggpk
+     * @return Ggpk record structure
+     */
     @MonitorRuntime("Loaded records in %f seconds")
     public Ggpk load(File ggpkgFile) {
         Assert.notNull(ggpkgFile);
