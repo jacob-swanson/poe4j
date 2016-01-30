@@ -15,6 +15,16 @@ require('bootstrap/dist/css/bootstrap.css');
 angular.module('application', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'smart-table'])
     .config(function ($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise('/');
+    })
+    .run(function ($rootScope, $location, $window, $log) {
+        $rootScope.$on('$viewContentLoaded', function () {
+            if (!$window.ga) {
+                $log.warn("Analytics not found");
+                return;
+            }
+
+            $window.ga('send', 'pageview', {page: $location.path()});
+        });
     });
 
 // Require components
