@@ -1,78 +1,87 @@
-<form>
-    <div class="row">
-        <div class="form-group col-xs-4 col-xs-offset-4">
-            <label>Sockets</label>
-            <input type="number" placeholder="Number" ng-model="form.numSockets" class="form-control" min="0" max="6">
+<div class="well">
+    <form>
+        <div class="row">
+            <div class="form-group col-xs-4 col-xs-offset-4">
+                <label>Sockets</label>
+                <input type="number" placeholder="Number" ng-model="form.numSockets" class="form-control" min="0"
+                       max="6">
+            </div>
+            <div class="form-group col-xs-4">
+                <label>Base Item</label>
+                <input type="text"
+                       ng-model="selectedItem"
+                       uib-typeahead="item.name for item in itemArray | filter:$viewValue | limitTo:8"
+                       class="form-control"
+                       typeahead-on-select="onBaseItemSelect($item)"
+                       placeholder="Base item">
+            </div>
         </div>
-        <div class="form-group col-xs-4">
-            <label>Base Item</label>
-            <input type="text"
-                   ng-model="selectedItem"
-                   uib-typeahead="item.name for item in itemArray | filter:$viewValue | limitTo:8"
-                   class="form-control"
-                   typeahead-on-select="onBaseItemSelect($item)"
-                   placeholder="Base item">
-        </div>
-    </div>
 
-    <div class="row">
-        <div class="form-group col-xs-4">
-            <label>Required Strength</label>
-            <input type="number" placeholder="Required strength" ng-model="form.requiredStrength" class="form-control" min="0">
+        <div class="row">
+            <div class="form-group col-xs-4">
+                <label>Required Strength</label>
+                <input type="number" placeholder="Required strength" ng-model="form.requiredStrength"
+                       class="form-control" min="0">
+            </div>
+            <div class="form-group col-xs-4">
+                <label>Required Dexterity</label>
+                <input type="number" placeholder="Required dexterity" ng-model="form.requiredDexterity"
+                       class="form-control" min="0">
+            </div>
+            <div class="form-group col-xs-4">
+                <label>Required Intelligence</label>
+                <input type="number" placeholder="Required intelligence" ng-model="form.requiredIntelligence"
+                       class="form-control" min="0">
+            </div>
         </div>
-        <div class="form-group col-xs-4">
-            <label>Required Dexterity</label>
-            <input type="number" placeholder="Required dexterity" ng-model="form.requiredDexterity" class="form-control" min="0">
+        <div class="row">
+            <div class="form-group col-xs-4">
+                <label>Red Sockets</label>
+                <input type="number" placeholder="Red sockets" ng-model="form.numRedSockets" class="form-control"
+                       min="0" max="6">
+            </div>
+            <div class="form-group col-xs-4">
+                <label>Green Sockets</label>
+                <input type="number" placeholder="Green sockets" ng-model="form.numGreenSockets" class="form-control"
+                       min="0" max="6">
+            </div>
+            <div class="form-group col-xs-4">
+                <label>Blue Sockets</label>
+                <input type="number" placeholder="Blue sockets" ng-model="form.numBlueSockets" class="form-control"
+                       min="0" max="6">
+            </div>
         </div>
-        <div class="form-group col-xs-4">
-            <label>Required Intelligence</label>
-            <input type="number" placeholder="Required intelligence" ng-model="form.requiredIntelligence" class="form-control" min="0">
+        <div class="row">
+            <div class="col-xs-12">
+                <button class="btn btn-default btn-raised pull-right" ng-click="reset()">Reset</button>
+            </div>
         </div>
+    </form>
+    <div class="table-responsive">
+        <table st-table="displayedCollection" st-safe-src="rowCollection" class="table table-striped">
+            <thead>
+            <tr>
+                <th st-sort="craftType">Craft Type</th>
+                <th st-sort="successChance">Success Chance</th>
+                <th st-sort="averageAttempts">Average Attempts</th>
+                <th st-sort="costPerTry">Cost per try</th>
+                <th st-sort="averageCost">Average Cost</th>
+                <th st-sort="standardDeviation">Std. Deviation of attempts</th>
+            </tr>
+            <tr>
+                <th colspan="6"><input st-search="" class="form-control" placeholder="Search..." type="text"/></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="row in displayedCollection">
+                <td>{{row.craftType}}</td>
+                <td>{{row.successChance | percent: 2 }}</td>
+                <td>{{row.averageAttempts | number: 2 }}</td>
+                <td>{{row.costPerTry}}</td>
+                <td>{{row.averageCost | number: 2 }}</td>
+                <td>{{row.standardDeviation | number: 2 }}</td>
+            </tr>
+            </tbody>
+        </table>
     </div>
-    <div class="row">
-        <div class="form-group col-xs-4">
-            <label>Red Sockets</label>
-            <input type="number" placeholder="Red sockets" ng-model="form.numRedSockets" class="form-control" min="0" max="6">
-        </div>
-        <div class="form-group col-xs-4">
-            <label>Green Sockets</label>
-            <input type="number" placeholder="Green sockets" ng-model="form.numGreenSockets" class="form-control" min="0" max="6">
-        </div>
-        <div class="form-group col-xs-4">
-            <label>Blue Sockets</label>
-            <input type="number" placeholder="Blue sockets" ng-model="form.numBlueSockets" class="form-control" min="0" max="6">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-12">
-            <button class="btn btn-default pull-right" ng-click="reset()">Reset</button>
-        </div>
-    </div>
-</form>
-<div class="table-responsive">
-    <table st-table="displayedCollection" st-safe-src="rowCollection" class="table table-striped">
-        <thead>
-        <tr>
-            <th st-sort="craftType">Craft Type</th>
-            <th st-sort="successChance">Success Chance</th>
-            <th st-sort="averageAttempts">Average Attempts</th>
-            <th st-sort="costPerTry">Cost per try</th>
-            <th st-sort="averageCost">Average Cost</th>
-            <th st-sort="standardDeviation">Std. Deviation of attempts</th>
-        </tr>
-        <tr>
-            <th colspan="6"><input st-search="" class="form-control" placeholder="Search..." type="text"/></th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat="row in displayedCollection">
-            <td>{{row.craftType}}</td>
-            <td>{{row.successChance | percent: 2 }}</td>
-            <td>{{row.averageAttempts | number: 2 }}</td>
-            <td>{{row.costPerTry}}</td>
-            <td>{{row.averageCost | number: 2 }}</td>
-            <td>{{row.standardDeviation | number: 2 }}</td>
-        </tr>
-        </tbody>
-    </table>
 </div>
