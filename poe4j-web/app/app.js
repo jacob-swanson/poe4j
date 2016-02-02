@@ -8,15 +8,16 @@ require('angular-animate');
 require('angular-ui-bootstrap');
 require('angular-smart-table');
 
-// CSS
-require('./app.css');
-require('bootstrap/dist/css/bootstrap.css');
-
 // Material
 require('imports?jQuery=jquery!bootstrap-material-design/dist/js/material.js');
 require('imports?jQuery=jquery!bootstrap-material-design/dist/js/ripples.js');
+
+// CSS
+require('bootstrap/dist/css/bootstrap.css');
 require('bootstrap-material-design/dist/css/bootstrap-material-design.css');
 require('bootstrap-material-design/dist/css/ripples.css');
+require('./app.css');
+
 
 // Create the angular app
 angular.module('application', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'smart-table'])
