@@ -13,6 +13,7 @@
         <module>poe4j-gui</module>
         <module>poe4j-base-item-extractor</module>
         <module>poe4j-web</module>
+        <module>poe4j-row-gen</module>
     </modules>
 
     <parent>
