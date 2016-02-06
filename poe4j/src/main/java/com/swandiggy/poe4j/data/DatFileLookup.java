@@ -46,7 +46,7 @@ public class DatFileLookup {
     /**
      * Map of .dat file names to rows classes
      */
-    public static final BiMap<String, Class<?>> entityClasses = HashBiMap.create();
+    public static final BiMap<String, Class<?>> rowClasses = HashBiMap.create();
 
     /**
      * Collect all classes with @DatFile
@@ -56,9 +56,9 @@ public class DatFileLookup {
         for (Class<?> clazz : reflections.getTypesAnnotatedWith(DatFile.class)) {
             DatFile datFile = clazz.getAnnotation(DatFile.class);
             if (StringUtils.isEmpty(datFile.value())) {
-                entityClasses.put(clazz.getSimpleName(), clazz);
+                rowClasses.put(clazz.getSimpleName(), clazz);
             } else {
-                entityClasses.put(datFile.value(), clazz);
+                rowClasses.put(datFile.value(), clazz);
             }
         }
     }
@@ -95,10 +95,10 @@ public class DatFileLookup {
     }
 
     public <T extends BaseRow> Class<T> getTypeForFile(File file) {
-        return (Class<T>) entityClasses.get(file.getName());
+        return (Class<T>) rowClasses.get(file.getName());
     }
 
     private String getRowClassFilename(Class clazz) {
-        return entityClasses.inverse().get(clazz) + ".dat";
+        return rowClasses.inverse().get(clazz) + ".dat";
     }
 }

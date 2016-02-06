@@ -180,7 +180,7 @@ public class MainWindowController implements Initializable {
             }
         });
 
-        DatFileLookup.entityClasses.entrySet().stream()
+        DatFileLookup.rowClasses.entrySet().stream()
                 .sorted((e1, e2) -> e1.getKey().compareTo(e2.getKey()))
                 .map(entry -> {
                     DatClass datClass = new DatClass();

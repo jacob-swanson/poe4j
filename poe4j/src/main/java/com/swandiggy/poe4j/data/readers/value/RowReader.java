@@ -8,9 +8,7 @@ import com.swandiggy.poe4j.data.DatFileReaderFactory;
 import com.swandiggy.poe4j.data.rows.BaseRow;
 import com.swandiggy.poe4j.util.reflection.Poe4jReflection;
 import lombok.Setter;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.proxy.LazyLoader;
-import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 
@@ -37,7 +35,7 @@ public class RowReader extends BaseValueReader<BaseRow> {
 
     @Override
     public boolean supports(Class clazz) {
-        return DatFileLookup.entityClasses.containsValue(clazz);
+        return DatFileLookup.rowClasses.containsValue(clazz);
     }
 
     @Override

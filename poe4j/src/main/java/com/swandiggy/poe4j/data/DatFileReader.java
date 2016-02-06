@@ -74,10 +74,29 @@ public class DatFileReader<T extends BaseRow> implements Closeable {
         br.setPosition(dataOffset);
         long magic = br.readLong();
         if (magic != Constants.MAGIC_DATA_SEPARATOR) {
-            // TODO: Calculate expected entity size
-            throw new Poe4jException(MessageFormat.format("Row size incorrect was {0}", entitySize));
+            throw new Poe4jException(MessageFormat.format("Row size incorrect for {0} expected {1} bytes, was {2} bytes", recordType.getCanonicalName(), entitySize, calcActualRowSize()));
         }
         br.setPosition(4);
+    }
+
+    /**
+     * Find the data separator and return the row size.
+     *
+     * TODO: Use a search algorithm
+     *
+     * @return data separator offset / row count
+     */
+    private int calcActualRowSize() {
+        for (int i = 0; i < br.length(); i++) {
+            br.setPosition(i);
+            if (br.readLong() == Constants.MAGIC_DATA_SEPARATOR) {
+                log.debug("Found magic separator at {} bytes", i);
+
+                return i/count;
+            }
+        }
+
+        throw new Poe4jException(MessageFormat.format("Could not find data separator in {0}", file.getAbsolutePath()));
     }
 
     @Override
