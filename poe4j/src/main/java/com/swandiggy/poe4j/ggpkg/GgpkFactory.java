@@ -1,6 +1,9 @@
 package com.swandiggy.poe4j.ggpkg;
 
+import com.google.common.cache.Cache;
+import com.google.common.cache.CacheBuilder;
 import com.swandiggy.poe4j.Poe4jException;
+import com.swandiggy.poe4j.data.rows.BaseRow;
 import com.swandiggy.poe4j.ggpkg.factory.RecordFactory;
 import com.swandiggy.poe4j.ggpkg.record.DirectoryRecord;
 import com.swandiggy.poe4j.ggpkg.record.FileRecord;
@@ -32,6 +35,25 @@ import java.util.Optional;
 @Slf4j
 public class GgpkFactory {
 
+    /**
+     * Weak cache of records
+     */
+    private static final Cache<String, Ggpk> ggpkCache = CacheBuilder.newBuilder().softValues().build();
+
+    private Ggpk cacheGet(File file) {
+        String key = file.toString();
+        if (ggpkCache.getIfPresent(key) != null) {
+            return ggpkCache.getIfPresent(key);
+        }
+
+        return null;
+    }
+
+    private void cachePut(Ggpk ggpk) {
+        String key = ggpk.getFile().toString();
+        ggpkCache.put(key, ggpk);
+    }
+
     @Setter
     private RecordFactory[] recordFactories;
 
@@ -54,6 +76,10 @@ public class GgpkFactory {
     public Ggpk load(File ggpkgFile) {
         Assert.notNull(ggpkgFile);
         Assert.isTrue(ggpkgFile.exists(), "ggpkgFile did not exist");
+
+        if (cacheGet(ggpkgFile) != null) {
+            return cacheGet(ggpkgFile);
+        }
 
         log.info("Loading '" + ggpkgFile + "'");
 
@@ -98,6 +124,9 @@ public class GgpkFactory {
                     }
                 });
 
-        return new Ggpk(records, ggpkgFile, nodes);
+        Ggpk ggpk = new Ggpk(records, ggpkgFile, nodes);
+        cachePut(ggpk);
+
+        return ggpk;
     }
 }

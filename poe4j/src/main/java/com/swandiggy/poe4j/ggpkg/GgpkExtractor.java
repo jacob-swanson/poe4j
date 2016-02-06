@@ -13,7 +13,9 @@ import org.springframework.util.Assert;
 
 import java.io.*;
 import java.nio.channels.FileChannel;
+import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.MessageFormat;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
@@ -36,7 +38,7 @@ public class GgpkExtractor {
     /**
      * Extract a GGPK
      *
-     * @param ggpk      Pack to extract.
+     * @param ggpk       Pack to extract.
      * @param extractDir Directory to extract to.
      */
     @MonitorRuntime("Extracted in %f seconds")
@@ -67,10 +69,50 @@ public class GgpkExtractor {
                 }
             }
         } catch (FileNotFoundException e) {
-            throw new Poe4jException("Could not open GGPKG file", e);
+            throw new Poe4jException("Could not open GGPK file", e);
         } catch (IOException e) {
-            throw new Poe4jException("Could not close GGPKG file", e);
+            throw new Poe4jException("Could not close GGPK file", e);
         }
+    }
+
+    public File getFileRecord(Ggpk ggpk, String fullPath) {
+        Path p = Paths.get(fullPath);
+
+        final String finalFullPath = fullPath;
+        FileRecord fileRecord = ggpk.getDirectoryTree()
+                .values()
+                .stream()
+                .filter(node -> node.getData() instanceof FileRecord)
+                .map(node -> (FileRecord) node.getData())
+                .filter(record -> record.getName().equalsIgnoreCase(p.getFileName().toString()))
+                .filter(record -> getFilePath(record, ggpk).equalsIgnoreCase(finalFullPath))
+                .findAny()
+                .orElseThrow(() -> new Poe4jException(MessageFormat.format("FileRecord {0} not found", finalFullPath)));
+
+        File tempFile;
+        try {
+            tempFile = File.createTempFile("poe4j-", "-" + fileRecord.getName());
+        } catch (IOException e) {
+            throw new Poe4jException("Could not create temp file", e);
+        }
+
+        try (FileChannel source = new RandomAccessFile(ggpk.getFile(), "r").getChannel()) {
+            try (FileChannel destination = new FileOutputStream(tempFile).getChannel()) {
+                source.position(fileRecord.getDataStart());
+                long bytes = fileRecord.getDataLength();
+                while (bytes > 0) {
+                    bytes -= destination.transferFrom(source, 0, fileRecord.getDataLength());
+                }
+            } catch (IOException e) {
+                log.error("Error extracting file", e);
+            }
+        } catch (FileNotFoundException e) {
+            throw new Poe4jException("Could not open GGPK file", e);
+        } catch (IOException e) {
+            throw new Poe4jException("Could not close GGPK file", e);
+        }
+
+        return tempFile;
     }
 
     private void extractFile(FileRecord fileRecord, Ggpk ggpk, File extractDir, FileChannel source) {

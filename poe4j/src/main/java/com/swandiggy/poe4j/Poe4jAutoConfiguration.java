@@ -105,8 +105,8 @@ public class Poe4jAutoConfiguration {
 
 
     @Bean
-    public DatFileLookup datFileLookup(Poe4jProperties properties) {
-        return new DatFileLookup(properties);
+    public DatFileLookup datFileLookup(Poe4jProperties properties, GgpkFactory ggpkFactory, GgpkExtractor ggpkExtractor) {
+        return new DatFileLookup(properties, ggpkFactory, ggpkExtractor);
     }
 
     @Bean

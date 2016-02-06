@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties(prefix = "poe4j")
 public class Poe4jProperties {
 
-    private String ggpkDirectory;
+    private String ggpk;
+    private String[] ggpkLocations = {"C:\\Program Files (x86)\\Steam\\steamapps\\common\\Path of Exile\\Content.ggpk"};
 
 }

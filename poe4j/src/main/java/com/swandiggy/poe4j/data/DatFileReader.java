@@ -32,7 +32,7 @@ import java.util.stream.Stream;
 @Slf4j
 public class DatFileReader<T extends BaseRow> implements Closeable {
 
-    /*
+    /**
      * Weak cache of records
      */
     private static final Cache<String, BaseRow> recordCache = CacheBuilder.newBuilder().softValues().build();
@@ -88,7 +88,7 @@ public class DatFileReader<T extends BaseRow> implements Closeable {
     }
 
     private T cacheGet(long index) {
-        String key = index + ":" + file.getName();
+        String key = index + ":" + recordType.getCanonicalName();
         if (recordCache.getIfPresent(key) != null) {
             return (T) recordCache.getIfPresent(key);
         }
@@ -97,7 +97,7 @@ public class DatFileReader<T extends BaseRow> implements Closeable {
     }
 
     private void cachePut(T record) {
-        String key = record.getIndex() + ":" + file.getName();
+        String key = record.getIndex() + ":" + recordType.getCanonicalName();
         recordCache.put(key, record);
     }
 

@@ -37,7 +37,7 @@ public class DataExtractor implements ApplicationRunner, ExitCodeGenerator {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        properties.setGgpkDirectory(args.getNonOptionArgs().get(0));
+        properties.setGgpk(args.getNonOptionArgs().get(0));
         DatFileReader<BaseItemType> baseItemTypeReader = datFileReaderFactory.create(BaseItemType.class);
         DatFileReader<ComponentAttributeRequirement> attrReqReader = datFileReaderFactory.create(ComponentAttributeRequirement.class);
 
