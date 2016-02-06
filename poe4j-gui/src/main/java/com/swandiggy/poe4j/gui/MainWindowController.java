@@ -263,7 +263,7 @@ public class MainWindowController implements Initializable {
     }
 
     public void extractDatFile(ActionEvent event) throws IOException {
-        properties.setGgpkDirectory(datFileText.get());
+        properties.setGgpk(datFileText.get());
         List<BaseRow> rows = datFileReaderFactory.createUnsafe(((DatClass) dataFileComboBox.getSelectionModel().getSelectedItem()).getValue()).read().collect(toList());
         objectMapper.writerWithDefaultPrettyPrinter().writeValue(Paths.get(datExtractDirText.get(), ((DatClass) dataFileComboBox.getSelectionModel().getSelectedItem()).getName() + ".json").toFile(), rows);
     }

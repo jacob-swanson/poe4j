@@ -11,8 +11,6 @@ import com.swandiggy.poe4j.ggpkg.GgpkExtractor;
 import com.swandiggy.poe4j.ggpkg.GgpkFactory;
 import lombok.Setter;
 import org.reflections.Reflections;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import java.io.File;
@@ -66,22 +64,41 @@ public class DatFileLookup {
     }
 
     public <T extends BaseRow> File getFileForType(Class<T> clazz) {
-        File file = new File(properties.getGgpkDirectory());
-        if (!file.exists()) {
-            throw new Poe4jException(MessageFormat.format("GGPK {0} not found", file));
+        if (StringUtils.hasText(properties.getGgpk())) {
+            File file = new File(properties.getGgpk());
+            if (!file.exists()) {
+                throw new Poe4jException(MessageFormat.format("GGPK {0} not found", file));
+            }
+
+            if (file.isDirectory()) {
+                return Paths.get(properties.getGgpk(), "Data", getRowClassFilename(clazz)).toFile();
+            } else if (file.isFile()) {
+                Ggpk ggpk = ggpkFactory.load(new File(properties.getGgpk()));
+                return ggpkExtractor.getFileRecord(ggpk, Paths.get("Data", getRowClassFilename(clazz)).toString());
+            } else {
+                throw new Poe4jException(MessageFormat.format("GGPK {0} not a file or directory", file));
+            }
+        } else {
+            for (String location : properties.getGgpkLocations()) {
+                File file = new File(location);
+                if (!file.exists() || !file.isFile()) {
+                    continue;
+                }
+
+                Ggpk ggpk = ggpkFactory.load(new File(location));
+                return ggpkExtractor.getFileRecord(ggpk, Paths.get("Data", getRowClassFilename(clazz)).toString());
+            }
+
+            throw new Poe4jException(MessageFormat.format("No GGPK found at {}", properties.getGgpkLocations()));
         }
 
-        if (file.isDirectory()) {
-            return Paths.get(properties.getGgpkDirectory(), "Data", entityClasses.inverse().get(clazz) + ".dat").toFile();
-        } else if (file.isFile()) {
-            Ggpk ggpk = ggpkFactory.load(new File("C:\\Program Files (x86)\\Steam\\steamapps\\common\\Path of Exile\\Content.ggpk"));
-            return ggpkExtractor.getFileRecord(ggpk, Paths.get("Data", entityClasses.inverse().get(clazz) + ".dat").toString());
-        } else {
-            throw new Poe4jException(MessageFormat.format("GGPK {0} not a file or directory", file));
-        }
     }
 
     public <T extends BaseRow> Class<T> getTypeForFile(File file) {
         return (Class<T>) entityClasses.get(file.getName());
+    }
+
+    private String getRowClassFilename(Class clazz) {
+        return entityClasses.inverse().get(clazz) + ".dat";
     }
 }
