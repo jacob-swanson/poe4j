@@ -15,7 +15,7 @@ import lombok.EqualsAndHashCode;
 @DatFile("ComponentAttributeRequirements")
 public class ComponentAttributeRequirement extends BaseRow {
     @Order(1)
-    @ReferenceOne("virtualPath")
+    @ReferenceOne("id")
     private BaseItemType baseItemType;
 
     @Order(2)

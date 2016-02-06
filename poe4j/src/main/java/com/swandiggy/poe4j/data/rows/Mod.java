@@ -5,6 +5,8 @@ import com.swandiggy.poe4j.data.annotations.Order;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.util.List;
+
 /**
  * @author Jacob Swanson
  * @since 9/5/2015
@@ -14,104 +16,110 @@ import lombok.EqualsAndHashCode;
 @DatFile("Mods")
 public class Mod extends BaseRow {
     @Order(1)
-    private int idRef;
+    private String id;
 
     @Order(2)
     private int unknown0;
 
     @Order(3)
-    private int level;
+    private long modTypeKey;
 
     @Order(4)
-    private long stat1;
+    private int level;
 
     @Order(5)
-    private long stat2;
+    private long stat1;
 
     @Order(6)
-    private long stat3;
+    private long stat2;
 
     @Order(7)
-    private long stat4;
+    private long stat3;
 
     @Order(8)
-    private int domain;
+    private long stat4;
 
     @Order(9)
-    private int name;
+    private int domain;
 
     @Order(10)
-    private int generationType;
+    private String name;
 
     @Order(11)
-    private int correctGroup;
+    private int generationType;
 
     @Order(12)
-    private int stat1Min;
+    private String correctGroup;
 
     @Order(13)
-    private int stat1Max;
+    private int stat1Min;
 
     @Order(14)
-    private int stat2Min;
+    private int stat1Max;
 
     @Order(15)
-    private int stat2Max;
+    private int stat2Min;
 
     @Order(16)
-    private int stat3Min;
+    private int stat2Max;
 
     @Order(17)
-    private int stat3Max;
+    private int stat3Min;
 
     @Order(18)
-    private int stat4Min;
+    private int stat3Max;
 
     @Order(19)
-    private int stat4Max;
+    private int stat4Min;
 
     @Order(20)
-    private long data0;
+    private int stat4Max;
 
     @Order(21)
-    private long data1;
+    private List<Long> spawnWeightTagKeys;
 
     @Order(22)
-    private long unknown27;
+    private List<Integer> spawnWeightValues;
 
     @Order(23)
-    private int unknown28;
+    private long buffDefinitionsKey;
 
     @Order(24)
-    private long data2;
+    private int buffValue;
 
     @Order(25)
-    private long unknown32;
+    private List<Tag> tags;
 
     @Order(26)
-    private long data3;
+    private long grantedEffectsPerLevelKey;
 
     @Order(27)
-    private long data4;
+    private List<Long> data1;
 
     @Order(28)
-    private int metaData;
+    private List<Long> data2;
 
     @Order(29)
-    private long unknown39;
+    private String monsterMetadata;
 
     @Order(30)
-    private long unknown41;
+    private List<Integer> data3;
 
     @Order(31)
-    private long unknown43;
+    private List<Integer> data4;
 
     @Order(32)
-    private int unknown45;
+    private long key0;
 
     @Order(33)
-    private int unknown46;
+    private int stat5Min;
 
     @Order(34)
-    private long unknown47;
+    private int stat5Max;
+
+    @Order(35)
+    private long stat5;
+
+    @Order(36)
+    private List<Long> keys0;
 }

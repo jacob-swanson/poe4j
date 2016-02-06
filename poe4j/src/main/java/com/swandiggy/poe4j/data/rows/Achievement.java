@@ -2,6 +2,7 @@ package com.swandiggy.poe4j.data.rows;
 
 import com.swandiggy.poe4j.data.annotations.DatFile;
 import com.swandiggy.poe4j.data.annotations.Order;
+import com.swandiggy.poe4j.data.annotations.ReferenceOne;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -21,6 +22,7 @@ public class Achievement extends BaseRow {
     private String description;
 
     @Order(3)
+    @ReferenceOne("id")
     private AchievementSetsDisplay achievementSetsDisplay;
 
     @Order(4)
@@ -34,6 +36,9 @@ public class Achievement extends BaseRow {
 
     @Order(7)
     private boolean flag1;
+
+    @Order(8)
+    private boolean flag2;
 
     @Order(8)
     private boolean flag3;

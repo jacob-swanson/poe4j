@@ -16,10 +16,10 @@ import java.util.List;
 @DatFile("BaseItemTypes")
 public class BaseItemType extends BaseRow {
     @Order(1)
-    private String virtualPath;
+    private String id;
 
     @Order(2)
-    private int itemClass;
+    private long itemClassKey;
 
     @Order(3)
     private int width;
@@ -40,7 +40,7 @@ public class BaseItemType extends BaseRow {
     private long flavourTextKey;
 
     @Order(9)
-    private List<Integer> implicitModKeys;
+    private List<Long> implicitModKeys;
 
     @Order(10)
     private int unknown5;
@@ -94,5 +94,5 @@ public class BaseItemType extends BaseRow {
     private long key2;
 
     @Order(27)
-    private Boolean flag0;
+    private byte unknown21;
 }
