@@ -4,24 +4,26 @@ import com.sun.codemodel.*;
 import com.swandiggy.poe4j.Poe4jException;
 import com.swandiggy.poe4j.data.annotations.DatFile;
 import com.swandiggy.poe4j.data.annotations.Order;
+import com.swandiggy.poe4j.data.annotations.ReferenceOne;
 import com.swandiggy.poe4j.data.rows.BaseRow;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.extern.slf4j.Slf4j;
-import org.atteo.evo.inflector.English;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.ExitCodeGenerator;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.MessageFormat;
-import java.util.*;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -45,7 +47,7 @@ public class DataExtractor implements ApplicationRunner, ExitCodeGenerator {
         return new String(Files.readAllBytes(Paths.get(recordFile.getURI())));
     }
 
-    private Map<String, JDefinedClass> classCache = new HashMap<>();
+    private Map<String, JDefinedClass> classCache = new LinkedHashMap<>();
 
     private JCodeModel cm = new JCodeModel();
 
@@ -55,7 +57,7 @@ public class DataExtractor implements ApplicationRunner, ExitCodeGenerator {
         String text = getSpecification();
         Matcher m = p.matcher(text);
 
-        Map<String, Map<String, Map<String, Map<String, String>>>> datFiles = new HashMap<>();
+        Map<String, Map<String, Map<String, Map<String, String>>>> datFiles = new LinkedHashMap<>();
 
         Map<String, Map<String, Map<String, String>>> currentDatFileValue = null;
         Map<String, Map<String, String>> currentFieldsValue = null;
@@ -70,13 +72,13 @@ public class DataExtractor implements ApplicationRunner, ExitCodeGenerator {
             log.info("----------------------------------------------");
 
             if (m.group("datfile") != null) {
-                currentDatFileValue = new HashMap<>();
+                currentDatFileValue = new LinkedHashMap<>();
                 datFiles.put(m.group("datfile"), currentDatFileValue);
             } else if (m.group("fields") != null) {
-                currentFieldsValue = new HashMap<>();
+                currentFieldsValue = new LinkedHashMap<>();
                 currentDatFileValue.put(m.group("fields"), currentFieldsValue);
             } else if (m.group("property") != null) {
-                currentPropertyValue = new HashMap<>();
+                currentPropertyValue = new LinkedHashMap<>();
                 currentFieldsValue.put(m.group("property"), currentPropertyValue);
             } else if (m.group("propattribute") != null) {
                 currentPropertyValue.put(m.group("propattribute"), m.group("propattributevalue"));
@@ -123,6 +125,11 @@ public class DataExtractor implements ApplicationRunner, ExitCodeGenerator {
                 }
                 JAnnotationUse fieldAn = field.annotate(Order.class);
                 fieldAn.param("value", count++);
+
+                if (fieldEntry.getValue().containsKey("key_id")) {
+                    JAnnotationUse refOne = field.annotate(ReferenceOne.class);
+                    refOne.param("value", fieldEntry.getValue().get("key_id"));
+                }
             }
 
         }

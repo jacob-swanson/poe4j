@@ -1,27 +1,22 @@
 package com.swandiggy.poe4j.test;
 
+import com.swandiggy.poe4j.Poe4jException;
 import com.swandiggy.poe4j.data.DatFileLookup;
 import com.swandiggy.poe4j.data.DatFileReader;
 import com.swandiggy.poe4j.data.DatFileReaderFactory;
-import com.swandiggy.poe4j.ggpkg.GgpkFactory;
-import com.swandiggy.poe4j.ggpkg.factory.FileRecordFactory;
-import com.swandiggy.poe4j.ggpkg.factory.RecordFactory;
-import com.swandiggy.poe4j.ggpkg.record.FileRecord;
-import com.swandiggy.poe4j.util.io.BinaryReader;
-import com.swandiggy.poe4j.util.io.RafBinaryReader;
 import lombok.extern.slf4j.Slf4j;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.security.MessageDigest;
+import java.text.MessageFormat;
+import java.util.ArrayList;
+import java.util.List;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.is;
+import static java.util.stream.Collectors.toList;
 
 /**
  * @author Jacob Swanson
@@ -37,10 +32,21 @@ public class ExtractAllTest {
 
     @Test
     public void testRead() throws Exception {
+        List<Class> failureClasses = new ArrayList<>();
         DatFileLookup.rowClasses.values().forEach(clazz -> {
-            DatFileReader reader = datFileReaderFactory.createUnsafe(clazz);
-            log.info("Read {} rows for {}", reader.read().count(), clazz.getSimpleName());
+            try {
+                DatFileReader reader = datFileReaderFactory.createUnsafe(clazz);
+                log.info("Read {} rows for {}", reader.read().count(), clazz.getSimpleName());
+            } catch (Poe4jException ex) {
+                failureClasses.add(clazz);
+                log.warn("Could not parse dat file {}", clazz, ex);
+            }
         });
+
+        if (!failureClasses.isEmpty()) {
+            log.error("FAiled: {}", failureClasses.stream().map(Class::getSimpleName).collect(toList()));
+            Assert.fail(MessageFormat.format("{0} classes failed", failureClasses.size()));
+        }
     }
 
 }
