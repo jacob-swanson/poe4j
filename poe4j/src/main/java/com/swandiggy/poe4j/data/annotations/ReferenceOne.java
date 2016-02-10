@@ -20,6 +20,11 @@ public @interface ReferenceOne {
     String value();
 
     /**
+     * Number to add to value when loading references.
+     */
+    long offset() default 0L;
+
+    /**
      * Whether the relation is required. If no value is found an exception will be thrown.
      */
     boolean required() default false;

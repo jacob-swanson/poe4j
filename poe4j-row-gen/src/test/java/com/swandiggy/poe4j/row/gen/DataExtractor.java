@@ -4,6 +4,7 @@ import com.sun.codemodel.*;
 import com.swandiggy.poe4j.Poe4jException;
 import com.swandiggy.poe4j.data.annotations.DatFile;
 import com.swandiggy.poe4j.data.annotations.Order;
+import com.swandiggy.poe4j.data.annotations.Reference;
 import com.swandiggy.poe4j.data.annotations.ReferenceOne;
 import com.swandiggy.poe4j.data.rows.BaseRow;
 import lombok.Data;
@@ -129,6 +130,19 @@ public class DataExtractor implements ApplicationRunner, ExitCodeGenerator {
                 if (fieldEntry.getValue().containsKey("key_id")) {
                     JAnnotationUse refOne = field.annotate(ReferenceOne.class);
                     refOne.param("value", fieldEntry.getValue().get("key_id"));
+                    if (fieldEntry.getValue().containsKey("key_offset")) {
+                        refOne.param("offset", Long.valueOf(fieldEntry.getValue().get("key_offset")));
+                    }
+                }
+
+                if (fieldEntry.getValue().containsKey("key") &&
+                        fieldEntry.getValue().get("type").equalsIgnoreCase("int")
+                        && !fieldEntry.getValue().containsKey("key_id")) {
+                    JAnnotationUse ref = field.annotate(Reference.class);
+                    ref.param("value", Integer.class);
+                    if (fieldEntry.getValue().containsKey("key_offset")) {
+                        ref.param("offset", Long.valueOf(fieldEntry.getValue().get("key_offset")));
+                    }
                 }
             }
 
