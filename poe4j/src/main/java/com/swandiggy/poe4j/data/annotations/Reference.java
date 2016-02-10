@@ -6,21 +6,26 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Reference another row, not by index, but by matching against a value in the referenced row.
- *
  * @author Jacob Swanson
- * @since 1/15/2016
+ * @since 2/9/2016
  */
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface ReferenceOne {
+public @interface Reference {
+
     /**
-     * Name of the foreign field.
+     * Type of reference.
      */
-    String value();
+    Class<? extends Number> value() default Long.class;
+
+    /**
+     * Number to add to value when loading references.
+     */
+    long offset() default 0L;
 
     /**
      * Whether the relation is required. If no value is found an exception will be thrown.
      */
     boolean required() default false;
+
 }

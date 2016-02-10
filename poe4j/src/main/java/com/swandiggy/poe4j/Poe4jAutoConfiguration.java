@@ -3,6 +3,7 @@ package com.swandiggy.poe4j;
 import com.swandiggy.poe4j.config.Poe4jProperties;
 import com.swandiggy.poe4j.data.DatFileLookup;
 import com.swandiggy.poe4j.data.DatFileReaderFactory;
+import com.swandiggy.poe4j.data.annotations.ReferenceOne;
 import com.swandiggy.poe4j.data.readers.FieldReaders;
 import com.swandiggy.poe4j.data.readers.ValueReaders;
 import com.swandiggy.poe4j.data.readers.field.*;
@@ -45,17 +46,25 @@ public class Poe4jAutoConfiguration {
     }
 
     @Bean
+    public ReferenceOneFieldReader referenceOneFieldReader(DatFileReaderFactory datFileReaderFactory) {
+        ReferenceOneFieldReader referenceOneFieldReader = new ReferenceOneFieldReader();
+        referenceOneFieldReader.setDatFileReaderFactory(datFileReaderFactory);
+
+        return referenceOneFieldReader;
+    }
+
+    @Bean
     public ValueFieldReader valueFieldReader(ValueReaders valueReaders) {
         return new ValueFieldReader(valueReaders);
     }
 
     @Bean
     public FieldReaders fieldReaders(FieldReader[] fieldReaders,
-                                     ReferenceFieldReader referenceFieldReader,
+                                     ReferenceOneFieldReader referenceOneFieldReader,
                                      DatFileReaderFactory datFileReaderFactory) {
         FieldReaders delegatingFieldReader = new FieldReaders(fieldReaders);
 
-        referenceFieldReader.setFieldReaders(delegatingFieldReader);
+        referenceOneFieldReader.setFieldReaders(delegatingFieldReader);
         datFileReaderFactory.setFieldReaders(delegatingFieldReader);
 
         return delegatingFieldReader;
@@ -98,8 +107,12 @@ public class Poe4jAutoConfiguration {
     }
 
     @Bean
-    public ValueReaders valueReaders(ValueReader[] valueReaders) {
-        return new ValueReaders(valueReaders);
+    public ValueReaders valueReaders(ValueReader[] valueReaders, ReferenceFieldReader referenceFieldReader) {
+        ValueReaders deletatingValueReader = new ValueReaders(valueReaders);
+
+        referenceFieldReader.setValueReaders(deletatingValueReader);
+
+        return deletatingValueReader;
     }
 
 

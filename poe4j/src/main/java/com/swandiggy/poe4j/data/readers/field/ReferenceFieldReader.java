@@ -1,12 +1,12 @@
 package com.swandiggy.poe4j.data.readers.field;
 
 import com.swandiggy.poe4j.Poe4jException;
+import com.swandiggy.poe4j.data.Constants;
 import com.swandiggy.poe4j.data.DatFileReader;
 import com.swandiggy.poe4j.data.DatFileReaderFactory;
+import com.swandiggy.poe4j.data.annotations.Reference;
 import com.swandiggy.poe4j.data.annotations.ReferenceOne;
-import com.swandiggy.poe4j.data.readers.FieldReaders;
-import com.swandiggy.poe4j.data.rows.BaseRow;
-import com.swandiggy.poe4j.data.rows.ComponentAttributeRequirement;
+import com.swandiggy.poe4j.data.readers.ValueReaders;
 import com.swandiggy.poe4j.util.reflection.Poe4jReflection;
 import lombok.Setter;
 import org.springframework.cglib.proxy.LazyLoader;
@@ -16,7 +16,6 @@ import java.lang.reflect.Field;
 
 /**
  * Read a field that references another row by a shared key value.
- * See {@link ComponentAttributeRequirement#baseItemType} for an example.
  *
  * @author Jacob Swanson
  * @since 12/15/2015
@@ -27,14 +26,14 @@ public class ReferenceFieldReader extends BaseFieldReader<Object> {
     private DatFileReaderFactory datFileReaderFactory;
 
     @Setter
-    private FieldReaders fieldReaders;
+    private ValueReaders valueReaders;
 
     public ReferenceFieldReader() {
     }
 
-    public ReferenceFieldReader(DatFileReaderFactory datFileReaderFactory, FieldReaders fieldReaders) {
+    public ReferenceFieldReader(DatFileReaderFactory datFileReaderFactory, ValueReaders valueReaders) {
         this.datFileReaderFactory = datFileReaderFactory;
-        this.fieldReaders = fieldReaders;
+        this.valueReaders = valueReaders;
     }
     
     @Override
@@ -44,35 +43,35 @@ public class ReferenceFieldReader extends BaseFieldReader<Object> {
 
     @Override
     protected Object readInternal(DatFileReader reader, Field field) {
-        ReferenceOne annotation = field.getAnnotation(ReferenceOne.class);
-        Field referencedKeyField = Poe4jReflection.getField(field.getType(), annotation.value());
+        Reference annotation = field.getAnnotation(Reference.class);
+        Long index = getIndex(reader, annotation);
+        if (index == Constants.MAGIC_NULL) {
+            return null;
+        }
 
-        Object key = fieldReaders.read(reader, referencedKeyField);
-
-        return Poe4jReflection.lazyLoad(field.getType(),(LazyLoader) () -> {
-            try (DatFileReader<BaseRow> datFileReader = datFileReaderFactory.createUnsafe(field.getType())) {
-                BaseRow referencedRow = datFileReader.read()
-                        .filter(row -> Poe4jReflection.readProperty(row, annotation.value()).equals(key))
-                        .findAny()
-                        .orElse(null);
-
-                if (annotation.required() && referencedRow == null) {
-                    throw new Poe4jException("Row was required and not found");
-                }
-
-                return referencedRow;
+        return Poe4jReflection.lazyLoad(field.getType(), (LazyLoader) () -> {
+            // Get the referenced .dat file
+            Class clazz = field.getType();
+            try (DatFileReader datFileReader = datFileReaderFactory.create(clazz)) {
+                return datFileReader.read(index);
             } catch (IOException e) {
                 throw new Poe4jException(e);
             }
         });
     }
 
+    private Long getIndex(DatFileReader reader, Reference annotation) {
+        long index = (Long) valueReaders.read(reader, annotation.value());
+        index += annotation.offset();
+
+        return index;
+    }
+
     @Override
     public int size(Field field) {
-        ReferenceOne annotation = field.getAnnotation(ReferenceOne.class);
-        Field referencedKeyField = Poe4jReflection.getField(field.getType(), annotation.value());
+        Reference annotation = field.getAnnotation(Reference.class);
 
-        return fieldReaders.size(referencedKeyField);
+        return valueReaders.size(annotation.value());
     }
 
 }
