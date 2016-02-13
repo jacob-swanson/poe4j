@@ -153,12 +153,22 @@ public class DataExtractor implements ApplicationRunner, ExitCodeGenerator {
 
     private Object getFieldType(Map<String, String> type) throws JClassAlreadyExistsException {
         if (type.containsKey("key") && type.get("key").contains(".dat")) {
-            if (classCache.containsKey(type.get("key"))) {
-                return classCache.get(type.get("key"));
+            if (!type.get("type").contains("list")) {
+                if (classCache.containsKey(type.get("key"))) {
+                    return classCache.get(type.get("key"));
+                } else {
+                    JDefinedClass clazz = cm._class("com.swandiggy.poe4j.row.gen." + type.get("key").replace(".dat", ""));
+                    classCache.put(type.get("key"), clazz);
+                    return clazz;
+                }
             } else {
-                JDefinedClass clazz = cm._class("com.swandiggy.poe4j.row.gen." + type.get("key").replace(".dat", ""));
-                classCache.put(type.get("key"), clazz);
-                return clazz;
+                if (classCache.containsKey(type.get("key"))) {
+                    return cm.ref(List.class).narrow(classCache.get(type.get("key")));
+                } else {
+                    JDefinedClass clazz = cm._class("com.swandiggy.poe4j.row.gen." + type.get("key").replace(".dat", ""));
+                    classCache.put(type.get("key"), clazz);
+                    return cm.ref(List.class).narrow(clazz);
+                }
             }
         } else if (Objects.equals(type.get("type"), "int")) {
             return int.class;

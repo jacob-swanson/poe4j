@@ -1,6 +1,7 @@
 package com.swandiggy.poe4j.data.readers.field;
 
 import com.swandiggy.poe4j.data.DatFileReader;
+import com.swandiggy.poe4j.data.annotations.Reference;
 import com.swandiggy.poe4j.data.readers.ValueReaders;
 import lombok.Setter;
 
@@ -29,7 +30,8 @@ public class ListFieldReader extends BaseFieldReader<List> {
 
     @Override
     public boolean supports(Field field) {
-        return field.getType() == List.class;
+        return field.getType() == List.class &&
+                !field.isAnnotationPresent(Reference.class);
     }
 
     @Override

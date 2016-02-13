@@ -194,4 +194,12 @@ public class DatFileReader<T extends BaseRow> implements Closeable {
     public File getFile() {
         return file;
     }
+
+    public Class<?> getRecordType() {
+        return recordType;
+    }
+
+    public void setRecordType(Class<?> recordType) {
+        this.recordType = recordType;
+    }
 }
