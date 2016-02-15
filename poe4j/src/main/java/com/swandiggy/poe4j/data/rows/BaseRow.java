@@ -1,5 +1,6 @@
 package com.swandiggy.poe4j.data.rows;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -12,6 +13,8 @@ import java.io.Serializable;
  */
 @Data
 public abstract class BaseRow implements Serializable {
+    @JsonIgnore
     private Integer index;
+    @JsonIgnore
     private Long offset;
 }

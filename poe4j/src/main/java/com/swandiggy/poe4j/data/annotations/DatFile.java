@@ -16,7 +16,7 @@ import java.lang.annotation.Target;
 public @interface DatFile {
     /**
      * Name of the .dat file. Defaults to the name of the class. To have the class a different name of the file, set the
-     * file name here. For an example see {@link BaseItemType}.
+     * file name here.
      */
     String value() default "";
 }

@@ -42,7 +42,7 @@ public class DatFileReader<T extends BaseRow> implements Closeable {
     private long dataOffset; // Offset to the beginning of the variable width portion
     private int entitySize; // Size of a rows in the fixed width portion
     private List<Field> fields; // List of fields in the rows, sorted by @Order
-    private Class<?> recordType; // Class to map records to
+    private Class<T> recordType; // Class to map records to
     private int count; // Number of records in the fixed width portion
     private FieldReaders fieldReaders;
 
@@ -206,7 +206,7 @@ public class DatFileReader<T extends BaseRow> implements Closeable {
         return recordType;
     }
 
-    public void setRecordType(Class<?> recordType) {
+    public void setRecordType(Class<T> recordType) {
         this.recordType = recordType;
     }
 }

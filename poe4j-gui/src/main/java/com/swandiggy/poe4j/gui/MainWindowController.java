@@ -17,10 +17,7 @@ import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TabPane;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import lombok.Data;
@@ -68,6 +65,10 @@ public class MainWindowController implements Initializable {
     private ListView logView;
     @FXML
     private ComboBox dataFileComboBox;
+
+    @FXML
+    private TextArea textArea;
+
 
     @Autowired
     private GgpkFactory ggpkFactory;
@@ -265,6 +266,6 @@ public class MainWindowController implements Initializable {
     public void extractDatFile(ActionEvent event) throws IOException {
         properties.setGgpk(datFileText.get());
         List<BaseRow> rows = datFileReaderFactory.createUnsafe(((DatClass) dataFileComboBox.getSelectionModel().getSelectedItem()).getValue()).read().collect(toList());
-        objectMapper.writerWithDefaultPrettyPrinter().writeValue(Paths.get(datExtractDirText.get(), ((DatClass) dataFileComboBox.getSelectionModel().getSelectedItem()).getName() + ".json").toFile(), rows);
+        textArea.setText(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(rows));
     }
 }
