@@ -146,7 +146,7 @@ public class DatFileReader<T extends BaseRow> implements Closeable {
             return cacheGet(index);
         }
 
-        log.info("Reading '" + index + "' from '" + br.getFile().getName() + "'");
+        log.info("Reading '" + index + "' from '" + recordType.getSimpleName() + "'");
 
         long recordOffset = index * entitySize + 4; // Index + size of rows + header
         if (br.getPosition() != recordOffset) {
