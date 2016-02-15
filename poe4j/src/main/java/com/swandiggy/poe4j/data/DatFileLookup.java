@@ -9,6 +9,9 @@ import com.swandiggy.poe4j.data.rows.BaseRow;
 import com.swandiggy.poe4j.ggpkg.Ggpk;
 import com.swandiggy.poe4j.ggpkg.GgpkExtractor;
 import com.swandiggy.poe4j.ggpkg.GgpkFactory;
+import com.swandiggy.poe4j.ggpkg.record.FileRecord;
+import com.swandiggy.poe4j.util.io.BinaryReader;
+import com.swandiggy.poe4j.util.io.MappedBinaryReader;
 import lombok.Setter;
 import org.reflections.Reflections;
 import org.springframework.util.StringUtils;
@@ -63,7 +66,7 @@ public class DatFileLookup {
         }
     }
 
-    public <T extends BaseRow> File getFileForType(Class<T> clazz) {
+    public <T extends BaseRow> BinaryReader getFileForType(Class<T> clazz) {
         if (StringUtils.hasText(properties.getGgpk())) {
             File file = new File(properties.getGgpk());
             if (!file.exists()) {
@@ -71,10 +74,12 @@ public class DatFileLookup {
             }
 
             if (file.isDirectory()) {
-                return Paths.get(properties.getGgpk(), "Data", getRowClassFilename(clazz)).toFile();
+                return new MappedBinaryReader(Paths.get(properties.getGgpk(), "Data", getRowClassFilename(clazz)).toFile(), "r");
             } else if (file.isFile()) {
                 Ggpk ggpk = ggpkFactory.load(new File(properties.getGgpk()));
-                return ggpkExtractor.getFileRecord(ggpk, Paths.get("Data", getRowClassFilename(clazz)).toString());
+                FileRecord fileRecord = ggpkExtractor.getFileRecord(ggpk, Paths.get("Data", getRowClassFilename(clazz)).toString());
+
+                return new MappedBinaryReader(Paths.get(properties.getGgpk(), "Data", getRowClassFilename(clazz)).toFile(), "r", fileRecord.getDataStart(), fileRecord.getDataLength());
             } else {
                 throw new Poe4jException(MessageFormat.format("GGPK {0} not a file or directory", file));
             }
@@ -86,7 +91,8 @@ public class DatFileLookup {
                 }
 
                 Ggpk ggpk = ggpkFactory.load(new File(location));
-                return ggpkExtractor.getFileRecord(ggpk, Paths.get("Data", getRowClassFilename(clazz)).toString());
+                FileRecord fileRecord = ggpkExtractor.getFileRecord(ggpk, Paths.get("Data", getRowClassFilename(clazz)).toString());
+                return new MappedBinaryReader(file, "r", fileRecord.getDataStart(), fileRecord.getDataLength());
             }
 
             throw new Poe4jException(MessageFormat.format("No GGPK found at {}", properties.getGgpkLocations()));

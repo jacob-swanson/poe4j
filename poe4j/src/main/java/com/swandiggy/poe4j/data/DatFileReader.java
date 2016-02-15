@@ -5,6 +5,7 @@ import com.google.common.cache.CacheBuilder;
 import com.swandiggy.poe4j.Poe4jException;
 import com.swandiggy.poe4j.data.annotations.Order;
 import com.swandiggy.poe4j.data.readers.FieldReaders;
+import com.swandiggy.poe4j.data.readers.field.FieldReader;
 import com.swandiggy.poe4j.data.rows.BaseRow;
 import com.swandiggy.poe4j.util.io.BinaryReader;
 import com.swandiggy.poe4j.util.io.MappedBinaryReader;
@@ -37,7 +38,6 @@ public class DatFileReader<T extends BaseRow> implements Closeable {
      */
     private static final Cache<String, BaseRow> recordCache = CacheBuilder.newBuilder().softValues().build();
 
-    private File file; // .dat file
     private BinaryReader br; // reader for the file
     private long dataOffset; // Offset to the beginning of the variable width portion
     private int entitySize; // Size of a rows in the fixed width portion
@@ -50,11 +50,19 @@ public class DatFileReader<T extends BaseRow> implements Closeable {
      * Create a new .dat file reader.
      */
     public DatFileReader(Class<T> clazz, FieldReaders fieldReaders, File file) {
-        this.file = file;
+        this(clazz, fieldReaders, file, 0, file.length());
+    }
+
+    public DatFileReader(Class<T> clazz, FieldReaders fieldReaders, File file, long start, long length) {
+        this(clazz, fieldReaders, new MappedBinaryReader(file, "r", start, length));
+    }
+
+    public DatFileReader(Class<T> clazz, FieldReaders fieldReaders, BinaryReader br) {
         this.fieldReaders = fieldReaders;
         this.recordType = clazz;
+        this.br = br;
 
-        Assert.notNull(recordType, "Could not find rows class for '" + file.getName() + "'");
+        Assert.notNull(recordType, "Could not find rows class for '" + br.getFile().getName() + "'");
 
         // Get fields with @Order and sort them
         Comparator<Field> byOrder = (o1, o2) -> Integer.compare(o1.getAnnotation(Order.class).value(), o2.getAnnotation(Order.class).value());
@@ -64,7 +72,6 @@ public class DatFileReader<T extends BaseRow> implements Closeable {
                 .collect(Collectors.toList());
 
         // Read basic stuff from the rows
-        br = new MappedBinaryReader(file, "r");
         count = br.readInt();
 
         entitySize = getEntitySize();
@@ -96,7 +103,7 @@ public class DatFileReader<T extends BaseRow> implements Closeable {
             }
         }
 
-        throw new Poe4jException(MessageFormat.format("Could not find data separator in {0}", file.getAbsolutePath()));
+        throw new Poe4jException(MessageFormat.format("Could not find data separator in {0}", br.getFile().getAbsolutePath()));
     }
 
     @Override
@@ -139,7 +146,7 @@ public class DatFileReader<T extends BaseRow> implements Closeable {
             return cacheGet(index);
         }
 
-        log.info("Reading '" + index + "' from '" + file.getName() + "'");
+        log.info("Reading '" + index + "' from '" + br.getFile().getName() + "'");
 
         long recordOffset = index * entitySize + 4; // Index + size of rows + header
         if (br.getPosition() != recordOffset) {
@@ -192,7 +199,7 @@ public class DatFileReader<T extends BaseRow> implements Closeable {
     }
 
     public File getFile() {
-        return file;
+        return br.getFile();
     }
 
     public Class<?> getRecordType() {

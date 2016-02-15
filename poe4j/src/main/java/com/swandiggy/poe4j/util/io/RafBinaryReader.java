@@ -16,10 +16,13 @@ public class RafBinaryReader implements BinaryReader {
 
     private RandomAccessFile raf;
     private ByteOrder byteOrder = ByteOrder.LITTLE_ENDIAN;
+    private File file;
 
     public RafBinaryReader(File file, String mode) {
         Assert.notNull(file);
         Assert.hasText(mode);
+
+        this.file = file;
 
         try {
             raf = new RandomAccessFile(file, mode);
@@ -112,5 +115,10 @@ public class RafBinaryReader implements BinaryReader {
     @Override
     public ByteOrder getByteOrder() {
         return this.byteOrder;
+    }
+
+    @Override
+    public File getFile() {
+        return file;
     }
 }

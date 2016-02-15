@@ -20,16 +20,25 @@ public class MappedBinaryReader implements BinaryReader {
     private final MappedByteBuffer buf;
     private final RandomAccessFile raf;
     private final FileChannel channel;
+    private final File file;
     private ByteOrder byteOrder = ByteOrder.LITTLE_ENDIAN;
 
     public MappedBinaryReader(File file, String mode) {
+        this(file, mode, 0, file.length());
+    }
+
+    public MappedBinaryReader(File file, String  mode, long start, long length) {
         Assert.notNull(file);
         Assert.notNull(mode);
+        Assert.isTrue(start >= 0);
+        Assert.isTrue(length > 0);
+
+        this.file = file;
 
         try {
             raf = new RandomAccessFile(file, mode);
             channel = raf.getChannel();
-            buf = channel.map(FileChannel.MapMode.READ_ONLY, 0, raf.length());
+            buf = channel.map(FileChannel.MapMode.READ_ONLY, start, length);
         } catch (IOException e) {
             throw new Poe4jException(e);
         }
@@ -71,6 +80,11 @@ public class MappedBinaryReader implements BinaryReader {
     @Override
     public ByteOrder getByteOrder() {
         return byteOrder;
+    }
+
+    @Override
+    public File getFile() {
+        return file;
     }
 
     @Override

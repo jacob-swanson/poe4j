@@ -5,6 +5,7 @@ import org.mozilla.universalchardet.UniversalDetector;
 import org.springframework.util.Assert;
 
 import java.io.Closeable;
+import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -135,4 +136,6 @@ public interface BinaryReader extends Closeable {
 
         return encoding;
     }
+
+    File getFile();
 }

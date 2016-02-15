@@ -1,7 +1,5 @@
 package com.swandiggy.poe4j.data.annotations;
 
-import com.swandiggy.poe4j.data.rows.BaseItemType;
-
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

@@ -7,8 +7,6 @@ import com.swandiggy.poe4j.ggpkg.record.Record;
 import com.swandiggy.poe4j.util.aspect.MonitorRuntime;
 import com.swandiggy.poe4j.util.collection.Node;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
 import java.io.*;
@@ -75,11 +73,11 @@ public class GgpkExtractor {
         }
     }
 
-    public File getFileRecord(Ggpk ggpk, String fullPath) {
+    public FileRecord getFileRecord(Ggpk ggpk, String fullPath) {
         Path p = Paths.get(fullPath);
 
         final String finalFullPath = fullPath;
-        FileRecord fileRecord = ggpk.getDirectoryTree()
+        return ggpk.getDirectoryTree()
                 .values()
                 .stream()
                 .filter(node -> node.getData() instanceof FileRecord)
@@ -88,31 +86,6 @@ public class GgpkExtractor {
                 .filter(record -> getFilePath(record, ggpk).equalsIgnoreCase(finalFullPath))
                 .findAny()
                 .orElseThrow(() -> new Poe4jException(MessageFormat.format("FileRecord {0} not found", finalFullPath)));
-
-        File tempFile;
-        try {
-            tempFile = File.createTempFile("poe4j-", "-" + fileRecord.getName());
-        } catch (IOException e) {
-            throw new Poe4jException("Could not create temp file", e);
-        }
-
-        try (FileChannel source = new RandomAccessFile(ggpk.getFile(), "r").getChannel()) {
-            try (FileChannel destination = new FileOutputStream(tempFile).getChannel()) {
-                source.position(fileRecord.getDataStart());
-                long bytes = fileRecord.getDataLength();
-                while (bytes > 0) {
-                    bytes -= destination.transferFrom(source, 0, fileRecord.getDataLength());
-                }
-            } catch (IOException e) {
-                log.error("Error extracting file", e);
-            }
-        } catch (FileNotFoundException e) {
-            throw new Poe4jException("Could not open GGPK file", e);
-        } catch (IOException e) {
-            throw new Poe4jException("Could not close GGPK file", e);
-        }
-
-        return tempFile;
     }
 
     private void extractFile(FileRecord fileRecord, Ggpk ggpk, File extractDir, FileChannel source) {
