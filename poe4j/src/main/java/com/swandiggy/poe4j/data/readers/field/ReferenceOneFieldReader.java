@@ -6,6 +6,7 @@ import com.swandiggy.poe4j.data.DatFileReaderFactory;
 import com.swandiggy.poe4j.data.annotations.ReferenceOne;
 import com.swandiggy.poe4j.data.readers.FieldReaders;
 import com.swandiggy.poe4j.data.rows.BaseRow;
+import com.swandiggy.poe4j.util.io.BinaryReader;
 import com.swandiggy.poe4j.util.reflection.Poe4jReflection;
 import lombok.Setter;
 import org.springframework.cglib.proxy.LazyLoader;
@@ -34,39 +35,36 @@ public class ReferenceOneFieldReader extends BaseFieldReader<Object> {
         this.datFileReaderFactory = datFileReaderFactory;
         this.fieldReaders = fieldReaders;
     }
-    
+
     @Override
     public boolean supports(Field field) {
         return field.isAnnotationPresent(ReferenceOne.class);
     }
 
     @Override
-    protected Object readInternal(DatFileReader reader, Field field) {
+    protected Object readInternal(DatFileReader reader, BinaryReader br, Field field) {
         ReferenceOne annotation = field.getAnnotation(ReferenceOne.class);
         Field referencedKeyField = Poe4jReflection.getField(field.getType(), annotation.value());
 
-        Object key = getKey(reader, referencedKeyField, annotation.offset());
+        Object key = getKey(reader, br, referencedKeyField, annotation.offset());
 
-        return Poe4jReflection.lazyLoad(field.getType(),(LazyLoader) () -> {
-            try (DatFileReader<BaseRow> datFileReader = datFileReaderFactory.createUnsafe(field.getType())) {
-                BaseRow referencedRow = datFileReader.read()
-                        .filter(row -> Poe4jReflection.readProperty(row, annotation.value()).equals(key))
-                        .findAny()
-                        .orElse(null);
+        return Poe4jReflection.lazyLoad(field.getType(), (LazyLoader) () -> {
+            DatFileReader<BaseRow> datFileReader = datFileReaderFactory.createUnsafe(field.getType());
+            BaseRow referencedRow = datFileReader.read()
+                    .filter(row -> Poe4jReflection.readProperty(row, annotation.value()).equals(key))
+                    .findAny()
+                    .orElse(null);
 
-                if (annotation.required() && referencedRow == null) {
-                    throw new Poe4jException("Row was required and not found");
-                }
-
-                return referencedRow;
-            } catch (IOException e) {
-                throw new Poe4jException(e);
+            if (annotation.required() && referencedRow == null) {
+                throw new Poe4jException("Row was required and not found");
             }
+
+            return referencedRow;
         });
     }
 
-    private Object getKey(DatFileReader reader, Field referencedKeyField, long offset) {
-        Object key = fieldReaders.read(reader, referencedKeyField);
+    private Object getKey(DatFileReader reader, BinaryReader br, Field referencedKeyField, long offset) {
+        Object key = fieldReaders.read(reader, br, referencedKeyField);
         if (offset != 0L && key instanceof Number) {
             Number keyNum = (Number) key;
             keyNum = keyNum.longValue() + offset;

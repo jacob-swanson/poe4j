@@ -3,6 +3,7 @@ package com.swandiggy.poe4j.data.readers.field;
 import com.swandiggy.poe4j.data.DatFileReader;
 import com.swandiggy.poe4j.data.annotations.Reference;
 import com.swandiggy.poe4j.data.readers.ValueReaders;
+import com.swandiggy.poe4j.util.io.BinaryReader;
 import lombok.Setter;
 
 import java.lang.reflect.Field;
@@ -35,25 +36,25 @@ public class ListFieldReader extends BaseFieldReader<List> {
     }
 
     @Override
-    protected List readInternal(DatFileReader reader, Field field) {
-        int listSize = reader.getBr().readInt();
-        int listOffset = reader.getBr().readInt();
+    protected List readInternal(DatFileReader reader, BinaryReader br, Field field) {
+        int listSize = br.readInt();
+        int listOffset = br.readInt();
 
         Class<?> listType = (Class<?>) ((ParameterizedType) field.getGenericType()).getActualTypeArguments()[0];
 
         List<Object> listValues = new ArrayList<>(listSize);
-        long pos = reader.getBr().getPosition();
-        reader.getBr().setPosition(reader.getDataOffset() + listOffset);
+        long pos = br.getPosition();
+        br.setPosition(reader.getDataOffset() + listOffset);
         for (int i = 0; i < listSize; i++) {
-            listValues.add(readValue(reader, listType));
+            listValues.add(readValue(reader, br, listType));
         }
-        reader.getBr().setPosition(pos);
+        br.setPosition(pos);
 
         return listValues;
     }
 
-    private Object readValue(DatFileReader reader, Class clazz) {
-        return valueReaders.read(reader, clazz);
+    private Object readValue(DatFileReader reader, BinaryReader br, Class clazz) {
+        return valueReaders.read(reader, br, clazz);
     }
 
     @Override

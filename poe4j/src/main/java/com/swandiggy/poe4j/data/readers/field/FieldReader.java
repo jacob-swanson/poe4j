@@ -1,6 +1,7 @@
 package com.swandiggy.poe4j.data.readers.field;
 
 import com.swandiggy.poe4j.data.DatFileReader;
+import com.swandiggy.poe4j.util.io.BinaryReader;
 
 import java.lang.reflect.Field;
 
@@ -14,7 +15,7 @@ public interface FieldReader<T> {
 
     boolean supports(Field field);
 
-    T read(DatFileReader reader, Field field);
+    T read(DatFileReader datFileReader, BinaryReader br, Field field);
 
     int size(Field field);
 

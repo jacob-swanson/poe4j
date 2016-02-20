@@ -10,8 +10,7 @@ import com.swandiggy.poe4j.ggpkg.Ggpk;
 import com.swandiggy.poe4j.ggpkg.GgpkExtractor;
 import com.swandiggy.poe4j.ggpkg.GgpkFactory;
 import com.swandiggy.poe4j.ggpkg.record.FileRecord;
-import com.swandiggy.poe4j.util.io.BinaryReader;
-import com.swandiggy.poe4j.util.io.MappedBinaryReader;
+import lombok.Data;
 import lombok.Setter;
 import org.reflections.Reflections;
 import org.springframework.util.StringUtils;
@@ -49,7 +48,7 @@ public class DatFileLookup {
     /**
      * Map of .dat file names to rows classes
      */
-    public static final BiMap<String, Class<?>> rowClasses = HashBiMap.create();
+    public static final BiMap<String, Class<?>> ROW_CLASSES = HashBiMap.create();
 
     /**
      * Collect all classes with @DatFile
@@ -59,14 +58,21 @@ public class DatFileLookup {
         for (Class<?> clazz : reflections.getTypesAnnotatedWith(DatFile.class)) {
             DatFile datFile = clazz.getAnnotation(DatFile.class);
             if (StringUtils.isEmpty(datFile.value())) {
-                rowClasses.put(clazz.getSimpleName(), clazz);
+                ROW_CLASSES.put(clazz.getSimpleName(), clazz);
             } else {
-                rowClasses.put(datFile.value(), clazz);
+                ROW_CLASSES.put(datFile.value(), clazz);
             }
         }
     }
 
-    public <T extends BaseRow> BinaryReader getFileForType(Class<T> clazz) {
+    @Data
+    public static class FileDescription {
+        private final File file;
+        private final long start;
+        private final long length;
+    }
+
+    public <T extends BaseRow> FileDescription getFileForType(Class<T> clazz) {
         if (StringUtils.hasText(properties.getGgpk())) {
             File file = new File(properties.getGgpk());
             if (!file.exists()) {
@@ -74,12 +80,13 @@ public class DatFileLookup {
             }
 
             if (file.isDirectory()) {
-                return new MappedBinaryReader(Paths.get(properties.getGgpk(), "Data", getRowClassFilename(clazz)).toFile(), "r");
+                File datFile = Paths.get(properties.getGgpk(), "Data", getRowClassFilename(clazz)).toFile();
+                return new FileDescription(datFile, 0, datFile.length());
             } else if (file.isFile()) {
                 Ggpk ggpk = ggpkFactory.load(new File(properties.getGgpk()));
                 FileRecord fileRecord = ggpkExtractor.getFileRecord(ggpk, Paths.get("Data", getRowClassFilename(clazz)).toString());
 
-                return new MappedBinaryReader(Paths.get(properties.getGgpk(), "Data", getRowClassFilename(clazz)).toFile(), "r", fileRecord.getDataStart(), fileRecord.getDataLength());
+                return new FileDescription(Paths.get(properties.getGgpk(), "Data", getRowClassFilename(clazz)).toFile(), fileRecord.getDataStart(), fileRecord.getDataLength());
             } else {
                 throw new Poe4jException(MessageFormat.format("GGPK {0} not a file or directory", file));
             }
@@ -92,7 +99,7 @@ public class DatFileLookup {
 
                 Ggpk ggpk = ggpkFactory.load(new File(location));
                 FileRecord fileRecord = ggpkExtractor.getFileRecord(ggpk, Paths.get("Data", getRowClassFilename(clazz)).toString());
-                return new MappedBinaryReader(file, "r", fileRecord.getDataStart(), fileRecord.getDataLength());
+                return new FileDescription(file, fileRecord.getDataStart(), fileRecord.getDataLength());
             }
 
             throw new Poe4jException(MessageFormat.format("No GGPK found at {}", properties.getGgpkLocations()));
@@ -100,11 +107,12 @@ public class DatFileLookup {
 
     }
 
+    @SuppressWarnings("unchecked")
     public <T extends BaseRow> Class<T> getTypeForFile(File file) {
-        return (Class<T>) rowClasses.get(file.getName());
+        return (Class<T>) ROW_CLASSES.get(file.getName());
     }
 
     private String getRowClassFilename(Class clazz) {
-        return rowClasses.inverse().get(clazz) + ".dat";
+        return ROW_CLASSES.inverse().get(clazz) + ".dat";
     }
 }

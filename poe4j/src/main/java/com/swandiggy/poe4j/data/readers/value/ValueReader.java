@@ -1,6 +1,7 @@
 package com.swandiggy.poe4j.data.readers.value;
 
 import com.swandiggy.poe4j.data.DatFileReader;
+import com.swandiggy.poe4j.util.io.BinaryReader;
 
 /**
  * Read a value from a row class.
@@ -12,7 +13,7 @@ public interface ValueReader<T> {
 
     boolean supports(Class clazz);
 
-    T read(DatFileReader reader, Class clazz);
+    T read(DatFileReader datFileReader, BinaryReader br, Class clazz);
     
     int size(Class clazz);
 

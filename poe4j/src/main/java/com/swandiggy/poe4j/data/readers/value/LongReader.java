@@ -2,7 +2,7 @@ package com.swandiggy.poe4j.data.readers.value;
 
 import com.google.common.primitives.Primitives;
 import com.swandiggy.poe4j.data.DatFileReader;
-import org.springframework.stereotype.Service;
+import com.swandiggy.poe4j.util.io.BinaryReader;
 
 /**
  * Read a long value.
@@ -21,8 +21,8 @@ public class LongReader extends BaseValueReader<Long> {
     }
 
     @Override
-    protected Long readInternal(DatFileReader reader, Class clazz) {
-        return reader.getBr().readLong();
+    protected Long readInternal(DatFileReader reader, BinaryReader br, Class clazz) {
+        return br.readLong();
     }
 
     @Override

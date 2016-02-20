@@ -1,6 +1,7 @@
 package com.swandiggy.poe4j.data.readers.value;
 
 import com.swandiggy.poe4j.data.DatFileReader;
+import com.swandiggy.poe4j.util.io.BinaryReader;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -22,18 +23,18 @@ public class StringReader extends BaseValueReader<String> {
     }
 
     @Override
-    protected String readInternal(DatFileReader reader, Class clazz) {
-        int ref = reader.getBr().readInt();
+    protected String readInternal(DatFileReader reader, BinaryReader br, Class clazz) {
+        int ref = br.readInt();
 
-        long oldPos = reader.getBr().getPosition();
+        long oldPos = br.getPosition();
         long stringPos = reader.getDataOffset() + ref;
-        if (stringPos >= reader.getFile().length()) {
-            log.warn("String was at end of file eof: '{}', string ref: '{}'", reader.getFile().length(), stringPos);
+        if (stringPos < 0 || stringPos >= br.length()) {
+            log.warn("String was out of bounds eof: '{}', string ref: '{}'", br.length(), stringPos);
             return null;
         }
-        reader.getBr().setPosition(reader.getDataOffset() + ref);
-        String s = reader.getBr().readString("UTF-16LE");
-        reader.getBr().setPosition(oldPos);
+        br.setPosition(reader.getDataOffset() + ref);
+        String s = br.readString("UTF-16LE");
+        br.setPosition(oldPos);
 
         return s;
     }

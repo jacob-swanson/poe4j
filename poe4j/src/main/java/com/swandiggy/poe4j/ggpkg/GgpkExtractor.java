@@ -7,6 +7,7 @@ import com.swandiggy.poe4j.ggpkg.record.Record;
 import com.swandiggy.poe4j.util.aspect.MonitorRuntime;
 import com.swandiggy.poe4j.util.collection.Node;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.util.Assert;
 
 import java.io.*;
@@ -73,6 +74,7 @@ public class GgpkExtractor {
         }
     }
 
+    @Cacheable("fileRecords")
     public FileRecord getFileRecord(Ggpk ggpk, String fullPath) {
         Path p = Paths.get(fullPath);
 

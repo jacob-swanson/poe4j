@@ -3,6 +3,7 @@ package com.swandiggy.poe4j.data.readers.field;
 import com.swandiggy.poe4j.data.DatFileReader;
 import com.swandiggy.poe4j.data.readers.ValueReaders;
 import com.swandiggy.poe4j.data.readers.value.ValueReader;
+import com.swandiggy.poe4j.util.io.BinaryReader;
 import lombok.Setter;
 
 import java.lang.reflect.Field;
@@ -31,8 +32,8 @@ public class ValueFieldReader extends BaseFieldReader<Object> {
     }
 
     @Override
-    protected Object readInternal(DatFileReader reader, Field field) {
-        return valueReaders.read(reader, field.getType());
+    protected Object readInternal(DatFileReader reader, BinaryReader br, Field field) {
+        return valueReaders.read(reader, br, field.getType());
     }
 
     @Override

@@ -69,11 +69,15 @@ public class MappedBinaryReader implements BinaryReader {
 
     @Override
     public long length() {
-        return buf.position();
+        return buf.capacity();
     }
 
     @Override
     public void setPosition(long offset) {
+        if (getPosition() == offset) {
+            return;
+        }
+
         buf.position((int) offset);
     }
 

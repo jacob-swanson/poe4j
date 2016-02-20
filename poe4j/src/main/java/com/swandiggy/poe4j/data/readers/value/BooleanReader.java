@@ -2,7 +2,7 @@ package com.swandiggy.poe4j.data.readers.value;
 
 import com.google.common.primitives.Primitives;
 import com.swandiggy.poe4j.data.DatFileReader;
-import org.springframework.stereotype.Service;
+import com.swandiggy.poe4j.util.io.BinaryReader;
 
 /**
  * Read a {@link Boolean} value. Represented by a byte, if the byte is 1, it's true otherwise it's false.
@@ -21,8 +21,8 @@ public class BooleanReader extends BaseValueReader<Boolean> {
     }
 
     @Override
-    protected Boolean readInternal(DatFileReader reader, Class clazz) {
-        return reader.getBr().readByte() == 1;
+    protected Boolean readInternal(DatFileReader reader, BinaryReader br, Class clazz) {
+        return br.readByte() == 1;
     }
 
     @Override

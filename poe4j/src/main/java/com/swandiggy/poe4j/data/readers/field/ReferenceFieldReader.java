@@ -1,17 +1,16 @@
 package com.swandiggy.poe4j.data.readers.field;
 
-import com.swandiggy.poe4j.Poe4jException;
 import com.swandiggy.poe4j.data.Constants;
 import com.swandiggy.poe4j.data.DatFileReader;
 import com.swandiggy.poe4j.data.DatFileReaderFactory;
 import com.swandiggy.poe4j.data.annotations.Reference;
 import com.swandiggy.poe4j.data.readers.ValueReaders;
+import com.swandiggy.poe4j.util.io.BinaryReader;
 import com.swandiggy.poe4j.util.reflection.Poe4jReflection;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cglib.proxy.LazyLoader;
 
-import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
 import java.util.ArrayList;
@@ -46,46 +45,42 @@ public class ReferenceFieldReader extends BaseFieldReader<Object> {
     }
 
     @Override
-    protected Object readInternal(DatFileReader reader, Field field) {
+    protected Object readInternal(DatFileReader reader, BinaryReader br, Field field) {
         Reference annotation = field.getAnnotation(Reference.class);
 
         if (field.getType() == List.class) {
-            int listSize = reader.getBr().readInt();
-            int listOffset = reader.getBr().readInt();
+            int listSize = br.readInt();
+            int listOffset = br.readInt();
             Class<?> listType = (Class<?>) ((ParameterizedType) field.getGenericType()).getActualTypeArguments()[0];
 
             List<Object> listValues = new ArrayList<>(listSize);
-            long pos = reader.getBr().getPosition();
-            reader.getBr().setPosition(reader.getDataOffset() + listOffset);
+            long pos = br.getPosition();
+            br.setPosition(reader.getDataOffset() + listOffset);
             for (int i = 0; i < listSize; i++) {
-                listValues.add(readRefValue(reader, listType, annotation));
+                listValues.add(readRefValue(reader, br, listType, annotation));
             }
-            reader.getBr().setPosition(pos);
+            br.setPosition(pos);
 
             return listValues;
         } else {
-            return readRefValue(reader, field.getType(), annotation);
+            return readRefValue(reader, br, field.getType(), annotation);
         }
     }
 
-    private Object readRefValue(DatFileReader reader, Class clazz, Reference annotation) {
-        Long index = getIndex(reader, annotation);
+    private Object readRefValue(DatFileReader reader, BinaryReader br, Class clazz, Reference annotation) {
+        Long index = getIndex(reader, br, annotation);
         if (index == Constants.MAGIC_NULL) {
             return null;
         }
 
         return Poe4jReflection.lazyLoad(clazz, (LazyLoader) () -> {
             // Get the referenced .dat file
-            try (DatFileReader datFileReader = datFileReaderFactory.create(clazz)) {
-                return datFileReader.read(index);
-            } catch (IOException e) {
-                throw new Poe4jException(e);
-            }
+            return datFileReaderFactory.create(clazz).read(index);
         });
     }
 
-    private Long getIndex(DatFileReader reader, Reference annotation) {
-        Number value = (Number) valueReaders.read(reader, annotation.value());
+    private Long getIndex(DatFileReader reader, BinaryReader br, Reference annotation) {
+        Number value = (Number) valueReaders.read(reader, br, annotation.value());
         Long index = value.longValue();
         if (index < 0) {
             log.warn("Index was {}", index);

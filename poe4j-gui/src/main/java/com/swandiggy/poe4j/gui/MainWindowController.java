@@ -29,7 +29,6 @@ import org.springframework.util.StringUtils;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.nio.file.Paths;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.prefs.Preferences;
@@ -181,7 +180,7 @@ public class MainWindowController implements Initializable {
             }
         });
 
-        DatFileLookup.rowClasses.entrySet().stream()
+        DatFileLookup.ROW_CLASSES.entrySet().stream()
                 .sorted((e1, e2) -> e1.getKey().compareTo(e2.getKey()))
                 .map(entry -> {
                     DatClass datClass = new DatClass();
