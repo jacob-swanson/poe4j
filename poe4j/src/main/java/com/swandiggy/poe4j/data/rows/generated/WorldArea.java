@@ -4,6 +4,7 @@ package com.swandiggy.poe4j.data.rows.generated;
 import java.util.List;
 import com.swandiggy.poe4j.data.annotations.DatFile;
 import com.swandiggy.poe4j.data.annotations.Order;
+import com.swandiggy.poe4j.data.annotations.Reference;
 import com.swandiggy.poe4j.data.rows.BaseRow;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -26,7 +27,8 @@ public class WorldArea
     @Order(4)
     private Boolean hasWaypoint;
     @Order(5)
-    private List<WorldArea> connections_WorldAreas;
+    @Reference(Integer.class)
+    private List<WorldArea> connections;
     @Order(6)
     private int monsterLevel;
     @Order(7)
@@ -56,6 +58,7 @@ public class WorldArea
     @Order(19)
     private List<Topology> topologies;
     @Order(20)
+    @Reference(Integer.class)
     private WorldArea parentTownWorldArea;
     @Order(21)
     private Difficulty difficulty;

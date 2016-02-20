@@ -10,7 +10,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @DatFile("MonsterPackEntries")
-public class MonsterPackEntrie
+public class MonsterPackEntry
     extends BaseRow
 {
 

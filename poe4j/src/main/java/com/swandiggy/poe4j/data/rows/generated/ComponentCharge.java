@@ -16,7 +16,7 @@ public class ComponentCharge
 {
 
     @Order(0)
-    @ReferenceOne("Id")
+    @ReferenceOne("id")
     private BaseItemType baseItemType;
     @Order(1)
     private int maxCharge;
