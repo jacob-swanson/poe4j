@@ -9,14 +9,14 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile
+@DatFile("ShopCurrency")
 public class ShopCurrency
     extends BaseRow
 {
 
     @Order(0)
-    private String CurrencyCode;
+    private String currencyCode;
     @Order(1)
-    private String CurrencySign;
+    private String currencySign;
 
 }

@@ -9,40 +9,40 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile
+@DatFile("ItemVisualEffect")
 public class ItemVisualEffect
     extends BaseRow
 {
 
     @Order(0)
-    private String Id;
+    private String id;
     @Order(1)
-    private String DaggerEPKFile;
+    private String daggerEPKFile;
     @Order(2)
-    private String BowEPKFile;
+    private String bowEPKFile;
     @Order(3)
-    private String OneHandedMaceEPKFile;
+    private String oneHandedMaceEPKFile;
     @Order(4)
-    private String OneHandedSwordEPKFile;
+    private String oneHandedSwordEPKFile;
     @Order(5)
-    private String Index5;
+    private String index5;
     @Order(6)
-    private String TwoHandedSwordEPKFile;
+    private String twoHandedSwordEPKFile;
     @Order(7)
-    private String TwoHandedStaffEPKFile;
+    private String twoHandedStaffEPKFile;
     @Order(8)
-    private int Unknown0;
+    private int unknown0;
     @Order(9)
-    private String TwoHandedMaceEPKFile;
+    private String twoHandedMaceEPKFile;
     @Order(10)
-    private String OneHandedAxeEPKFile;
+    private String oneHandedAxeEPKFile;
     @Order(11)
-    private String TwoHandedAxeEPKFile;
+    private String twoHandedAxeEPKFile;
     @Order(12)
-    private String ClawEPKFile;
+    private String clawEPKFile;
     @Order(13)
-    private String PETFile;
+    private String pETFile;
     @Order(14)
-    private Boolean Flag1;
+    private Boolean flag1;
 
 }

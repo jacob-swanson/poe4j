@@ -10,38 +10,38 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile
+@DatFile("ShopItem")
 public class ShopItem
     extends BaseRow
 {
 
     @Order(0)
-    private String Id;
+    private String id;
     @Order(1)
-    private String Name;
+    private String name;
     @Order(2)
-    private String Description;
+    private String description;
     @Order(3)
-    private List<ShopItem> Package_ShopItemKeys;
+    private List<ShopItem> packageShopItem;
     @Order(4)
-    private Boolean Flag0;
+    private Boolean flag0;
     @Order(5)
-    private List<Integer> Package_Values;
+    private List<Integer> packageValues;
     @Order(6)
-    private List<ShopCategory> ShopCategoryKeys;
+    private List<ShopCategory> shopCategory;
     @Order(7)
-    private String ArtJPGFile;
+    private String artJPGFile;
     @Order(8)
-    private Long Key0;
+    private Long key0;
     @Order(9)
-    private String YoutubeVideo;
+    private String youtubeVideo;
     @Order(10)
-    private String LargeArtJPGFile;
+    private String largeArtJPGFile;
     @Order(11)
-    private String Description2;
+    private String description2;
     @Order(12)
-    private String DailyDealArtPath;
+    private String dailyDealArtPath;
     @Order(13)
-    private int Unknown2;
+    private int unknown2;
 
 }

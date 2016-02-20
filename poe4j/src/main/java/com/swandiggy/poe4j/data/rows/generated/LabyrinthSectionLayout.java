@@ -10,22 +10,22 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile
+@DatFile("LabyrinthSectionLayout")
 public class LabyrinthSectionLayout
     extends BaseRow
 {
 
     @Order(0)
-    private LabyrinthSection LabyrinthSectionKey;
+    private LabyrinthSection labyrinthSection;
     @Order(1)
-    private int Unknown3;
+    private int unknown3;
     @Order(2)
-    private List<Integer> Unknown4;
+    private List<Integer> unknown4;
     @Order(3)
-    private Long Unknown6;
+    private Long unknown6;
     @Order(4)
-    private Long Unknown8;
+    private Long unknown8;
     @Order(5)
-    private Long Unknown10;
+    private Long unknown10;
 
 }

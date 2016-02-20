@@ -1,6 +1,7 @@
 
 package com.swandiggy.poe4j.data.rows.generated;
 
+import java.lang.*;
 import java.util.List;
 import com.swandiggy.poe4j.data.annotations.DatFile;
 import com.swandiggy.poe4j.data.annotations.Order;
@@ -10,54 +11,54 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile
+@DatFile("PassiveSkills")
 public class PassiveSkills
     extends BaseRow
 {
 
     @Order(0)
-    private String Id;
+    private String id;
     @Order(1)
-    private String Icon;
+    private String icon;
     @Order(2)
-    private List<Stats> StatsKeys;
+    private List<Stats> stats;
     @Order(3)
-    private int Stat1Value;
+    private int stat1Value;
     @Order(4)
-    private int Stat2Value;
+    private int stat2Value;
     @Order(5)
-    private int Stat3Value;
+    private int stat3Value;
     @Order(6)
-    private int Stat4Value;
+    private int stat4Value;
     @Order(7)
-    private int PassiveSkillGraphId;
+    private int passiveSkillGraphId;
     @Order(8)
-    private String Name;
+    private String name;
     @Order(9)
-    private List<Characters> CharactersKeys;
+    private List<Character> characters;
     @Order(10)
-    private Boolean IsKeystone;
+    private Boolean isKeystone;
     @Order(11)
-    private Boolean IsNotable;
+    private Boolean isNotable;
     @Order(12)
-    private String FlavourText;
+    private String flavourText;
     @Order(13)
-    private Boolean IsJustIcon;
+    private Boolean isJustIcon;
     @Order(14)
-    private Long Key0;
+    private Long key0;
     @Order(15)
-    private Boolean IsJewelSocket;
+    private Boolean isJewelSocket;
     @Order(16)
-    private Long Key1;
+    private Long key1;
     @Order(17)
-    private Long Key2;
+    private Long key2;
     @Order(18)
-    private int Unknown5;
+    private int unknown5;
     @Order(19)
-    private List<Integer> Unknown6;
+    private List<Integer> unknown6;
     @Order(20)
-    private Long Key3;
+    private Long key3;
     @Order(21)
-    private Byte Unknown10;
+    private Byte unknown10;
 
 }

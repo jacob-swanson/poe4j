@@ -10,38 +10,38 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile
+@DatFile("Stats")
 public class Stats
     extends BaseRow
 {
 
     @Order(0)
-    private String Id;
+    private String id;
     @Order(1)
-    private Boolean Flag0;
+    private Boolean flag0;
     @Order(2)
-    private Boolean IsLocal;
+    private Boolean isLocal;
     @Order(3)
-    private Boolean IsWeaponLocal;
+    private Boolean isWeaponLocal;
     @Order(4)
-    private int Unknown2;
+    private int unknown2;
     @Order(5)
-    private Boolean Flag3;
+    private Boolean flag3;
     @Order(6)
-    private String Text;
+    private String text;
     @Order(7)
-    private Boolean Flag5;
+    private Boolean flag5;
     @Order(8)
-    private Boolean Flag6;
+    private Boolean flag6;
     @Order(9)
     @Reference(Integer.class)
-    private Stats Alias_StatsKey1;
+    private Stats aliasStatsKey1;
     @Order(10)
     @Reference(Integer.class)
-    private Stats Alias_StatsKey2;
+    private Stats aliasStatsKey2;
     @Order(11)
-    private Boolean Flag7;
+    private Boolean flag7;
     @Order(12)
-    private int Unknown3;
+    private int unknown3;
 
 }

@@ -9,20 +9,20 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile
+@DatFile("VoteType")
 public class VoteType
     extends BaseRow
 {
 
     @Order(0)
-    private String Id;
+    private String id;
     @Order(1)
-    private String Text;
+    private String text;
     @Order(2)
-    private String AcceptText;
+    private String acceptText;
     @Order(3)
-    private String RejectText;
+    private String rejectText;
     @Order(4)
-    private int Unknown0;
+    private int unknown0;
 
 }

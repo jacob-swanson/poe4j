@@ -9,16 +9,16 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile
+@DatFile("CharacterTextAudio")
 public class CharacterTextAudio
     extends BaseRow
 {
 
     @Order(0)
-    private String Id;
+    private String id;
     @Order(1)
-    private String Text;
+    private String text;
     @Order(2)
-    private String SoundFile;
+    private String soundFile;
 
 }

@@ -7,26 +7,28 @@ import com.swandiggy.poe4j.data.rows.BaseRow;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.lang.*;
+
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile
+@DatFile("NPCTextAudio")
 public class NPCTextAudio
     extends BaseRow
 {
 
     @Order(0)
-    private String Id;
+    private String id;
     @Order(1)
-    private Characters CharactersKey;
+    private Character character;
     @Order(2)
-    private String Text;
+    private String text;
     @Order(3)
-    private String Mono_AudioFile;
+    private String monoAudioFile;
     @Order(4)
-    private String Stereo_AudioFile;
+    private String stereoAudioFile;
     @Order(5)
-    private Boolean HasStereo;
+    private Boolean hasStereo;
     @Order(6)
-    private Boolean Flag0;
+    private Boolean flag0;
 
 }

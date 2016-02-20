@@ -8,7 +8,7 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile
+@DatFile("MonsterScalingByLevel")
 public class MonsterScalingByLevel
     extends BaseRow
 {

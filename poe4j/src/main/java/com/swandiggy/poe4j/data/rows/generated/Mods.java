@@ -10,82 +10,82 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile
+@DatFile("Mods")
 public class Mods
     extends BaseRow
 {
 
     @Order(0)
-    private String Id;
+    private String id;
     @Order(1)
-    private int Unknown0;
+    private int unknown0;
     @Order(2)
-    private ModType ModTypeKey;
+    private ModType modType;
     @Order(3)
-    private int Level;
+    private int level;
     @Order(4)
-    private Stats StatsKey1;
+    private Stats statsKey1;
     @Order(5)
-    private Stats StatsKey2;
+    private Stats statsKey2;
     @Order(6)
-    private Stats StatsKey3;
+    private Stats statsKey3;
     @Order(7)
-    private Stats StatsKey4;
+    private Stats statsKey4;
     @Order(8)
-    private int Domain;
+    private int domain;
     @Order(9)
-    private String Name;
+    private String name;
     @Order(10)
-    private int GenerationType;
+    private int generationType;
     @Order(11)
-    private String CorrectGroup;
+    private String correctGroup;
     @Order(12)
-    private int Stat1Min;
+    private int stat1Min;
     @Order(13)
-    private int Stat1Max;
+    private int stat1Max;
     @Order(14)
-    private int Stat2Min;
+    private int stat2Min;
     @Order(15)
-    private int Stat2Max;
+    private int stat2Max;
     @Order(16)
-    private int Stat3Min;
+    private int stat3Min;
     @Order(17)
-    private int Stat3Max;
+    private int stat3Max;
     @Order(18)
-    private int Stat4Min;
+    private int stat4Min;
     @Order(19)
-    private int Stat4Max;
+    private int stat4Max;
     @Order(20)
-    private List<Tags> SpawnWeight_TagsKeys;
+    private List<Tags> spawnWeightTags;
     @Order(21)
-    private List<Integer> SpawnWeight_Values;
+    private List<Integer> spawnWeightValues;
     @Order(22)
-    private BuffDefinitions BuffDefinitionsKey;
+    private BuffDefinition buffDefinition;
     @Order(23)
-    private int BuffValue;
+    private int buffValue;
     @Order(24)
-    private List<Tags> TagsKeys;
+    private List<Tags> tags;
     @Order(25)
-    private GrantedEffectsPerLevel GrantedEffectsPerLevelKey;
+    private GrantedEffectsPerLevel grantedEffectsPerLevel;
     @Order(26)
-    private List<Integer> Data1;
+    private List<Integer> data1;
     @Order(27)
-    private List<Integer> Data2;
+    private List<Integer> data2;
     @Order(28)
-    private String MonsterMetadata;
+    private String monsterMetadata;
     @Order(29)
-    private List<Integer> Data3;
+    private List<Integer> data3;
     @Order(30)
-    private List<Integer> Data4;
+    private List<Integer> data4;
     @Order(31)
-    private Long Key0;
+    private Long key0;
     @Order(32)
-    private int Stat5Min;
+    private int stat5Min;
     @Order(33)
-    private int Stat5Max;
+    private int stat5Max;
     @Order(34)
-    private Stats StatsKey5;
+    private Stats statsKey5;
     @Order(35)
-    private List<Long> Keys0;
+    private List<Long> keys0;
 
 }

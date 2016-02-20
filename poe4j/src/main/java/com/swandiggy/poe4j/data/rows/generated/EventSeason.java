@@ -9,16 +9,16 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile
+@DatFile("EventSeason")
 public class EventSeason
     extends BaseRow
 {
 
     @Order(0)
-    private String Id;
+    private String id;
     @Order(1)
-    private int Unknown1;
+    private int unknown1;
     @Order(2)
-    private String RewardCommand;
+    private String rewardCommand;
 
 }

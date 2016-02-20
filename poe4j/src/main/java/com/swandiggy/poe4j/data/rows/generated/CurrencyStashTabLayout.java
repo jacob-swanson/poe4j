@@ -9,16 +9,16 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile
+@DatFile("CurrencyStashTabLayout")
 public class CurrencyStashTabLayout
     extends BaseRow
 {
 
     @Order(0)
-    private Long Key0;
+    private Long key0;
     @Order(1)
-    private int Unknown0;
+    private int unknown0;
     @Order(2)
-    private int Unknown1;
+    private int unknown1;
 
 }

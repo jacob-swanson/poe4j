@@ -9,14 +9,14 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile
+@DatFile("Tags")
 public class Tags
     extends BaseRow
 {
 
     @Order(0)
-    private String Id;
+    private String id;
     @Order(1)
-    private Integer Unknown0;
+    private Integer unknown0;
 
 }

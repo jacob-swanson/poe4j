@@ -10,19 +10,19 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile
+@DatFile("ComponentArmour")
 public class ComponentArmour
     extends BaseRow
 {
 
     @Order(0)
-    @ReferenceOne("Id")
-    private BaseItemTypes BaseItemTypesKey;
+    @ReferenceOne("id")
+    private BaseItemType baseItemType;
     @Order(1)
-    private int Armour;
+    private int armour;
     @Order(2)
-    private int Evasion;
+    private int evasion;
     @Order(3)
-    private int EnergyShield;
+    private int energyShield;
 
 }

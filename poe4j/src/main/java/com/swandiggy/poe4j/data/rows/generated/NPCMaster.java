@@ -11,43 +11,43 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile
+@DatFile("NPCMaster")
 public class NPCMaster
     extends BaseRow
 {
 
     @Order(0)
-    private String Id;
+    private String id;
     @Order(1)
-    @ReferenceOne("Id")
-    private NPCs NPCsKey;
+    @ReferenceOne("id")
+    private NPC nPC;
     @Order(2)
-    private Boolean IsStrMaster;
+    private Boolean isStrMaster;
     @Order(3)
-    private Boolean IsDexMaster;
+    private Boolean isDexMaster;
     @Order(4)
-    private Mods SignatureMod_ModsKey;
+    private Mods signatureModMod;
     @Order(5)
-    private Boolean IsIntMaster;
+    private Boolean isIntMaster;
     @Order(6)
-    private String Hideout;
+    private String hideout;
     @Order(7)
-    private List<Long> Keys0;
+    private List<Long> keys0;
     @Order(8)
-    private int Unknown7;
+    private int unknown7;
     @Order(9)
-    private Long Key1;
+    private Long key1;
     @Order(10)
-    private List<Tags> SignatureModSpawnWeight_TagsKeys;
+    private List<Tags> signatureModSpawnWeightTags;
     @Order(11)
-    private List<Integer> SignatureModSpawnWeight_Values;
+    private List<Integer> signatureModSpawnWeightValue;
     @Order(12)
-    private List<Long> Keys1;
+    private List<Long> keys1;
     @Order(13)
-    private List<Integer> Data4;
+    private List<Integer> data4;
     @Order(14)
-    private Long Key2;
+    private Long key2;
     @Order(15)
-    private Long Key3;
+    private Long key3;
 
 }

@@ -8,7 +8,7 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile
+@DatFile("MonsterBehavior")
 public class MonsterBehavior
     extends BaseRow
 {

@@ -9,22 +9,22 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile
+@DatFile("WeaponImpactSoundData")
 public class WeaponImpactSoundData
     extends BaseRow
 {
 
     @Order(0)
-    private String Id;
+    private String id;
     @Order(1)
-    private int Unknown1;
+    private int unknown1;
     @Order(2)
-    private int Unknown2;
+    private int unknown2;
     @Order(3)
-    private int Unknown3;
+    private int unknown3;
     @Order(4)
-    private int Unknown4;
+    private int unknown4;
     @Order(5)
-    private int Unknown5;
+    private int unknown5;
 
 }

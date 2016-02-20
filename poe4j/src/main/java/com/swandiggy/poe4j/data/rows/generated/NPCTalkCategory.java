@@ -8,7 +8,7 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile
+@DatFile("NPCTalkCategory")
 public class NPCTalkCategory
     extends BaseRow
 {

@@ -9,28 +9,28 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile
+@DatFile("MonsterMapDifficulty")
 public class MonsterMapDifficulty
     extends BaseRow
 {
 
     @Order(0)
-    private int MapLevel;
+    private int mapLevel;
     @Order(1)
-    private int Stat1Value;
+    private int stat1Value;
     @Order(2)
-    private int Stat2Value;
+    private int stat2Value;
     @Order(3)
-    private Stats StatsKey1;
+    private Stats statsKey1;
     @Order(4)
-    private Stats StatsKey2;
+    private Stats statsKey2;
     @Order(5)
-    private Stats StatsKey3;
+    private Stats statsKey3;
     @Order(6)
-    private int Stat3Value;
+    private int stat3Value;
     @Order(7)
-    private Stats StatsKey4;
+    private Stats statsKey4;
     @Order(8)
-    private int Stat4Value;
+    private int stat4Value;
 
 }

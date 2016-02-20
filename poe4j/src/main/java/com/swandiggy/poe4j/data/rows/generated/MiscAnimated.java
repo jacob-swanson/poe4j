@@ -9,16 +9,16 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile
+@DatFile("MiscAnimated")
 public class MiscAnimated
     extends BaseRow
 {
 
     @Order(0)
-    private String Id;
+    private String id;
     @Order(1)
-    private String AOFile;
+    private String aOFile;
     @Order(2)
-    private Boolean Flag0;
+    private Boolean flag0;
 
 }

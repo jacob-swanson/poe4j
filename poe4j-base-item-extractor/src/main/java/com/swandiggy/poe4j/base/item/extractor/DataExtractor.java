@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.swandiggy.poe4j.config.Poe4jProperties;
 import com.swandiggy.poe4j.data.DatFileReader;
 import com.swandiggy.poe4j.data.DatFileReaderFactory;
-import com.swandiggy.poe4j.data.rows.generated.BaseItemTypes;
+import com.swandiggy.poe4j.data.rows.generated.BaseItemType;
 import com.swandiggy.poe4j.data.rows.generated.ComponentAttributeRequirements;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +38,7 @@ public class DataExtractor implements ApplicationRunner, ExitCodeGenerator {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         properties.setGgpk(args.getNonOptionArgs().get(0));
-        DatFileReader<BaseItemTypes> baseItemTypeReader = datFileReaderFactory.create(BaseItemTypes.class);
+        DatFileReader<BaseItemType> baseItemTypeReader = datFileReaderFactory.create(BaseItemType.class);
         DatFileReader<ComponentAttributeRequirements> attrReqReader = datFileReaderFactory.create(ComponentAttributeRequirements.class);
 
         List<ItemData> items = baseItemTypeReader.read()

@@ -9,20 +9,20 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile
+@DatFile("LabyrinthSection")
 public class LabyrinthSection
     extends BaseRow
 {
 
     @Order(0)
-    private String Id;
+    private String id;
     @Order(1)
-    private Boolean Flag0;
+    private Boolean flag0;
     @Order(2)
-    private Boolean Flag1;
+    private Boolean flag1;
     @Order(3)
-    private Boolean Flag2;
+    private Boolean flag2;
     @Order(4)
-    private Long Key0;
+    private Long key0;
 
 }

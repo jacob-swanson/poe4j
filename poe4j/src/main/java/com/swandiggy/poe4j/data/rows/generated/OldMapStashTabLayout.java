@@ -8,7 +8,7 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile
+@DatFile("OldMapStashTabLayout")
 public class OldMapStashTabLayout
     extends BaseRow
 {

@@ -10,14 +10,14 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile
+@DatFile("WarbandsGraph")
 public class WarbandsGraph
     extends BaseRow
 {
 
     @Order(0)
-    private WorldAreas WorldAreasKey;
+    private WorldArea worldArea;
     @Order(1)
-    private List<Integer> Connections;
+    private List<Integer> connection;
 
 }

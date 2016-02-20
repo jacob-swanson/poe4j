@@ -9,16 +9,16 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile
+@DatFile("ShopItemPrice")
 public class ShopItemPrice
     extends BaseRow
 {
 
     @Order(0)
-    private ShopItem ShopItemKey;
+    private ShopItem shopItem;
     @Order(1)
-    private ShopRegion ShopRegionKey;
+    private ShopRegion shopRegion;
     @Order(2)
-    private int Price;
+    private int price;
 
 }

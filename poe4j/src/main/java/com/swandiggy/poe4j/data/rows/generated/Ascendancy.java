@@ -7,28 +7,30 @@ import com.swandiggy.poe4j.data.rows.BaseRow;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.lang.*;
+
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile
+@DatFile("Ascendancy")
 public class Ascendancy
     extends BaseRow
 {
 
     @Order(0)
-    private String Id;
+    private String id;
     @Order(1)
-    private int ClassNo;
+    private int classNo;
     @Order(2)
-    private Characters CharactersKey;
+    private Character character;
     @Order(3)
-    private String Unknown5;
+    private String unknown5;
     @Order(4)
-    private String Unknown6;
+    private String unknown6;
     @Order(5)
-    private String Unknown7;
+    private String unknown7;
     @Order(6)
-    private String Unknown8;
+    private String unknown8;
     @Order(7)
-    private String Unknown9;
+    private String unknown9;
 
 }

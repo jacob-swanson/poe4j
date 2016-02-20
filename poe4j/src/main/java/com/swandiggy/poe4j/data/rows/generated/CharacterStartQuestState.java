@@ -10,22 +10,22 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile
+@DatFile("CharacterStartQuestState")
 public class CharacterStartQuestState
     extends BaseRow
 {
 
     @Order(0)
-    private String Id;
+    private String id;
     @Order(1)
-    private List<Quest> QuestKeys;
+    private List<Quest> quest;
     @Order(2)
-    private List<Integer> QuestStates;
+    private List<Integer> questState;
     @Order(3)
-    private List<Long> Keys1;
+    private List<Long> keys1;
     @Order(4)
-    private List<QuestVendorRewards> QuestVendorRewardsKeys;
+    private List<QuestVendorRewards> questVendorRewards;
     @Order(5)
-    private List<Integer> Unknown9;
+    private List<Integer> unknown9;
 
 }

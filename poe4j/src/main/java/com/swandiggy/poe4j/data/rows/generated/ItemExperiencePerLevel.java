@@ -9,16 +9,16 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile
+@DatFile("ItemExperiencePerLevel")
 public class ItemExperiencePerLevel
     extends BaseRow
 {
 
     @Order(0)
-    private BaseItemTypes BaseItemTypesKey;
+    private BaseItemType baseItemType;
     @Order(1)
-    private int ItemCurrentLevel;
+    private int itemCurrentLevel;
     @Order(2)
-    private int Experience;
+    private int experience;
 
 }

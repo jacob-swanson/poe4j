@@ -9,12 +9,12 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile
+@DatFile("ModType")
 public class ModType
     extends BaseRow
 {
 
     @Order(0)
-    private String Name;
+    private String name;
 
 }

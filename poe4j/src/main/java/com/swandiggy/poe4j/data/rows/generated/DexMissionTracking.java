@@ -9,32 +9,32 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile
+@DatFile("DexMissionTracking")
 public class DexMissionTracking
     extends BaseRow
 {
 
     @Order(0)
-    private String Id;
+    private String id;
     @Order(1)
-    private Boolean Flag0;
+    private Boolean flag0;
     @Order(2)
-    private int Unknown4;
+    private int unknown4;
     @Order(3)
-    private int SpawnWeight;
+    private int spawnWeight;
     @Order(4)
-    private int MinLevel;
+    private int minLevel;
     @Order(5)
-    private int MaxLevel;
+    private int maxLevel;
     @Order(6)
-    private int Unknown5;
+    private int unknown5;
     @Order(7)
-    private int Unknown6;
+    private int unknown6;
     @Order(8)
-    private int Unknown7;
+    private int unknown7;
     @Order(9)
-    private Boolean Flag1;
+    private Boolean flag1;
     @Order(10)
-    private NPCTalk NPCTalkKey;
+    private NPCTalk nPCTalk;
 
 }

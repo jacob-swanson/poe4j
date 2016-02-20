@@ -9,22 +9,22 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile
+@DatFile("NPCMasterExperiencePerLevel")
 public class NPCMasterExperiencePerLevel
     extends BaseRow
 {
 
     @Order(0)
-    private NPCMaster NPCMasterKey;
+    private NPCMaster nPCMaster;
     @Order(1)
-    private int MasterLevel;
+    private int masterLevel;
     @Order(2)
-    private int Experience;
+    private int experience;
     @Order(3)
-    private int ItemLevel;
+    private int itemLevel;
     @Order(4)
-    private int Unknown5;
+    private int unknown5;
     @Order(5)
-    private int Unknown6;
+    private int unknown6;
 
 }

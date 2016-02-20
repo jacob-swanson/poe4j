@@ -8,7 +8,7 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile
+@DatFile("ActiveSkillType")
 public class ActiveSkillType
     extends BaseRow
 {

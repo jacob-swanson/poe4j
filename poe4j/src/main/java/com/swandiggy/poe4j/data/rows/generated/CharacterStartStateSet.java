@@ -9,12 +9,12 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile
+@DatFile("CharacterStartStateSet")
 public class CharacterStartStateSet
     extends BaseRow
 {
 
     @Order(0)
-    private String Id;
+    private String id;
 
 }

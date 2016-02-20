@@ -10,28 +10,28 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile
+@DatFile("ItemisedVisualEffect")
 public class ItemisedVisualEffect
     extends BaseRow
 {
 
     @Order(0)
-    private BaseItemTypes BaseItemTypesKey;
+    private BaseItemType baseItemType;
     @Order(1)
-    private ItemVisualEffect ItemVisualEffectKey;
+    private ItemVisualEffect itemVisualEffect;
     @Order(2)
-    private ItemVisualIdentity ItemVisualIdentityKey1;
+    private ItemVisualIdentity itemVisualIdentity1;
     @Order(3)
-    private ItemVisualIdentity ItemVisualIdentityKey2;
+    private ItemVisualIdentity itemVisualIdentity2;
     @Order(4)
-    private List<Long> Keys0;
+    private List<Long> keys0;
     @Order(5)
-    private List<Integer> Data1;
+    private List<Integer> data1;
     @Order(6)
-    private List<Long> Keys2;
+    private List<Long> keys2;
     @Order(7)
-    private Boolean Flag0;
+    private Boolean flag0;
     @Order(8)
-    private List<Integer> Data3;
+    private List<Integer> data3;
 
 }

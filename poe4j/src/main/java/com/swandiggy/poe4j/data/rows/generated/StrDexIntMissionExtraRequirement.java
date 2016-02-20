@@ -9,32 +9,32 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile
+@DatFile("StrDexIntMissionExtraRequirement")
 public class StrDexIntMissionExtraRequirement
     extends BaseRow
 {
 
     @Order(0)
-    private String Id;
+    private String id;
     @Order(1)
-    private int SpawnWeight;
+    private int spawnWeight;
     @Order(2)
-    private int MinLevel;
+    private int minLevel;
     @Order(3)
-    private int MaxLevel;
+    private int maxLevel;
     @Order(4)
-    private int TimeLimit;
+    private int timeLimit;
     @Order(5)
-    private Boolean HasTimeBonusPerKill;
+    private Boolean hasTimeBonusPerKill;
     @Order(6)
-    private Boolean HasTimeBonusPerObjectTagged;
+    private Boolean hasTimeBonusPerObjectTagged;
     @Order(7)
-    private Boolean HasLimitedPortals;
+    private Boolean hasLimitedPortal;
     @Order(8)
-    private NPCTalk NPCTalkKey;
+    private NPCTalk nPCTalk;
     @Order(9)
-    private int TimeLimitBonusFromObjective;
+    private int timeLimitBonusFromObjective;
     @Order(10)
-    private int ObjectCount;
+    private int objectCount;
 
 }

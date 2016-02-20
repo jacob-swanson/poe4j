@@ -9,16 +9,16 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile
+@DatFile("ShopCountry")
 public class ShopCountry
     extends BaseRow
 {
 
     @Order(0)
-    private String CountryTwoLetterCode;
+    private String countryTwoLetterCode;
     @Order(1)
-    private String Country;
+    private String country;
     @Order(2)
-    private ShopCurrency ShopCurrencyKey;
+    private ShopCurrency shopCurrency;
 
 }

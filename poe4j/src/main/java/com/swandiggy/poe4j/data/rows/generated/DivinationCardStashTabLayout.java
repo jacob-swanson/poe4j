@@ -9,12 +9,12 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile
+@DatFile("DivinationCardStashTabLayout")
 public class DivinationCardStashTabLayout
     extends BaseRow
 {
 
     @Order(0)
-    private Long Key0;
+    private Long key0;
 
 }

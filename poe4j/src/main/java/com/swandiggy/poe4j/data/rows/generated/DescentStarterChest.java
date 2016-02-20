@@ -7,22 +7,24 @@ import com.swandiggy.poe4j.data.rows.BaseRow;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.lang.*;
+
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile
+@DatFile("DescentStarterChest")
 public class DescentStarterChest
     extends BaseRow
 {
 
     @Order(0)
-    private String Id;
+    private String id;
     @Order(1)
-    private Characters CharactersKey;
+    private Character character;
     @Order(2)
-    private BaseItemTypes BaseItemTypesKey;
+    private BaseItemType baseItemType;
     @Order(3)
-    private String SocketColours;
+    private String socketColour;
     @Order(4)
-    private WorldAreas WorldAreasKey;
+    private WorldArea worldArea;
 
 }

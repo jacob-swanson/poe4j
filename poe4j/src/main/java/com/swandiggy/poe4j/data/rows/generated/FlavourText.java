@@ -9,16 +9,16 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile
+@DatFile("FlavourText")
 public class FlavourText
     extends BaseRow
 {
 
     @Order(0)
-    private String Id;
+    private String id;
     @Order(1)
-    private int Unknown0;
+    private int unknown0;
     @Order(2)
-    private String Text;
+    private String text;
 
 }

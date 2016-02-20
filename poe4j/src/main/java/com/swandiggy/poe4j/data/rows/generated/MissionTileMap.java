@@ -10,16 +10,16 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile
+@DatFile("MissionTileMap")
 public class MissionTileMap
     extends BaseRow
 {
 
     @Order(0)
-    private NPCMaster NPCMasterKey;
+    private NPCMaster nPCMaster;
     @Order(1)
-    private Long MissionKey;
+    private Long mission;
     @Order(2)
-    private List<WorldAreas> WorldAreasKeys;
+    private List<WorldArea> worldAreas;
 
 }

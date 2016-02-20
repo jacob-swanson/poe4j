@@ -9,14 +9,14 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile
+@DatFile("DivinationCardArt")
 public class DivinationCardArt
     extends BaseRow
 {
 
     @Order(0)
-    private BaseItemTypes BaseItemTypesKey;
+    private BaseItemType baseItemType;
     @Order(1)
-    private String VirtualFile;
+    private String virtualFile;
 
 }

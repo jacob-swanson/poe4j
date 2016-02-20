@@ -10,76 +10,76 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile
+@DatFile("GrantedEffectsPerLevel")
 public class GrantedEffectsPerLevel
     extends BaseRow
 {
 
     @Order(0)
-    private GrantedEffects GrantedEffectsKey;
+    private GrantedEffect grantedEffect;
     @Order(1)
-    private int Level;
+    private int level;
     @Order(2)
-    private List<Stats> StatsKeys;
+    private List<Stats> stats1;
     @Order(3)
-    private int Stat1Value;
+    private int stat1Value;
     @Order(4)
-    private int Stat2Value;
+    private int stat2Value;
     @Order(5)
-    private int Stat3Value;
+    private int stat3Value;
     @Order(6)
-    private int Stat4Value;
+    private int stat4Value;
     @Order(7)
-    private int Stat5Value;
+    private int stat5Value;
     @Order(8)
-    private int Stat6Value;
+    private int stat6Value;
     @Order(9)
-    private int Stat7Value;
+    private int stat7Value;
     @Order(10)
-    private int Stat8Value;
+    private int stat8Value;
     @Order(11)
-    private ActiveSkills ActiveSkillsKey;
+    private ActiveSkill activeSkill;
     @Order(12)
-    private int LevelRequirement;
+    private int levelRequirement;
     @Order(13)
-    private int ManaMultiplier;
+    private int manaMultiplier;
     @Order(14)
-    private int LevelRequirement2;
+    private int levelRequirement2;
     @Order(15)
-    private int LevelRequirement3;
+    private int levelRequirement3;
     @Order(16)
-    private List<Stats> Quality_StatsKeys;
+    private List<Stats> qualityStats;
     @Order(17)
-    private List<Integer> Quality_Values;
+    private List<Integer> qualityValues;
     @Order(18)
-    private int CriticalStrikeChance;
+    private int criticalStrikeChance;
     @Order(19)
-    private int ManaCost;
+    private int manaCost;
     @Order(20)
-    private int Unknown26;
+    private int unknown26;
     @Order(21)
-    private int Unknown27;
+    private int unknown27;
     @Order(22)
-    private int Unknown28;
+    private int unknown28;
     @Order(23)
-    private int Unknown29;
+    private int unknown29;
     @Order(24)
-    private List<Stats> StatsKeys2;
+    private List<Stats> stats2;
     @Order(25)
-    private Boolean Unknown30;
+    private Boolean unknown30;
     @Order(26)
-    private int VaalSouls;
+    private int vaalSoul;
     @Order(27)
-    private int Unknown32;
+    private int unknown32;
     @Order(28)
-    private int Unknown32b;
+    private int unknown32b;
     @Order(29)
-    private int Unknown33;
+    private int unknown33;
     @Order(30)
-    private int Unknown34;
+    private int unknown34;
     @Order(31)
-    private int DamageMultiplier;
+    private int damageMultiplier;
     @Order(32)
-    private int Unknown35;
+    private int unknown35;
 
 }

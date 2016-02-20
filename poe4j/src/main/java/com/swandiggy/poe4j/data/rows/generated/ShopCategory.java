@@ -9,22 +9,22 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile
+@DatFile("ShopCategory")
 public class ShopCategory
     extends BaseRow
 {
 
     @Order(0)
-    private String Id;
+    private String id;
     @Order(1)
-    private String ClientText;
+    private String clientText;
     @Order(2)
-    private String ClientJPGFile;
+    private String clientJPGFile;
     @Order(3)
-    private String WebsiteText;
+    private String websiteText;
     @Order(4)
-    private String WebsiteJPGFile;
+    private String websiteJPGFile;
     @Order(5)
-    private Integer Unknown5;
+    private Integer unknown5;
 
 }

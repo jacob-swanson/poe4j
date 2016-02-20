@@ -9,14 +9,14 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile
+@DatFile("AchievementSetsDisplay")
 public class AchievementSetsDisplay
     extends BaseRow
 {
 
     @Order(0)
-    private int Id;
+    private int id;
     @Order(1)
-    private String Title;
+    private String title;
 
 }
