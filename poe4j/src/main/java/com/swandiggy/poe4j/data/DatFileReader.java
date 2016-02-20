@@ -114,7 +114,7 @@ public class DatFileReader<T extends BaseRow> {
             br.setPosition(dataOffset);
             long magic = br.readLong();
             if (magic != Constants.MAGIC_DATA_SEPARATOR) {
-                throw new Poe4jException(MessageFormat.format("Row size incorrect for {0} expected {1} bytes, was {2} bytes", this.rowClass.getCanonicalName(), entitySize, calcActualRowSize(br)));
+                throw new Poe4jException(MessageFormat.format("Row size incorrect for {0} row class size {1} bytes, size in file was {2} bytes", this.rowClass.getCanonicalName(), entitySize, calcActualRowSize(br)));
             }
         } catch (IOException e) {
             throw new Poe4jException("Could not close BinaryReader", e);
@@ -154,13 +154,14 @@ public class DatFileReader<T extends BaseRow> {
     /**
      * Find the data separator and return the row size.
      *
+     * TODO: Use search algorithm
+     *
      * @return data separator offset / row count
      */
     private int calcActualRowSize(BinaryReader br) {
-        ByteBuffer searchList = ByteBuffer.allocate(8);
         for (int i = 0; i < br.length(); i++) {
-            searchList.put(i % 7, br.readByte());
-            if (searchList.getLong(0) == Constants.MAGIC_DATA_SEPARATOR) {
+            br.setPosition(i);
+            if (br.readLong() == Constants.MAGIC_DATA_SEPARATOR) {
                 log.debug("Found magic separator at {} bytes", i);
 
                 return i / count;
