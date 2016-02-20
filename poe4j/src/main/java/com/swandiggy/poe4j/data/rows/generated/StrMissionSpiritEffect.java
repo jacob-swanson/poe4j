@@ -28,7 +28,7 @@ public class StrMissionSpiritEffect
     @Order(5)
     private List<Integer> data1;
     @Order(6)
-    private MonsterVariety summon_MonsterVarieties;
+    private MonsterVariety summonMonsterVarieties;
     @Order(7)
     private MonsterVariety groundEffectMonsterVarieties;
     @Order(8)

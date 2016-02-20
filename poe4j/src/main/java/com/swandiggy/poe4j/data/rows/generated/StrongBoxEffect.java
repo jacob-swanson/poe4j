@@ -17,28 +17,28 @@ public class StrongBoxEffect
     @Order(0)
     private String id;
     @Order(1)
-    private String normalEPKFile;
+    private String normalEpkFile;
     @Order(2)
-    private String normalClosed_AOFile;
+    private String normalClosedAoFile;
     @Order(3)
-    private String normalOpen_AOFile;
+    private String normalOpenAoFile;
     @Order(4)
-    private String magicEPKFile;
+    private String magicEpkFile;
     @Order(5)
-    private String uniqueEPKFile;
+    private String uniqueEpkFile;
     @Order(6)
-    private String rareEPKFile;
+    private String rareEpkFile;
     @Order(7)
-    private String magicClosedAOFile;
+    private String magicClosedAoFile;
     @Order(8)
-    private String uniqueClosedAOFile;
+    private String uniqueClosedAoFile;
     @Order(9)
-    private String rareClosedAOFile;
+    private String rareClosedAoFile;
     @Order(10)
-    private String magicOpenAOFile;
+    private String magicOpenAoFile;
     @Order(11)
-    private String uniqueOpenAOFile;
+    private String uniqueOpenAoFile;
     @Order(12)
-    private String rareOpenAOFile;
+    private String rareOpenAoFile;
 
 }

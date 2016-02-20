@@ -38,7 +38,7 @@ public class StrDexIntMission
     @Order(10)
     private Boolean hasObjectiveCompleteMasterMission;
     @Order(11)
-    private NPCTalk nPCTalk;
+    private NPCTalk npcTalk;
     @Order(12)
     private MonsterPack monsterPack;
     @Order(13)

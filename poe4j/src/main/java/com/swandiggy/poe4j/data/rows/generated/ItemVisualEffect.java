@@ -17,31 +17,31 @@ public class ItemVisualEffect
     @Order(0)
     private String id;
     @Order(1)
-    private String daggerEPKFile;
+    private String daggerEpkFile;
     @Order(2)
-    private String bowEPKFile;
+    private String bowEpkFile;
     @Order(3)
-    private String oneHandedMaceEPKFile;
+    private String oneHandedMaceEpkFile;
     @Order(4)
-    private String oneHandedSwordEPKFile;
+    private String oneHandedSwordEpkFile;
     @Order(5)
     private String index5;
     @Order(6)
-    private String twoHandedSwordEPKFile;
+    private String twoHandedSwordEpkFile;
     @Order(7)
-    private String twoHandedStaffEPKFile;
+    private String twoHandedStaffEpkFile;
     @Order(8)
     private int unknown0;
     @Order(9)
-    private String twoHandedMaceEPKFile;
+    private String twoHandedMaceEpkFile;
     @Order(10)
-    private String oneHandedAxeEPKFile;
+    private String oneHandedAxeEpkFile;
     @Order(11)
-    private String twoHandedAxeEPKFile;
+    private String twoHandedAxeEpkFile;
     @Order(12)
-    private String clawEPKFile;
+    private String clawEpkFile;
     @Order(13)
-    private String pETFile;
+    private String petFile;
     @Order(14)
     private Boolean flag1;
 

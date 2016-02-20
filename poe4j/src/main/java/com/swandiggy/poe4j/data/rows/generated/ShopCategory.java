@@ -19,11 +19,11 @@ public class ShopCategory
     @Order(1)
     private String clientText;
     @Order(2)
-    private String clientJPGFile;
+    private String clientJpgFile;
     @Order(3)
     private String websiteText;
     @Order(4)
-    private String websiteJPGFile;
+    private String websiteJpgFile;
     @Order(5)
     private Integer unknown5;
 

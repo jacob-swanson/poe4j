@@ -36,7 +36,7 @@ public class ShopItem
     @Order(9)
     private String youtubeVideo;
     @Order(10)
-    private String largeArtJPGFile;
+    private String largeArtJpgFile;
     @Order(11)
     private String description2;
     @Order(12)

@@ -17,7 +17,7 @@ public class MissionTransitionTile
     @Order(0)
     private String id;
     @Order(1)
-    private String tDTFile;
+    private String tdtFile;
     @Order(2)
     private int unknown2;
     @Order(3)

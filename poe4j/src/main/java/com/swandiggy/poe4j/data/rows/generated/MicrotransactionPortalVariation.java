@@ -17,7 +17,7 @@ public class MicrotransactionPortalVariation
     @Order(0)
     private BaseItemType baseItemType;
     @Order(1)
-    private String aOFile;
+    private String aoFile;
     @Order(2)
     private String animatedObjectMapFile;
 

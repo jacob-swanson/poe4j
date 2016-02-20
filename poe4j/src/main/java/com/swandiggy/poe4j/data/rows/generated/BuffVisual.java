@@ -19,9 +19,9 @@ public class BuffVisual
     @Order(1)
     private String buffIcon;
     @Order(2)
-    private String ePKFile1;
+    private String epkFile1;
     @Order(3)
-    private String ePKFile2;
+    private String epkFile2;
     @Order(4)
     private Long key0;
     @Order(5)

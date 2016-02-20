@@ -24,6 +24,6 @@ public class StrDexIntMissionMap
     @Order(3)
     private int maxLevel;
     @Order(4)
-    private List<MonsterVariety> mapBoss_MonsterVarieties;
+    private List<MonsterVariety> mapBossMonsterVarieties;
 
 }

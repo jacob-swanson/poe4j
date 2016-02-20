@@ -17,7 +17,7 @@ public class Topology
     @Order(0)
     private String id;
     @Order(1)
-    private String tGRFile;
+    private String tgrFile;
     @Order(2)
     private int unknown2;
     @Order(3)

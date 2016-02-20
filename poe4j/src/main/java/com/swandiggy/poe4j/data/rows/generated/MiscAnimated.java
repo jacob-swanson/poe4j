@@ -17,7 +17,7 @@ public class MiscAnimated
     @Order(0)
     private String id;
     @Order(1)
-    private String aOFile;
+    private String aoFile;
     @Order(2)
     private Boolean flag0;
 

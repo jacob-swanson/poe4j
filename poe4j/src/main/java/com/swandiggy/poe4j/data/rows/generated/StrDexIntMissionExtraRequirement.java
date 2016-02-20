@@ -31,7 +31,7 @@ public class StrDexIntMissionExtraRequirement
     @Order(7)
     private Boolean hasLimitedPortal;
     @Order(8)
-    private NPCTalk nPCTalk;
+    private NPCTalk npcTalk;
     @Order(9)
     private int timeLimitBonusFromObjective;
     @Order(10)

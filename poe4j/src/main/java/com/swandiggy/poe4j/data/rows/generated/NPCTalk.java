@@ -16,7 +16,7 @@ public class NPCTalk
 {
 
     @Order(0)
-    private NPC nPC;
+    private NPC npc;
     @Order(1)
     private int unknown2;
     @Order(2)
@@ -40,7 +40,7 @@ public class NPCTalk
     @Order(11)
     private List<Long> data3;
     @Order(12)
-    private List<NPCTextAudio> nPCTextAudio;
+    private List<NPCTextAudio> npcTextAudio;
     @Order(13)
     private String unknown20;
     @Order(14)

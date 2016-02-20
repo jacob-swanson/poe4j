@@ -18,29 +18,29 @@ public class ItemVisualIdentity
     @Order(0)
     private String id;
     @Order(1)
-    private String iDTFile;
+    private String idtFile;
     @Order(2)
-    private String aOFile;
+    private String aoFile;
     @Order(3)
     private Long key0;
     @Order(4)
     private int unknown1;
     @Order(5)
-    private String fMTFile;
+    private String fmtFile;
     @Order(6)
-    private String marauderSMFile;
+    private String marauderSmFile;
     @Order(7)
-    private String rangerSMFile;
+    private String rangerSmFile;
     @Order(8)
-    private String witchSMFile;
+    private String witchSmFile;
     @Order(9)
-    private String duelistDexSMFile;
+    private String duelistDexSmFile;
     @Order(10)
-    private String templarSMFile;
+    private String templarSmFile;
     @Order(11)
-    private String shadowSMFile;
+    private String shadowSmFile;
     @Order(12)
-    private String scionSMFile;
+    private String scionSmFile;
     @Order(13)
     private String marauderShape;
     @Order(14)
@@ -62,15 +62,15 @@ public class ItemVisualIdentity
     @Order(22)
     private int unknown19;
     @Order(23)
-    private String unknownSMFile1;
+    private String unknownSmFile1;
     @Order(24)
-    private String unknownSMFile2;
+    private String unknownSmFile2;
     @Order(25)
     private int unknown22;
     @Order(26)
     private String unknown23;
     @Order(27)
-    private String ePKFile;
+    private String epkFile;
     @Order(28)
     private List<Integer> data0;
 

@@ -18,11 +18,11 @@ public class TormentSpirit
     @Order(0)
     private MonsterVariety monsterVariety;
     @Order(1)
-    private List<Mods> spirit_Mods;
+    private List<Mods> spiritMods;
     @Order(2)
-    private List<Mods> touched_Mods;
+    private List<Mods> touchedMods;
     @Order(3)
-    private List<Mods> possessed_Mods;
+    private List<Mods> possessedMods;
     @Order(4)
     private int minZoneLevel;
     @Order(5)

@@ -16,7 +16,7 @@ public class MissionTileMap
 {
 
     @Order(0)
-    private NPCMaster nPCMaster;
+    private NPCMaster npcMaster;
     @Order(1)
     private Long mission;
     @Order(2)

@@ -18,7 +18,7 @@ public class ChestCluster
     @Order(0)
     private String id;
     @Order(1)
-    private List<Chests> chests;
+    private List<Chest> chests;
     @Order(2)
     private List<Integer> data1;
     @Order(3)

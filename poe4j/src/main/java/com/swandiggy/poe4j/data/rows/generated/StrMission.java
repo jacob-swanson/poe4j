@@ -24,7 +24,7 @@ public class StrMission
     @Order(3)
     private int maxLevel;
     @Order(4)
-    private NPCTalk nPCTalk;
+    private NPCTalk npcTalk;
     @Order(5)
     private int f7;
     @Order(6)

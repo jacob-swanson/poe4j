@@ -11,14 +11,14 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @DatFile("QuestVendorRewards")
-public class QuestVendorRewards
+public class QuestVendorReward
     extends BaseRow
 {
 
     @Order(0)
     private int id;
     @Order(1)
-    private NPC nPC;
+    private NPC npc;
     @Order(2)
     private int questState;
     @Order(3)

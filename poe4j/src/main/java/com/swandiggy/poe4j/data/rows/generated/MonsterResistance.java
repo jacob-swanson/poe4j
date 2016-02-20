@@ -33,12 +33,12 @@ public class MonsterResistance
     @Order(8)
     private int chaosCruel;
     @Order(9)
-    private int fireMerciles;
+    private int fireMerciless;
     @Order(10)
-    private int coldMerciles;
+    private int coldMerciless;
     @Order(11)
-    private int lightningMerciles;
+    private int lightningMerciless;
     @Order(12)
-    private int chaosMerciles;
+    private int chaosMerciless;
 
 }

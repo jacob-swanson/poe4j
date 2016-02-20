@@ -17,7 +17,7 @@ public class AchievementSetReward
 
     @Order(0)
     @ReferenceOne(value = "id", offset = 1L)
-    private AchievementSetsDisplay achievementSetsDisplayId;
+    private AchievementSetsDisplay achievementSetsDisplay;
     @Order(1)
     private int unknown1;
     @Order(2)

@@ -20,9 +20,9 @@ public class Character
     @Order(1)
     private String name;
     @Order(2)
-    private String aOFile;
+    private String aoFile;
     @Order(3)
-    private String aCTFile;
+    private String actFile;
     @Order(4)
     private int baseMaxLife;
     @Order(5)

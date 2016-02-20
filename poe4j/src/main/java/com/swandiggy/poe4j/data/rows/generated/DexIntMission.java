@@ -40,7 +40,7 @@ public class DexIntMission
     @Order(11)
     private Boolean chestFlag1;
     @Order(12)
-    private NPCTalk nPCTalk;
+    private NPCTalk npcTalk;
     @Order(13)
     private Boolean failIfNoGuardsLeft;
     @Order(14)

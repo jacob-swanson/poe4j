@@ -11,7 +11,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @DatFile("Chests")
-public class Chests
+public class Chest
     extends BaseRow
 {
 

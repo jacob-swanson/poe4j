@@ -29,13 +29,13 @@ public class DailyMission
     @Order(5)
     private String description;
     @Order(6)
-    private NPCTalk nPCTalk;
+    private NPCTalk npcTalk;
     @Order(7)
     private List<Character> characters;
     @Order(8)
     private int unknown8;
     @Order(9)
-    @Reference(value = java.lang.Integer.class, offset = 1L)
+    @Reference(value = Integer.class, offset = 1L)
     private PVPType pVPType;
 
 }

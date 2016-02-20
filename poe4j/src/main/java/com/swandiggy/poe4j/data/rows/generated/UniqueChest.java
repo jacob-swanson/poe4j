@@ -18,7 +18,7 @@ public class UniqueChest
     @Order(0)
     private String id;
     @Order(1)
-    private Chests chest;
+    private Chest chest;
     @Order(2)
     private Word word;
     @Order(3)

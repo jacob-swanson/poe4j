@@ -28,9 +28,9 @@ public class NPC
     @Order(5)
     private int unknown7;
     @Order(6)
-    private List<Long> data0Keys0;
+    private List<Long> data0Keys;
     @Order(7)
-    private List<Integer> data0Value;
+    private List<Integer> data0Values;
     @Order(8)
     private List<Long> keys1;
     @Order(9)
@@ -42,7 +42,7 @@ public class NPC
     @Order(12)
     private int unknown19;
     @Order(13)
-    private NPCMaster nPCMaster;
+    private NPCMaster npcMaster;
     @Order(14)
     private String nameShort;
     @Order(15)

@@ -16,7 +16,7 @@ public class CraftingBenchOption
 {
 
     @Order(0)
-    private NPCMaster nPCMaster;
+    private NPCMaster npcMaster;
     @Order(1)
     private int order;
     @Order(2)

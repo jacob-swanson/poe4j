@@ -104,7 +104,6 @@ public class DatFileLookup {
 
             throw new Poe4jException(MessageFormat.format("No GGPK found at {}", properties.getGgpkLocations()));
         }
-
     }
 
     @SuppressWarnings("unchecked")
