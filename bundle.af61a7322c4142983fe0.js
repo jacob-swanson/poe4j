@@ -55373,7 +55373,7 @@
 
 
 	// module
-	exports.push([module.id, "html {\r\n  position:relative;\r\n  min-height: 100%;\r\n}\r\n\r\nbody {\r\n  margin-top: 50px;\r\n  margin-bottom: 60px;\r\n}\r\n\r\n.main {\r\n  padding-top: 30px;\r\n}\r\n\r\n.st-sort-ascent:before{\r\n  content: '\\25B2';\r\n}\r\n\r\n.st-sort-descent:before{\r\n  content: '\\25BC';\r\n}\r\n\r\n.footer {\r\n  position: absolute;\r\n  bottom: 0;\r\n  width: 100%;\r\n  height: 60px;\r\n  background-color: #f5f5f5;\r\n}\r\n\r\n.container .text-muted {\r\n  margin: 20px 0;\r\n}\r\n\r\n\r\n.footer > .container {\r\n  padding-right: 15px;\r\n  padding-left: 15px;\r\n}\r\n\r\n.no-top-margin {\r\n  margin-top: 0;\r\n}\r\n\r\n.no-bottom-margin {\r\n  margin-bottom: 0\r\n}", ""]);
+	exports.push([module.id, "html {\r\n  position:relative;\r\n  min-height: 100%;\r\n}\r\n\r\nbody {\r\n  margin-top: 50px;\r\n  margin-bottom: 60px;\r\n}\r\n\r\n.main {\r\n  padding-top: 30px;\r\n}\r\n\r\n.st-sort-ascent:before{\r\n  content: '\\25B2';\r\n}\r\n\r\n.st-sort-descent:before{\r\n  content: '\\25BC';\r\n}\r\n\r\n.footer {\r\n  position: absolute;\r\n  bottom: 0;\r\n  width: 100%;\r\n  height: 60px;\r\n  background-color: #f5f5f5;\r\n}\r\n\r\n.container .text-muted {\r\n  margin: 20px 0;\r\n}\r\n\r\n\r\n.footer > .container {\r\n  padding-right: 15px;\r\n  padding-left: 15px;\r\n}\r\n\r\n.no-top-margin {\r\n  margin-top: 0;\r\n}\r\n\r\n.no-bottom-margin {\r\n  margin-bottom: 0\r\n}\r\n\r\n[st-sort] {\r\n  cursor: pointer;\r\n}", ""]);
 
 	// exports
 
