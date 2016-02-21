@@ -45,3 +45,7 @@ body {
 .no-bottom-margin {
   margin-bottom: 0
 }
+
+[st-sort] {
+  cursor: pointer;
+}
