@@ -2,6 +2,9 @@
 package com.swandiggy.poe4j.data.rows.generated;
 
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.swandiggy.poe4j.data.annotations.DatFile;
 import com.swandiggy.poe4j.data.annotations.Order;
 import com.swandiggy.poe4j.data.annotations.Reference;
@@ -12,6 +15,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @DatFile("DailyMissions")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class DailyMission
     extends BaseRow
 {
@@ -35,7 +39,7 @@ public class DailyMission
     @Order(8)
     private int unknown8;
     @Order(9)
-    @Reference(value = Integer.class, offset = 1L)
+    @Reference(value = Integer.class)
     private PVPType pVPType;
 
 }

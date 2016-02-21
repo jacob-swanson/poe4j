@@ -16,7 +16,7 @@ public class AchievementSetReward
 {
 
     @Order(0)
-    @ReferenceOne(value = "id", offset = 1L)
+    @ReferenceOne(value = "id")
     private AchievementSetsDisplay achievementSetsDisplay;
     @Order(1)
     private int unknown1;

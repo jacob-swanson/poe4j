@@ -2,16 +2,24 @@
 package com.swandiggy.poe4j.data.rows.generated;
 
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.swandiggy.poe4j.data.annotations.DatFile;
 import com.swandiggy.poe4j.data.annotations.Order;
 import com.swandiggy.poe4j.data.annotations.ReferenceOne;
 import com.swandiggy.poe4j.data.rows.BaseRow;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @Data
-@EqualsAndHashCode(callSuper = true)
+@EqualsAndHashCode(callSuper = true, exclude = "npc")
+@ToString(exclude = "npc")
 @DatFile("NPCMaster")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class NPCMaster
     extends BaseRow
 {
@@ -20,7 +28,7 @@ public class NPCMaster
     private String id;
     @Order(1)
     @ReferenceOne("id")
-    private NPC nPC;
+    private NPC npc;
     @Order(2)
     private Boolean isStrMaster;
     @Order(3)

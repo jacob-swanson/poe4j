@@ -46,7 +46,7 @@ public class ReferenceOneFieldReader extends BaseFieldReader<Object> {
         ReferenceOne annotation = field.getAnnotation(ReferenceOne.class);
         Field referencedKeyField = Poe4jReflection.getField(field.getType(), annotation.value());
 
-        Object key = getKey(reader, br, referencedKeyField, annotation.offset());
+        Object key = fieldReaders.read(reader, br, referencedKeyField);
 
         return Poe4jReflection.lazyLoad(field.getType(), (LazyLoader) () -> {
             DatFileReader<BaseRow> datFileReader = datFileReaderFactory.createUnsafe(field.getType());
@@ -61,17 +61,6 @@ public class ReferenceOneFieldReader extends BaseFieldReader<Object> {
 
             return referencedRow;
         });
-    }
-
-    private Object getKey(DatFileReader reader, BinaryReader br, Field referencedKeyField, long offset) {
-        Object key = fieldReaders.read(reader, br, referencedKeyField);
-        if (offset != 0L && key instanceof Number) {
-            Number keyNum = (Number) key;
-            keyNum = keyNum.longValue() + offset;
-            key = keyNum;
-        }
-
-        return key;
     }
 
     @Override
