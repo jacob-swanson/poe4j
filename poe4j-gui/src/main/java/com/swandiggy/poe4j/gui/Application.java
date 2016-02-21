@@ -1,6 +1,5 @@
 package com.swandiggy.poe4j.gui;
 
-import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -21,7 +20,7 @@ import org.springframework.context.annotation.Lazy;
 @EnableCaching
 @ComponentScan("com.swandiggy")
 @SpringBootApplication
-public class App extends Application {
+public class Application extends javafx.application.Application {
 
     @Autowired
     private MainWindowController mainWindowController;
@@ -31,10 +30,11 @@ public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/sample.fxml"));
+        mainWindowController.setStage(primaryStage);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/mainwindow.fxml"));
         loader.setController(mainWindowController);
         Parent root = loader.load();
-        primaryStage.setTitle("Select Content.ggpkg");
+        primaryStage.setTitle("poe4j");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
@@ -47,6 +47,6 @@ public class App extends Application {
 
     public static void main(String[] args) {
         launchArgs = args;
-        Application.launch(App.class, args);
+        Application.launch(Application.class, args);
     }
 }

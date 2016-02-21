@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="628.0" prefWidth="939.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox prefHeight="0.0" prefWidth="803.0">
+         <children>
+            <Label text="GGPK File or Directory">
+               <VBox.margin>
+                  <Insets left="15.0" top="15.0" />
+               </VBox.margin>
+            </Label>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <TextField fx:id="ggpkPathTextField" promptText="C:\...\Content.ggpk or C:\..\Content\" HBox.hgrow="ALWAYS" />
+                  <Button mnemonicParsing="false" onAction="#browseForGgpk" text="File Browse">
+                     <HBox.margin>
+                        <Insets left="15.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#browseForGgpkFolder" text="Folder Browse">
+                     <HBox.margin>
+                        <Insets left="15.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets left="15.0" right="15.0" top="5.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </VBox>
+      <SplitPane dividerPositions="0.6247723132969034" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" VBox.vgrow="ALWAYS">
+        <items>
+            <TabPane fx:id="tabPane" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Extract GGPK">
+                     <content>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label text="Extract Directory">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </Label>
+                              <HBox prefHeight="4.0" prefWidth="767.0">
+                                 <children>
+                                    <TextField fx:id="ggpkExtractDirectoryTextField" promptText="C:\...\Content\" HBox.hgrow="ALWAYS">
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </TextField>
+                                    <Button mnemonicParsing="false" onAction="#browseForGgpkExtractDir" text="Browse">
+                                       <HBox.margin>
+                                          <Insets left="15.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <Button mnemonicParsing="false" onAction="#extractGgpk" text="Extract">
+                                 <VBox.margin>
+                                    <Insets top="15.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                           <padding>
+                              <Insets left="15.0" right="15.0" top="15.0" />
+                           </padding>
+                        </VBox>
+                     </content>
+                </Tab>
+                <Tab text="Extract Data">
+                     <content>
+                        <SplitPane dividerPositions="0.32496863237139273" prefHeight="200.0" prefWidth="200.0">
+                           <items>
+                              <VBox prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <Label text="Data File">
+                                       <VBox.margin>
+                                          <Insets left="15.0" top="15.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <ComboBox fx:id="dataClassComboBox" prefHeight="25.0" prefWidth="232.0" VBox.vgrow="ALWAYS">
+                                       <VBox.margin>
+                                          <Insets left="15.0" right="15.0" top="5.0" />
+                                       </VBox.margin>
+                                    </ComboBox>
+                                    <Button mnemonicParsing="false" onAction="#loadData" text="Load">
+                                       <VBox.margin>
+                                          <Insets left="15.0" top="15.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <TextArea fx:id="dataFileText" editable="false" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+                                    <HBox prefHeight="5.0" prefWidth="535.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#copyDataToClipboard" text="Copy to Clipboard">
+                                             <HBox.margin>
+                                                <Insets bottom="15.0" left="15.0" top="15.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Button mnemonicParsing="false" onAction="#saveDataAsFile" text="Save As">
+                                             <HBox.margin>
+                                                <Insets bottom="15.0" left="15.0" top="15.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </items>
+                        </SplitPane>
+                     </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+            <ListView fx:id="logView" prefHeight="200.0" prefWidth="200.0" />
+        </items>
+         <VBox.margin>
+            <Insets top="15.0" />
+         </VBox.margin>
+      </SplitPane>
+   </children>
+</VBox>
