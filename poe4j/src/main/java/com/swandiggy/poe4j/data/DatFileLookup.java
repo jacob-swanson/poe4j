@@ -86,7 +86,7 @@ public class DatFileLookup {
                 Ggpk ggpk = ggpkFactory.load(new File(properties.getGgpk()));
                 FileRecord fileRecord = ggpkExtractor.getFileRecord(ggpk, Paths.get("Data", getRowClassFilename(clazz)).toString());
 
-                return new FileDescription(Paths.get(properties.getGgpk(), "Data", getRowClassFilename(clazz)).toFile(), fileRecord.getDataStart(), fileRecord.getDataLength());
+                return new FileDescription(new File(properties.getGgpk()), fileRecord.getDataStart(), fileRecord.getDataLength());
             } else {
                 throw new Poe4jException(MessageFormat.format("GGPK {0} not a file or directory", file));
             }
