@@ -12,7 +12,10 @@ import com.swandiggy.poe4j.ggpkg.GgpkExtractor;
 import com.swandiggy.poe4j.ggpkg.GgpkFactory;
 import com.swandiggy.poe4j.gui.log.ObservableLogAppender;
 import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
@@ -66,6 +69,18 @@ public class MainWindowController implements Initializable {
     @FXML
     private ListView logView;
 
+    private ListChangeListener logViewChangeListener = new ListChangeListener() {
+        @Override
+        public void onChanged(Change c) {
+            if (logView == null) {
+                return;
+            }
+
+            log.debug("Scrolling to {}", ObservableLogAppender.events.size());
+            logView.scrollTo(ObservableLogAppender.events.size());
+        }
+    };
+
     @Autowired
     private Poe4jProperties poe4jProperties;
 
@@ -79,6 +94,8 @@ public class MainWindowController implements Initializable {
     private DatFileReaderFactory datFileReaderFactory;
 
     private ObjectMapper objectMapper = new ObjectMapper();
+
+    private boolean scrollToEnd = true;
 
     @Setter
     private Window stage;
@@ -118,6 +135,7 @@ public class MainWindowController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         logView.setItems(ObservableLogAppender.events);
+        ObservableLogAppender.events.addListener(logViewChangeListener);
 
         ggpkPathTextField.textProperty().addListener(((observable, oldValue, newValue) -> {
             poe4jProperties.setGgpk(newValue);
@@ -261,10 +279,17 @@ public class MainWindowController implements Initializable {
             return;
         }
 
-        try (Writer writer = new FileWriter(file)) {
-            try(BufferedWriter bufferedWriter = new BufferedWriter(writer)) {
-                bufferedWriter.write(dataFileText.getText());
-            }
+        List<BaseRow> rows = datFileReaderFactory.createUnsafe(((DatClass) dataClassComboBox.getSelectionModel().getSelectedItem()).getValue()).read().collect(toList());
+        objectMapper.writerWithDefaultPrettyPrinter().writeValue(file, rows);
+    }
+
+    public void toggleScrollToEnd(ActionEvent event) {
+        scrollToEnd = !scrollToEnd;
+
+        if (scrollToEnd) {
+            ObservableLogAppender.events.addListener(logViewChangeListener);
+        } else {
+            ObservableLogAppender.events.removeListener(logViewChangeListener);
         }
     }
 }

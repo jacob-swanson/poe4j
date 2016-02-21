@@ -10,6 +10,7 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
@@ -103,11 +104,22 @@
                                           <Insets left="15.0" right="15.0" top="5.0" />
                                        </VBox.margin>
                                     </ComboBox>
-                                    <Button mnemonicParsing="false" onAction="#loadData" text="Load">
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#loadData" text="Load" />
+                                          <Button mnemonicParsing="false" onAction="#saveDataAsFile" text="Save As">
+                                             <HBox.margin>
+                                                <Insets left="15.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
                                        <VBox.margin>
-                                          <Insets left="15.0" top="15.0" />
+                                          <Insets left="15.0" right="15.0" top="15.0" />
                                        </VBox.margin>
-                                    </Button>
+                                    </HBox>
                                  </children>
                               </VBox>
                               <VBox prefHeight="200.0" prefWidth="100.0">
@@ -116,11 +128,6 @@
                                     <HBox prefHeight="5.0" prefWidth="535.0">
                                        <children>
                                           <Button mnemonicParsing="false" onAction="#copyDataToClipboard" text="Copy to Clipboard">
-                                             <HBox.margin>
-                                                <Insets bottom="15.0" left="15.0" top="15.0" />
-                                             </HBox.margin>
-                                          </Button>
-                                          <Button mnemonicParsing="false" onAction="#saveDataAsFile" text="Save As">
                                              <HBox.margin>
                                                 <Insets bottom="15.0" left="15.0" top="15.0" />
                                              </HBox.margin>
@@ -135,7 +142,20 @@
                 </Tab>
               </tabs>
             </TabPane>
-            <ListView fx:id="logView" prefHeight="200.0" prefWidth="200.0" />
+            <HBox>
+               <children>
+                  <VBox prefHeight="203.0" prefWidth="75.0">
+                     <children>
+                        <ToggleButton minWidth="-Infinity" mnemonicParsing="false" onAction="#toggleScrollToEnd" selected="true" text="Scroll to End">
+                           <VBox.margin>
+                              <Insets left="15.0" right="15.0" top="15.0" />
+                           </VBox.margin>
+                        </ToggleButton>
+                     </children>
+                  </VBox>
+                  <ListView fx:id="logView" prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
         </items>
          <VBox.margin>
             <Insets top="15.0" />
