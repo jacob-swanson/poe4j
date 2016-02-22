@@ -18,3 +18,28 @@ References in the data files are lazily loaded, so if you're developing with poe
 The first, and only tool at the moment written with poe4j is a [Chromatic Calculator](https://jacob-swanson.github.io/poe4j/#/chromatic-calculator) that has all of the base items and their attribute requirements loaded. A random base item is chosen upon loading the page.
 
 A big thanks goes to the [PyPoE](https://github.com/OmegaK2/PyPoE) project for providing the data definitions that were parsed and turned into Java code.
+
+## Maven Artifacts
+Add the folling to your pom.xml file to use the artifacts hosted on github.
+```
+<repositories>
+  <repository>
+    <id>poe4j-mvn-repo</id>
+    <url>https://raw.github.com/jacob-swanson/poe4j/mvn-repo/</url>
+    <snapshots>
+      <enabled>true</enabled>
+      <updatePolicy>always</updatePolicy>
+    </snapshots>
+  </repository>
+</repositories>
+
+...
+
+<dependencies>
+  <dependency>
+    <groupId>com.swandiggy</groupId>
+    <artifactId>poe4j</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </dependency>
+</dependencies>
+```
