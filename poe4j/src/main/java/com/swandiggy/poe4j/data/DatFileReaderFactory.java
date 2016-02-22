@@ -2,12 +2,9 @@ package com.swandiggy.poe4j.data;
 
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
-import com.sun.org.apache.regexp.internal.RE;
 import com.swandiggy.poe4j.data.readers.FieldReaders;
 import com.swandiggy.poe4j.data.rows.BaseRow;
 import lombok.Setter;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.io.File;
 
