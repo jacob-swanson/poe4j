@@ -32,6 +32,7 @@
         <plugins>
             <plugin>
                 <artifactId>maven-deploy-plugin</artifactId>
+                <inherited>false</inherited>
                 <configuration>
                     <altDeploymentRepository>internal.repo::default::file://${project.build.directory}/mvn-repo</altDeploymentRepository>
                 </configuration>
@@ -40,6 +41,7 @@
                 <groupId>com.github.github</groupId>
                 <artifactId>site-maven-plugin</artifactId>
                 <version>0.11</version>
+                <inherited>false</inherited>
                 <configuration>
                     <message>Maven artifacts for ${project.version}</message>  <!-- git commit message -->
                     <noJekyll>true</noJekyll>                                  <!-- disable webpage processing -->
