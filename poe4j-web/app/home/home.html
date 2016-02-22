@@ -1,18 +1,26 @@
-<h1>What is poe4j?</h1>
-<p>
-    poe4j is a <a href="https://www.pathofexile.com/">Path of Exile</a> datamining library written in Java (hence the 4j
-    part of the name).
-</p>
-<p>
-    poe4j is under development. Currently you can use poe4j to extract Content.ggpk and the data from data files. There
-    is a GUI included for this.
-
-    Loading data files works similarly to how JPA works. If you've used any frameworks like Hibernate, it should look
-    familiar.
-</p>
-<p>
-    The first, and only tool at the moment written with poe4j is a <a ui-sref="chromatic-calculator">Chromatic
-    Calculator</a> that has all of the base items and their attribute requirements loaded.
-
-    A random base item is chosen upon loading the page.
-</p>
+<h1><a
+        id="poe4j_Build_Statushttpstravisciorgjacobswansonpoe4jsvgbranchmasterhttpstravisciorgjacobswansonpoe4j_0"></a>poe4j
+    <a href="https://travis-ci.org/jacob-swanson/poe4j"><img
+            src="https://travis-ci.org/jacob-swanson/poe4j.svg?branch=master" alt="Build Status"></a></h1>
+<p>poe4j is a <a href="https://www.pathofexile.com/">Path of Exile</a> datamining library written in Java (hence the
+    4j part of the name).</p>
+<h2><a id="Overview_4"></a>Overview</h2>
+<p>With poe4j you can:</p>
+<ul>
+    <li>Extract files from Content.ggpk</li>
+    <li>Parse Data/*.dat files from Content.ggpk with or without extracting</li>
+</ul>
+<p>Currently you can use poe4j to extract Content.ggpk and the data from data files, usable through poe4j-gui.</p>
+<p>Loading data files works similarly to how JPA works. If you’ve used any frameworks like Hibernate, it should look
+    familiar. Everything maps to a nice strongly typed Java class. You wont have to mess with maps or dictionaries
+    of data. The GUI displays the data files as JSON using <a
+            href="https://github.com/FasterXML/jackson">Jackson</a> and takes advantage of its itentity feature to
+    prevent loops between data. However, some of files still have a large amount of data that they reference. For
+    instance, WorldAreas extracts to around 60 MB of JSON text.</p>
+<p>References in the data files are lazily loaded, so if you’re developing with poe4j, you wont have to load
+    references yourself nor will you have to load referenced data that you don’t need.</p>
+<p>The first, and only tool at the moment written with poe4j is a <a
+        href="https://jacob-swanson.github.io/poe4j/#/chromatic-calculator">Chromatic Calculator</a> that has all of
+    the base items and their attribute requirements loaded. A random base item is chosen upon loading the page.</p>
+<p>A big thanks goes to the <a href="https://github.com/OmegaK2/PyPoE">PyPoE</a> project for providing the data
+    definitions that were parsed and turned into Java code.</p>
