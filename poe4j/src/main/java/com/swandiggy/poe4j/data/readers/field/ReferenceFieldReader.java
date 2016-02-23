@@ -1,8 +1,8 @@
 package com.swandiggy.poe4j.data.readers.field;
 
 import com.swandiggy.poe4j.data.Constants;
-import com.swandiggy.poe4j.data.DatFileReader;
-import com.swandiggy.poe4j.data.DatFileReaderFactory;
+import com.swandiggy.poe4j.data.DataFileReader;
+import com.swandiggy.poe4j.data.DataFileReaderFactory;
 import com.swandiggy.poe4j.data.annotations.Reference;
 import com.swandiggy.poe4j.data.readers.ValueReaders;
 import com.swandiggy.poe4j.util.io.BinaryReader;
@@ -26,7 +26,7 @@ import java.util.List;
 public class ReferenceFieldReader extends BaseFieldReader<Object> {
 
     @Setter
-    private DatFileReaderFactory datFileReaderFactory;
+    private DataFileReaderFactory dataFileReaderFactory;
 
     @Setter
     private ValueReaders valueReaders;
@@ -34,8 +34,8 @@ public class ReferenceFieldReader extends BaseFieldReader<Object> {
     public ReferenceFieldReader() {
     }
 
-    public ReferenceFieldReader(DatFileReaderFactory datFileReaderFactory, ValueReaders valueReaders) {
-        this.datFileReaderFactory = datFileReaderFactory;
+    public ReferenceFieldReader(DataFileReaderFactory dataFileReaderFactory, ValueReaders valueReaders) {
+        this.dataFileReaderFactory = dataFileReaderFactory;
         this.valueReaders = valueReaders;
     }
 
@@ -45,7 +45,7 @@ public class ReferenceFieldReader extends BaseFieldReader<Object> {
     }
 
     @Override
-    protected Object readInternal(DatFileReader reader, BinaryReader br, Field field) {
+    protected Object readInternal(DataFileReader reader, BinaryReader br, Field field) {
         Reference annotation = field.getAnnotation(Reference.class);
 
         if (field.getType() == List.class) {
@@ -67,7 +67,7 @@ public class ReferenceFieldReader extends BaseFieldReader<Object> {
         }
     }
 
-    private Object readRefValue(DatFileReader reader, BinaryReader br, Class clazz, Reference annotation) {
+    private Object readRefValue(DataFileReader reader, BinaryReader br, Class clazz, Reference annotation) {
         Long index = getIndex(reader, br, annotation);
         if (index == Constants.MAGIC_NULL) {
             return null;
@@ -75,11 +75,11 @@ public class ReferenceFieldReader extends BaseFieldReader<Object> {
 
         return Poe4jReflection.lazyLoad(clazz, (LazyLoader) () -> {
             // Get the referenced .dat file
-            return datFileReaderFactory.create(clazz).read(index);
+            return dataFileReaderFactory.create(clazz).read(index);
         });
     }
 
-    private Long getIndex(DatFileReader reader, BinaryReader br, Reference annotation) {
+    private Long getIndex(DataFileReader reader, BinaryReader br, Reference annotation) {
         Number value = (Number) valueReaders.read(reader, br, annotation.value());
         Long index = value.longValue();
         if (index < 0) {

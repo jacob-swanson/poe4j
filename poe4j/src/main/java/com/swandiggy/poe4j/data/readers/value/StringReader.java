@@ -1,6 +1,6 @@
 package com.swandiggy.poe4j.data.readers.value;
 
-import com.swandiggy.poe4j.data.DatFileReader;
+import com.swandiggy.poe4j.data.DataFileReader;
 import com.swandiggy.poe4j.util.io.BinaryReader;
 import lombok.extern.slf4j.Slf4j;
 
@@ -23,7 +23,7 @@ public class StringReader extends BaseValueReader<String> {
     }
 
     @Override
-    protected String readInternal(DatFileReader reader, BinaryReader br, Class clazz) {
+    protected String readInternal(DataFileReader reader, BinaryReader br, Class clazz) {
         int ref = br.readInt();
 
         long oldPos = br.getPosition();

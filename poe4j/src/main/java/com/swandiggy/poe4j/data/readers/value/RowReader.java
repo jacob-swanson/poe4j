@@ -1,9 +1,6 @@
 package com.swandiggy.poe4j.data.readers.value;
 
-import com.swandiggy.poe4j.data.Constants;
-import com.swandiggy.poe4j.data.DatFileLookup;
-import com.swandiggy.poe4j.data.DatFileReader;
-import com.swandiggy.poe4j.data.DatFileReaderFactory;
+import com.swandiggy.poe4j.data.*;
 import com.swandiggy.poe4j.data.rows.BaseRow;
 import com.swandiggy.poe4j.util.io.BinaryReader;
 import com.swandiggy.poe4j.util.reflection.Poe4jReflection;
@@ -22,22 +19,22 @@ import org.springframework.cglib.proxy.LazyLoader;
 public class RowReader extends BaseValueReader<BaseRow> {
 
     @Setter
-    private DatFileReaderFactory datFileReaderFactory;
+    private DataFileReaderFactory dataFileReaderFactory;
 
     public RowReader() {
     }
 
-    public RowReader(DatFileReaderFactory datFileReaderFactory) {
-        this.datFileReaderFactory = datFileReaderFactory;
+    public RowReader(DataFileReaderFactory dataFileReaderFactory) {
+        this.dataFileReaderFactory = dataFileReaderFactory;
     }
 
     @Override
     public boolean supports(Class clazz) {
-        return DatFileLookup.ROW_CLASSES.containsValue(clazz);
+        return DataFileRegistry.isRegistered(clazz);
     }
 
     @Override
-    protected BaseRow readInternal(DatFileReader reader, BinaryReader br, Class clazz) {
+    protected BaseRow readInternal(DataFileReader reader, BinaryReader br, Class clazz) {
         long index = br.readLong();
         if (index == Constants.MAGIC_NULL) {
             return null;
@@ -45,8 +42,8 @@ public class RowReader extends BaseValueReader<BaseRow> {
 
         return (BaseRow) Poe4jReflection.lazyLoad(clazz, (LazyLoader) () -> {
             // Get the referenced .dat file
-            DatFileReader datFileReader = datFileReaderFactory.create(clazz);
-            return datFileReader.read(index);
+            DataFileReader dataFileReader = dataFileReaderFactory.create(clazz);
+            return dataFileReader.read(index);
         });
     }
 

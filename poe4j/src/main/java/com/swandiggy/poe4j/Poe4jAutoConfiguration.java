@@ -1,8 +1,8 @@
 package com.swandiggy.poe4j;
 
 import com.swandiggy.poe4j.config.Poe4jProperties;
-import com.swandiggy.poe4j.data.DatFileLookup;
-import com.swandiggy.poe4j.data.DatFileReaderFactory;
+import com.swandiggy.poe4j.data.DataFileResolver;
+import com.swandiggy.poe4j.data.DataFileReaderFactory;
 import com.swandiggy.poe4j.data.annotations.ReferenceOne;
 import com.swandiggy.poe4j.data.readers.FieldReaders;
 import com.swandiggy.poe4j.data.readers.ValueReaders;
@@ -38,17 +38,17 @@ public class Poe4jAutoConfiguration {
     }
 
     @Bean
-    public ReferenceFieldReader referenceReader(DatFileReaderFactory datFileReaderFactory) {
+    public ReferenceFieldReader referenceReader(DataFileReaderFactory dataFileReaderFactory) {
         ReferenceFieldReader referenceFieldReader = new ReferenceFieldReader();
-        referenceFieldReader.setDatFileReaderFactory(datFileReaderFactory);
+        referenceFieldReader.setDataFileReaderFactory(dataFileReaderFactory);
 
         return referenceFieldReader;
     }
 
     @Bean
-    public ReferenceOneFieldReader referenceOneFieldReader(DatFileReaderFactory datFileReaderFactory) {
+    public ReferenceOneFieldReader referenceOneFieldReader(DataFileReaderFactory dataFileReaderFactory) {
         ReferenceOneFieldReader referenceOneFieldReader = new ReferenceOneFieldReader();
-        referenceOneFieldReader.setDatFileReaderFactory(datFileReaderFactory);
+        referenceOneFieldReader.setDataFileReaderFactory(dataFileReaderFactory);
 
         return referenceOneFieldReader;
     }
@@ -61,11 +61,11 @@ public class Poe4jAutoConfiguration {
     @Bean
     public FieldReaders fieldReaders(FieldReader[] fieldReaders,
                                      ReferenceOneFieldReader referenceOneFieldReader,
-                                     DatFileReaderFactory datFileReaderFactory) {
+                                     DataFileReaderFactory dataFileReaderFactory) {
         FieldReaders delegatingFieldReader = new FieldReaders(fieldReaders);
 
         referenceOneFieldReader.setFieldReaders(delegatingFieldReader);
-        datFileReaderFactory.setFieldReaders(delegatingFieldReader);
+        dataFileReaderFactory.setFieldReaders(delegatingFieldReader);
 
         return delegatingFieldReader;
     }
@@ -92,8 +92,8 @@ public class Poe4jAutoConfiguration {
     }
 
     @Bean
-    public RowReader rowReader(DatFileReaderFactory datFileReaderFactory) {
-        return new RowReader(datFileReaderFactory);
+    public RowReader rowReader(DataFileReaderFactory dataFileReaderFactory) {
+        return new RowReader(dataFileReaderFactory);
     }
 
     @Bean
@@ -118,16 +118,16 @@ public class Poe4jAutoConfiguration {
 
 
     @Bean
-    public DatFileLookup datFileLookup(Poe4jProperties properties, GgpkFactory ggpkFactory, GgpkExtractor ggpkExtractor) {
-        return new DatFileLookup(properties, ggpkFactory, ggpkExtractor);
+    public DataFileResolver datFileLookup(Poe4jProperties properties, GgpkFactory ggpkFactory, GgpkExtractor ggpkExtractor) {
+        return new DataFileResolver(properties, ggpkFactory, ggpkExtractor);
     }
 
     @Bean
-    public DatFileReaderFactory datFileReaderFactory(DatFileLookup datFileLookup) {
-        DatFileReaderFactory datFileReaderFactory = new DatFileReaderFactory();
-        datFileReaderFactory.setDatFileLookup(datFileLookup);
+    public DataFileReaderFactory datFileReaderFactory(DataFileResolver dataFileResolver) {
+        DataFileReaderFactory dataFileReaderFactory = new DataFileReaderFactory();
+        dataFileReaderFactory.setDataFileResolver(dataFileResolver);
 
-        return datFileReaderFactory;
+        return dataFileReaderFactory;
     }
 
 

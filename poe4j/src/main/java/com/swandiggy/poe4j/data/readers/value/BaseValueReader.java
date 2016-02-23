@@ -1,6 +1,6 @@
 package com.swandiggy.poe4j.data.readers.value;
 
-import com.swandiggy.poe4j.data.DatFileReader;
+import com.swandiggy.poe4j.data.DataFileReader;
 import com.swandiggy.poe4j.util.io.BinaryReader;
 import org.springframework.util.Assert;
 
@@ -12,10 +12,10 @@ import org.springframework.util.Assert;
  */
 public abstract class BaseValueReader<T> implements ValueReader<T> {
     @Override
-    public T read(DatFileReader datFileReader, BinaryReader br, Class clazz) {
+    public T read(DataFileReader dataFileReader, BinaryReader br, Class clazz) {
         long startPos = br.getPosition();
 
-        T value = readInternal(datFileReader, br, clazz);
+        T value = readInternal(dataFileReader, br, clazz);
 
         long endPos = br.getPosition();
 
@@ -24,5 +24,5 @@ public abstract class BaseValueReader<T> implements ValueReader<T> {
         return value;
     }
 
-    protected abstract T readInternal(DatFileReader reader, BinaryReader br, Class clazz);
+    protected abstract T readInternal(DataFileReader reader, BinaryReader br, Class clazz);
 }

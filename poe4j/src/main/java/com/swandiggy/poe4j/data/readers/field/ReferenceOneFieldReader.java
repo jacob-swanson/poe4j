@@ -1,8 +1,8 @@
 package com.swandiggy.poe4j.data.readers.field;
 
 import com.swandiggy.poe4j.Poe4jException;
-import com.swandiggy.poe4j.data.DatFileReader;
-import com.swandiggy.poe4j.data.DatFileReaderFactory;
+import com.swandiggy.poe4j.data.DataFileReader;
+import com.swandiggy.poe4j.data.DataFileReaderFactory;
 import com.swandiggy.poe4j.data.annotations.ReferenceOne;
 import com.swandiggy.poe4j.data.readers.FieldReaders;
 import com.swandiggy.poe4j.data.rows.BaseRow;
@@ -11,7 +11,6 @@ import com.swandiggy.poe4j.util.reflection.Poe4jReflection;
 import lombok.Setter;
 import org.springframework.cglib.proxy.LazyLoader;
 
-import java.io.IOException;
 import java.lang.reflect.Field;
 
 /**
@@ -23,7 +22,7 @@ import java.lang.reflect.Field;
 public class ReferenceOneFieldReader extends BaseFieldReader<Object> {
 
     @Setter
-    private DatFileReaderFactory datFileReaderFactory;
+    private DataFileReaderFactory dataFileReaderFactory;
 
     @Setter
     private FieldReaders fieldReaders;
@@ -31,8 +30,8 @@ public class ReferenceOneFieldReader extends BaseFieldReader<Object> {
     public ReferenceOneFieldReader() {
     }
 
-    public ReferenceOneFieldReader(DatFileReaderFactory datFileReaderFactory, FieldReaders fieldReaders) {
-        this.datFileReaderFactory = datFileReaderFactory;
+    public ReferenceOneFieldReader(DataFileReaderFactory dataFileReaderFactory, FieldReaders fieldReaders) {
+        this.dataFileReaderFactory = dataFileReaderFactory;
         this.fieldReaders = fieldReaders;
     }
 
@@ -42,15 +41,15 @@ public class ReferenceOneFieldReader extends BaseFieldReader<Object> {
     }
 
     @Override
-    protected Object readInternal(DatFileReader reader, BinaryReader br, Field field) {
+    protected Object readInternal(DataFileReader reader, BinaryReader br, Field field) {
         ReferenceOne annotation = field.getAnnotation(ReferenceOne.class);
         Field referencedKeyField = Poe4jReflection.getField(field.getType(), annotation.value());
 
         Object key = fieldReaders.read(reader, br, referencedKeyField);
 
         return Poe4jReflection.lazyLoad(field.getType(), (LazyLoader) () -> {
-            DatFileReader<BaseRow> datFileReader = datFileReaderFactory.createUnsafe(field.getType());
-            BaseRow referencedRow = datFileReader.read()
+            DataFileReader<BaseRow> dataFileReader = dataFileReaderFactory.createUnsafe(field.getType());
+            BaseRow referencedRow = dataFileReader.read()
                     .filter(row -> Poe4jReflection.readProperty(row, annotation.value()).equals(key))
                     .findAny()
                     .orElse(null);

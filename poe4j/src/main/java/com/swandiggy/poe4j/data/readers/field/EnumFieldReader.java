@@ -1,7 +1,7 @@
 package com.swandiggy.poe4j.data.readers.field;
 
 import com.swandiggy.poe4j.Poe4jException;
-import com.swandiggy.poe4j.data.DatFileReader;
+import com.swandiggy.poe4j.data.DataFileReader;
 import com.swandiggy.poe4j.data.annotations.Enumerated;
 import com.swandiggy.poe4j.util.io.BinaryReader;
 
@@ -26,7 +26,7 @@ public class EnumFieldReader extends BaseFieldReader<Object> {
     }
 
     @Override
-    protected Object readInternal(DatFileReader reader, BinaryReader br, Field field) {
+    protected Object readInternal(DataFileReader reader, BinaryReader br, Field field) {
         Integer value = br.readInt();
 
         try {

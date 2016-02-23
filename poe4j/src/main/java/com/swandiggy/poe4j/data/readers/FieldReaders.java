@@ -1,7 +1,7 @@
 package com.swandiggy.poe4j.data.readers;
 
 import com.swandiggy.poe4j.Poe4jException;
-import com.swandiggy.poe4j.data.DatFileReader;
+import com.swandiggy.poe4j.data.DataFileReader;
 import com.swandiggy.poe4j.data.readers.field.FieldReader;
 import com.swandiggy.poe4j.util.io.BinaryReader;
 import lombok.Setter;
@@ -37,10 +37,10 @@ public class FieldReaders implements FieldReader<Object> {
     }
 
     @Override
-    public Object read(DatFileReader datFileReader, BinaryReader br, Field field) {
+    public Object read(DataFileReader dataFileReader, BinaryReader br, Field field) {
         for (FieldReader fieldReader : fieldReaders) {
             if (fieldReader.supports(field)) {
-                return fieldReader.read(datFileReader, br, field);
+                return fieldReader.read(dataFileReader, br, field);
             }
         }
 

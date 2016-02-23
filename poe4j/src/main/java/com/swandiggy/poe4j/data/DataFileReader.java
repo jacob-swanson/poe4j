@@ -16,7 +16,6 @@ import org.springframework.beans.BeanWrapperImpl;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Field;
-import java.nio.ByteBuffer;
 import java.text.MessageFormat;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -30,7 +29,7 @@ import java.util.stream.Stream;
  * @since 9/5/2015
  */
 @Slf4j
-public class DatFileReader<T extends BaseRow> {
+public class DataFileReader<T extends BaseRow> {
 
     /**
      * Weak cache of rows
@@ -76,7 +75,7 @@ public class DatFileReader<T extends BaseRow> {
     /**
      * Create a reader for a .dat file.
      */
-    public DatFileReader(Class<T> rowClass, FieldReaders fieldReaders, File file) {
+    public DataFileReader(Class<T> rowClass, FieldReaders fieldReaders, File file) {
         this(rowClass, fieldReaders, file, 0, file.length());
     }
 
@@ -89,7 +88,7 @@ public class DatFileReader<T extends BaseRow> {
      * @param start        Start offset of file record
      * @param length       Length of the file record
      */
-    public DatFileReader(Class<T> rowClass, FieldReaders fieldReaders, File file, long start, long length) {
+    public DataFileReader(Class<T> rowClass, FieldReaders fieldReaders, File file, long start, long length) {
         this.fieldReaders = fieldReaders;
         this.rowClass = rowClass;
         this.file = file;

@@ -1,6 +1,6 @@
 package com.swandiggy.poe4j.data.readers.field;
 
-import com.swandiggy.poe4j.data.DatFileReader;
+import com.swandiggy.poe4j.data.DataFileReader;
 import com.swandiggy.poe4j.data.readers.ValueReaders;
 import com.swandiggy.poe4j.data.readers.value.ValueReader;
 import com.swandiggy.poe4j.util.io.BinaryReader;
@@ -32,7 +32,7 @@ public class ValueFieldReader extends BaseFieldReader<Object> {
     }
 
     @Override
-    protected Object readInternal(DatFileReader reader, BinaryReader br, Field field) {
+    protected Object readInternal(DataFileReader reader, BinaryReader br, Field field) {
         return valueReaders.read(reader, br, field.getType());
     }
 

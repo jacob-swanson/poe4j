@@ -1,6 +1,6 @@
 package com.swandiggy.poe4j.data.readers.value;
 
-import com.swandiggy.poe4j.data.DatFileReader;
+import com.swandiggy.poe4j.data.DataFileReader;
 import com.swandiggy.poe4j.util.io.BinaryReader;
 
 /**
@@ -13,7 +13,7 @@ public interface ValueReader<T> {
 
     boolean supports(Class clazz);
 
-    T read(DatFileReader datFileReader, BinaryReader br, Class clazz);
+    T read(DataFileReader dataFileReader, BinaryReader br, Class clazz);
     
     int size(Class clazz);
 

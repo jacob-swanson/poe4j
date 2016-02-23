@@ -9,49 +9,49 @@ import lombok.Setter;
 import java.io.File;
 
 /**
- * Construct a {@link DatFileReader}. Injects the objects that the {@link DatFileReader} needs to work for you.
+ * Construct a {@link DataFileReader}. Injects the objects that the {@link DataFileReader} needs to work for you.
  *
  * @author Jacob Swanson
  * @since 12/15/2015
  */
-public class DatFileReaderFactory {
+public class DataFileReaderFactory {
 
     @Setter
     private FieldReaders fieldReaders;
 
     @Setter
-    private DatFileLookup datFileLookup;
+    private DataFileResolver dataFileResolver;
 
     /**
      * Weak cache of rows
      */
-    private static final Cache<String, DatFileReader> READER_CACHE = CacheBuilder.newBuilder().softValues().build();
+    private static final Cache<String, DataFileReader> READER_CACHE = CacheBuilder.newBuilder().softValues().build();
 
-    public DatFileReaderFactory() {
+    public DataFileReaderFactory() {
     }
 
-    public DatFileReaderFactory(FieldReaders fieldReaders, DatFileLookup datFileLookup) {
+    public DataFileReaderFactory(FieldReaders fieldReaders, DataFileResolver dataFileResolver) {
         this.fieldReaders = fieldReaders;
-        this.datFileLookup = datFileLookup;
+        this.dataFileResolver = dataFileResolver;
     }
 
     @SuppressWarnings("unchecked")
-    private static <T extends BaseRow> DatFileReader<T> cacheGet(Class<T> clazz, File file) {
+    private static <T extends BaseRow> DataFileReader<T> cacheGet(Class<T> clazz, File file) {
         String key = clazz.getName() + ":" + file.getAbsolutePath();
 
         return READER_CACHE.getIfPresent(key);
     }
 
-    private static <T extends BaseRow> void cachePut(DatFileReader<T> reader) {
+    private static <T extends BaseRow> void cachePut(DataFileReader<T> reader) {
         String key = reader.getRowClass().getName() + ":" + reader.getFile().getAbsolutePath();
 
         READER_CACHE.put(key, reader);
     }
 
-    private <T extends BaseRow> DatFileReader<T> getOrCreateReader(Class<T> clazz, File file, long start, long length) {
-        DatFileReader<T> reader = cacheGet(clazz, file);
+    private <T extends BaseRow> DataFileReader<T> getOrCreateReader(Class<T> clazz, File file, long start, long length) {
+        DataFileReader<T> reader = cacheGet(clazz, file);
         if (reader == null) {
-            reader = new DatFileReader<>(clazz, fieldReaders, file, start, length);
+            reader = new DataFileReader<>(clazz, fieldReaders, file, start, length);
             cachePut(reader);
         }
 
@@ -65,8 +65,8 @@ public class DatFileReaderFactory {
      * @param <T>
      * @return
      */
-    public <T extends BaseRow> DatFileReader<T> create(Class<T> clazz) {
-        DatFileLookup.FileDescription fileDescription = datFileLookup.getFileForType(clazz);
+    public <T extends BaseRow> DataFileReader<T> create(Class<T> clazz) {
+        DataFileResolver.FileDescription fileDescription = dataFileResolver.getFileForType(clazz);
         return getOrCreateReader(clazz, fileDescription.getFile(), fileDescription.getStart(), fileDescription.getLength());
     }
 
@@ -78,8 +78,8 @@ public class DatFileReaderFactory {
      * @return
      */
     @SuppressWarnings("unchecked")
-    public <T extends BaseRow> DatFileReader<T> createUnsafe(Class<?> clazz) {
-        DatFileLookup.FileDescription fileDescription = datFileLookup.getFileForType((Class<T>) clazz);
+    public <T extends BaseRow> DataFileReader<T> createUnsafe(Class<?> clazz) {
+        DataFileResolver.FileDescription fileDescription = dataFileResolver.getFileForType((Class<T>) clazz);
         return getOrCreateReader((Class<T>) clazz, fileDescription.getFile(), fileDescription.getStart(), fileDescription.getLength());
     }
 
@@ -90,7 +90,7 @@ public class DatFileReaderFactory {
      * @param <T>
      * @return
      */
-    public <T extends BaseRow> DatFileReader<T> create(File file) {
-        return getOrCreateReader(datFileLookup.getTypeForFile(file), file, 0, file.length());
+    public <T extends BaseRow> DataFileReader<T> create(File file) {
+        return getOrCreateReader(DataFileRegistry.getTypeForFile(file), file, 0, file.length());
     }
 }

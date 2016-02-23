@@ -1,6 +1,6 @@
 package com.swandiggy.poe4j.data.readers.field;
 
-import com.swandiggy.poe4j.data.DatFileReader;
+import com.swandiggy.poe4j.data.DataFileReader;
 import com.swandiggy.poe4j.data.annotations.Reference;
 import com.swandiggy.poe4j.data.readers.ValueReaders;
 import com.swandiggy.poe4j.util.io.BinaryReader;
@@ -36,7 +36,7 @@ public class ListFieldReader extends BaseFieldReader<List> {
     }
 
     @Override
-    protected List readInternal(DatFileReader reader, BinaryReader br, Field field) {
+    protected List readInternal(DataFileReader reader, BinaryReader br, Field field) {
         int listSize = br.readInt();
         int listOffset = br.readInt();
 
@@ -53,7 +53,7 @@ public class ListFieldReader extends BaseFieldReader<List> {
         return listValues;
     }
 
-    private Object readValue(DatFileReader reader, BinaryReader br, Class clazz) {
+    private Object readValue(DataFileReader reader, BinaryReader br, Class clazz) {
         return valueReaders.read(reader, br, clazz);
     }
 

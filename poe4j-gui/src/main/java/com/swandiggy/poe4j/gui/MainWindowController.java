@@ -4,8 +4,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.swandiggy.poe4j.Poe4jException;
 import com.swandiggy.poe4j.config.Poe4jProperties;
-import com.swandiggy.poe4j.data.DatFileLookup;
-import com.swandiggy.poe4j.data.DatFileReaderFactory;
+import com.swandiggy.poe4j.data.DataFileRegistry;
+import com.swandiggy.poe4j.data.DataFileResolver;
+import com.swandiggy.poe4j.data.DataFileReaderFactory;
 import com.swandiggy.poe4j.data.rows.BaseRow;
 import com.swandiggy.poe4j.ggpkg.Ggpk;
 import com.swandiggy.poe4j.ggpkg.GgpkExtractor;
@@ -37,6 +38,7 @@ import org.springframework.util.StringUtils;
 import java.io.*;
 import java.net.URL;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.prefs.Preferences;
 
@@ -91,7 +93,7 @@ public class MainWindowController implements Initializable {
     private GgpkExtractor ggpkExtractor;
 
     @Autowired
-    private DatFileReaderFactory datFileReaderFactory;
+    private DataFileReaderFactory dataFileReaderFactory;
 
     private ObjectMapper objectMapper = new ObjectMapper();
 
@@ -153,12 +155,12 @@ public class MainWindowController implements Initializable {
 
         storePrefsFor(ggpkExtractDirectoryTextField);
 
-        DatFileLookup.ROW_CLASSES.entrySet().stream()
-                .sorted((e1, e2) -> e1.getKey().compareTo(e2.getKey()))
-                .map(entry -> {
+        DataFileRegistry.getRegisteredTypes().stream()
+                .sorted((x, y) -> DataFileRegistry.getFileForType(x).compareTo(DataFileRegistry.getFileForType(y)))
+                .map(clazz -> {
                     DatClass datClass = new DatClass();
-                    datClass.setName(entry.getKey());
-                    datClass.setValue(entry.getValue());
+                    datClass.setName(DataFileRegistry.getFileForType(clazz));
+                    datClass.setValue(clazz);
 
                     return datClass;
                 }).forEach(entry -> dataClasses.add(entry));
@@ -248,7 +250,7 @@ public class MainWindowController implements Initializable {
 
     public void loadData(ActionEvent event) {
         Thread thread = new Thread(exLog(() -> {
-            List<BaseRow> rows = datFileReaderFactory.createUnsafe(((DatClass) dataClassComboBox.getSelectionModel().getSelectedItem()).getValue()).read().collect(toList());
+            List<BaseRow> rows = dataFileReaderFactory.createUnsafe(((DatClass) dataClassComboBox.getSelectionModel().getSelectedItem()).getValue()).read().collect(toList());
             try {
                 String text = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(rows);
                 Platform.runLater(exLog(() -> dataFileText.setText(text)));
@@ -279,7 +281,7 @@ public class MainWindowController implements Initializable {
             return;
         }
 
-        List<BaseRow> rows = datFileReaderFactory.createUnsafe(((DatClass) dataClassComboBox.getSelectionModel().getSelectedItem()).getValue()).read().collect(toList());
+        List<BaseRow> rows = dataFileReaderFactory.createUnsafe(((DatClass) dataClassComboBox.getSelectionModel().getSelectedItem()).getValue()).read().collect(toList());
         objectMapper.writerWithDefaultPrettyPrinter().writeValue(file, rows);
     }
 

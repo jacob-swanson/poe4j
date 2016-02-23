@@ -18,6 +18,7 @@ import org.springframework.util.StringUtils;
 import java.io.File;
 import java.nio.file.Paths;
 import java.text.MessageFormat;
+import java.util.Arrays;
 
 /**
  * Find a .dat file that goes with a class or find a class that goes with a .dat file.
@@ -25,7 +26,7 @@ import java.text.MessageFormat;
  * @author Jacob Swanson
  * @since 1/16/2016
  */
-public class DatFileLookup {
+public class DataFileResolver {
 
     @Setter
     private Poe4jProperties properties;
@@ -36,33 +37,13 @@ public class DatFileLookup {
     @Setter
     private GgpkExtractor ggpkExtractor;
 
-    public DatFileLookup() {
+    public DataFileResolver() {
     }
 
-    public DatFileLookup(Poe4jProperties properties, GgpkFactory ggpkFactory, GgpkExtractor ggpkExtractor) {
+    public DataFileResolver(Poe4jProperties properties, GgpkFactory ggpkFactory, GgpkExtractor ggpkExtractor) {
         this.properties = properties;
         this.ggpkFactory = ggpkFactory;
         this.ggpkExtractor = ggpkExtractor;
-    }
-
-    /**
-     * Map of .dat file names to rows classes
-     */
-    public static final BiMap<String, Class<?>> ROW_CLASSES = HashBiMap.create();
-
-    /**
-     * Collect all classes with @DatFile
-     */
-    static {
-        Reflections reflections = new Reflections();
-        for (Class<?> clazz : reflections.getTypesAnnotatedWith(DatFile.class)) {
-            DatFile datFile = clazz.getAnnotation(DatFile.class);
-            if (StringUtils.isEmpty(datFile.value())) {
-                ROW_CLASSES.put(clazz.getSimpleName(), clazz);
-            } else {
-                ROW_CLASSES.put(datFile.value(), clazz);
-            }
-        }
     }
 
     @Data
@@ -80,11 +61,11 @@ public class DatFileLookup {
             }
 
             if (file.isDirectory()) {
-                File datFile = Paths.get(properties.getGgpk(), "Data", getRowClassFilename(clazz)).toFile();
+                File datFile = Paths.get(properties.getGgpk(), "Data", DataFileRegistry.getFileForType(clazz)).toFile();
                 return new FileDescription(datFile, 0, datFile.length());
             } else if (file.isFile()) {
                 Ggpk ggpk = ggpkFactory.load(new File(properties.getGgpk()));
-                FileRecord fileRecord = ggpkExtractor.getFileRecord(ggpk, Paths.get("Data", getRowClassFilename(clazz)).toString());
+                FileRecord fileRecord = ggpkExtractor.getFileRecord(ggpk, Paths.get("Data", DataFileRegistry.getFileForType(clazz)).toString());
 
                 return new FileDescription(new File(properties.getGgpk()), fileRecord.getDataStart(), fileRecord.getDataLength());
             } else {
@@ -98,20 +79,13 @@ public class DatFileLookup {
                 }
 
                 Ggpk ggpk = ggpkFactory.load(new File(location));
-                FileRecord fileRecord = ggpkExtractor.getFileRecord(ggpk, Paths.get("Data", getRowClassFilename(clazz)).toString());
+                FileRecord fileRecord = ggpkExtractor.getFileRecord(ggpk, Paths.get("Data", DataFileRegistry.getFileForType(clazz)).toString());
                 return new FileDescription(file, fileRecord.getDataStart(), fileRecord.getDataLength());
             }
 
-            throw new Poe4jException(MessageFormat.format("No GGPK found at {}", properties.getGgpkLocations()));
+            throw new Poe4jException(MessageFormat.format("No GGPK found at {0}", Arrays.toString(properties.getGgpkLocations())));
         }
     }
 
-    @SuppressWarnings("unchecked")
-    public <T extends BaseRow> Class<T> getTypeForFile(File file) {
-        return (Class<T>) ROW_CLASSES.get(file.getName());
-    }
 
-    private String getRowClassFilename(Class clazz) {
-        return ROW_CLASSES.inverse().get(clazz) + ".dat";
-    }
 }

@@ -1,7 +1,7 @@
 package com.swandiggy.poe4j.data.readers.value;
 
 import com.google.common.primitives.Primitives;
-import com.swandiggy.poe4j.data.DatFileReader;
+import com.swandiggy.poe4j.data.DataFileReader;
 import com.swandiggy.poe4j.util.io.BinaryReader;
 
 /**
@@ -21,7 +21,7 @@ public class ShortReader extends BaseValueReader<Short> {
     }
 
     @Override
-    protected Short readInternal(DatFileReader reader, BinaryReader br, Class clazz) {
+    protected Short readInternal(DataFileReader reader, BinaryReader br, Class clazz) {
         return br.readShort();
     }
 
