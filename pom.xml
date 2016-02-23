@@ -25,7 +25,6 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
-        <github.global.server>github</github.global.server>
     </properties>
 
     <build>
@@ -46,6 +45,8 @@
                         <repositoryName>poe4j</repositoryName>
                         <repositoryOwner>jacob-swanson</repositoryOwner>
                         <oauth2Token>${env.GH_TOKEN}</oauth2Token>
+                        <password>${env.GH_TOKEN}</password>
+                        <server>github</server>
                     </configuration>
                     <executions>
                         <execution>
