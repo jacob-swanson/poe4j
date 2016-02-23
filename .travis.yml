@@ -3,3 +3,4 @@ sudo: false
 jdk:
   - oraclejdk8
 script: mvn test
+after_success: mvn deploy
