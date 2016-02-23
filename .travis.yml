@@ -1,7 +1,5 @@
 language: java
+sudo: false
 jdk:
   - oraclejdk8
-install:
-  - mvn test
-deploy:
-  - mvn deploy
+script: mvn test
