@@ -1,7 +1,5 @@
 language: java
 jdk:
   - oraclejdk8
-branches:
-  except:
-    - mvn-repo
-    - gh-pages
+deploy:
+  mvn deploy

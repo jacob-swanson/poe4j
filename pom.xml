@@ -45,6 +45,7 @@
                         </includes>
                         <repositoryName>poe4j</repositoryName>
                         <repositoryOwner>jacob-swanson</repositoryOwner>
+                        <oauth2Token>${env.GH_TOKEN}</oauth2Token>
                     </configuration>
                     <executions>
                         <execution>
