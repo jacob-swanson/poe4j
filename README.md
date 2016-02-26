@@ -13,7 +13,7 @@ With poe4j you can:
 
 Currently you can use poe4j to extract Content.ggpk and the data from data files, usable through poe4j-gui.
 
-Loading data files works similarly to how JPA works. If you've used any frameworks like Hibernate, it should look familiar. Everything maps to a nice strongly typed Java class. You wont have to mess with maps or dictionaries of data. The GUI displays the data files as JSON using [Jackson](https://github.com/FasterXML/jackson) and takes advantage of its itentity feature to prevent loops between data. However, some of files still have a large amount of data that they reference. For instance, WorldAreas extracts to around 60 MB of JSON text.
+Loading data files works similarly to how JPA works. If you've used any frameworks like Hibernate, it should look familiar. Everything maps to a nice strongly typed Java class. You wont have to mess with maps or dictionaries of data. The GUI displays the data files as JSON using [Jackson](https://github.com/FasterXML/jackson) and takes advantage of its identity feature to prevent loops between data. However, some of files still have a large amount of data that they reference. For instance, WorldAreas extracts to around 60 MB of JSON text.
 
 References in the data files are lazily loaded, so if you're developing with poe4j, you wont have to load references yourself nor will you have to load referenced data that you don't need.
 
