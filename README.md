@@ -2,6 +2,8 @@
 
 poe4j is a [Path of Exile](https://www.pathofexile.com/) datamining library written in Java (hence the 4j part of the name).
 
+![poe4j screenshot](poe4j-gui-screenshot.png)
+
 ## Overview
 
 With poe4j you can:
