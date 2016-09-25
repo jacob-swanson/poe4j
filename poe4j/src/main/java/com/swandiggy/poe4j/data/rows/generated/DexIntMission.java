@@ -52,6 +52,6 @@ public class DexIntMission
     @Order(15)
     private Boolean flag7;
     @Order(16)
-    private List<Long> unknown11;
+    private List<AchievementItem> achievementItems;
 
 }

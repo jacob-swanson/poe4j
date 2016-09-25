@@ -35,8 +35,6 @@ public class MapPin
     private String note;
     @Order(7)
     private List<Integer> data1;
-    @Order(8)
-    private int unknown7;
     @Order(9)
     private int act;
     @Order(10)
@@ -53,5 +51,7 @@ public class MapPin
     private int unknown15;
     @Order(16)
     private List<WorldArea> worldArea;
+    @Order(17)
+    private List<Integer> unknown3;
 
 }

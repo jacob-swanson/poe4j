@@ -20,6 +20,6 @@ public class MonsterArmour
     @Order(0)
     private String id;
     @Order(1)
-    private String art;
+    private String artSmFile;
 
 }

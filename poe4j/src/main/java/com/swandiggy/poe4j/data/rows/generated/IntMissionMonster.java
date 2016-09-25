@@ -30,6 +30,6 @@ public class IntMissionMonster
     @Order(4)
     private List<MonsterVariety> objectiveMonsterVarieties;
     @Order(5)
-    private List<Long> keys1;
+    private List<AchievementItem> achievementItems;
 
 }

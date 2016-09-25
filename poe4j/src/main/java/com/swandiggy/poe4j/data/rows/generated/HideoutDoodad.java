@@ -18,15 +18,15 @@ public class HideoutDoodad
     @Order(0)
     private BaseItemType baseItemType;
     @Order(1)
-    private List<String> variationAnimatedObjectFile;
+    private List<String> variationAoFiles;
     @Order(2)
     private int favourCost;
     @Order(3)
     private int masterLevel;
     @Order(4)
-    private NPCMaster nPCMaster;
+    private NPCMaster npcMaster;
     @Order(5)
-    private Boolean flag0;
+    private Boolean isNonMasterDoodad;
     @Order(6)
     private int unknown1;
     @Order(7)

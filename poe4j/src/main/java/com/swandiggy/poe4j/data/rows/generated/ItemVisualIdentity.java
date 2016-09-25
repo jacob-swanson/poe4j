@@ -22,11 +22,11 @@ public class ItemVisualIdentity
     @Order(0)
     private String id;
     @Order(1)
-    private String idtFile;
+    private String ddsFile;
     @Order(2)
     private String aoFile;
     @Order(3)
-    private Long key0;
+    private SoundEffect soundEffect;
     @Order(4)
     private int unknown1;
     @Order(5)
@@ -64,18 +64,14 @@ public class ItemVisualIdentity
     @Order(21)
     private int unknown18;
     @Order(22)
-    private int unknown19;
+    private AchievementItem pickupAchievement;
     @Order(23)
     private String unknownSmFile1;
     @Order(24)
-    private String unknownSmFile2;
-    @Order(25)
-    private int unknown22;
-    @Order(26)
-    private String unknown23;
+    private AchievementItem identifyAchievement;
     @Order(27)
     private String epkFile;
     @Order(28)
-    private List<Integer> data0;
+    private List<AchievementItem> corruptAchievements;
 
 }

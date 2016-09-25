@@ -20,12 +20,18 @@ public class LabyrinthSectionLayout
     @Order(1)
     private int unknown3;
     @Order(2)
-    private List<Integer> unknown4;
+    private List<LabyrinthSectionLayout> labyinthSectionLayouts;
     @Order(3)
-    private Long unknown6;
+    private LabyrinthSecret labyrinthSecret0;
     @Order(4)
-    private Long unknown8;
+    private LabyrinthSecret labyrinthSecret1;
     @Order(5)
-    private Long unknown10;
-
+    private LabyrinthArea labyrinthArea;
+    @Order(6)
+    private Integer flags1;
+    @Order(7)
+    private Integer flags2;
+    @Order(8)
+    private LabyrinthNodeOverride nodeOverride;
+    
 }

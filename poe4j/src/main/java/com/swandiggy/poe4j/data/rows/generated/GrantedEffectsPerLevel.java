@@ -37,8 +37,6 @@ public class GrantedEffectsPerLevel
     private int stat7Value;
     @Order(10)
     private int stat8Value;
-    @Order(11)
-    private ActiveSkill activeSkill;
     @Order(12)
     private int levelRequirement;
     @Order(13)
@@ -56,11 +54,11 @@ public class GrantedEffectsPerLevel
     @Order(19)
     private int manaCost;
     @Order(20)
-    private int unknown26;
+    private int damageEffectiveness;
     @Order(21)
-    private int unknown27;
+    private int storedUses;
     @Order(22)
-    private int unknown28;
+    private int cooldown;
     @Order(23)
     private int unknown29;
     @Order(24)
@@ -70,9 +68,9 @@ public class GrantedEffectsPerLevel
     @Order(26)
     private int vaalSoul;
     @Order(27)
-    private int unknown32;
+    private int vaalStoredUses;
     @Order(28)
-    private int unknown32b;
+    private int unknown32;
     @Order(29)
     private int unknown33;
     @Order(30)
@@ -81,5 +79,7 @@ public class GrantedEffectsPerLevel
     private int damageMultiplier;
     @Order(32)
     private int unknown35;
+    @Order(33)
+    private int unknown36;
 
 }

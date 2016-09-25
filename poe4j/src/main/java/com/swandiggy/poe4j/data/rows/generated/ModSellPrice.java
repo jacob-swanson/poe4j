@@ -14,12 +14,9 @@ import lombok.EqualsAndHashCode;
 public class ModSellPrice
     extends BaseRow
 {
-
-    @Order(0)
-    private Mods mod;
     @Order(1)
-    private List<BaseItemType> baseItemTypesKeys0;
+    private List<ModSellPrices> modSellPrices;
     @Order(2)
-    private List<BaseItemType> baseItemTypesKeys1;
+    private List<BaseItemType> baseItemTypes;
 
 }

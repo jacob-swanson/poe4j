@@ -13,17 +13,24 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile("Footprints")
+@DatFile("ExtraTerrainFeatures")
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-public class Footprint
+public class ExtraTerrainFeature
     extends BaseRow
 {
 
     @Order(0)
     private String id;
     @Order(1)
-    private List<String> activeAoFile;
+    private List<Integer> unknown1;
     @Order(2)
-    private List<String> idleAoFile;
-
+    private List<Integer> unknown2;
+    @Order(3)
+    private List<Integer> unknown3;
+    @Order(4)
+    private List<Integer> unknown4;
+    @Order(5)
+    private List<Integer> unknown5;
+    @Order(6)
+    private Integer unknown6;
 }

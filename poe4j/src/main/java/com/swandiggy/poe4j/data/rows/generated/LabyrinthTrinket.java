@@ -13,17 +13,18 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile("Footprints")
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-public class Footprint
+@DatFile("LabyrinthTrinkets")
+public class LabyrinthTrinket
     extends BaseRow
 {
 
     @Order(0)
-    private String id;
+    private BaseItemType baseItemType;
     @Order(1)
-    private List<String> activeAoFile;
+    private LabyrinhSecret labyrinhtSecret;
     @Order(2)
-    private List<String> idleAoFile;
-
+    private BuffDefinition buffDefinition;
+    @Order(3)
+    private List<Integer> buffValues;;
+    
 }

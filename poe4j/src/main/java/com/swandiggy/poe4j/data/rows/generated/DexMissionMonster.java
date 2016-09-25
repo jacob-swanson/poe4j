@@ -31,5 +31,7 @@ public class DexMissionMonster
     private int maxLevel;
     @Order(5)
     private List<MonsterVariety> monsterVarieties;
+    @Order(6)
+    private MonsterVariety bossMonsterVariety;
 
 }

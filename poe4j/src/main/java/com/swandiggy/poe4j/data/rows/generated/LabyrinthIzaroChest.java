@@ -13,17 +13,21 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile("Footprints")
+@DatFile("LabyrinthIzaroChests")
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-public class Footprint
+public class LabyrinthIzaroChest
     extends BaseRow
 {
 
     @Order(0)
     private String id;
     @Order(1)
-    private List<String> activeAoFile;
+    private Chest chest;
     @Order(2)
-    private List<String> idleAoFile;
+    private Integer spawnWeight;
+    @Order(3)
+    private Integer minLabryinthTier;
+    @Order(4)
+    private Integer maxLabyrinthTier;
 
 }

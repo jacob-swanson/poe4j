@@ -38,6 +38,6 @@ public class DexMissionTracking
     @Order(9)
     private Boolean flag1;
     @Order(10)
-    private NPCTalk nPCTalk;
+    private NPCTalk npcTalk;
 
 }

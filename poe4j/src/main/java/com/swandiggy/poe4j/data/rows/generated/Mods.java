@@ -91,5 +91,13 @@ public class Mods
     private Stats statsKey5;
     @Order(35)
     private List<Long> keys0;
+    @Order(36)
+    private AchievementItem achievment;
+    @Order(37)
+    private List<Tag> generationWeightTags;
+    @Order(38)
+    private List<Integer> generationWeightValues;
+    @Order(39)
+    private List<Integer> data5;
 
 }

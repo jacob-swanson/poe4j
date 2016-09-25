@@ -41,5 +41,13 @@ public class GrantedEffect
     private List<Integer> unknown5;
     @Order(10)
     private Boolean flag0;
+    @Order(11)
+    private Integer unknown6;
+    @Order(12)
+    private Integer castTime;
+    @Order(13)
+    private ActiveSkill activeSkill;
+    @Order(14)
+    private Boolean flag1;
 
 }

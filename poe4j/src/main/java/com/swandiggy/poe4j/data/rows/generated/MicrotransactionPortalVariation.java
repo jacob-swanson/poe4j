@@ -19,6 +19,6 @@ public class MicrotransactionPortalVariation
     @Order(1)
     private String aoFile;
     @Order(2)
-    private String animatedObjectMapFile;
+    private String mapAoFile;
 
 }

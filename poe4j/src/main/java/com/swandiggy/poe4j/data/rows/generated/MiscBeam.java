@@ -25,5 +25,9 @@ public class MiscBeam
     private int unknown3;
     @Order(3)
     private Boolean flag0;
+    @Order(4)
+    private List<PreloadGroup> preloadGroups;
+    @Order(6)
+    private Integer unknown1;
 
 }

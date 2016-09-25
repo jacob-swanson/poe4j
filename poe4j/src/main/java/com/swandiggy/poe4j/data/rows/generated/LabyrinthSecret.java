@@ -44,8 +44,16 @@ public class LabyrinthSecret
     @Order(11)
     private Byte flag1;
     @Order(12)
-    private String index0;
+    private String unknown0;
     @Order(13)
-    private int unknown17;
-
+    private Byte flag2;
+    @Order(14)
+    private Byte flag3;
+    @Order(15)
+    private Byte flag4;
+    @Order(16)
+    private String name;
+    @Order(17)
+    private AchievementItem achievement;
+    
 }

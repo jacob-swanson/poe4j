@@ -13,17 +13,9 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile("Footprints")
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-public class Footprint
+@DatFile("GrantedEffectGroups")
+public class GrantedEffectGroup
     extends BaseRow
 {
-
-    @Order(0)
-    private String id;
-    @Order(1)
-    private List<String> activeAoFile;
-    @Order(2)
-    private List<String> idleAoFile;
 
 }

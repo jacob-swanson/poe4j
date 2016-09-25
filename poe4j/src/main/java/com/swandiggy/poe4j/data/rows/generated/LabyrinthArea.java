@@ -22,6 +22,12 @@ public class LabyrinthArea
     @Order(0)
     private String id;
     @Order(1)
-    private List<WorldArea> worldAreas;
+    private List<WorldArea> normalWorldAreas;
+    @Order(2)
+    private List<WorldArea> cruelWorldAreas;
+    @Order(3)
+    private List<WorldArea> mercilessWorldAreas;
+    @Order(4)
+    private List<WorldArea> uberWorldAreas;
 
 }

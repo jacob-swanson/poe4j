@@ -21,5 +21,7 @@ public class GlobalAudioConfig
     private String id;
     @Order(1)
     private int value;
+    @Order(2)
+    private Boolean flag0;
 
 }

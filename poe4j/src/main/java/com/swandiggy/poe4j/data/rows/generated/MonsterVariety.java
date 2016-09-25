@@ -34,7 +34,7 @@ public class MonsterVariety
     @Order(6)
     private String actorIndex;
     @Order(7)
-    private String animatedObjectIndex;
+    private String aoFile;
     @Order(8)
     private String baseMonsterTypeIndex;
     @Order(9)
@@ -46,7 +46,7 @@ public class MonsterVariety
     @Order(12)
     private String unknownIndex1;
     @Order(13)
-    private int unknown81;
+    private int modelSizeMultiplier;
     @Order(14)
     private int unknown82;
     @Order(15)
@@ -60,7 +60,7 @@ public class MonsterVariety
     @Order(19)
     private List<Tags> tags;
     @Order(20)
-    private int unknown17;
+    private int experienceMultiplier;
     @Order(21)
     private List<Integer> unknown18;
     @Order(22)
@@ -76,11 +76,11 @@ public class MonsterVariety
     @Order(27)
     private List<GrantedEffect> grantedEffects;
     @Order(28)
-    private String aIIndex;
+    private String aisFile;
     @Order(29)
     private List<Mods> modsKeys2;
     @Order(30)
-    private String unknown38;
+    private String stance;
     @Order(31)
     private Long key2;
     @Order(32)
@@ -98,19 +98,15 @@ public class MonsterVariety
     @Order(38)
     private ItemVisualIdentity backItemVisualIdentity;
     @Order(39)
-    private int unknown72;
+    private ItemClass mainHandItemClass;
     @Order(40)
-    private int unknown73;
+    private ItemClass offhandItemClass;
     @Order(41)
     private Long key1;
     @Order(42)
-    private Stats stat;
+    private ItemVisualIdentity helmetVisual;
     @Order(43)
     private int unknown57;
-    @Order(44)
-    private int unknown76;
-    @Order(45)
-    private int unknown77;
     @Order(46)
     private List<AchievementItem> achievementItems;
     @Order(47)
@@ -118,27 +114,25 @@ public class MonsterVariety
     @Order(48)
     private AchievementItem achievementItem;
     @Order(49)
-    private Boolean unknown63;
+    private Boolean unknown14;
     @Order(50)
-    private int unknown64;
+    private int unknown15;
     @Order(51)
-    private int unknown65;
+    private int unknown16
     @Order(52)
-    private int unknown66;
+    private int unknown17
     @Order(53)
-    private int unknown67;
+    private int unknown18
     @Order(54)
-    private int unknown68;
+    private int unknown19
     @Order(55)
-    private int unknown69;
+    private int unknown20
     @Order(56)
-    private int unknown74;
+    private int unknown21
     @Order(57)
-    private Byte unknown70;
+    private Byte unknown22
     @Order(58)
-    private String unknown75;
-    @Order(59)
-    private Long key4;
+    private String unknown23
     @Order(60)
     private AchievementItem normalAchievementItem;
     @Order(61)
@@ -146,12 +140,30 @@ public class MonsterVariety
     @Order(62)
     private AchievementItem cruelAchievementItem;
     @Order(63)
-    private Long key8;
+    private AchievmentItem flashbackAchievement
     @Order(64)
-    private Long key9;
+    private MonsterSegment monsterSegment;
     @Order(65)
-    private AchievementItem achievementItemsKey2;
+    private MonsterArmour monsterArmour;
     @Order(66)
-    private AchievementItem achievementItemsKey3;
-
+    private AchievementItem achievementItem;
+    @Order(67)
+    private AchievementItem achievementItem4;
+    @Order(68)
+    private List<Mod> normalMods;
+    @Order(69)
+    private List<Mod> cruelMods;
+    @Order(70)
+    private List<Mod> mercilessMods;
+    @Order(71)
+    private List<AchievementItem> killRareInNormalAchievements;
+    @Order(72)
+    private List<AchievementItem> killRareInCruelAchievements;
+    @Order(73)
+    private List<AchievementItem> killRareInMercilessAchievements;
+    @Order(74)
+    private Long key3;
+    @Order(75)
+    private List<AchievementItem> countKillsAchievementItems;
+    
 }

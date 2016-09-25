@@ -35,5 +35,14 @@ public class Map
     private List<BaseItemType> higherTierMapsBaseItemTypes;
     @Order(9)
     private int tier;
-
+    @Order(10)
+    private Map fatedMap;
+    @Order(11)
+    private Integer fatedAreaLevel;
+    @Order(12)
+    private Integer unknown1;
+    @Order(13)
+    private Integer unknown2;
+    @Order(14)
+    private Integer unknown3;
 }

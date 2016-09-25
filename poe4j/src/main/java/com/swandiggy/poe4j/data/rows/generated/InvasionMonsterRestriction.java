@@ -22,9 +22,9 @@ public class InvasionMonsterRestriction
     @Order(0)
     private String id;
     @Order(1)
-    private Long invasionMonsterGroup;
+    private WorldArea worldArea;
     @Order(2)
-    private Long key1;
+    private MonsterVariety monsterVariety;
     @Order(3)
     private List<Integer> data0;
 

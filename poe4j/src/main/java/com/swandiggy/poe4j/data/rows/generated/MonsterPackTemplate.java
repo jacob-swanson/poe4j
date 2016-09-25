@@ -13,17 +13,29 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile("Footprints")
+@DatFile("MonsterPacks")
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-public class Footprint
+public class MonsterPackTemplate
     extends BaseRow
 {
 
     @Order(0)
-    private String id;
+    private List<Integer> unknown1;
     @Order(1)
-    private List<String> activeAoFile;
+    private List<Integer> unknown2;
     @Order(2)
-    private List<String> idleAoFile;
+    private Integer unknown3;
+    @Order(3)
+    private Integer unknown4;
+    @Order(4)
+    private Integer unknown5;
+    @Order(5)
+    private Integer unknown6;
+    @Order(6)
+    private Integer unknown7;
+    @Order(7)
+    private List<Integer> unknown8;
+    @Order(8)
+    private Integer unknown9;
 
 }

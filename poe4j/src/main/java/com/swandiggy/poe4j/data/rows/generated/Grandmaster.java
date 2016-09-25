@@ -22,12 +22,14 @@ public class Grandmaster
     @Order(0)
     private String id;
     @Order(1)
-    private String gm;
+    private String gmFile;
     @Order(2)
-    private String ai;
+    private String AisFile;
     @Order(3)
     private List<Mods> mods;
     @Order(4)
     private Integer characterLevel;
+    @Order(5)
+    private Boolean flag0;
 
 }

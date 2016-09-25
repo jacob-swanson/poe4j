@@ -23,5 +23,11 @@ public class MiscObject
     private String effectVirtualPath;
     @Order(2)
     private Boolean flag0;
+    @Order(3)
+    private List<PreloadGroup> preloadGroups;
+    @Order(4)
+    private Integer unknownUnique;
+    @Order(5)
+    private Integer unknown1;
 
 }

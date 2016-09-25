@@ -22,6 +22,8 @@ public class MiscAnimated
     @Order(1)
     private String aoFile;
     @Order(2)
-    private Boolean flag0;
+    private List<PreloadGroup> preloadGroups;
+    @Order(3)
+    private Integer unknown1;
 
 }
