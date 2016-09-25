@@ -33,7 +33,7 @@ public class FieldReaders implements FieldReader<Object> {
         return Arrays.stream(fieldReaders)
                 .filter(fieldReader1 -> fieldReader1.supports(field))
                 .findFirst()
-                .orElseThrow(() -> new Poe4jException(MessageFormat.format("Could not find FieldReader for '{0}'", field)));
+                .orElseThrow(() -> new Poe4jException(MessageFormat.format("Could not find FieldReader for {0}", field)));
     }
 
     @Override

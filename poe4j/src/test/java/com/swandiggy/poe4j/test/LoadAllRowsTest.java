@@ -19,7 +19,7 @@ import static org.hamcrest.Matchers.is;
  * @author Jacob Swanson
  * @since 12/9/2015
  */
-@Ignore // Remove this to run
+//@Ignore // Remove this to run
 @Slf4j
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = TestApplication.class)
