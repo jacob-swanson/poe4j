@@ -1,9 +1,8 @@
 package com.swandiggy.poe4j;
 
 import com.swandiggy.poe4j.config.Poe4jProperties;
-import com.swandiggy.poe4j.data.DataFileResolver;
 import com.swandiggy.poe4j.data.DataFileReaderFactory;
-import com.swandiggy.poe4j.data.annotations.ReferenceOne;
+import com.swandiggy.poe4j.data.DataFileResolver;
 import com.swandiggy.poe4j.data.readers.FieldReaders;
 import com.swandiggy.poe4j.data.readers.ValueReaders;
 import com.swandiggy.poe4j.data.readers.field.*;
@@ -84,6 +83,16 @@ public class Poe4jAutoConfiguration {
     @Bean
     public IntReader intReader() {
         return new IntReader();
+    }
+
+    @Bean
+    public FloatReader floatReader() {
+        return new FloatReader();
+    }
+
+    @Bean
+    public DoubleReader doubleReader() {
+        return new DoubleReader();
     }
 
     @Bean

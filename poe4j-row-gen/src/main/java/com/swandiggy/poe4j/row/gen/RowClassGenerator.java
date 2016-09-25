@@ -117,18 +117,12 @@ public class RowClassGenerator implements ApplicationRunner, ExitCodeGenerator {
             }
             int count = 0;
             for (Map.Entry<String, Map<String, String>> fieldEntry : fields.entrySet()) {
-                String fieldName = fieldEntry.getKey();
-                fieldName = Character.toLowerCase(fieldName.charAt(0)) + fieldName.substring(1, fieldName.length());
-                if (fieldName.endsWith("Key") && fieldName.length() > 3) {
-                    fieldName = fieldName.substring(0, fieldName.length() - 3);
-                }
-                if (fieldName.endsWith("Keys") && fieldName.length() > 4) {
-                    fieldName = fieldName.substring(0, fieldName.length() - 4) + "s";
-                }
+                String fieldName = processFieldName(fieldEntry.getKey());
 
-                if (fieldName.charAt(fieldName.length() - 1) == 's') {
-                    fieldName = fieldName.substring(0, fieldName.length() - 1);
-                }
+//
+//                if (fieldName.charAt(fieldName.length() - 1) == 's') {
+//                    fieldName = fieldName.substring(0, fieldName.length() - 1);
+//                }
 
                 Object fieldType = getFieldType(fieldEntry.getValue());
                 JFieldVar field;
@@ -144,10 +138,10 @@ public class RowClassGenerator implements ApplicationRunner, ExitCodeGenerator {
 
                 if (fieldEntry.getValue().containsKey("key_id")) {
                     JAnnotationUse refOne = field.annotate(ReferenceOne.class);
-                    refOne.param("value", fieldEntry.getValue().get("key_id"));
-                    if (fieldEntry.getValue().containsKey("key_offset")) {
-                        refOne.param("offset", Long.valueOf(fieldEntry.getValue().get("key_offset")));
-                    }
+                    refOne.param("value", processFieldName(fieldEntry.getValue().get("key_id")));
+//                    if (fieldEntry.getValue().containsKey("key_offset")) {
+//                        refOne.param("offset", Long.valueOf(fieldEntry.getValue().get("key_offset")));
+//                    }
                 }
 
                 if (fieldEntry.getValue().containsKey("key") &&
@@ -166,6 +160,18 @@ public class RowClassGenerator implements ApplicationRunner, ExitCodeGenerator {
         cm.build(new File("."));
     }
 
+    private String processFieldName(String fieldName) {
+        fieldName = Character.toLowerCase(fieldName.charAt(0)) + fieldName.substring(1, fieldName.length());
+//        if (fieldName.endsWith("Key") && fieldName.length() > 3) {
+//            fieldName = fieldName.substring(0, fieldName.length() - 3);
+//        }
+//        if (fieldName.endsWith("Keys") && fieldName.length() > 4) {
+//            fieldName = fieldName.substring(0, fieldName.length() - 4);
+//        }
+
+        return fieldName;
+    }
+
     private Object getFieldType(Map<String, String> type) throws JClassAlreadyExistsException {
         if (type.containsKey("key") && type.get("key").contains(".dat")) {
             if (!type.get("type").contains("list")) {
@@ -173,9 +179,9 @@ public class RowClassGenerator implements ApplicationRunner, ExitCodeGenerator {
                     return classCache.get(type.get("key"));
                 } else {
                     String simpleClassName = type.get("key").replace(".dat", "");
-                    if (simpleClassName.charAt(simpleClassName.length() - 1) == 's') {
-                        simpleClassName = simpleClassName.substring(0, simpleClassName.length() - 1);
-                    }
+//                    if (simpleClassName.charAt(simpleClassName.length() - 1) == 's') {
+//                        simpleClassName = simpleClassName.substring(0, simpleClassName.length() - 1);
+//                    }
                     JDefinedClass clazz = cm._class("com.swandiggy.poe4j.row.gen." + simpleClassName);
                     classCache.put(type.get("key"), clazz);
                     return clazz;
@@ -190,7 +196,9 @@ public class RowClassGenerator implements ApplicationRunner, ExitCodeGenerator {
                 }
             }
         } else if (Objects.equals(type.get("type"), "int")) {
-            return int.class;
+            return Integer.class;
+        } else if (Objects.equals(type.get("type"), "float")) {
+            return Float.class;
         } else if (Objects.equals(type.get("type"), "ref|string")) {
             return String.class;
         } else if (Objects.equals(type.get("type"), "ref|list|uint")) {

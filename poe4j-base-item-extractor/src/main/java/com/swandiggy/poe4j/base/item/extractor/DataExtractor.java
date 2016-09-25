@@ -3,8 +3,8 @@ package com.swandiggy.poe4j.base.item.extractor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.swandiggy.poe4j.data.DataFileReader;
 import com.swandiggy.poe4j.data.DataFileReaderFactory;
-import com.swandiggy.poe4j.data.rows.generated.BaseItemType;
-import com.swandiggy.poe4j.data.rows.generated.ComponentAttributeRequirement;
+import com.swandiggy.poe4j.data.rows.gen.BaseItemTypes;
+import com.swandiggy.poe4j.data.rows.gen.ComponentAttributeRequirement;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -33,14 +33,14 @@ public class DataExtractor implements ApplicationRunner, ExitCodeGenerator {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        DataFileReader<BaseItemType> baseItemTypeReader = dataFileReaderFactory.create(BaseItemType.class);
+        DataFileReader<BaseItemTypes> baseItemTypeReader = dataFileReaderFactory.create(BaseItemTypes.class);
         DataFileReader<ComponentAttributeRequirement> attrReqReader = dataFileReaderFactory.create(ComponentAttributeRequirement.class);
 
         List<ItemData> items = baseItemTypeReader.read()
                 .filter(row -> row.getInheritsFrom().contains("Abstract"))
                 .flatMap(baseItemType -> {
                     return attrReqReader.read()
-                            .filter(componentAttributeRequirement -> componentAttributeRequirement.getBaseItemType().equals(baseItemType));
+                            .filter(componentAttributeRequirement -> componentAttributeRequirement.getBaseItemTypesKey().equals(baseItemType));
                 }).map(ItemData::new)
                 .collect(toList());
 

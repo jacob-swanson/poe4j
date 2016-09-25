@@ -25,6 +25,18 @@ public interface BinaryReader extends Closeable {
                 .getInt();
     }
 
+    default float readFloat() {
+        return ByteBuffer.wrap(this.readBytes(4))
+                .order(getByteOrder())
+                .getFloat();
+    }
+
+    default double readDouble() {
+        return ByteBuffer.wrap(this.readBytes(8))
+                .order(getByteOrder())
+                .getDouble();
+    }
+
     default long readUInt() {
         return readInt() & 0xFFFFFFFFL;
     }
