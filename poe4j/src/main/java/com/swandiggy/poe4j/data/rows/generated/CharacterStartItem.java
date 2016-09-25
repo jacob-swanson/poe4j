@@ -41,5 +41,6 @@ public class CharacterStartItem
     private List<Integer> skillGemLevel;
     @Order(12)
     private Boolean flag0;
-
+    @Order(13)
+    private Long key0;
 }

@@ -45,5 +45,7 @@ public class CharacterAudioEvent
     private List<CharacterTextAudio> goddessCharacterTextAudio;
     @Order(12)
     private List<CharacterTextAudio> jackTheAxeCharacterTextAudio;
+    @Order(13)
+    private Boolean flag0;
 
 }

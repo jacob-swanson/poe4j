@@ -28,7 +28,7 @@ public class CharacterStartQuestState
     @Order(3)
     private List<Long> keys1;
     @Order(4)
-    private List<QuestVendorReward> questVendorRewards;
+    private List<MapPin> mapPin;
     @Order(5)
     private List<Integer> unknown9;
 

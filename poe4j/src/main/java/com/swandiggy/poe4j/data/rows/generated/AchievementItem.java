@@ -26,7 +26,7 @@ public class AchievementItem
     @Order(3)
     private String name;
     @Order(4)
-    private int unknown4;
+    private int completionsRequired;
     @Order(5)
     private Achievement achievement;
     @Order(6)

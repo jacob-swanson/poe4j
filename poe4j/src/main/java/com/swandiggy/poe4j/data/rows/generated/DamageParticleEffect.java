@@ -9,24 +9,14 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile("CurrencyStashTabLayout")
-public class CurrencyStashTabLayout
+@DatFile("Dances")
+public class Dance
     extends BaseRow
 {
 
     @Order(0)
-    private String id;
-    @Order(1)
     private BaseItemType baseItemType;
-    @Order(2)
-    private int unknown1;
-    @Order(3)
-    private int unknown2;
-    @Order(4)
-    private int unknown3;
-    @Order(5)
-    private int unknown4;
-    @Order(6)
-    private int unknown5;
+    @Order(1)
+    private Character character;
 
 }

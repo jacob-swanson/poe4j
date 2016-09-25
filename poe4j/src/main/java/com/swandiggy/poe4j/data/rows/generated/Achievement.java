@@ -39,5 +39,7 @@ public class Achievement
     private Boolean flag3;
     @Order(9)
     private int unknown3;
+    @Order(10)
+    private Boolean flag4;
 
 }

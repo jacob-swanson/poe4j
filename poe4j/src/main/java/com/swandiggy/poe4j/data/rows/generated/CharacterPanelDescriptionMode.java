@@ -21,5 +21,9 @@ public class CharacterPanelDescriptionMode
     private String id;
     @Order(1)
     private String unknown1;
+    @Order(2)
+    private String formatStringPositive;
+    @Order(3)
+    private String formatStringNegative;
 
 }

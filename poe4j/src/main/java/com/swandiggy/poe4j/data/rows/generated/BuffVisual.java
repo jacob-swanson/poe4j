@@ -26,10 +26,14 @@ public class BuffVisual
     @Order(3)
     private String epkFile2;
     @Order(4)
-    private Long key0;
+    private MiscAnimated miscAnimated;
     @Order(5)
-    private Long key1;
+    private MiscAnimated miscAnimated2;
     @Order(6)
     private int unknown6;
+    @Order(7)
+    private PreloadGroup preloadGroup;
+    @Order(8)
+    private Boolean flag0;
 
 }

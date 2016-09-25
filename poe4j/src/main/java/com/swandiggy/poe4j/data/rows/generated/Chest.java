@@ -28,21 +28,21 @@ public class Chest
     @Order(3)
     private String name;
     @Order(4)
-    private String aOFile;
+    private String aoFile;
     @Order(5)
     private Boolean flag1;
     @Order(6)
     private Boolean flag2;
     @Order(7)
-    private int unknown1;
+    private int unknown4;
     @Order(8)
     private Boolean flag3;
     @Order(9)
     private Boolean flag4;
     @Order(10)
-    private int unknown2;
+    private int unknown5;
     @Order(11)
-    private List<Long> unknownKeys0;
+    private List<Long> unknownKeys;
     @Order(12)
     private List<Integer> unknownValues;
     @Order(13)
@@ -51,29 +51,23 @@ public class Chest
     private Boolean flag5;
     @Order(15)
     private List<Mods> mods;
-    @Order(16)
-    private Boolean isStrongbox;
     @Order(17)
     private List<Tags> tags;
     @Order(18)
-    private Long key0;
-    @Order(19)
-    private int unknown4;
-    @Order(20)
-    private Boolean isQuestChest;
+    private ChestEffect chestEffect;
     @Order(21)
     private int minLevel;
     @Order(22)
-    private String unknown6;
+    private String unknown19;
     @Order(23)
-    private int unknown7;
+    private int maxLevel;
     @Order(24)
-    private String unknown8;
+    private AchievementItem corruptAchievement;
     @Order(25)
-    private int spawnChance;
+    private AchievementItem currencyUseAchievement;
     @Order(26)
-    private int unknown10;
+    private AchievementItem encounterAchievementItem;
     @Order(27)
-    private int unknown11;
+    private Long key4;
 
 }

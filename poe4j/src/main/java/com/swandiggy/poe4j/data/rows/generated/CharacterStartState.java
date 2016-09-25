@@ -41,5 +41,7 @@ public class CharacterStartState
     private List<CharacterStartQuestState> cruelCharacterStartQuestState;
     @Order(10)
     private List<CharacterStartQuestState> mercilessCharacterStartQuestState;
+    @Order(11)
+    private Byte unknown;
 
 }

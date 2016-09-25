@@ -40,6 +40,6 @@ public class DailyMission
     private int unknown8;
     @Order(9)
     @Reference(value = Integer.class)
-    private PVPType pVPType;
+    private PVPType pvpType;
 
 }

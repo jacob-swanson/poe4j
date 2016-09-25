@@ -25,15 +25,18 @@ public class Ascendancy
     private int classNo;
     @Order(2)
     private Character character;
+    /**
+     * Coordinates in x1,y1,x2,y2 format
+     */
     @Order(3)
-    private String unknown5;
+    private String coordinateRect;
     @Order(4)
-    private String unknown6;
+    private String rgbFlavourTextColour;
     @Order(5)
-    private String unknown7;
+    private String name;
     @Order(6)
-    private String unknown8;
+    private String flavourText;
     @Order(7)
-    private String unknown9;
+    private String oggFile;
 
 }

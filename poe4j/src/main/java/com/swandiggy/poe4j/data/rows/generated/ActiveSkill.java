@@ -32,11 +32,9 @@ public class ActiveSkill
     @Order(5)
     private List<Integer> activeSkillTargetTypeData;
     @Order(6)
-    private int castTime;
-    @Order(7)
     private List<Integer> activeSkillTypeData;
-    @Order(8)
-    private List<Integer> data2;
+    @Order(7)
+    private List<ItemClass> weaponRestrictions;
     @Order(9)
     private String websiteDescription;
     @Order(10)
@@ -44,12 +42,27 @@ public class ActiveSkill
     @Order(11)
     private Boolean flag0;
     @Order(12)
-    private GrantedEffect grantedEffect;
+    private String unknown13;
     @Order(13)
     private Boolean flag1;
+    /**
+     * Links to SkillTotem, but may exceed number of entries; in that case it is a player skill.
+     */
     @Order(14)
-    private int unknown4;
+    private Integer skillTotemId;
     @Order(15)
-    private Boolean flag3;
+    private Boolean isManuallyCasted;
+    /**
+     * Stats that will modify this skill specifically
+     */
+    @Order(16)
+    private List<Stat> inputStats;
+    /**
+     * Stat an input stat will be transformed into
+     */
+    @Order(17)
+    private List<Stat> outputStats;
+    @Order(18)
+    private List<Integer> unknown19;
 
 }

@@ -43,5 +43,7 @@ public class CraftingBenchOption
     private int itemQuantity;
     @Order(13)
     private List<Integer> unknown18;
+    @Order(14)
+    private String description;
 
 }

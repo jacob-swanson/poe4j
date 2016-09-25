@@ -13,21 +13,23 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile("DescentExiles")
+@DatFile("ChestClusters")
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-public class DescentExile
+public class ChestCluster
     extends BaseRow
 {
+
     @Order(0)
     private String id;
     @Order(1)
-    private WorldArea worldArea;
+    private List<Chest> chests;
     @Order(2)
-    private Character character;
+    private List<Integer> data1;
     @Order(3)
-    private MonsterVariety monsterVariety;
+    private int unknown3;
     @Order(4)
-    private Integer unknown5;
-    
+    private int unknown4;
+    @Order(5)
+    private int unknown5;
 
 }

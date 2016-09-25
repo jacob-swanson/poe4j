@@ -13,23 +13,37 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@DatFile("ChestClusters")
+@DatFile("ChestEffects")
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-public class ChestCluster
+public class ChestEffect
     extends BaseRow
 {
 
     @Order(0)
     private String id;
     @Order(1)
-    private List<Chest> chests;
+    private String normalEpkFile;
     @Order(2)
-    private List<Integer> data1;
+    private String normalClosedAoFile;
     @Order(3)
-    private int unknown3;
+    private String normalOpenAoFile;
     @Order(4)
-    private int unknown4;
+    private String magicEpkFile;
     @Order(5)
-    private int unknown5;
+    private String uniqueEpkFile;
+    @Order(6)
+    private String rareEpkFile;
+    @Order(7)
+    private String magicClosedAoFile;
+    @Order(8)
+    private String uniqueClosedAoFile;
+    @Order(9)
+    private String rareClosedAoFile;
+    @Order(10)
+    private String magicOpenAoFile;
+    @Order(11)
+    private String uniqueOpenAoFile;
+    @Order(12)
+    private String rareOpenAoFile;
 
 }

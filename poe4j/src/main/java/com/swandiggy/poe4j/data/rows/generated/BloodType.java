@@ -41,5 +41,11 @@ public class BloodType
     private List<Long> keys0;
     @Order(10)
     private Long key2;
+    @Order(11)
+    private String petFile7;
+    @Order(12)
+    private String petFile8;
+    @Order(13)
+    private String petFile9;
 
 }

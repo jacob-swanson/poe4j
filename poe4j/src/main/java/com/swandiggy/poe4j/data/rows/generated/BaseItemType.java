@@ -58,7 +58,7 @@ public class BaseItemType
     @Order(18)
     private Integer unknown17;
     @Order(19)
-    private Long key1;
+    private AchievementItem vendorRecipeAchievement;
     @Order(20)
     private List<Integer> data7;
     @Order(21)
@@ -70,8 +70,10 @@ public class BaseItemType
     @Order(24)
     private String unknown20;
     @Order(25)
-    private Long key2;
+    private AchievementItem equipAchievement;
     @Order(26)
-    private Byte unknown21;
+    private Boolean isTalisman;
+    @Order(27)
+    private List<Integer> data1;
 
 }

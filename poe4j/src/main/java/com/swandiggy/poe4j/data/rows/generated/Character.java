@@ -71,5 +71,7 @@ public class Character
     private BaseItemType startWeapon;
     @Order(25)
     private Integer unknown28;
+    @Order(26)
+    private String traitDescription;
 
 }

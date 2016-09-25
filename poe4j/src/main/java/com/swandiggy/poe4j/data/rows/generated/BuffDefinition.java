@@ -38,9 +38,9 @@ public class BuffDefinition
     @Order(8)
     private Boolean flag1;
     @Order(9)
-    private Long key0;
+    private Stat maximumStat;
     @Order(10)
-    private Long key1;
+    private Stat currentStat;
     @Order(11)
     private Boolean flag2;
     @Order(12)
@@ -65,5 +65,11 @@ public class BuffDefinition
     private Boolean flag9;
     @Order(22)
     private int buffLimit;
+    @Order(23)
+    private Boolean flag10;
+    @Order(24)
+    private String unknown0;
+    @Order(25)
+    private Boolean isRecovery;
 
 }
